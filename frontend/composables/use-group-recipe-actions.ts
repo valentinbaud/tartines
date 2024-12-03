@@ -50,12 +50,12 @@ export const useGroupRecipeActions = function (
   }
 
   async function parseRecipeActionUrl(url: string, recipe: Recipe, recipeScale: number): Promise<string> {
-    const recipeServings = (recipe.recipeServings || 1) * recipeScale;
-    const recipeYieldQuantity = (recipe.recipeYieldQuantity || 1) * recipeScale;
-
     /* eslint-disable no-template-curly-in-string */
     const shareLinkRegex = /\$\{share-link-expires-seconds-[0-9]+\}/g;
     const group = (await api.groups.getOne(recipe.groupId || "")).data;
+
+    const recipeServings = (recipe.recipeServings || 1) * recipeScale;
+    const recipeYieldQuantity = (recipe.recipeYieldQuantity || 1) * recipeScale;
 
 
     const shareLinkStringMatches = url.matchAll(shareLinkRegex);
