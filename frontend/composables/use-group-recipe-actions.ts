@@ -49,7 +49,10 @@ export const useGroupRecipeActions = function (
     return `${window.location.origin}/g/${groupSlug}/shared/r/${token}`;
   }
 
-  async function parseRecipeActionUrl(url: string, recipe: Recipe): Promise<string> {
+  async function parseRecipeActionUrl(url: string, recipe: Recipe, recipeScale: number): Promise<string> {
+    const recipeServings = (recipe.recipeServings || 1) * recipeScale;
+    const recipeYieldQuantity = (recipe.recipeYieldQuantity || 1) * recipeScale;
+
     /* eslint-disable no-template-curly-in-string */
     const shareLinkRegex = /\$\{share-link-expires-seconds-[0-9]+\}/g;
     const group = (await api.groups.getOne(recipe.groupId || "")).data;
@@ -83,11 +86,14 @@ export const useGroupRecipeActions = function (
       .replace("${url}", window.location.href)
       .replace("${id}", recipe.id || "")
       .replace("${slug}", recipe.slug || "")
+      .replace("${servings}", recipeServings.toString())
+      .replace("${yieldQuantity}", recipeYieldQuantity.toString())
+      .replace("${yieldText}", recipe.recipeYield || "")
     /* eslint-enable no-template-curly-in-string */
   };
 
-  async function execute(action: GroupRecipeActionOut, recipe: Recipe): Promise<void | RequestResponse<unknown>> {
-    const url = await parseRecipeActionUrl(action.url, recipe);
+  async function execute(action: GroupRecipeActionOut, recipe: Recipe, recipeScale: number): Promise<void | RequestResponse<unknown>> {
+    const url = await parseRecipeActionUrl(action.url, recipe, recipeScale);
 
     switch (action.actionType) {
       case "link":
