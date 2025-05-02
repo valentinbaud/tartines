@@ -84,12 +84,12 @@ The meal planner has the concept of plan rules. These offer a flexible way to us
 
 The shopping lists feature is a great way to keep track of what you need to buy for your next meal. You can add items directly to the shopping list or link a recipe and all of it's ingredients to track meals during the week.
 
-Managing shopping lists can be done from the Sidebar > Shopping Lists. 
+Managing shopping lists can be done from the Sidebar > Shopping Lists.
 
 Here you will be able to:
 - See items already on the Shopping List
 - See linked recipes with ingredients
-    - Toggling via the 'Pot' icon will show you the linked recipe, allowing you to click to access it. 
+    - Toggling via the 'Pot' icon will show you the linked recipe, allowing you to click to access it.
 - Check off an item
 - Add / Change / Remove / Sort Items via the grid icon
     - Be sure if you are modifying an ingredient to click the 'Save' icon.
@@ -101,13 +101,13 @@ Here you will be able to:
 
 !!! tip
     You can use Labels to categorize your ingredients. You may want to Label by Food Type (Frozen, Fresh, etc), by Store, Tool, Recipe, or more. Play around with this to see what works best for you.
-    
+
 !!! tip
     You can toggle 'Food' on items so that if you add multiple of the same food / ingredient, Mealie will automatically combine them together. Do this by editing an item in the Shopping List and clicking the 'Apple' icon. If you then have recipes that contain "1 | cup | cheese" and "2 | cup | cheese" this would be combined to show "3 cups of cheese."
 
 [See FAQ for more information](../getting-started/faq.md)
 
-    
+
 [Shopping List Demo](https://demo.mealie.io/shopping-lists){ .md-button .md-button--primary }
 
 ## Integrations
@@ -154,8 +154,10 @@ https://www.google.com/search?q=pasta-fagioli
 
 A common use case for "link" recipe actions is to integrate with the Bring! shopping list. Simply add a Recipe Action with the following URL:
 ```
-https://api.getbring.com/rest/bringrecipes/deeplink?url=${url}&source=web
+https://api.getbring.com/rest/bringrecipes/deeplink?url=${share-link-expires-seconds-20}&source=web
 ```
+
+
 
 Below is a list of all valid merge fields:
 
@@ -165,6 +167,7 @@ Below is a list of all valid merge fields:
 - ${servings}
 - ${yieldQuantity}
 - ${yieldText}
+- ${share-link-expires-seconds-x}: <br> Is replaced with a private share link that is automatically created when performing the recipe action. Useful for private recipes, that should not be shared with the world. Expires after x seconds.
 
 To add, modify, or delete Recipe Actions, visit the Data Management page (more on that below).
 
