@@ -123,6 +123,7 @@
               :image="recipe.image!"
               :tags="recipe.tags!"
               :recipe-id="recipe.id!"
+              @click="handleRecipeNavigation"
             />
           </v-col>
         </v-row>
@@ -147,6 +148,7 @@
               :image="recipe.image!"
               :tags="recipe.tags!"
               :recipe-id="recipe.id!"
+              @selected="handleRecipeNavigation"
             />
           </v-col>
         </v-row>
@@ -171,6 +173,7 @@ import { useLazyRecipes } from "~/composables/recipes";
 import type { Recipe } from "~/lib/api/types/recipe";
 import { useUserSortPreferences } from "~/composables/use-users/preferences";
 import type { RecipeSearchQuery } from "~/lib/api/user/recipes/recipe";
+import { useRecipeListState } from "~/composables/recipe-page/use-recipe-list-state";
 
 const REPLACE_RECIPES_EVENT = "replaceRecipes";
 const APPEND_RECIPES_EVENT = "appendRecipes";
@@ -241,9 +244,11 @@ export default defineNuxtComponent({
     const route = useRoute();
     const groupSlug = computed(() => route.params.groupSlug as string || $auth.user.value?.groupSlug || "");
 
-    const page = ref(1);
+    const recipeListState = useRecipeListState(props.query);
+
+    const page = ref(recipeListState.state.page || 1);
     const perPage = 32;
-    const hasMore = ref(true);
+    const hasMore = ref(recipeListState.state.hasMore);
     const ready = ref(false);
     const loading = ref(false);
 
@@ -282,8 +287,33 @@ export default defineNuxtComponent({
       );
     }
 
+    // Save scroll position
+    const throttledScrollSave = useThrottleFn(() => {
+      recipeListState.saveScrollPosition();
+    }, 1000);
+
     onMounted(async () => {
-      await initRecipes();
+      window.addEventListener("scroll", throttledScrollSave);
+
+      // cached state with scroll position
+      if (recipeListState.hasValidState() && recipeListState.isQueryMatch(props.query)) {
+        // Restore from cached state
+        page.value = recipeListState.state.page;
+        hasMore.value = recipeListState.state.hasMore;
+        ready.value = recipeListState.state.ready;
+
+        // Emit cached recipes
+        context.emit(REPLACE_RECIPES_EVENT, recipeListState.state.recipes);
+
+        // Restore scroll position after recipes are rendered
+        nextTick(() => {
+          recipeListState.restoreScrollPosition();
+        });
+      }
+      else {
+        // Initialize fresh recipes
+        await initRecipes();
+      }
       ready.value = true;
     });
 
@@ -294,6 +324,10 @@ export default defineNuxtComponent({
         const newValueString = JSON.stringify(newValue);
         if (lastQuery !== newValueString) {
           lastQuery = newValueString;
+
+          // Save scroll position before query change
+          recipeListState.saveScrollPosition();
+
           ready.value = false;
           await initRecipes();
           ready.value = true;
@@ -315,6 +349,14 @@ export default defineNuxtComponent({
       // since we doubled the first call, we also need to advance the page
       page.value = page.value + 1;
 
+      // Save state after fetching recipes
+      recipeListState.saveState({
+        recipes: newRecipes,
+        page: page.value,
+        hasMore: hasMore.value,
+        ready: true,
+      });
+
       context.emit(REPLACE_RECIPES_EVENT, newRecipes);
     }
 
@@ -331,6 +373,14 @@ export default defineNuxtComponent({
         hasMore.value = false;
       }
       if (newRecipes.length) {
+        // Update cached state with new recipes
+        const allRecipes = [...(recipeListState.state.recipes || []), ...newRecipes] as Recipe[];
+        recipeListState.saveState({
+          recipes: allRecipes,
+          page: page.value,
+          hasMore: hasMore.value,
+        });
+
         context.emit(APPEND_RECIPES_EVENT, newRecipes);
       }
 
@@ -408,6 +458,15 @@ export default defineNuxtComponent({
 
       // fetch new recipes
       const newRecipes = await fetchRecipes();
+
+      // Update cached state
+      recipeListState.saveState({
+        recipes: newRecipes,
+        page: page.value,
+        hasMore: hasMore.value,
+        ready: true,
+      });
+
       context.emit(REPLACE_RECIPES_EVENT, newRecipes);
 
       state.sortLoading = false;
@@ -427,6 +486,17 @@ export default defineNuxtComponent({
       preferences.value.useMobileCards = !preferences.value.useMobileCards;
     }
 
+    // Save scroll position when component is unmounted or when navigating away
+    onBeforeUnmount(() => {
+      recipeListState.saveScrollPosition();
+      window.removeEventListener("scroll", throttledScrollSave);
+    });
+
+    // Save scroll position when navigating to recipe pages
+    function handleRecipeNavigation() {
+      recipeListState.saveScrollPosition();
+    }
+
     return {
       ...toRefs(state),
       displayTitleIcon,
@@ -439,6 +509,7 @@ export default defineNuxtComponent({
       sortRecipes,
       toggleMobileCards,
       useMobileCards,
+      handleRecipeNavigation,
     };
   },
 });

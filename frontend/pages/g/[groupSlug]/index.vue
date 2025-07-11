@@ -9,5 +9,11 @@ import RecipeExplorerPage from "~/components/Domain/Recipe/RecipeExplorerPage.vu
 
 export default defineNuxtComponent({
   components: { RecipeExplorerPage },
+  setup() {
+    // Enable scroll restoration for this page to work with our state management
+    definePageMeta({
+      scrollToTop: false,
+    });
+  },
 });
 </script>
