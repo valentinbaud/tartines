@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "Om",
-    "about-mealie": "Om Mealie",
+    "about-tartines": "Om Tartines",
     "api-docs": "API-dokumentasjon",
     "api-port": "API-port",
     "application-mode": "Programmodus",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "Er du sikker på at du ønsker å slette denne hendelsen?",
     "event-deleted": "Hendelse slettet",
     "event-updated": "Hendelse oppdatert",
-    "new-notification-form-description": "Mealie bruker Apprise biblioteket til å generere varsler. De tilbyr mange alternativer for varsler. Se wikien for en omfattende guide om hvordan du oppretter URL-adressen for tjenesten din. Hvis tilgjengelig, kan valg av type varsel inkludere ekstra funksjoner.",
+    "new-notification-form-description": "Tartines bruker Apprise biblioteket til å generere varsler. De tilbyr mange alternativer for varsler. Se wikien for en omfattende guide om hvordan du oppretter URL-adressen for tjenesten din. Hvis tilgjengelig, kan valg av type varsel inkludere ekstra funksjoner.",
     "new-version": "Ny versjon tilgjengelig!",
     "notification": "Varsling",
     "refresh": "Oppdater",
@@ -373,7 +373,7 @@
     "recipe-migration": "Oppskriftsoverføring",
     "chowdown": {
       "description": "Overfør data fra Chowdown",
-      "description-long": "Mealie støtter Chowdown-arkivformatet. Last ned kodearkivet som en .zip-fil og last den opp nedenfor.",
+      "description-long": "Tartines støtter Chowdown-arkivformatet. Last ned kodearkivet som en .zip-fil og last den opp nedenfor.",
       "title": "Chowdown"
     },
     "nextcloud": {
@@ -382,39 +382,39 @@
       "title": "Nextcloud Cookbook"
     },
     "copymethat": {
-      "description-long": "Mealie kan importere oppskrifter fra Copy Me That. Eksporter oppskrifter i HTML-format, last deretter opp .zip-filen under.",
+      "description-long": "Tartines kan importere oppskrifter fra Copy Me That. Eksporter oppskrifter i HTML-format, last deretter opp .zip-filen under.",
       "title": "Copy Me That Recipe Manager"
     },
     "paprika": {
-      "description-long": "Mealie kan importere oppskrifter fra Paprika. Eksporter oppskriftene fra Paprika, endre filnavnutvidelsen til .zip og last den opp nedenfor.",
+      "description-long": "Tartines kan importere oppskrifter fra Paprika. Eksporter oppskriftene fra Paprika, endre filnavnutvidelsen til .zip og last den opp nedenfor.",
       "title": "Paprika Recipe Manager"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie kan importere oppskrifter fra Mealie fra versjoner eldre enn v1.0. Eksporter oppskriftene fra din gamle versjon og last opp zip-filen under. Merk at bare oppskrifter kan importeres fra eksporten.",
-      "title": "Mealie Pre v1.0"
+    "tartines-pre-v1": {
+      "description-long": "Tartines kan importere oppskrifter fra Tartines fra versjoner eldre enn v1.0. Eksporter oppskriftene fra din gamle versjon og last opp zip-filen under. Merk at bare oppskrifter kan importeres fra eksporten.",
+      "title": "Tartines Pre v1.0"
     },
     "tandoor": {
-      "description-long": "Mealie kan importere oppskrifter fra Tandoor. Eksporter dataene i \"Standard\"-formatet, last deretter opp zip-filen nedenfor.",
+      "description-long": "Tartines kan importere oppskrifter fra Tandoor. Eksporter dataene i \"Standard\"-formatet, last deretter opp zip-filen nedenfor.",
       "title": "Tandoor Recipes"
     },
     "recipe-data-migrations": "Overføring av oppskrifter",
-    "recipe-data-migrations-explanation": "Oppskrifter kan overføres fra et annet støttet program til Mealie. Dette er en flott måte å komme i gang med Mealie på.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "Kommer du fra en annen applikasjon eller en enda eldre versjon av Mealie? Sjekk ut overføringer og se om dine data kan importeres.",
+    "recipe-data-migrations-explanation": "Oppskrifter kan overføres fra et annet støttet program til Tartines. Dette er en flott måte å komme i gang med Tartines på.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "Kommer du fra en annen applikasjon eller en enda eldre versjon av Tartines? Sjekk ut overføringer og se om dine data kan importeres.",
     "choose-migration-type": "Velg type overføring",
     "tag-all-recipes": "Merk alle oppskrifter med emneordet {tag-name}",
     "nextcloud-text": "Oppskrifter fra Nextcloud kan importeres fra en zip-fil som inneholder dataene lagret i Nextcloud. Se eksempelet på mappestrukture nedenfor for å sikre at oppskriftene kan importeres.",
-    "chowdown-text": "Mealie støtter Chowdown-arkivformatet. Last ned kodearkivet som en .zip-fil og last den opp nedenfor.",
+    "chowdown-text": "Tartines støtter Chowdown-arkivformatet. Last ned kodearkivet som en .zip-fil og last den opp nedenfor.",
     "recipe-1": "Oppskrift 1",
     "recipe-2": "Oppskrift 2",
-    "paprika-text": "Mealie kan importere oppskrifter fra Paprika. Eksporter oppskriftene fra Paprika, endre filnavnutvidelsen til .zip og last den opp nedenfor.",
-    "mealie-text": "Mealie kan importere oppskrifter fra Mealie fra versjoner eldre enn v1.0. Eksporter oppskriftene fra din gamle versjon og last opp zip-filen under. Merk at bare oppskrifter kan importeres fra eksporten.",
+    "paprika-text": "Tartines kan importere oppskrifter fra Paprika. Eksporter oppskriftene fra Paprika, endre filnavnutvidelsen til .zip og last den opp nedenfor.",
+    "tartines-text": "Tartines kan importere oppskrifter fra Tartines fra versjoner eldre enn v1.0. Eksporter oppskriftene fra din gamle versjon og last opp zip-filen under. Merk at bare oppskrifter kan importeres fra eksporten.",
     "plantoeat": {
       "title": "Plan to Eat",
-      "description-long": "Mealie kan importere oppskrifter fra Plan to Eat."
+      "description-long": "Tartines kan importere oppskrifter fra Plan to Eat."
     },
     "myrecipebox": {
       "title": "My Recipe Box",
-      "description-long": "Mealie kan importere oppskrifter fra My Recipe Box. Eksporter oppskrifter i CSV-format, og last deretter opp .csv-filen nedenfor."
+      "description-long": "Tartines kan importere oppskrifter fra My Recipe Box. Eksporter oppskrifter i CSV-format, og last deretter opp .csv-filen nedenfor."
     },
     "recipekeeper": {
       "title": "Recipe Keeper",
@@ -423,7 +423,7 @@
   },
   "new-recipe": {
     "bulk-add": "Legg til flere",
-    "error-details": "Bare nettsteder som inneholder ld+json eller mikrodata kan importeres av Mealie. De største oppskriftsnettstedene støtter denne datastrukturen. Dersom nettstedet ditt ikke kan importeres, men det er json-data i loggen, må du rapportere et GitHub-problem med nettadressen og data.",
+    "error-details": "Bare nettsteder som inneholder ld+json eller mikrodata kan importeres av Tartines. De største oppskriftsnettstedene støtter denne datastrukturen. Dersom nettstedet ditt ikke kan importeres, men det er json-data i loggen, må du rapportere et GitHub-problem med nettadressen og data.",
     "error-title": "Ser ut til at ingenting ble funnet",
     "from-url": "Importer en oppskrift",
     "github-issues": "GitHub Issues",
@@ -434,7 +434,7 @@
     "recipe-url": "Nettadresse til oppskrift",
     "recipe-html-or-json": "Oppskrift HTML eller JSON",
     "upload-a-recipe": "Last opp oppskrift",
-    "upload-individual-zip-file": "Last opp en individuell .zip-fil eksportert fra en annen Mealie-instans.",
+    "upload-individual-zip-file": "Last opp en individuell .zip-fil eksportert fra en annen Tartines-instans.",
     "url-form-hint": "Kopier og lim inn en lenke fra nettstedet med favorittoppskriftene dine",
     "view-scraped-data": "Vis skrapte data",
     "trim-whitespace-description": "Fjern innledende og etterfølgende mellomrom i tillegg til tomme linjer",
@@ -579,7 +579,7 @@
     "made-this": "Jeg har laget dette",
     "how-did-it-turn-out": "Hvordan ble det?",
     "user-made-this": "{user} har laget dette",
-    "api-extras-description": "Ekstramaterialer til oppskrifter er en viktig funksjon i Mealie API-en. De lar deg opprette egendefinerte JSON-nøkkel/verdi-par innenfor en oppskrift for å referere fra tredjepartsapplikasjoner. Du kan bruke disse nøklene til å gi informasjon for eksempel for å utløse automatiseringer eller egendefinerte meldinger som skal videreformidles til ønsket enhet.",
+    "api-extras-description": "Ekstramaterialer til oppskrifter er en viktig funksjon i Tartines API-en. De lar deg opprette egendefinerte JSON-nøkkel/verdi-par innenfor en oppskrift for å referere fra tredjepartsapplikasjoner. Du kan bruke disse nøklene til å gi informasjon for eksempel for å utløse automatiseringer eller egendefinerte meldinger som skal videreformidles til ønsket enhet.",
     "message-key": "Meldingsnøkkel",
     "parse": "Analyser",
     "attach-images-hint": "Fest bilder ved å dra og slippe dem inn i redigereringsverktøyet",
@@ -597,7 +597,7 @@
     "create-recipes": "Opprett oppskrifter",
     "import-with-zip": "Importer fra .zip-fil",
     "create-recipe-from-an-image": "Opprett oppskrift fra et bilde",
-    "create-recipe-from-an-image-description": "Opprett en oppskrift ved å laste opp et bilde av den. Mealie vil forsøke å hente ut teksten fra bildet ved bruk av AI, og lage en ny oppskrift.",
+    "create-recipe-from-an-image-description": "Opprett en oppskrift ved å laste opp et bilde av den. Tartines vil forsøke å hente ut teksten fra bildet ved bruk av AI, og lage en ny oppskrift.",
     "crop-and-rotate-the-image": "Beskjær og roter bildet slik at bare teksten er synlig, og at det er i riktig retning.",
     "create-from-images": "Create from Images",
     "should-translate-description": "Oversett oppskriften til mitt språk",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "Opprett en oppskrift ved å angi navnet. Alle oppskrifter må ha unike navn.",
     "new-recipe-names-must-be-unique": "Navn på oppskrift må være unike",
     "scrape-recipe": "Skrap oppskrift",
-    "scrape-recipe-description": "Skrap en oppskrift ved bruk av nettadresse. Oppgi nettadressen til nettstedet du vil skrape, så vil Mealie forsøke å skrape oppskriften fra den siden og legge den til i samlingen din.",
+    "scrape-recipe-description": "Skrap en oppskrift ved bruk av nettadresse. Oppgi nettadressen til nettstedet du vil skrape, så vil Tartines forsøke å skrape oppskriften fra den siden og legge den til i samlingen din.",
     "scrape-recipe-have-a-lot-of-recipes": "Har du mange oppskrifter du ønsker å skrape samtidig?",
     "scrape-recipe-suggest-bulk-importer": "Prøv masseimportering",
     "scrape-recipe-have-raw-html-or-json-data": "Har du HTML- eller JSON-rådata?",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "Importer originale søkeord som emneord",
     "stay-in-edit-mode": "Forbli i redigeringsmodus",
     "import-from-zip": "Importer fra zip-fil",
-    "import-from-zip-description": "Importer en enkelt oppskrift som ble eksportert fra en annen Mealie-instans.",
+    "import-from-zip-description": "Importer en enkelt oppskrift som ble eksportert fra en annen Tartines-instans.",
     "import-from-html-or-json": "Importer fra HTML eller JSON",
-    "import-from-html-or-json-description": "Importer én enkelt oppskrift fra rå HTML eller JSON. Dette er nyttig hvis du har en oppskrift fra et nettsted som Mealie ikke kan skrape på normal måte, eller fra en annen ekstern kilde.",
+    "import-from-html-or-json-description": "Importer én enkelt oppskrift fra rå HTML eller JSON. Dette er nyttig hvis du har en oppskrift fra et nettsted som Tartines ikke kan skrape på normal måte, eller fra en annen ekstern kilde.",
     "json-import-format-description-colon": "For å importere via JSON, må det være i gyldig format:",
     "json-editor": "JSON Editor",
-    "zip-files-must-have-been-exported-from-mealie": ".zip-filer må ha blitt eksportert fra Mealie",
+    "zip-files-must-have-been-exported-from-tartines": ".zip-filer må ha blitt eksportert fra Tartines",
     "create-a-recipe-by-uploading-a-scan": "Opprett en oppskrift ved å laste opp en skanning.",
     "upload-a-png-image-from-a-recipe-book": "Last opp et png-bilde fra en oppskriftsbok",
     "recipe-bulk-importer": "Masseimport av oppskrifter",
-    "recipe-bulk-importer-description": "Masseimport av oppskrifter lar deg importere flere oppskrifter samtidig ved å sette opp nettstedene i kø på serveren og kjøre oppgaven i bakgrunnen. Dette kan være nyttig når du først migrerer til Mealie, eller når du ønsker å importere et stort antall oppskrifter.",
+    "recipe-bulk-importer-description": "Masseimport av oppskrifter lar deg importere flere oppskrifter samtidig ved å sette opp nettstedene i kø på serveren og kjøre oppgaven i bakgrunnen. Dette kan være nyttig når du først migrerer til Tartines, eller når du ønsker å importere et stort antall oppskrifter.",
     "set-categories-and-tags": "Angi kategorier og emneord",
     "bulk-imports": "Masseimport",
     "bulk-import-process-has-started": "Masseimport har startet",
     "bulk-import-process-has-failed": "Masseimport mislyktes",
     "report-deletion-failed": "Sletting av rapport mislyktes",
     "recipe-debugger": "Oppskriftsfeilsøker",
-    "recipe-debugger-description": "Hent nettadressen til oppskriften du vil feilsøke og lim den inn her. Nettsiden vil bli skrapt og resultatene vil bli vist. Hvis du ikke ser noen data returnert, er ikke nettstedet du prøver å skrape støttet av Mealie eller skraper-biblioteket.",
+    "recipe-debugger-description": "Hent nettadressen til oppskriften du vil feilsøke og lim den inn her. Nettsiden vil bli skrapt og resultatene vil bli vist. Hvis du ikke ser noen data returnert, er ikke nettstedet du prøver å skrape støttet av Tartines eller skraper-biblioteket.",
     "use-openai": "Bruk OpenAI",
     "recipe-debugger-use-openai-description": "Bruke OpenAI til å analysere resultatene i stedet for å basere seg på scraper-biblioteket. Når du oppretter en oppskrift via URL, blir dette gjort automatisk hvis scraper-biblioteket mislykkes, men du kan teste det manuelt her.",
     "debug": "Feilsøk",
@@ -695,7 +695,7 @@
     "clear-selection": "Tøm valg",
     "results": "Resultater",
     "search": "Søk",
-    "search-mealie": "Søk i Mealie (trykk /)",
+    "search-tartines": "Søk i Tartines (trykk /)",
     "search-placeholder": "Søk...",
     "tag-filter": "Emneordfilter",
     "search-hint": "Trykk på '/'",
@@ -720,7 +720,7 @@
       "import-summary": "Importer sammendrag",
       "partial-backup": "Delvis sikkerhetskopi",
       "unable-to-delete-backup": "Kan ikke slette sikkerhetskopi.",
-      "experimental-description": "Sikkerhetskopier er komplette øyeblikksbilder av databasen og datamappen til nettstedet. Dette inkluderer all data og kan ikke settes til å ekskludere delsett av data. Du kan tenke på dette som et øyeblikksbilde av Mealie på et bestemt tidspunkt. Disse fungerer som en databasesystemuavhengig måte å eksportere og importere data på, eller sikkerhetskopiere nettstedet til en ekstern plassering.",
+      "experimental-description": "Sikkerhetskopier er komplette øyeblikksbilder av databasen og datamappen til nettstedet. Dette inkluderer all data og kan ikke settes til å ekskludere delsett av data. Du kan tenke på dette som et øyeblikksbilde av Tartines på et bestemt tidspunkt. Disse fungerer som en databasesystemuavhengig måte å eksportere og importere data på, eller sikkerhetskopiere nettstedet til en ekstern plassering.",
       "backup-restore": "Gjenoppretting av sikkerhetskopi",
       "back-restore-description": "Gjenoppretting av denne sikkerhetskopien vil overskrive alle gjeldende data i databasen og i datamappen og erstatte dem med innholdet i denne sikkerhetskopien. {cannot-be-undone} Hvis gjenopprettingen er vellykket, vil du bli logget ut.",
       "cannot-be-undone": "Denne handlingen kan ikke angres – bruk med forsiktighet.",
@@ -819,7 +819,7 @@
     "tracker": "Sporingsagent",
     "configuration": "Konfigurasjon",
     "docker-volume": "Docker-volum",
-    "docker-volume-help": "Mealie krever at frontend- og backend-konteinerene deler samme docker-volum eller lagringssted. Dette sikrer at frontend-kontaineren får tilgang til bilder og ressurser lagret på harddisken.",
+    "docker-volume-help": "Tartines krever at frontend- og backend-konteinerene deler samme docker-volum eller lagringssted. Dette sikrer at frontend-kontaineren får tilgang til bilder og ressurser lagret på harddisken.",
     "volumes-are-misconfigured": "Volumene er konfigurert feil.",
     "volumes-are-configured-correctly": "Volumene er riktig konfigurert.",
     "status-unknown-try-running-a-validation": "Statusen er ukjent. Prøv å kjør en validering.",
@@ -834,7 +834,7 @@
     "general-about": "Generelt om",
     "application-version": "Programversjon",
     "application-version-error-text": "Din nåværende versjon ({0}) samsvarer ikke med den nyeste utgivelsen. Vurder å oppdatere til siste versjon ({1}).",
-    "mealie-is-up-to-date": "Mealie er oppdatert",
+    "tartines-is-up-to-date": "Tartines er oppdatert",
     "secure-site": "Sikkert nettsted",
     "secure-site-error-text": "Server via localhost eller sikre med https. Utklippstavle og ytterlige nettleser-API-er vil muligens ikke fungere.",
     "secure-site-success-text": "Tjenesten er tilgjengelig via localhost eller https",
@@ -918,7 +918,7 @@
     "sign-up-links": "Registreringslenker",
     "sign-up-token-deleted": "Registreringstoken slettet",
     "sign-up-token-deletion-failed": "Sletting av registreringstoken mislyktes",
-    "welcome-to-mealie": "Velkommen til Mealie! For å bli en bruker må du ha en gyldig invitasjonslenke. Hvis du ikke har mottatt en invitasjon vil du ikke kunne registrere deg. For å motta en lenke, kontakt systemansvarlig."
+    "welcome-to-tartines": "Velkommen til Tartines! For å bli en bruker må du ha en gyldig invitasjonslenke. Hvis du ikke har mottatt en invitasjon vil du ikke kunne registrere deg. For å motta en lenke, kontakt systemansvarlig."
   },
   "tag": {
     "tag-created": "Emneord opprettet",
@@ -1027,7 +1027,7 @@
     "user-details": "Brukerdetaljer",
     "user-name": "Brukernavn",
     "authentication-method": "Autentiseringsmetode",
-    "authentication-method-hint": "This specifies how a user will authenticate with Mealie. If you're not sure, choose 'Mealie",
+    "authentication-method-hint": "This specifies how a user will authenticate with Tartines. If you're not sure, choose 'Tartines",
     "permissions": "Rettigheter",
     "administrator": "Administrator",
     "user-can-invite-other-to-group": "Bruker kan invitere andre til gruppe",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "oversatt",
     "choose-language": "Velg språk",
-    "select-description": "Velg språk for Mealie-brukergrensesnittet. Innstillingen gjelder bare for deg, ikke andre brukere.",
+    "select-description": "Velg språk for Tartines-brukergrensesnittet. Innstillingen gjelder bare for deg, ikke andre brukere.",
     "how-to-contribute-description": "Er det noe som ikke er oversatt, noe som er oversatt feil, eller mangler ditt språk i listen? {read-the-docs-link} på hvordan du kan bidra!",
     "read-the-docs": "Les dokumentasjonen"
   },
@@ -1157,7 +1157,7 @@
     "group-details": "Gruppedetaljer",
     "group-details-description": "Før du oppretter en konto må du opprette en gruppe. Gruppen din vil bare inneholde deg, men du vil kunne invitere andre senere. Medlemmer i gruppen din kan dele måltider, handlelister, oppskrifter med mer!",
     "use-seed-data": "Bruk tilføringsdata",
-    "use-seed-data-description": "Mealie kommer med en samling av matvarer, enheter og etiketter som kan brukes til å fylle gruppen din med nyttige data for å organisere oppskriftene dine.",
+    "use-seed-data-description": "Tartines kommer med en samling av matvarer, enheter og etiketter som kan brukes til å fylle gruppen din med nyttige data for å organisere oppskriftene dine.",
     "account-details": "Kontodetaljer"
   },
   "validation": {
@@ -1257,14 +1257,14 @@
       "actions-description-destructive": "destruktiv",
       "actions-description-irreversible": "irreversibel",
       "logs-action-refresh": "Oppdater logger",
-      "logs-page-title": "Mealie log",
+      "logs-page-title": "Tartines log",
       "logs-tail-lines-label": "Siste linjer"
     },
     "mainentance": {
       "actions-title": "Handlinger"
     },
     "ingredients-natural-language-processor": "Naturlig språkprossesering for ingredienser",
-    "ingredients-natural-language-processor-explanation": "Mealie bruker Conditional Random Fields (CRFs) for å analysere og behandle ingredienser. Modellen som brukes til ingredienser er basert på et datasett med over 100 000 ingredienser satt sammen av New York Times. Vær oppmerksom på at siden modellen kun er trent på engelsk, kan resultatene variere når du bruker modellen på andre språk. På denne siden kan du teste modellen.",
+    "ingredients-natural-language-processor-explanation": "Tartines bruker Conditional Random Fields (CRFs) for å analysere og behandle ingredienser. Modellen som brukes til ingredienser er basert på et datasett med over 100 000 ingredienser satt sammen av New York Times. Vær oppmerksom på at siden modellen kun er trent på engelsk, kan resultatene variere når du bruker modellen på andre språk. På denne siden kan du teste modellen.",
     "ingredients-natural-language-processor-explanation-2": "Modellen er ikke perfekt, men det gir generelt sett gode resultater og er et godt utgangspunkt for å manuelt analysere ingredienser i individuelle felt. Alternativt kan du også bruke 'Brute'-prosessoren som bruker mønstergjenkjennelsesteknikker for å identifisere ingredienser.",
     "nlp": "NLP",
     "brute": "Brute",
@@ -1280,12 +1280,12 @@
     "tasks": "Oppgaver",
     "setup": {
       "first-time-setup": "Førstegangsoppsett",
-      "welcome-to-mealie-get-started": "Velkommen til Mealie! La oss begynne",
+      "welcome-to-tartines-get-started": "Velkommen til Tartines! La oss begynne",
       "already-set-up-bring-to-homepage": "Jeg er allerede satt opp, bare ta meg med til hjemmesiden",
       "common-settings-for-new-sites": "Her er noen vanlige innstillinger for nye sider",
       "setup-complete": "Oppsett fullført!",
-      "here-are-a-few-things-to-help-you-get-started": "Her er noen ting som kan hjelpe deg å komme i gang med Mealie",
-      "restore-from-v1-backup": "Har du en sikkerhetskopi fra en tidligere forekomst av Mealie v1? Du kan gjenopprette den her.",
+      "here-are-a-few-things-to-help-you-get-started": "Her er noen ting som kan hjelpe deg å komme i gang med Tartines",
+      "restore-from-v1-backup": "Har du en sikkerhetskopi fra en tidligere forekomst av Tartines v1? Du kan gjenopprette den her.",
       "manage-profile-or-get-invite-link": "Administrer din egen profil, eller hent en invitasjonslenke for å dele med andre."
     },
     "debug-openai-services": "Feilsøk OpenAI-tjenester",
@@ -1304,9 +1304,9 @@
     "account-summary": "Kontosammendrag",
     "account-summary-description": "Her er en oppsummering av informasjonen til gruppen din.",
     "group-statistics": "Gruppestatistikk",
-    "group-statistics-description": "Gruppestatistikken din gir deg et innblikk i hvordan du bruker Mealie.",
+    "group-statistics-description": "Gruppestatistikken din gir deg et innblikk i hvordan du bruker Tartines.",
     "household-statistics": "Husholdningenes statistikk",
-    "household-statistics-description": "Husholdningsstatistikken din gir deg et innblikk i hvordan du bruker Mealie.",
+    "household-statistics-description": "Husholdningsstatistikken din gir deg et innblikk i hvordan du bruker Tartines.",
     "storage-capacity": "Lagringskapasitet",
     "storage-capacity-description": "Lagringskapasiteten er en beregning av bildene og ressursene du har lastet opp.",
     "personal": "Personlig",
@@ -1327,7 +1327,7 @@
     "notifiers": "Varslingsagenter",
     "notifiers-description": "Sett opp e-post- og pushvarsler som utløses av spesifikke hendelser.",
     "manage-data": "Administrer data",
-    "manage-data-description": "Administrer dine Mealie-data; Ingredienser, enheter, kategorier, emneknagger og mer.",
+    "manage-data-description": "Administrer dine Tartines-data; Ingredienser, enheter, kategorier, emneknagger og mer.",
     "data-migrations": "Dataoverføringer",
     "data-migrations-description": "Overfør eksisterende data fra andre programmer som Nextcloud Recipes og Chowdown.",
     "email-sent": "E-post sendt",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "Skjul kokebøker fra andre husholdninger",
     "hide-cookbooks-from-other-households-description": "Når denne er aktivert, vil bare kokebøker fra husstanden din vises i sidefeltet",
     "public-cookbook": "Offentlig kokebok",
-    "public-cookbook-description": "Offentlige kokebøker kan deles med ikke-Mealie-brukere og vil bli vist på din gruppeside.",
+    "public-cookbook-description": "Offentlige kokebøker kan deles med ikke-Tartines-brukere og vil bli vist på din gruppeside.",
     "filter-options": "Filteralternativer",
     "filter-options-description": "Når krev alle er valgt, vil kokeboken bare inkludere oppskrifter som har alle de valgte elementene. Dette gjelder for hvert delsett av valgene og ikke et tverrsnitt av de valgte elementene.",
     "require-all-categories": "Krev alle kategorier",

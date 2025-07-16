@@ -30,14 +30,14 @@ export default defineNuxtConfig({
     baseURL: process.env.SUB_PATH || "",
 
     head: {
-      title: "Mealie",
+      title: "Tartines",
       meta: [
         { property: "og:type", content: "website" },
-        { property: "og:title", content: "Mealie" },
-        { property: "og:site_name", content: "Mealie" },
+        { property: "og:title", content: "Tartines" },
+        { property: "og:site_name", content: "Tartines" },
         {
           property: "og:description",
-          content: "Mealie is a recipe management app for your kitchen.",
+          content: "Tartines is a recipe management app for your kitchen.",
         },
         {
           property: "og:image",
@@ -48,7 +48,7 @@ export default defineNuxtConfig({
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
           name: "description",
-          content: "Mealie is a recipe management app for your kitchen.",
+          content: "Tartines is a recipe management app for your kitchen.",
         },
       ],
       link: [
@@ -311,10 +311,10 @@ export default defineNuxtConfig({
       start_url: "/",
       scope: "/",
       lang: "en",
-      name: "Mealie",
-      short_name: "Mealie",
+      name: "Tartines",
+      short_name: "Tartines",
       id: "mealie",
-      description: "Mealie is a recipe management and meal planning app",
+      description: "Tartines is a recipe management and meal planning app",
       theme_color: process.env.THEME_LIGHT_PRIMARY || "#E58325",
       background_color: "#FFFFFF",
       display: "standalone",
@@ -328,7 +328,7 @@ export default defineNuxtConfig({
         action: "/r/create/url",
         method: "GET",
         params: {
-          /* title and url are not currently used in Mealie. If there are issues
+          /* title and url are not currently used in Tartines. If there are issues
               with sharing, uncommenting those lines might help solve the puzzle. */
           // "title": "title",
           text: "recipe_import_url",

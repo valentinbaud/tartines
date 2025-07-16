@@ -24,7 +24,7 @@
             {{ $globals.icons.github }}
           </v-icon>
         </v-btn>
-        {{ new Date().getFullYear() }} — <strong> Mealie </strong>
+        {{ new Date().getFullYear() }} — <strong> Tartines </strong>
       </v-col>
     </v-row>
   </v-footer>

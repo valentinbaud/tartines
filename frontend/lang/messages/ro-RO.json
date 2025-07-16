@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "Despre",
-    "about-mealie": "Despre Mealie",
+    "about-tartines": "Despre Tartines",
     "api-docs": "Documentație API",
     "api-port": "Port API",
     "application-mode": "Mod Aplicație",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "Ești sigur(ă) că vrei să ștergi acest eveniment?",
     "event-deleted": "Eveniment șters",
     "event-updated": "Eveniment actualizat",
-    "new-notification-form-description": "Mealie folosește librăria Apprise pentru a genera notificări. Acestea oferă nenumărate opțiuni de integrare cu servicii pentru notificări. Consultați wiki-ul pentru un ghid cuprinzător despre cum să creați URL-ul pentru serviciul dvs. Dacă este disponibil, selectarea tipului de notificare poate include caracteristici suplimentare.",
+    "new-notification-form-description": "Tartines folosește librăria Apprise pentru a genera notificări. Acestea oferă nenumărate opțiuni de integrare cu servicii pentru notificări. Consultați wiki-ul pentru un ghid cuprinzător despre cum să creați URL-ul pentru serviciul dvs. Dacă este disponibil, selectarea tipului de notificare poate include caracteristici suplimentare.",
     "new-version": "Versiune nouă disponibilă!",
     "notification": "Notificare",
     "refresh": "Reîncarcă",
@@ -373,7 +373,7 @@
     "recipe-migration": "Migrare rețeta",
     "chowdown": {
       "description": "Migrează datele din Chowdown",
-      "description-long": "Mealie acceptă nativ formatul repo-ului Chowdown. Descărcați repository-ul de cod ca fișier \".zip\" și încărcați-l mai jos.",
+      "description-long": "Tartines acceptă nativ formatul repo-ului Chowdown. Descărcați repository-ul de cod ca fișier \".zip\" și încărcați-l mai jos.",
       "title": "Chowdown"
     },
     "nextcloud": {
@@ -382,48 +382,48 @@
       "title": "Nextcloud Cookbook"
     },
     "copymethat": {
-      "description-long": "Mealie poate importa rețete din Copy Me That. Exportă rețetele în format HTML, apoi încarcă fișierul de tip \".ZIP\" folosind câmpul de mai jos.",
+      "description-long": "Tartines poate importa rețete din Copy Me That. Exportă rețetele în format HTML, apoi încarcă fișierul de tip \".ZIP\" folosind câmpul de mai jos.",
       "title": "Copy Me That Recipe Manager"
     },
     "paprika": {
-      "description-long": "Mealie poate importa rețete din aplicația Paprika. Exportă rețetele din Paprika, redenumește extensia de export în \".ZIP\" și încarcă-o folosind câmpul de mai jos.",
+      "description-long": "Tartines poate importa rețete din aplicația Paprika. Exportă rețetele din Paprika, redenumește extensia de export în \".ZIP\" și încarcă-o folosind câmpul de mai jos.",
       "title": "Paprika Recipe Manager"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie poate importa rețetele din aplicația Mealie dintr-o lansare pre-v1.0. Exportă rețetele din vechea aplicație, apoi încarcă fișierul de tip \".ZIP\" folosind câmpul de mai jos. Numai rețetele pot fi importate din export.",
-      "title": "Mealie Pre v1.0"
+    "tartines-pre-v1": {
+      "description-long": "Tartines poate importa rețetele din aplicația Tartines dintr-o lansare pre-v1.0. Exportă rețetele din vechea aplicație, apoi încarcă fișierul de tip \".ZIP\" folosind câmpul de mai jos. Numai rețetele pot fi importate din export.",
+      "title": "Tartines Pre v1.0"
     },
     "tandoor": {
-      "description-long": "Mealie poate importa rețete din Tandoor. Exportă datele în formatul \"Implicit\", apoi încarcă fișierul de tip \".ZIP\" folosind câmpul de mai jos.",
+      "description-long": "Tartines poate importa rețete din Tandoor. Exportă datele în formatul \"Implicit\", apoi încarcă fișierul de tip \".ZIP\" folosind câmpul de mai jos.",
       "title": "Rețete Tandoor"
     },
     "recipe-data-migrations": "Migrarea datelor rețetelor",
-    "recipe-data-migrations-explanation": "Rețetele pot fi migrate de la o altă aplicație ce este suportată de Mealie. Acesta este un mod excelent de a începe să folosiți Mealie.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "Veniți dintr-o altă aplicație sau o versiune și mai veche a Mealie? Uitați-vă la migrări și vedeți dacă datele dvs. pot fi importate.",
+    "recipe-data-migrations-explanation": "Rețetele pot fi migrate de la o altă aplicație ce este suportată de Tartines. Acesta este un mod excelent de a începe să folosiți Tartines.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "Veniți dintr-o altă aplicație sau o versiune și mai veche a Tartines? Uitați-vă la migrări și vedeți dacă datele dvs. pot fi importate.",
     "choose-migration-type": "Alegeți tipul de migrare",
     "tag-all-recipes": "Etichetați toate rețetele cu eticheta {tag-name}",
     "nextcloud-text": "Rețetele din Nextcloud pot fi importate dintr-un fișier de tip \".ZIP\" ce conține toate datele stocate în Nextcloud. Vedeți structura directorului din exemplul de mai jos pentru a vă asigura că rețetele pot fi importate cu succes.",
-    "chowdown-text": "Mealie acceptă nativ formatul repo-ului Chowdown. Descărcați repository-ul de cod ca fișier \".zip\" și încărcați-l mai jos.",
+    "chowdown-text": "Tartines acceptă nativ formatul repo-ului Chowdown. Descărcați repository-ul de cod ca fișier \".zip\" și încărcați-l mai jos.",
     "recipe-1": "Rețeta 1",
     "recipe-2": "Rețeta 2",
-    "paprika-text": "Mealie poate importa rețete din aplicația Paprika. Exportă rețetele din Paprika, redenumește extensia de export în \".zip\" și încarcă-o folosind câmpul de mai jos.",
-    "mealie-text": "Mealie poate importa rețetele din aplicația Mealie dintr-o lansare mai veche de v1.0. Exportă rețetele din vechea aplicație, apoi încarcă fișierul de tip \". zip\" folosind câmpul de mai jos. Numai rețetele pot fi importate din export.",
+    "paprika-text": "Tartines poate importa rețete din aplicația Paprika. Exportă rețetele din Paprika, redenumește extensia de export în \".zip\" și încarcă-o folosind câmpul de mai jos.",
+    "tartines-text": "Tartines poate importa rețetele din aplicația Tartines dintr-o lansare mai veche de v1.0. Exportă rețetele din vechea aplicație, apoi încarcă fișierul de tip \". zip\" folosind câmpul de mai jos. Numai rețetele pot fi importate din export.",
     "plantoeat": {
       "title": "Planifică să Mănânci",
-      "description-long": "Mealie poate importa rețete din Planul de Masă."
+      "description-long": "Tartines poate importa rețete din Planul de Masă."
     },
     "myrecipebox": {
       "title": "Cutia mea de rețete",
-      "description-long": "Mealie poate importa rețete din Cutia mea de rețete. Exportă rețetele în format CSV, apoi încarcă fișierul .csv de mai jos."
+      "description-long": "Tartines poate importa rețete din Cutia mea de rețete. Exportă rețetele în format CSV, apoi încarcă fișierul .csv de mai jos."
     },
     "recipekeeper": {
       "title": "Oraganizator de rețete",
-      "description-long": "Mealie poate importa rețete din \"Recipe Keeper\". Exportă rețetele tale în format ZIP, apoi încarcă fișierul .zip mai jos."
+      "description-long": "Tartines poate importa rețete din \"Recipe Keeper\". Exportă rețetele tale în format ZIP, apoi încarcă fișierul .zip mai jos."
     }
   },
   "new-recipe": {
     "bulk-add": "Adăugare în masă",
-    "error-details": "Mealie poate importa doar site-uri web care conțin ld+json sau microdata. Majoritatea site-urilor web majore cu rețete susțin această structură de date. Dacă site-ul dvs. nu poate fi importat, dar există date json în loguri, vă rugăm să creați un github issue cu adresa URL și datele.",
+    "error-details": "Tartines poate importa doar site-uri web care conțin ld+json sau microdata. Majoritatea site-urilor web majore cu rețete susțin această structură de date. Dacă site-ul dvs. nu poate fi importat, dar există date json în loguri, vă rugăm să creați un github issue cu adresa URL și datele.",
     "error-title": "Se pare că nu am găsit nimic",
     "from-url": "Importați o rețetă",
     "github-issues": "GitHub Issues",
@@ -434,7 +434,7 @@
     "recipe-url": "URL rețetă",
     "recipe-html-or-json": "Rețetă HTML sau JSON",
     "upload-a-recipe": "Încarcă o rețetă",
-    "upload-individual-zip-file": "Încărcaţi un fişier individual .zip exportat dintr-o altă instanţă de Mealie.",
+    "upload-individual-zip-file": "Încărcaţi un fişier individual .zip exportat dintr-o altă instanţă de Tartines.",
     "url-form-hint": "Copiază și lipește un link de pe site-ul tău web preferat de rețete",
     "view-scraped-data": "Vezi datele colectate",
     "trim-whitespace-description": "Elimină spațiile albe de la început și sfârșit precum și liniile goale",
@@ -579,7 +579,7 @@
     "made-this": "Am făcut asta",
     "how-did-it-turn-out": "Cum a ieșit?",
     "user-made-this": "{user} a făcut asta",
-    "api-extras-description": "Recipes extras sunt o caracteristică cheie a API-ului Mealie. Îți permit să creezi perechi personalizate de cheie/valoare JSON într-o rețetă, ca să faci referire la aplicații terțe. Puteți utiliza aceste chei pentru a furniza informații, de exemplu pentru a declanșa automatizări sau mesaje personalizate pentru a transmite dispozitivul dorit.",
+    "api-extras-description": "Recipes extras sunt o caracteristică cheie a API-ului Tartines. Îți permit să creezi perechi personalizate de cheie/valoare JSON într-o rețetă, ca să faci referire la aplicații terțe. Puteți utiliza aceste chei pentru a furniza informații, de exemplu pentru a declanșa automatizări sau mesaje personalizate pentru a transmite dispozitivul dorit.",
     "message-key": "Cheie mesaj",
     "parse": "Parsează",
     "attach-images-hint": "Atașează imagini trăgându-le cu mouse-ul și plasându-le în editor",
@@ -597,7 +597,7 @@
     "create-recipes": "Crează rețetă",
     "import-with-zip": "Importă cu .zip",
     "create-recipe-from-an-image": "Creează o rețetă dintr-o imagine",
-    "create-recipe-from-an-image-description": "Creează o rețetă prin încărcarea unei imagini a acesteia. Mealie va încerca să extragă textul din imagine folosind AI și să creeze o rețetă din el.",
+    "create-recipe-from-an-image-description": "Creează o rețetă prin încărcarea unei imagini a acesteia. Tartines va încerca să extragă textul din imagine folosind AI și să creeze o rețetă din el.",
     "crop-and-rotate-the-image": "Decupați și rotiți imaginea astfel încât numai textul să fie vizibil, iar orientarea să fie corectă.",
     "create-from-images": "Create from Images",
     "should-translate-description": "Tradu rețeta în limba mea",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "Creează o rețetă furnizând numele. Toate rețetele trebuie să aibă nume unice.",
     "new-recipe-names-must-be-unique": "Numele rețetei trebuie să fie unic",
     "scrape-recipe": "Importare rețetă",
-    "scrape-recipe-description": "Importa o rețetă prin url. Oferiți url-ul pentru site-ul pe care doriți să îl importați, și Mealie va încerca să importe rețeta de pe acel site și să o adauge la colecția ta.",
+    "scrape-recipe-description": "Importa o rețetă prin url. Oferiți url-ul pentru site-ul pe care doriți să îl importați, și Tartines va încerca să importe rețeta de pe acel site și să o adauge la colecția ta.",
     "scrape-recipe-have-a-lot-of-recipes": "Ai mai multe rețete pe care vrei să le imporți simultan?",
     "scrape-recipe-suggest-bulk-importer": "Încearcă importatorul în bulk",
     "scrape-recipe-have-raw-html-or-json-data": "Ai date de tip HTML sau JSON?",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "Importă cuvintele cheie originale ca tag-uri",
     "stay-in-edit-mode": "Rămâi în modul Editare",
     "import-from-zip": "Importă din zip",
-    "import-from-zip-description": "Importă o rețetă care a fost exportată dintr-o altă instanță a Mealie.",
+    "import-from-zip-description": "Importă o rețetă care a fost exportată dintr-o altă instanță a Tartines.",
     "import-from-html-or-json": "Importă din HTML sau JSON",
-    "import-from-html-or-json-description": "Importă o singură rețetă din HTML sau JSON. Acest lucru este util dacă ai o reţetă de la un site pe care Mealie nu îl poate procesa normal, sau de la o altă sursă externă.",
+    "import-from-html-or-json-description": "Importă o singură rețetă din HTML sau JSON. Acest lucru este util dacă ai o reţetă de la un site pe care Tartines nu îl poate procesa normal, sau de la o altă sursă externă.",
     "json-import-format-description-colon": "Pentru a importa prin JSON, trebuie să fie în format valid:",
     "json-editor": "Editor JSON",
-    "zip-files-must-have-been-exported-from-mealie": "Fișierele .zip trebuie să fi fost exportate din Mealie",
+    "zip-files-must-have-been-exported-from-tartines": "Fișierele .zip trebuie să fi fost exportate din Tartines",
     "create-a-recipe-by-uploading-a-scan": "Creează o rețetă prin încărcarea unei scanări.",
     "upload-a-png-image-from-a-recipe-book": "Încărcați o imagine png dintr-o carte de rețete",
     "recipe-bulk-importer": "Importator în masa de rețete",
-    "recipe-bulk-importer-description": "Importatorul de rețete in masă vă permite să importați simultan mai multe rețete prin ordonarea in coada site-urilor in backend și prin derularea sarcinii în fundal. Acest lucru poate fi util atunci când migrați la Mealie, sau când doriți să importați un număr mare de rețete.",
+    "recipe-bulk-importer-description": "Importatorul de rețete in masă vă permite să importați simultan mai multe rețete prin ordonarea in coada site-urilor in backend și prin derularea sarcinii în fundal. Acest lucru poate fi util atunci când migrați la Tartines, sau când doriți să importați un număr mare de rețete.",
     "set-categories-and-tags": "Setează Categorii și Etichete",
     "bulk-imports": "Importuri în masă",
     "bulk-import-process-has-started": "Procesul de Import în masă a început",
     "bulk-import-process-has-failed": "Procesul de import în masă a eșuat",
     "report-deletion-failed": "Ștergerea raportului a eșuat",
     "recipe-debugger": "Depanare rețetă",
-    "recipe-debugger-description": "Copiază URL-ul rețetei pe care vrei să o depanezi și lipește-l aici. URL-ul va fi importat și rezultatele vor fi afișate ulterior. Dacă nu vedeți date returnate, site-ul pe care încerci să îl procesezi nu este suportat de Mealie sau biblioteca sa de import.",
+    "recipe-debugger-description": "Copiază URL-ul rețetei pe care vrei să o depanezi și lipește-l aici. URL-ul va fi importat și rezultatele vor fi afișate ulterior. Dacă nu vedeți date returnate, site-ul pe care încerci să îl procesezi nu este suportat de Tartines sau biblioteca sa de import.",
     "use-openai": "Folosește OpenAI",
     "recipe-debugger-use-openai-description": "Folosește OpenAI pentru a analiza rezultatele în loc să te bazezi pe biblioteca de \"scraping\". La crearea unei rețete prin URL, acest lucru se face automat în cazul în care biblioteca de \"scraping\" eșuează, dar puteți testa manual acest lucru aici.",
     "debug": "Depanare",
@@ -695,7 +695,7 @@
     "clear-selection": "Anulează selecția",
     "results": "Rezultate",
     "search": "Caută",
-    "search-mealie": "Căutare Mealie (apasă /)",
+    "search-tartines": "Căutare Tartines (apasă /)",
     "search-placeholder": "Caută...",
     "tag-filter": "Filtrare după Tag-uri",
     "search-hint": "Apasă „/”",
@@ -720,7 +720,7 @@
       "import-summary": "Rezumat import",
       "partial-backup": "Backup parțial",
       "unable-to-delete-backup": "Backup imposibil de șters.",
-      "experimental-description": "Backup-ul este un instantaneu total al bazei de date și al dosarului de date al site-ului. Acesta include toate datele și nu poate fi setat pentru a exclude subseturi de date. Vă puteţi gândi la asta ca la un instantaneu al Mealie la un anumit moment. Acesta serveşte ca o modalitatea a bazei de date pentru a exporta şi importa date, sau de a face o copie de rezervă a site-ului la o locaţie externă.",
+      "experimental-description": "Backup-ul este un instantaneu total al bazei de date și al dosarului de date al site-ului. Acesta include toate datele și nu poate fi setat pentru a exclude subseturi de date. Vă puteţi gândi la asta ca la un instantaneu al Tartines la un anumit moment. Acesta serveşte ca o modalitatea a bazei de date pentru a exporta şi importa date, sau de a face o copie de rezervă a site-ului la o locaţie externă.",
       "backup-restore": "Restaurare backup",
       "back-restore-description": "Restaurarea acestui backup va suprascrie toate datele curente din baza de date și din folderul de date și le va înlocui cu conținutul acestei copii de rezervă. {cannot-be-undone} Dacă restaurarea are succes, vei fi deconectat.",
       "cannot-be-undone": "Această acțiune nu poate fi anulată - utilizează cu prudență.",
@@ -819,7 +819,7 @@
     "tracker": "Tracker",
     "configuration": "Configurare",
     "docker-volume": "Volumul Docker",
-    "docker-volume-help": "Mealie necesită ca recipientul frontend şi backend-ul să partajeze acelaşi volum Docker sau acelaşi depozit de stocare. Acest lucru asigură accesarea corectă a imaginilor şi activelor stocate pe disc de către recipientul frontend.",
+    "docker-volume-help": "Tartines necesită ca recipientul frontend şi backend-ul să partajeze acelaşi volum Docker sau acelaşi depozit de stocare. Acest lucru asigură accesarea corectă a imaginilor şi activelor stocate pe disc de către recipientul frontend.",
     "volumes-are-misconfigured": "Volumele sunt configurate greșit.",
     "volumes-are-configured-correctly": "Volumele sunt configurate corect.",
     "status-unknown-try-running-a-validation": "Status necunoscut. Încercați să rulați o validare.",
@@ -834,7 +834,7 @@
     "general-about": "General despre",
     "application-version": "Versiunea aplicaţiei",
     "application-version-error-text": "Versiunea dvs. curentă ({0}) nu se potrivește cu cea mai recentă versiune. Luați în considerare actualizarea la ultima versiune ({1}).",
-    "mealie-is-up-to-date": "Mealie este la zi",
+    "tartines-is-up-to-date": "Tartines este la zi",
     "secure-site": "Site securizat",
     "secure-site-error-text": "Distribuie conținutul prin localhost sau securizează cu https. Este posibil ca API-urile adiționale si Clipboard sa nu functioneze.",
     "secure-site-success-text": "Site-ul este accesat prin localhost sau https",
@@ -918,7 +918,7 @@
     "sign-up-links": "Link-uri de înregistrare",
     "sign-up-token-deleted": "Token de înscriere șters",
     "sign-up-token-deletion-failed": "Ștergerea token-ului de înscriere a eșuat",
-    "welcome-to-mealie": "Bun venit la Mealie! Pentru a deveni utilizator al acestei instanțe trebuie să aveți un link valid de invitație. Dacă nu ați primit o invitație nu vă puteți înregistra. Pentru a primi un link, contactați administratorul site-ului."
+    "welcome-to-tartines": "Bun venit la Tartines! Pentru a deveni utilizator al acestei instanțe trebuie să aveți un link valid de invitație. Dacă nu ați primit o invitație nu vă puteți înregistra. Pentru a primi un link, contactați administratorul site-ului."
   },
   "tag": {
     "tag-created": "Etichetă creată",
@@ -1027,7 +1027,7 @@
     "user-details": "Detalii Utilizator",
     "user-name": "Nume Utilizator",
     "authentication-method": "Metodă de autentificare",
-    "authentication-method-hint": "This specifies how a user will authenticate with Mealie. If you're not sure, choose 'Mealie",
+    "authentication-method-hint": "This specifies how a user will authenticate with Tartines. If you're not sure, choose 'Tartines",
     "permissions": "Permisiuni",
     "administrator": "Administrator",
     "user-can-invite-other-to-group": "Utilizatorul poate invita alte persoane în grup",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "tradus",
     "choose-language": "Alege Limba",
-    "select-description": "Alegeți limba pentru interfața Mealie. Setarea se aplică doar în cazul dvs., nu și în cazul altor utilizatori.",
+    "select-description": "Alegeți limba pentru interfața Tartines. Setarea se aplică doar în cazul dvs., nu și în cazul altor utilizatori.",
     "how-to-contribute-description": "Ceva nu este tradus încă, este greșit sau limba ta lipsită din listă? {read-the-docs-link} despre cum să contribui!",
     "read-the-docs": "Citește documentația"
   },
@@ -1157,7 +1157,7 @@
     "group-details": "Detalii grup",
     "group-details-description": "Înainte de a crea un cont, va trebui să creezi un grup. Grupul tău va conține inițial doar pe tine, dar vei putea invita și alte persoane ulterior. Membrii din grupul tău vor putea să partajeze planuri de mese, liste de cumpărături, rețete și multe altele!",
     "use-seed-data": "Utilizează setul de date a populării",
-    "use-seed-data-description": "Mealie vine cu o colecție de Alimente, Unități, și Etichete care pot fi utilizate pentru a popula grupul tău cu date utile pentru organizarea rețetelor.",
+    "use-seed-data-description": "Tartines vine cu o colecție de Alimente, Unități, și Etichete care pot fi utilizate pentru a popula grupul tău cu date utile pentru organizarea rețetelor.",
     "account-details": "Detalii Cont"
   },
   "validation": {
@@ -1257,14 +1257,14 @@
       "actions-description-destructive": "distructiv",
       "actions-description-irreversible": "ireversibilă",
       "logs-action-refresh": "Reîmprospătare Jurnale",
-      "logs-page-title": "Jurnale Mealie",
+      "logs-page-title": "Jurnale Tartines",
       "logs-tail-lines-label": "Linii de final"
     },
     "mainentance": {
       "actions-title": "Acțiuni"
     },
     "ingredients-natural-language-processor": "Procesor de limbaj natural pentru ingrediente",
-    "ingredients-natural-language-processor-explanation": "Mealie utilizează Conditional Random Fields (CRFs) pentru a analiza și procesa ingredientele. Modelul folosit pentru ingrediente se bazează pe un set de date care conține peste 100.000 de ingrediente, compilat de New York Times. Rețineți că, deoarece modelul a fost antrenat doar în limba engleză, rezultatele pot varia atunci când este utilizat în alte limbi. Această pagină este un spațiu de testare pentru experimentarea cu modelul.",
+    "ingredients-natural-language-processor-explanation": "Tartines utilizează Conditional Random Fields (CRFs) pentru a analiza și procesa ingredientele. Modelul folosit pentru ingrediente se bazează pe un set de date care conține peste 100.000 de ingrediente, compilat de New York Times. Rețineți că, deoarece modelul a fost antrenat doar în limba engleză, rezultatele pot varia atunci când este utilizat în alte limbi. Această pagină este un spațiu de testare pentru experimentarea cu modelul.",
     "ingredients-natural-language-processor-explanation-2": "Nu este perfect, dar în general oferă rezultate foarte bune și reprezintă un punct de plecare solid pentru a analiza manual ingredientele în câmpuri individuale. Alternativ, puteți utiliza procesorul \"Brute\" care folosește o tehnică de potrivire a modelelor pentru a identifica ingredientele.",
     "nlp": "NLP",
     "brute": "Brute",
@@ -1280,12 +1280,12 @@
     "tasks": "Sarcini",
     "setup": {
       "first-time-setup": "Configurare pentru prima dată",
-      "welcome-to-mealie-get-started": "Bine ai venit la Mealie! Să începem",
+      "welcome-to-tartines-get-started": "Bine ai venit la Tartines! Să începem",
       "already-set-up-bring-to-homepage": "Sunt deja configurat, du-mă direct la pagina principală",
       "common-settings-for-new-sites": "Aici sunt câteva setări comune pentru noile site-uri",
       "setup-complete": "Configurare finalizată!",
-      "here-are-a-few-things-to-help-you-get-started": "Aici sunt câteva lucruri care te ajută să începi cu Mealie",
-      "restore-from-v1-backup": "Aveţi o copie de rezervă dintr-o instanţă anterioară a lui Mealie v1? O puteţi restaura aici.",
+      "here-are-a-few-things-to-help-you-get-started": "Aici sunt câteva lucruri care te ajută să începi cu Tartines",
+      "restore-from-v1-backup": "Aveţi o copie de rezervă dintr-o instanţă anterioară a lui Tartines v1? O puteţi restaura aici.",
       "manage-profile-or-get-invite-link": "Gestionează-ți propriul profil, sau apasă un link de invitație pentru a distribui cu alții."
     },
     "debug-openai-services": "Depanare servicii OpenAI",
@@ -1304,9 +1304,9 @@
     "account-summary": "Sumar Cont",
     "account-summary-description": "Iată un rezumat al informaţiilor grupului tău.",
     "group-statistics": "Statistici Grup",
-    "group-statistics-description": "Statisticile Grupului Tău oferă informații despre cum folosești Mealie.",
+    "group-statistics-description": "Statisticile Grupului Tău oferă informații despre cum folosești Tartines.",
     "household-statistics": "Statistici Gospodărie",
-    "household-statistics-description": "Statisticile tale pentru gospodării oferă o perspectivă despre cum folosești Mealie.",
+    "household-statistics-description": "Statisticile tale pentru gospodării oferă o perspectivă despre cum folosești Tartines.",
     "storage-capacity": "Spațiu de stocare",
     "storage-capacity-description": "Capacitatea ta de stocare este un calcul al imaginilor si al fișierelor pe care le-ai încărcat.",
     "personal": "Personal",
@@ -1327,7 +1327,7 @@
     "notifiers": "Notificatori",
     "notifiers-description": "Configurați notificările de e-mail și push care declanșează evenimente specifice.",
     "manage-data": "Gestionează Datele",
-    "manage-data-description": "Gestionează-ți datele Mealie; Alimente, Unități, Categorii, Etichete și multe altele.",
+    "manage-data-description": "Gestionează-ți datele Tartines; Alimente, Unități, Categorii, Etichete și multe altele.",
     "data-migrations": "Migrări de date",
     "data-migrations-description": "Migrați datele existente din alte aplicații, cum ar fi rețetele Nextcloud și Chowdown.",
     "email-sent": "E-mail trimis",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "Ascunde cărţile de bucate din alte gospodării",
     "hide-cookbooks-from-other-households-description": "Când este activată, vor apărea doar cărți de bucate de la gospodăria ta pe bara laterală",
     "public-cookbook": "Carte de bucate publică",
-    "public-cookbook-description": "Cărțile de bucate publice pot fi partajate cu utilizatorii care nu sunt pe mealie și vor fi afișate pe pagina grupurilor dvs.",
+    "public-cookbook-description": "Cărțile de bucate publice pot fi partajate cu utilizatorii care nu sunt pe tartines și vor fi afișate pe pagina grupurilor dvs.",
     "filter-options": "Opțiuni filtrare",
     "filter-options-description": "Atunci când este nevoie ca toate să fie selectate, cartea de bucate va include numai rețete care au toate articolele selectate. Acest lucru se aplică pentru fiecare subset de selectori și nu pentru o secțiune transversală a elementelor selectate.",
     "require-all-categories": "Necesită toate categoriile",

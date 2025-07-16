@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "Sobre",
-    "about-mealie": "Sobre Mealie",
+    "about-tartines": "Sobre Tartines",
     "api-docs": "Documentação da API",
     "api-port": "Porta da API",
     "application-mode": "Modo do Aplicativo",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "Tem certeza de que quer excluir este evento?",
     "event-deleted": "Evento Excluído",
     "event-updated": "Evento Atualizado",
-    "new-notification-form-description": "Mealie usa a biblioteca Apprise para gerar notificações. Eles oferecem várias opções de serviços para usar em notificações. Consulte sua wiki para um guia completo sobre como criar a URL para o seu serviço. Se disponível, selecionar o tipo da sua notificação pode incluir recursos extras.",
+    "new-notification-form-description": "Tartines usa a biblioteca Apprise para gerar notificações. Eles oferecem várias opções de serviços para usar em notificações. Consulte sua wiki para um guia completo sobre como criar a URL para o seu serviço. Se disponível, selecionar o tipo da sua notificação pode incluir recursos extras.",
     "new-version": "Nova versão disponível!",
     "notification": "Notificação",
     "refresh": "Recarregar",
@@ -373,7 +373,7 @@
     "recipe-migration": "Migração de receita",
     "chowdown": {
       "description": "Migrar dados do Chowdown",
-      "description-long": "Mealie suporta nativamente o formato de repositório do Chowdown. Baixe o repositório de código como um arquivo .zip e carregue-o abaixo.",
+      "description-long": "Tartines suporta nativamente o formato de repositório do Chowdown. Baixe o repositório de código como um arquivo .zip e carregue-o abaixo.",
       "title": "Chowdown"
     },
     "nextcloud": {
@@ -382,48 +382,48 @@
       "title": "Livro de Receitas do Nextcloud"
     },
     "copymethat": {
-      "description-long": "Mealie pode importar receitas da Copy Me That. Exporte suas receitas no formato HTML e depois carregue o .zip abaixo.",
+      "description-long": "Tartines pode importar receitas da Copy Me That. Exporte suas receitas no formato HTML e depois carregue o .zip abaixo.",
       "title": "Gerenciador de Receitas Copy Me That"
     },
     "paprika": {
-      "description-long": "Mealie pode importar receitas do aplicativo Paprika. Exporte suas receitas do Paprika, renomeie a extensão do arquivo para .zip e carregue-o abaixo.",
+      "description-long": "Tartines pode importar receitas do aplicativo Paprika. Exporte suas receitas do Paprika, renomeie a extensão do arquivo para .zip e carregue-o abaixo.",
       "title": "Gerenciador de Receitas Paprika"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie pode importar receitas do aplicativo Mealie a partir de uma versão pré-v1.0. Exporte suas receitas de sua instância antiga e carregue o arquivo zip abaixo. Note que apenas as receitas podem ser importadas da exportação.",
-      "title": "Mealie Pré v1.0"
+    "tartines-pre-v1": {
+      "description-long": "Tartines pode importar receitas do aplicativo Tartines a partir de uma versão pré-v1.0. Exporte suas receitas de sua instância antiga e carregue o arquivo zip abaixo. Note que apenas as receitas podem ser importadas da exportação.",
+      "title": "Tartines Pré v1.0"
     },
     "tandoor": {
-      "description-long": "Mealie pode importar receitas do Tandoor. Exporte seus dados no formato \"Padrão\" e faça o upload do arquivo .zip abaixo.",
+      "description-long": "Tartines pode importar receitas do Tandoor. Exporte seus dados no formato \"Padrão\" e faça o upload do arquivo .zip abaixo.",
       "title": "Receitas do Tandoor"
     },
     "recipe-data-migrations": "Migrações de Dados de Receita",
-    "recipe-data-migrations-explanation": "Receitas podem ser migradas de outro aplicativo suportado para o Mealie. Esta é uma ótima maneira de começar com Mealie.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "Vindo de outra aplicação ou de uma versão mais antiga do Mealie? Confira as migrações e veja se seus dados podem ser importados.",
+    "recipe-data-migrations-explanation": "Receitas podem ser migradas de outro aplicativo suportado para o Tartines. Esta é uma ótima maneira de começar com Tartines.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "Vindo de outra aplicação ou de uma versão mais antiga do Tartines? Confira as migrações e veja se seus dados podem ser importados.",
     "choose-migration-type": "Escolher Tipo de Migração",
     "tag-all-recipes": "Marcar todas as receitas com o marcador {tag-name}",
     "nextcloud-text": "As receitas da Nextcloud podem ser importadas a partir de um arquivo .zip que contém os dados armazenados na Nextcloud. Veja abaixo o exemplo da estrutura da pasta para garantir que suas receitas possam ser importadas.",
-    "chowdown-text": "Mealie suporta nativamente o formato de repositório chowdown. Baixe o repositório de códigos como um arquivo ZIP e envie-o abaixo.",
+    "chowdown-text": "Tartines suporta nativamente o formato de repositório chowdown. Baixe o repositório de códigos como um arquivo ZIP e envie-o abaixo.",
     "recipe-1": "Receita 1",
     "recipe-2": "Receita 2",
-    "paprika-text": "Mealie pode importar receitas do aplicativo Paprika. Exporte suas receitas do Paprika, renomeie a extensão do arquivo para .zip e carregue-o abaixo.",
-    "mealie-text": "Mealie pode importar receitas do aplicativo Mealie a partir de uma versão pré-v1.0. Exporte suas receitas de sua instância antiga e carregue o arquivo zip abaixo. Note que apenas as receitas podem ser importadas da exportação.",
+    "paprika-text": "Tartines pode importar receitas do aplicativo Paprika. Exporte suas receitas do Paprika, renomeie a extensão do arquivo para .zip e carregue-o abaixo.",
+    "tartines-text": "Tartines pode importar receitas do aplicativo Tartines a partir de uma versão pré-v1.0. Exporte suas receitas de sua instância antiga e carregue o arquivo zip abaixo. Note que apenas as receitas podem ser importadas da exportação.",
     "plantoeat": {
       "title": "Planejar refeições",
-      "description-long": "Mealie consegue importar receitas do Planejar Refeições."
+      "description-long": "Tartines consegue importar receitas do Planejar Refeições."
     },
     "myrecipebox": {
       "title": "My Recipe Box",
-      "description-long": "Mealie pode importar receitas do My Recipe Box. Exporte suas receitas em formato CSV e envie o arquivo abaixo."
+      "description-long": "Tartines pode importar receitas do My Recipe Box. Exporte suas receitas em formato CSV e envie o arquivo abaixo."
     },
     "recipekeeper": {
       "title": "Recipe Keeper",
-      "description-long": "Mealie pode importar receitas do Recipe Keeper. Exporte suas receitas no formato ZIP, então envie o arquivo abaixo."
+      "description-long": "Tartines pode importar receitas do Recipe Keeper. Exporte suas receitas no formato ZIP, então envie o arquivo abaixo."
     }
   },
   "new-recipe": {
     "bulk-add": "Adicionar em Massa",
-    "error-details": "Apenas sites contendo ld+json ou microdados podem ser importados pela Mealie. Os principais sites de receitas suportam esta estrutura de dados. Se seu site não pode ser importado, mas há dados json no log, envie uma questão do github com a URL e os dados.",
+    "error-details": "Apenas sites contendo ld+json ou microdados podem ser importados pela Tartines. Os principais sites de receitas suportam esta estrutura de dados. Se seu site não pode ser importado, mas há dados json no log, envie uma questão do github com a URL e os dados.",
     "error-title": "Parece que não conseguimos encontrar nada",
     "from-url": "Importar uma Receita",
     "github-issues": "Problemas no GitHub",
@@ -434,7 +434,7 @@
     "recipe-url": "URL da Receita",
     "recipe-html-or-json": "Recipe HTML or JSON",
     "upload-a-recipe": "Enviar uma Receita",
-    "upload-individual-zip-file": "Enviar um arquivo .zip individual exportado a partir de outra instância do Mealie.",
+    "upload-individual-zip-file": "Enviar um arquivo .zip individual exportado a partir de outra instância do Tartines.",
     "url-form-hint": "Copie e cole um link do seu site de receita favorito",
     "view-scraped-data": "Visualizar Dados Rastreados",
     "trim-whitespace-description": "Aparar o espaço em branco e à direita, bem como linhas em branco",
@@ -579,7 +579,7 @@
     "made-this": "Eu Fiz Isso",
     "how-did-it-turn-out": "Como que ficou?",
     "user-made-this": "{user} fez isso",
-    "api-extras-description": "Extras de receitas são atributos-chave da API do Mealie. Assim, você pode criar pares chave/valor JSON personalizados dentro de uma receita, referenciando aplicações de terceiros. Você pode usar as chaves para fornecer informações, como por ex. ativar automações ou mensagens que serão enviadas a seus dispositivos.",
+    "api-extras-description": "Extras de receitas são atributos-chave da API do Tartines. Assim, você pode criar pares chave/valor JSON personalizados dentro de uma receita, referenciando aplicações de terceiros. Você pode usar as chaves para fornecer informações, como por ex. ativar automações ou mensagens que serão enviadas a seus dispositivos.",
     "message-key": "Chave de mensagem",
     "parse": "Analisar",
     "attach-images-hint": "Anexe imagens arrastando e soltando-as no editor",
@@ -597,7 +597,7 @@
     "create-recipes": "Criar Receitas",
     "import-with-zip": "Importar a partir de .zip",
     "create-recipe-from-an-image": "Create Recipe from an Image",
-    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Mealie will attempt to extract the text from the image using AI and create a recipe from it.",
+    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Tartines will attempt to extract the text from the image using AI and create a recipe from it.",
     "crop-and-rotate-the-image": "Crop and rotate the image so that only the text is visible, and it's in the correct orientation.",
     "create-from-images": "Create from Images",
     "should-translate-description": "Traduza a receita para o meu idioma",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "Crie uma receita fornecendo o nome. Todas as receitas devem ter nomes exclusivos.",
     "new-recipe-names-must-be-unique": "Novos nomes de receitas devem ser únicos",
     "scrape-recipe": "Extrair receita do site",
-    "scrape-recipe-description": "Scrape uma receita por url. Forneça o Url para o site que você deseja scrape, e Mealie tentará raspar a receita desse site e adicioná-la à sua coleção.",
+    "scrape-recipe-description": "Scrape uma receita por url. Forneça o Url para o site que você deseja scrape, e Tartines tentará raspar a receita desse site e adicioná-la à sua coleção.",
     "scrape-recipe-have-a-lot-of-recipes": "Tem muitas receitas a extrair de uma vez?",
     "scrape-recipe-suggest-bulk-importer": "Tente o importador em massa",
     "scrape-recipe-have-raw-html-or-json-data": "Tem dados HTML ou JSON brutos?",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "Importar palavras-chave originais como marcadores",
     "stay-in-edit-mode": "Permanecer no modo de edição",
     "import-from-zip": "Importar do .zip",
-    "import-from-zip-description": "Importar uma única receita exportada de outra instância Mealie.",
+    "import-from-zip-description": "Importar uma única receita exportada de outra instância Tartines.",
     "import-from-html-or-json": "Import from HTML or JSON",
-    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Mealie can't scrape normally, or from some other external source.",
+    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Tartines can't scrape normally, or from some other external source.",
     "json-import-format-description-colon": "Para importar via JSON, ele deve estar em formato válido:",
     "json-editor": "Editor de JSON",
-    "zip-files-must-have-been-exported-from-mealie": "Os arquivos .zip devem ter sido exportados do Mealie",
+    "zip-files-must-have-been-exported-from-tartines": "Os arquivos .zip devem ter sido exportados do Tartines",
     "create-a-recipe-by-uploading-a-scan": "Crie uma receita carregando uma digitalização.",
     "upload-a-png-image-from-a-recipe-book": "Carregar uma imagem em png de um livro de receitas",
     "recipe-bulk-importer": "Importador em massa de Receitas",
-    "recipe-bulk-importer-description": "O importador de receitas em massa permite que você importe várias receitas de uma vez enfileirando os sites no backend e executando a tarefa em segundo plano. Isso pode ser útil quando inicialmente migrar para Mealie, ou quando você quiser importar um grande número de receitas.",
+    "recipe-bulk-importer-description": "O importador de receitas em massa permite que você importe várias receitas de uma vez enfileirando os sites no backend e executando a tarefa em segundo plano. Isso pode ser útil quando inicialmente migrar para Tartines, ou quando você quiser importar um grande número de receitas.",
     "set-categories-and-tags": "Definir Categorias e Marcadores",
     "bulk-imports": "Importações em massa",
     "bulk-import-process-has-started": "Processo de importação em massa iniciado",
     "bulk-import-process-has-failed": "Processo de importação em massa falhou",
     "report-deletion-failed": "Relatório de exclusão falhou",
     "recipe-debugger": "Depurador de Receita",
-    "recipe-debugger-description": "Pegue a URL da receita que deseja depurar e cole aqui. A URL será encontrada pelo scraper das receitas e os resultados serão exibidos. Se não ver nenhum dado retornado, o site que você está tentando criar um scrape não é suportado pelo Mealie ou pela sua biblioteca de scraper.",
+    "recipe-debugger-description": "Pegue a URL da receita que deseja depurar e cole aqui. A URL será encontrada pelo scraper das receitas e os resultados serão exibidos. Se não ver nenhum dado retornado, o site que você está tentando criar um scrape não é suportado pelo Tartines ou pela sua biblioteca de scraper.",
     "use-openai": "Usar OpenAI",
     "recipe-debugger-use-openai-description": "Usar OpenAI para analisar os resultados ao invés de depender da biblioteca de extração. Criando uma receita via URL, isso é feito automaticamente se essa biblioteca, mas você pode testar manualmente aqui.",
     "debug": "Depurar",
@@ -695,7 +695,7 @@
     "clear-selection": "Limpar Seleção",
     "results": "Resultados",
     "search": "Pesquisar",
-    "search-mealie": "Pesquisar no Mealie (pressione /)",
+    "search-tartines": "Pesquisar no Tartines (pressione /)",
     "search-placeholder": "Pesquisar...",
     "tag-filter": "Filtro de Marcadores",
     "search-hint": "Pressione '/'",
@@ -720,7 +720,7 @@
       "import-summary": "Resumo da importação",
       "partial-backup": "Backup parcial",
       "unable-to-delete-backup": "Não foi possível apagar o backup.",
-      "experimental-description": "Cópias de segurança são \"retratos\" do banco de dados e diretórios de dados do site. Isso inclui todos os dados e não pode segregar subconjuntos de dados. Pense como um retrato do Mealie num momento específico. Elas servem como uma forma agnóstica de exportar e importar dados, ou copiar o site para um local externo.",
+      "experimental-description": "Cópias de segurança são \"retratos\" do banco de dados e diretórios de dados do site. Isso inclui todos os dados e não pode segregar subconjuntos de dados. Pense como um retrato do Tartines num momento específico. Elas servem como uma forma agnóstica de exportar e importar dados, ou copiar o site para um local externo.",
       "backup-restore": "Restauração de Backup",
       "back-restore-description": "Restaurar este backup substituirá todos os dados atuais no seu banco de dados e no diretório de dados e os substituirá pelo conteúdo deste backup. {cannot-be-undone} Se a restauração for bem-sucedida, você será desconectado.",
       "cannot-be-undone": "Esta ação não pode ser desfeita - use com cautela.",
@@ -819,7 +819,7 @@
     "tracker": "Rastreador",
     "configuration": "Configuração",
     "docker-volume": "Volume do Docker",
-    "docker-volume-help": "Mealie requer que o contêiner frontend e o backend compartilhem o mesmo volume ou armazenamento do docker. Isto garante que o contêiner de frontend possa acessar corretamente as imagens e arquivos armazenados no disco.",
+    "docker-volume-help": "Tartines requer que o contêiner frontend e o backend compartilhem o mesmo volume ou armazenamento do docker. Isto garante que o contêiner de frontend possa acessar corretamente as imagens e arquivos armazenados no disco.",
     "volumes-are-misconfigured": "Volumes estão mal configurados.",
     "volumes-are-configured-correctly": "Volumes estão configurados corretamente.",
     "status-unknown-try-running-a-validation": "Status desconhecido. Tente executar uma validação.",
@@ -834,7 +834,7 @@
     "general-about": "Sobre",
     "application-version": "Versão do aplicativo",
     "application-version-error-text": "Sua versão atual ({0}) não coincide com a última versão. Considere atualizar para a última versão ({1}).",
-    "mealie-is-up-to-date": "Mealie está atualizado",
+    "tartines-is-up-to-date": "Tartines está atualizado",
     "secure-site": "Site seguro",
     "secure-site-error-text": "Serve via localhost ou seguro com https. Clipboard e APIs adicionais do navegador podem não funcionar.",
     "secure-site-success-text": "O site é acessado por localhost ou https",
@@ -918,7 +918,7 @@
     "sign-up-links": "Links de inscrição",
     "sign-up-token-deleted": "Token de cadastro removido",
     "sign-up-token-deletion-failed": "A exclusão do token de cadastro falhou",
-    "welcome-to-mealie": "Bem-vindo ao Mealie! Para se tornar um usuário desta instância, é necessário ter um link de convite válido. Se você não recebeu um convite você não pode se inscrever. Para receber um link, entre em contato com o administrador do site."
+    "welcome-to-tartines": "Bem-vindo ao Tartines! Para se tornar um usuário desta instância, é necessário ter um link de convite válido. Se você não recebeu um convite você não pode se inscrever. Para receber um link, entre em contato com o administrador do site."
   },
   "tag": {
     "tag-created": "Marcador criado",
@@ -1027,7 +1027,7 @@
     "user-details": "Detalhes do Usuário",
     "user-name": "Nome do usuário",
     "authentication-method": "Método de autenticação",
-    "authentication-method-hint": "Isto especifica como um usuário se autentica com o Mealie. Se não tem certeza, escolha \"Mealie\"",
+    "authentication-method-hint": "Isto especifica como um usuário se autentica com o Tartines. Se não tem certeza, escolha \"Tartines\"",
     "permissions": "Permissões",
     "administrator": "Administrador",
     "user-can-invite-other-to-group": "O usuário pode convidar outros para o grupo",
@@ -1157,7 +1157,7 @@
     "group-details": "Detalhes do Grupo",
     "group-details-description": "Antes de criar uma conta é necessário criar um grupo. O seu grupo só conterá você, mas você poderá convidar os outros mais tarde. Os membros do seu grupo podem compartilhar planos de refeição, listas de compras, receitas e muito mais!",
     "use-seed-data": "Usar dados semeados",
-    "use-seed-data-description": "O Mealie é fornecido com uma coleção de alimentos, unidades e rótulos que podem ser usados para preencher seu grupo com dados úteis para organizar suas receitas.",
+    "use-seed-data-description": "O Tartines é fornecido com uma coleção de alimentos, unidades e rótulos que podem ser usados para preencher seu grupo com dados úteis para organizar suas receitas.",
     "account-details": "Detalhes da Conta"
   },
   "validation": {
@@ -1257,7 +1257,7 @@
       "actions-description-destructive": "destrutivo",
       "actions-description-irreversible": "irreversível",
       "logs-action-refresh": "Atualizar logs",
-      "logs-page-title": "Logs do Mealie",
+      "logs-page-title": "Logs do Tartines",
       "logs-tail-lines-label": "Últimas Linhas"
     },
     "mainentance": {
@@ -1280,12 +1280,12 @@
     "tasks": "Tarefas",
     "setup": {
       "first-time-setup": "Primeira Configuração",
-      "welcome-to-mealie-get-started": "Bem-vindo(a) ao Mealie! Vamos começar",
+      "welcome-to-tartines-get-started": "Bem-vindo(a) ao Tartines! Vamos começar",
       "already-set-up-bring-to-homepage": "Já estou pronto, apenas me leve à página inicial",
       "common-settings-for-new-sites": "Estas são algumas configurações comuns para novos sites",
       "setup-complete": "Configuração Concluída!",
-      "here-are-a-few-things-to-help-you-get-started": "Aqui há algumas coisas para ajudá-lo a começar com o Mealie",
-      "restore-from-v1-backup": "Tem uma cópia de segurança de uma instância anterior do Mealie v1? Você pode restaurá-la aqui.",
+      "here-are-a-few-things-to-help-you-get-started": "Aqui há algumas coisas para ajudá-lo a começar com o Tartines",
+      "restore-from-v1-backup": "Tem uma cópia de segurança de uma instância anterior do Tartines v1? Você pode restaurá-la aqui.",
       "manage-profile-or-get-invite-link": "Gerencie seu próprio perfil, ou pegue um link de convite para compartilhar."
     },
     "debug-openai-services": "Debug de Serviços OpenAI",
@@ -1304,9 +1304,9 @@
     "account-summary": "Resumo da conta",
     "account-summary-description": "Aqui está um resumo das informações do seu grupo.",
     "group-statistics": "Estatísticas do Grupo",
-    "group-statistics-description": "Suas Estatísticas em Grupo fornecem algumas informações sobre como você está usando o Mealie.",
+    "group-statistics-description": "Suas Estatísticas em Grupo fornecem algumas informações sobre como você está usando o Tartines.",
     "household-statistics": "Household Statistics",
-    "household-statistics-description": "Your Household Statistics provide some insight how you're using Mealie.",
+    "household-statistics-description": "Your Household Statistics provide some insight how you're using Tartines.",
     "storage-capacity": "Capacidade de armazenamento",
     "storage-capacity-description": "Sua capacidade de armazenamento é um cálculo das imagens e arquivos que você carregou.",
     "personal": "Pessoal",
@@ -1327,7 +1327,7 @@
     "notifiers": "Notificadores",
     "notifiers-description": "Configure e-mails e notificações push que desencadeiam eventos específicos.",
     "manage-data": "Gerenciar dados",
-    "manage-data-description": "Gerencie seus dados do Mealie; Comidas, Unidades, Categorias, Tags e mais.",
+    "manage-data-description": "Gerencie seus dados do Tartines; Comidas, Unidades, Categorias, Tags e mais.",
     "data-migrations": "Migrações de dados",
     "data-migrations-description": "Migre seus dados existentes de outras aplicações, como Nextcloud Recipes e Chowdown.",
     "email-sent": "E-mail enviado",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "Hide Cookbooks from Other Households",
     "hide-cookbooks-from-other-households-description": "When enabled, only cookbooks from your household will appear on the sidebar",
     "public-cookbook": "Livro de Receitas público",
-    "public-cookbook-description": "Cookbooks públicos podem ser compartilhados com usuários que não sejam não-mealiee serão exibidos na sua página de grupos.",
+    "public-cookbook-description": "Cookbooks públicos podem ser compartilhados com usuários que não sejam não-tartinese serão exibidos na sua página de grupos.",
     "filter-options": "Opções de filtro",
     "filter-options-description": "Quando precisar de tudo for selecionado, o livro de receitas somente incluirá as receitas que tiverem todos os itens selecionados. Isto aplica-se a cada subconjunto de seletores e não a uma seção cruzada dos itens selecionados.",
     "require-all-categories": "Exigir Todas as Categorias",

@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "Névjegy",
-    "about-mealie": "Mealie-ről",
+    "about-tartines": "Tartines-ről",
     "api-docs": "API dokumentáció",
     "api-port": "API Port",
     "application-mode": "Alkalmazás típus",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "Biztosan törölni szeretné ezt az eseményt?",
     "event-deleted": "Esemény törölve",
     "event-updated": "Esemény Frissítve",
-    "new-notification-form-description": "A Mealie az Apprise könyvtárat használja az értesítésekhez. Számos lehetőséget kínál különböző értesítési szolgáltatásokhoz. Nézd meg a wiki oldalukon, hogy kell URL-t létrehozni az általad használt szolgáltatáshoz. Az értesítés típusának kiválasztásával egyéb beállítási lehetőségek jelenhetnek meg.",
+    "new-notification-form-description": "A Tartines az Apprise könyvtárat használja az értesítésekhez. Számos lehetőséget kínál különböző értesítési szolgáltatásokhoz. Nézd meg a wiki oldalukon, hogy kell URL-t létrehozni az általad használt szolgáltatáshoz. Az értesítés típusának kiválasztásával egyéb beállítási lehetőségek jelenhetnek meg.",
     "new-version": "Új verzió elérhető!",
     "notification": "Értesítések",
     "refresh": "Frissítés",
@@ -373,7 +373,7 @@
     "recipe-migration": "Recept migrálás",
     "chowdown": {
       "description": "Adat migrálása Chowdown-ból",
-      "description-long": "Mealie natívan támogatja a chowdown repository formátumot. Töltse le a kódtárat .zip fájlként, és töltse fel a lenti helyen.",
+      "description-long": "Tartines natívan támogatja a chowdown repository formátumot. Töltse le a kódtárat .zip fájlként, és töltse fel a lenti helyen.",
       "title": "Chowdown"
     },
     "nextcloud": {
@@ -382,43 +382,43 @@
       "title": "Nextcloud Cookbook"
     },
     "copymethat": {
-      "description-long": "Mealie képes recepteket importálni a Copy Me That programból. Exportálja a recepteket HTML formátumban, majd töltse fel az alábbi .zip fájlt.",
+      "description-long": "Tartines képes recepteket importálni a Copy Me That programból. Exportálja a recepteket HTML formátumban, majd töltse fel az alábbi .zip fájlt.",
       "title": "Copy Me That Recipe Manager"
     },
     "paprika": {
-      "description-long": "Mealie képes recepteket importálni a Paprika alkalmazásból. Exportálja a receptjeit a Paprikából, nevezze át az export kiterjesztést .zip-re, és töltse fel alább.",
+      "description-long": "Tartines képes recepteket importálni a Paprika alkalmazásból. Exportálja a receptjeit a Paprikából, nevezze át az export kiterjesztést .zip-re, és töltse fel alább.",
       "title": "Paprika Recipe Manager"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie képes a v1.0 előtti kiadású Mealie alkalmazásból származó receptek importálására. Exportálja a receptjeit a régi példányából, és töltse fel a zip fájlt lentebb. Vegye figyelembe, hogy az exportból csak receptek importálhatók.",
-      "title": "Mealie Pre v1.0"
+    "tartines-pre-v1": {
+      "description-long": "Tartines képes a v1.0 előtti kiadású Tartines alkalmazásból származó receptek importálására. Exportálja a receptjeit a régi példányából, és töltse fel a zip fájlt lentebb. Vegye figyelembe, hogy az exportból csak receptek importálhatók.",
+      "title": "Tartines Pre v1.0"
     },
     "tandoor": {
-      "description-long": "Mealie képes recepteket importálni a Tandoorból. Exportálja adatait az \"Alapértelmezett\" formátumban, majd töltse fel a .zip fájlt lentebb.",
+      "description-long": "Tartines képes recepteket importálni a Tandoorból. Exportálja adatait az \"Alapértelmezett\" formátumban, majd töltse fel a .zip fájlt lentebb.",
       "title": "Tandoor receptek"
     },
     "recipe-data-migrations": "Receptadatok migrációja",
-    "recipe-data-migrations-explanation": "A receptek átemelhetők más támogatott alkalmazásból Mealie-be. Ez egy remek módja a Mealie használatának elkezdésére.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "A Mealie egy másik verzióját használtad vagy valami teljesen más applikációt? Nézd meg az adat importálási lehetőségeinket.",
+    "recipe-data-migrations-explanation": "A receptek átemelhetők más támogatott alkalmazásból Tartines-be. Ez egy remek módja a Tartines használatának elkezdésére.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "A Tartines egy másik verzióját használtad vagy valami teljesen más applikációt? Nézd meg az adat importálási lehetőségeinket.",
     "choose-migration-type": "Válassza ki a migrációs típusát",
     "tag-all-recipes": "Az összes recept címkézése a {tag-name} címkével",
     "nextcloud-text": "A Nextcloud-receptek importálhatók a Nextcloudban tárolt adatokat tartalmazó zip-fájlból. Tekintse meg az alábbi példamappaszerkezetet, hogy receptjei biztosan importálhatók legyenek.",
-    "chowdown-text": "Mealie natívan támogatja a chowdown repository formátumot. Töltse le a kódtárat .zip fájlként, és töltse fel alább.",
+    "chowdown-text": "Tartines natívan támogatja a chowdown repository formátumot. Töltse le a kódtárat .zip fájlként, és töltse fel alább.",
     "recipe-1": "Recept 1",
     "recipe-2": "Recept 2",
-    "paprika-text": "Mealie képes recepteket importálni a Paprika alkalmazásból. Exportálja a receptjeit a Paprikából, nevezze át az export kiterjesztést .zip-re, és töltse fel alább.",
-    "mealie-text": "Mealie képes a v1.0 előtti kiadású Mealie alkalmazásból származó receptek importálására. Exportálja a receptjeit a régi példányából, és töltse fel a zip fájlt alább. Vegye figyelembe, hogy az exportból csak receptek importálhatók.",
+    "paprika-text": "Tartines képes recepteket importálni a Paprika alkalmazásból. Exportálja a receptjeit a Paprikából, nevezze át az export kiterjesztést .zip-re, és töltse fel alább.",
+    "tartines-text": "Tartines képes a v1.0 előtti kiadású Tartines alkalmazásból származó receptek importálására. Exportálja a receptjeit a régi példányából, és töltse fel a zip fájlt alább. Vegye figyelembe, hogy az exportból csak receptek importálhatók.",
     "plantoeat": {
       "title": "Plan to Eat",
-      "description-long": "Mealie képes recepteket importálni a Plan to Eat alkalmazásból."
+      "description-long": "Tartines képes recepteket importálni a Plan to Eat alkalmazásból."
     },
     "myrecipebox": {
       "title": "Az én receptes dobozom",
-      "description-long": "A Mealie képest recepteket importálni az Én Receptes Dobozomból. Exportáld a receptjeidet CSV formátúmba, aztán töltsd fel a .csv fájlt lentebb."
+      "description-long": "A Tartines képest recepteket importálni az Én Receptes Dobozomból. Exportáld a receptjeidet CSV formátúmba, aztán töltsd fel a .csv fájlt lentebb."
     },
     "recipekeeper": {
       "title": "Recipe Keeper",
-      "description-long": "A Mealie képes recepteket importálni a Recipe Keeperből. Exportálja a receptjeit zip formátumban, majd töltse fel a .zip fájlt az oldal alján."
+      "description-long": "A Tartines képes recepteket importálni a Recipe Keeperből. Exportálja a receptjeit zip formátumban, majd töltse fel a .zip fájlt az oldal alján."
     }
   },
   "new-recipe": {
@@ -434,7 +434,7 @@
     "recipe-url": "Recept URL",
     "recipe-html-or-json": "HTML vagy JSON recept",
     "upload-a-recipe": "Recept feltöltése",
-    "upload-individual-zip-file": "Tölts fel egy .zíp archívumot, ami egy másik Mealie példányból lett exportálva.",
+    "upload-individual-zip-file": "Tölts fel egy .zíp archívumot, ami egy másik Tartines példányból lett exportálva.",
     "url-form-hint": "Másold be a linket a kedvenc recept weboldaladról",
     "view-scraped-data": "Letöltött adat megtekintése",
     "trim-whitespace-description": "Vágja le a kezdő és a záró fehérjeleket, valamint az üres sorokat",
@@ -579,7 +579,7 @@
     "made-this": "Elkészítettem ezt",
     "how-did-it-turn-out": "Hogyan sikerült?",
     "user-made-this": "ezt {user} készítette el",
-    "api-extras-description": "A receptek extrái a Mealie API egyik legfontosabb szolgáltatása. Lehetővé teszik, hogy egyéni JSON kulcs/érték párokat hozzon létre egy receptben, amelyekre harmadik féltől származó alkalmazásokból hivatkozhat. Ezeket a kulcsokat információszolgáltatásra használhatja, például automatizmusok vagy egyéni üzenetek indítására, amelyeket a kívánt eszközre küldhet.",
+    "api-extras-description": "A receptek extrái a Tartines API egyik legfontosabb szolgáltatása. Lehetővé teszik, hogy egyéni JSON kulcs/érték párokat hozzon létre egy receptben, amelyekre harmadik féltől származó alkalmazásokból hivatkozhat. Ezeket a kulcsokat információszolgáltatásra használhatja, például automatizmusok vagy egyéni üzenetek indítására, amelyeket a kívánt eszközre küldhet.",
     "message-key": "Üzenetkulcs",
     "parse": "Előkészítés",
     "attach-images-hint": "Képek csatolása a szerkesztőbe történő húzásával és ejtésével",
@@ -597,7 +597,7 @@
     "create-recipes": "Receptek létrehozása",
     "import-with-zip": "Importálás .zip formátummal",
     "create-recipe-from-an-image": "Recept készítése képről",
-    "create-recipe-from-an-image-description": "Hozzon létre egy receptet egy kép feltöltésével. A Mealie megpróbálja a kép szövegét mesterséges intelligencia segítségével kinyerni, és létrehozni belőle a receptet.",
+    "create-recipe-from-an-image-description": "Hozzon létre egy receptet egy kép feltöltésével. A Tartines megpróbálja a kép szövegét mesterséges intelligencia segítségével kinyerni, és létrehozni belőle a receptet.",
     "crop-and-rotate-the-image": "Vágja ki és forgassa el a képet úgy, hogy csak a szöveg legyen látható, és megfelelő tájolásban legyen.",
     "create-from-images": "Létrehozás képekről",
     "should-translate-description": "Fordítsa le a receptet a saját nyelvemre",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "Hozzon létre egy receptet a név megadásával. Minden receptnek egyedi névvel kell rendelkeznie.",
     "new-recipe-names-must-be-unique": "Az új recept nevének egyedinek kell lennie",
     "scrape-recipe": "Recept kinyerése",
-    "scrape-recipe-description": "Recept (adatok) kinyerése Url alapján. Adja meg a beolvasni kívánt oldal Url-címét, és Mealie megpróbálja beolvasni a receptet az adott oldalról, majd hozzáadja azt gyűjteményéhez.",
+    "scrape-recipe-description": "Recept (adatok) kinyerése Url alapján. Adja meg a beolvasni kívánt oldal Url-címét, és Tartines megpróbálja beolvasni a receptet az adott oldalról, majd hozzáadja azt gyűjteményéhez.",
     "scrape-recipe-have-a-lot-of-recipes": "Sok receptje van, amit egyszerre szeretne átvenni?",
     "scrape-recipe-suggest-bulk-importer": "Próbálja ki a tömeges importálót",
     "scrape-recipe-have-raw-html-or-json-data": "Nyers HTML vagy JSON adatai vannak?",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "Eredeti kulcsszavak importálása címkeként",
     "stay-in-edit-mode": "Maradjon Szerkesztés módban",
     "import-from-zip": "Importálás ZIP-ből",
-    "import-from-zip-description": "Egy másik Mealie-példányból kiexportált recept egyedi importálása.",
+    "import-from-zip-description": "Egy másik Tartines-példányból kiexportált recept egyedi importálása.",
     "import-from-html-or-json": "Importálás HTML vagy JSON fájlból",
-    "import-from-html-or-json-description": "Egyetlen recept importálása nyers HTML vagy JSON formátumból. Ez akkor hasznos, ha olyan oldalról származik egy recept, vagy más külső forrásból, amelyet a Mealie nem tud normálisan beolvasni.",
+    "import-from-html-or-json-description": "Egyetlen recept importálása nyers HTML vagy JSON formátumból. Ez akkor hasznos, ha olyan oldalról származik egy recept, vagy más külső forrásból, amelyet a Tartines nem tud normálisan beolvasni.",
     "json-import-format-description-colon": "A JSON-on keresztül történő importáláshoz érvényes formátumban kell lennie:",
     "json-editor": "JSON szerkesztő",
-    "zip-files-must-have-been-exported-from-mealie": "A.zip fájlokat Mealie-ból kell exportálni",
+    "zip-files-must-have-been-exported-from-tartines": "A.zip fájlokat Tartines-ból kell exportálni",
     "create-a-recipe-by-uploading-a-scan": "Recept létrehozása szkennelt dokumentum feltöltésével.",
     "upload-a-png-image-from-a-recipe-book": "Png kép feltöltése egy szakácskönyvből",
     "recipe-bulk-importer": "Tömeges recept feltöltő",
-    "recipe-bulk-importer-description": "A Tömeges receptimportáló lehetővé teszi, hogy egyszerre több receptet importáljon a backendben lévő oldalak sorba állításával és a feladat háttérben történő futtatásával. Ez hasznos lehet Mealie-ra való kezdeti áttéréskor, vagy ha nagyszámú receptet szeretne importálni.",
+    "recipe-bulk-importer-description": "A Tömeges receptimportáló lehetővé teszi, hogy egyszerre több receptet importáljon a backendben lévő oldalak sorba állításával és a feladat háttérben történő futtatásával. Ez hasznos lehet Tartines-ra való kezdeti áttéréskor, vagy ha nagyszámú receptet szeretne importálni.",
     "set-categories-and-tags": "Kategóriák és címkék beállítása",
     "bulk-imports": "Tömeges import",
     "bulk-import-process-has-started": "Tömeges import feldolgozás elkezdődött",
     "bulk-import-process-has-failed": "Tömeges import feldolgozás nem sikerült",
     "report-deletion-failed": "Jelentés törlése sikertelen",
     "recipe-debugger": "Recept hibakereső",
-    "recipe-debugger-description": "Fogja meg a hibakereséshez szükséges recept URL-címét, és illessze be ide. Az URL-t a receptkinyerő átemeli, és az eredmények megjelennek. Ha nem lát semmilyen visszaadott adatot, akkor a Mealie vagy a receptkinyerő nem támogatja az oldal formátumát.",
+    "recipe-debugger-description": "Fogja meg a hibakereséshez szükséges recept URL-címét, és illessze be ide. Az URL-t a receptkinyerő átemeli, és az eredmények megjelennek. Ha nem lát semmilyen visszaadott adatot, akkor a Tartines vagy a receptkinyerő nem támogatja az oldal formátumát.",
     "use-openai": "OpenAI használata",
     "recipe-debugger-use-openai-description": "Használja az OpenAI-t az eredmények elemzésére, ahelyett, hogy a scraper könyvtárra hagyatkozna. Ha URL-címen keresztül hoz létre receptet, ez automatikusan megtörténik, ha a scraper könyvtár nem működik, ám itt manuálisan is tesztelheti.",
     "debug": "Hibakeresés",
@@ -695,7 +695,7 @@
     "clear-selection": "Kijelölés törlése",
     "results": "Találatok",
     "search": "Keresés",
-    "search-mealie": "Keresés a Mealie-ben (/ gombbal)",
+    "search-tartines": "Keresés a Tartines-ben (/ gombbal)",
     "search-placeholder": "Keresés...",
     "tag-filter": "Címke szűrő",
     "search-hint": "Üsse be '/'",
@@ -720,7 +720,7 @@
       "import-summary": "Import összefoglaló",
       "partial-backup": "Részleges biztonsági mentés",
       "unable-to-delete-backup": "Nem lehetett létrehozni a biztonsági mentést.",
-      "experimental-description": "A biztonsági mentések az oldal adatbázisának és adatkönyvtárának teljes pillanatfelvételei. Ez az összes adatot tartalmazza, és nem lehet beállítani, hogy az adatok részhalmazait kizárja. Ezt úgy is elképzelheti, mint a Mealie egy adott időpontban készült pillanatfelvételét. Ezek adatbázis-független módon szolgálnak az adatok exportálására és importálására, vagy a webhely külső helyre történő mentésére.",
+      "experimental-description": "A biztonsági mentések az oldal adatbázisának és adatkönyvtárának teljes pillanatfelvételei. Ez az összes adatot tartalmazza, és nem lehet beállítani, hogy az adatok részhalmazait kizárja. Ezt úgy is elképzelheti, mint a Tartines egy adott időpontban készült pillanatfelvételét. Ezek adatbázis-független módon szolgálnak az adatok exportálására és importálására, vagy a webhely külső helyre történő mentésére.",
       "backup-restore": "Biztonsági Mentés/Visszaállítás",
       "back-restore-description": "A biztonsági mentés visszaállítása felülírja az adatbázisban és az adatkönyvtárban lévő összes aktuális adatot, és a biztonsági mentés tartalmával helyettesíti azokat. {cannot-be-undone} Ha a visszaállítás sikeres, akkor a rendszer kilépteti Önt.",
       "cannot-be-undone": "Ezt a műveletet visszavonható - óvatosan használja.",
@@ -819,7 +819,7 @@
     "tracker": "Tracker",
     "configuration": "Beállítás",
     "docker-volume": "Docker Kötet",
-    "docker-volume-help": "A Mealie megköveteli, hogy a frontend konténer és a backend ugyanazt a docker kötetet vagy tárolót használja. Ez biztosítja, hogy a frontend konténer megfelelően hozzáférjen a lemezen tárolt képekhez és eszközökhöz.",
+    "docker-volume-help": "A Tartines megköveteli, hogy a frontend konténer és a backend ugyanazt a docker kötetet vagy tárolót használja. Ez biztosítja, hogy a frontend konténer megfelelően hozzáférjen a lemezen tárolt képekhez és eszközökhöz.",
     "volumes-are-misconfigured": "A kötetek rosszul beállítottak.",
     "volumes-are-configured-correctly": "A kötetek helyesen beállítottak.",
     "status-unknown-try-running-a-validation": "Ismeretlen státusz. Próbáljon meg egy érvényesítést futtatni.",
@@ -834,7 +834,7 @@
     "general-about": "Általános információk",
     "application-version": "Alkalmazás verziója",
     "application-version-error-text": "Az aktuális verzió ({0}) nem felel meg a legújabb kiadásnak. Fontolja meg a frissítést a legújabb verzióra ({1}).",
-    "mealie-is-up-to-date": "Mealie naprakész",
+    "tartines-is-up-to-date": "Tartines naprakész",
     "secure-site": "Biztonságos oldal",
     "secure-site-error-text": "Kiszolgálás localhoston keresztül vagy https-szel biztosítva. A vágólap és a további böngésző API-k nem feltétlenül működnek.",
     "secure-site-success-text": "Az oldal localhoston vagy Https-en keresztül elérve",
@@ -918,7 +918,7 @@
     "sign-up-links": "Regisztrációs hivatkozások",
     "sign-up-token-deleted": "Regisztrációs token törölve",
     "sign-up-token-deletion-failed": "Regisztrációs token törlése sikertelen",
-    "welcome-to-mealie": "Üdvözlünk a Mealie-nál! Ahhoz, hogy felhasználója lehess ennek a példánynak, érvényes meghívó linkre van szükséged. Ha nem kaptál meghívót, nem tudsz regisztrálni. A link megszerzéséhez lépj kapcsolatba az oldal adminisztrátorával."
+    "welcome-to-tartines": "Üdvözlünk a Tartines-nál! Ahhoz, hogy felhasználója lehess ennek a példánynak, érvényes meghívó linkre van szükséged. Ha nem kaptál meghívót, nem tudsz regisztrálni. A link megszerzéséhez lépj kapcsolatba az oldal adminisztrátorával."
   },
   "tag": {
     "tag-created": "Címke létrehozva",
@@ -1027,7 +1027,7 @@
     "user-details": "Felhasználói információk",
     "user-name": "Felhasználó neve",
     "authentication-method": "Hitelesítési módszer",
-    "authentication-method-hint": "This specifies how a user will authenticate with Mealie. If you're not sure, choose 'Mealie",
+    "authentication-method-hint": "This specifies how a user will authenticate with Tartines. If you're not sure, choose 'Tartines",
     "permissions": "Engedélyek",
     "administrator": "Adminisztrátor",
     "user-can-invite-other-to-group": "A felhasználó meghívhat másokat a csoportba",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "lefordítva",
     "choose-language": "Nyelv kiválasztása",
-    "select-description": "Válassza ki a Mealie felhasználói felületének nyelvét. A beállítás csak Önre vonatkozik, más felhasználókra nem.",
+    "select-description": "Válassza ki a Tartines felhasználói felületének nyelvét. A beállítás csak Önre vonatkozik, más felhasználókra nem.",
     "how-to-contribute-description": "Valamit még nem fordítottak le, rosszul fordították le, vagy az Ön nyelve hiányzik a listáról? {read-the-docs-link} arról, hogy tud ebben résztvenni!",
     "read-the-docs": "Olvasd el a dokumentációt"
   },
@@ -1157,7 +1157,7 @@
     "group-details": "Csoport részletek",
     "group-details-description": "Mielőtt létrehozna egy fiókot, létre kell hoznia egy csoportot. A csoportban csak ön lesz, de később másokat is meghívhat. A csoport tagjai menüterveket, bevásárlólistákat, recepteket és még sok mást is megoszthatnak egymással!",
     "use-seed-data": "Mintaadatok használata",
-    "use-seed-data-description": "Mealie az alapanyagok, a mennyiségi egységek és a címkék gyűjteményét tartalmazza, amelyek megoszthatók a csoporttal és hasznos adataival segítségül szolgálhat a receptek szervezéséhez.",
+    "use-seed-data-description": "Tartines az alapanyagok, a mennyiségi egységek és a címkék gyűjteményét tartalmazza, amelyek megoszthatók a csoporttal és hasznos adataival segítségül szolgálhat a receptek szervezéséhez.",
     "account-details": "A fiók részletei"
   },
   "validation": {
@@ -1257,14 +1257,14 @@
       "actions-description-destructive": "romboló",
       "actions-description-irreversible": "visszafordíthatatlan",
       "logs-action-refresh": "Logok frissítése",
-      "logs-page-title": "Mealie logok",
+      "logs-page-title": "Tartines logok",
       "logs-tail-lines-label": "Határvonalak"
     },
     "mainentance": {
       "actions-title": "Műveletek"
     },
     "ingredients-natural-language-processor": "Ingredients Natural Language Processor",
-    "ingredients-natural-language-processor-explanation": "A Mealie feltételes véletlenszerű mezőt (CRF) használ az hozzávalók elemzéséhez és feldolgozásához. A hozzávalókra használt modell a New York Times által összeállított, több mint 100 000 hozzávalóból álló adathalmazon alapul. Vegye figyelembe, hogy mivel a modell csak angol nyelvre készült, a modell más nyelveken történő használatakor eltérő eredményekre számíthat. Ez az oldal a modell tesztelésének a játéktere.",
+    "ingredients-natural-language-processor-explanation": "A Tartines feltételes véletlenszerű mezőt (CRF) használ az hozzávalók elemzéséhez és feldolgozásához. A hozzávalókra használt modell a New York Times által összeállított, több mint 100 000 hozzávalóból álló adathalmazon alapul. Vegye figyelembe, hogy mivel a modell csak angol nyelvre készült, a modell más nyelveken történő használatakor eltérő eredményekre számíthat. Ez az oldal a modell tesztelésének a játéktere.",
     "ingredients-natural-language-processor-explanation-2": "Nem tökéletes, de általában nagyszerű eredményeket ad, és jó kiindulópont a hozzávalók kézi elemzésére az egyedi mezőkbe. Alternatívaként használhatja a \"Brute\" feldolgozót is, amely egy mintaillesztési technikát használ a hozzávalók azonosítására.",
     "nlp": "NLP",
     "brute": "Brute",
@@ -1280,12 +1280,12 @@
     "tasks": "Feladatok",
     "setup": {
       "first-time-setup": "Első beállítás",
-      "welcome-to-mealie-get-started": "Üdvözöl a Mealie! Vágjunk bele",
+      "welcome-to-tartines-get-started": "Üdvözöl a Tartines! Vágjunk bele",
       "already-set-up-bring-to-homepage": "Már kész is vagyok, vigyél az új kezdőoldalamra",
       "common-settings-for-new-sites": "Itt van egy pár alap beállítás az új oldaladhoz",
       "setup-complete": "Beállítás kész!",
-      "here-are-a-few-things-to-help-you-get-started": "Itt van egy pár dolog ami segíthet a kezdésben a Mealie-vel",
-      "restore-from-v1-backup": "Van egy korábbi Mealie v1 biztonsági másolatod? Itt visszaállíthatod.",
+      "here-are-a-few-things-to-help-you-get-started": "Itt van egy pár dolog ami segíthet a kezdésben a Tartines-vel",
+      "restore-from-v1-backup": "Van egy korábbi Tartines v1 biztonsági másolatod? Itt visszaállíthatod.",
       "manage-profile-or-get-invite-link": "Alakítsa a profilját vagy szerezze meg a meghívó link-jét hogy megoszthassa másokkal."
     },
     "debug-openai-services": "OpenAI-szolgáltatások hibakeresése",
@@ -1304,9 +1304,9 @@
     "account-summary": "Fiók áttekintése",
     "account-summary-description": "Itt egy áttekintés a csoportja információiról.",
     "group-statistics": "Csoportstatisztikák",
-    "group-statistics-description": "Az Ön csoportstatisztikái betekintést nyújtanak abba, hogyan használja a Mealie-t.",
+    "group-statistics-description": "Az Ön csoportstatisztikái betekintést nyújtanak abba, hogyan használja a Tartines-t.",
     "household-statistics": "Háztartási statisztikák",
-    "household-statistics-description": "Az Ön háztartási statisztikái betekintést nyújtanak abba, hogyan használja a Mealie-t.",
+    "household-statistics-description": "Az Ön háztartási statisztikái betekintést nyújtanak abba, hogyan használja a Tartines-t.",
     "storage-capacity": "Tárhely mérete",
     "storage-capacity-description": "A tárhely kapacitása az Ön által feltöltött képek és eszközök számításából adódik.",
     "personal": "Személyes",
@@ -1327,7 +1327,7 @@
     "notifiers": "Értesítések",
     "notifiers-description": "Állítson be olyan e-mail és push-értesítéseket, amelyek meghatározott események esetén lépnek működésbe.",
     "manage-data": "Adatok kezelése",
-    "manage-data-description": "Az Ön Mealie adatainak kezelése: alapanyagok, mértékegységek, kategóriák, címkék, stb.",
+    "manage-data-description": "Az Ön Tartines adatainak kezelése: alapanyagok, mértékegységek, kategóriák, címkék, stb.",
     "data-migrations": "Adatmigráció",
     "data-migrations-description": "Migrálja meglévő adatait más alkalmazásokból, például Nextcloud Recipes vagy Chowdown.",
     "email-sent": "E-mail elküldve",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "Szakácskönyvek elrejtése más háztartásoktól",
     "hide-cookbooks-from-other-households-description": "Ha engedélyezve van, csak az Ön háztartásának szakácskönyvei jelennek meg az oldalsávban",
     "public-cookbook": "Nyilvános szakácskönyv",
-    "public-cookbook-description": "A nyilvános szakácskönyvek megoszthatók a nem mealie felhasználókkal, és megjelennek a csoportod oldalán.",
+    "public-cookbook-description": "A nyilvános szakácskönyvek megoszthatók a nem tartines felhasználókkal, és megjelennek a csoportod oldalán.",
     "filter-options": "Szűrési beállítások",
     "filter-options-description": "Ha az összes kívánt elem ki van jelölve, a szakácskönyv csak azokat a recepteket tartalmazza, amelyekben az adott elemek mindegyike szerepel. Ez a kiválasztottak minden egyes részhalmazára vonatkozik, nem pedig a kiválasztott elemek egy metszetére.",
     "require-all-categories": "Minden kategória szükséges",

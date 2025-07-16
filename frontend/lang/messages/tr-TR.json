@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "Hakkında",
-    "about-mealie": "Mealie hakkında",
+    "about-tartines": "Tartines hakkında",
     "api-docs": "API Dokümantasyonu",
     "api-port": "API Portu",
     "application-mode": "Uygulama Modu",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "Bu etkinliği silmek istediğinizden emin misiniz?",
     "event-deleted": "Etkinlik silindi",
     "event-updated": "Etkinlik Güncellendi",
-    "new-notification-form-description": "Mealie bildirimleri oluşturmak için Apprise kütüphanesini kullanır. Apprise bildirimlerde kullanmak için pek çok seçenek sunar. Servisiniz için URL oluşturmak için onların wiki sayfasına göz atın. Eğer mümkünse, bilidiriminizin tipini seçmek size bazı ek özellikler sunabilir.",
+    "new-notification-form-description": "Tartines bildirimleri oluşturmak için Apprise kütüphanesini kullanır. Apprise bildirimlerde kullanmak için pek çok seçenek sunar. Servisiniz için URL oluşturmak için onların wiki sayfasına göz atın. Eğer mümkünse, bilidiriminizin tipini seçmek size bazı ek özellikler sunabilir.",
     "new-version": "Yeni bir sürüm var!",
     "notification": "Bildirimler",
     "refresh": "Yenile",
@@ -373,7 +373,7 @@
     "recipe-migration": "Tarif Taşıma",
     "chowdown": {
       "description": "Verileri Chowdown'dan taşı",
-      "description-long": "Mealie yerel olarak chowdown veri havuzu biçimini destekler. Kod havuzunu bir .zip dosyası olarak indirin ve aşağıya yükleyin.",
+      "description-long": "Tartines yerel olarak chowdown veri havuzu biçimini destekler. Kod havuzunu bir .zip dosyası olarak indirin ve aşağıya yükleyin.",
       "title": "Chowdown"
     },
     "nextcloud": {
@@ -382,48 +382,48 @@
       "title": "Nextcloud Yemek Kitabı"
     },
     "copymethat": {
-      "description-long": "Mealie, Copy Me That'den tarifleri içe aktarabilir. Tariflerinizi HTML biçiminde dışa aktarın, ardından aşağıdaki .zip dosyasını yükleyin.",
+      "description-long": "Tartines, Copy Me That'den tarifleri içe aktarabilir. Tariflerinizi HTML biçiminde dışa aktarın, ardından aşağıdaki .zip dosyasını yükleyin.",
       "title": "Bana O Tarif Yöneticisini Kopyala"
     },
     "paprika": {
-      "description-long": "Mealie, Paprika uygulamasından tarifleri içe aktarabilir. Tariflerinizi paprika'dan dışa aktarın, dışa aktarma uzantısını .zip olarak yeniden adlandırın ve aşağıda yükleyin.",
+      "description-long": "Tartines, Paprika uygulamasından tarifleri içe aktarabilir. Tariflerinizi paprika'dan dışa aktarın, dışa aktarma uzantısını .zip olarak yeniden adlandırın ve aşağıda yükleyin.",
       "title": "Paprika Tarif Yöneticisi"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie, v1.0 öncesi bir sürümden Mealie uygulamasından tarifleri içe aktarabilir. Tariflerinizi eski örneğinizden dışa aktarın ve aşağıdaki zip dosyasını yükleyin. Dışa aktarmadan yalnızca tariflerin içe aktarılabileceğini unutmayın.",
-      "title": "Mealie Pre v1.0"
+    "tartines-pre-v1": {
+      "description-long": "Tartines, v1.0 öncesi bir sürümden Tartines uygulamasından tarifleri içe aktarabilir. Tariflerinizi eski örneğinizden dışa aktarın ve aşağıdaki zip dosyasını yükleyin. Dışa aktarmadan yalnızca tariflerin içe aktarılabileceğini unutmayın.",
+      "title": "Tartines Pre v1.0"
     },
     "tandoor": {
-      "description-long": "Mealie, Tandoor'dan tarifleri içe aktarabilir. Verilerinizi \"Varsayılan\" biçimde dışa aktarın, ardından aşağıdaki .zip dosyasını yükleyin.",
+      "description-long": "Tartines, Tandoor'dan tarifleri içe aktarabilir. Verilerinizi \"Varsayılan\" biçimde dışa aktarın, ardından aşağıdaki .zip dosyasını yükleyin.",
       "title": "Tandoor Tarifleri"
     },
     "recipe-data-migrations": "Tarif Verilerini Taşı",
-    "recipe-data-migrations-explanation": "Tarifler desteklenen başka bir uygulamadan Mealie'ye taşınabilir. Bu Mealie kullanmaya başlamak için mükemmel bir yöntemdir.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "Başka bir uygulamadan mı yoksa Mealie'nin daha eski bir sürümünden mi geliyorsunuz? Taşıma işlemlerine göz atın ve verilerinizin içe aktarılıp aktarılamayacağını görün.",
+    "recipe-data-migrations-explanation": "Tarifler desteklenen başka bir uygulamadan Tartines'ye taşınabilir. Bu Tartines kullanmaya başlamak için mükemmel bir yöntemdir.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "Başka bir uygulamadan mı yoksa Tartines'nin daha eski bir sürümünden mi geliyorsunuz? Taşıma işlemlerine göz atın ve verilerinizin içe aktarılıp aktarılamayacağını görün.",
     "choose-migration-type": "Taşıma Türünü Seçin",
     "tag-all-recipes": "Tüm tarifleri {tag-name} etiketiyle etiketle",
     "nextcloud-text": "Nextcloud tarifleri, Nextcloud'da depolanan verileri içeren bir zip dosyasından içe aktarılabilir. Tariflerinizin içe aktarılabildiğinden emin olmak için aşağıdaki örnek klasör yapısına bakın.",
-    "chowdown-text": "Mealie yerel olarak chowdown veri havuzu formatını destekler. Kod deposunu .zip dosyası olarak indirin ve aşağıya yükleyin.",
+    "chowdown-text": "Tartines yerel olarak chowdown veri havuzu formatını destekler. Kod deposunu .zip dosyası olarak indirin ve aşağıya yükleyin.",
     "recipe-1": "Tarif 1",
     "recipe-2": "Tarif 2",
-    "paprika-text": "Mealie, Paprika uygulamasından tarifleri içe aktarabilir. Tariflerinizi paprika'dan dışa aktarın, dışa aktarma uzantısını .zip olarak yeniden adlandırın ve aşağıda yükleyin.",
-    "mealie-text": "Mealie, v1.0 öncesi bir sürümden Mealie uygulamasından tarifleri içe aktarabilir. Tariflerinizi eski örneğinizden dışa aktarın ve aşağıdaki zip dosyasını yükleyin. Dışa aktarmadan yalnızca tariflerin içe aktarılabileceğini unutmayın.",
+    "paprika-text": "Tartines, Paprika uygulamasından tarifleri içe aktarabilir. Tariflerinizi paprika'dan dışa aktarın, dışa aktarma uzantısını .zip olarak yeniden adlandırın ve aşağıda yükleyin.",
+    "tartines-text": "Tartines, v1.0 öncesi bir sürümden Tartines uygulamasından tarifleri içe aktarabilir. Tariflerinizi eski örneğinizden dışa aktarın ve aşağıdaki zip dosyasını yükleyin. Dışa aktarmadan yalnızca tariflerin içe aktarılabileceğini unutmayın.",
     "plantoeat": {
       "title": "Plan to Eat",
-      "description-long": "Mealie, Plan to Eat'ten tarifleri içe aktarabilir."
+      "description-long": "Tartines, Plan to Eat'ten tarifleri içe aktarabilir."
     },
     "myrecipebox": {
       "title": "Tarife Kutum",
-      "description-long": "Mealie Tarife Kutum'dan tarifleri içe aktarabilir. Tariflerinizi CSV formatında dışa aktarın, ardından .csv dosyasını aşağıya yükleyin."
+      "description-long": "Tartines Tarife Kutum'dan tarifleri içe aktarabilir. Tariflerinizi CSV formatında dışa aktarın, ardından .csv dosyasını aşağıya yükleyin."
     },
     "recipekeeper": {
       "title": "Recipe Keeper",
-      "description-long": "Mealie tarifleri Recipe Keeper'dan içe aktarabilir. Tariflerinizi zip formatında dışa aktarın, daha sonra .zip dosyasını aşağıdan yükleyin."
+      "description-long": "Tartines tarifleri Recipe Keeper'dan içe aktarabilir. Tariflerinizi zip formatında dışa aktarın, daha sonra .zip dosyasını aşağıdan yükleyin."
     }
   },
   "new-recipe": {
     "bulk-add": "Toplu Ekle",
-    "error-details": "Yalnızca ld+json veya mikro veriler içeren web siteleri Mealie tarafından içe aktarılabilir. Çoğu büyük yemek tarifi web sitesi bu veri yapısını desteklemektedir. Siteniz içe aktarılamıyorsa ancak günlükte json verileri varsa lütfen URL ve verilerle birlikte bir Github sorunu gönderin.",
+    "error-details": "Yalnızca ld+json veya mikro veriler içeren web siteleri Tartines tarafından içe aktarılabilir. Çoğu büyük yemek tarifi web sitesi bu veri yapısını desteklemektedir. Siteniz içe aktarılamıyorsa ancak günlükte json verileri varsa lütfen URL ve verilerle birlikte bir Github sorunu gönderin.",
     "error-title": "Görünüşe Göre Hiçbir Şey Bulamadık",
     "from-url": "Tarif İçe Aktar",
     "github-issues": "GitHub Sorunları",
@@ -434,7 +434,7 @@
     "recipe-url": "Tarif Bağlantısı",
     "recipe-html-or-json": "Tarif HTML veya JSON",
     "upload-a-recipe": "Tarif Yükle",
-    "upload-individual-zip-file": "Başka bir Mealie örneğinden dışa aktarılan ayrı bir .zip dosyası yükleyin.",
+    "upload-individual-zip-file": "Başka bir Tartines örneğinden dışa aktarılan ayrı bir .zip dosyası yükleyin.",
     "url-form-hint": "Favori tarif sitenizden bir bağlantıyı kopyalayıp yapıştırın",
     "view-scraped-data": "Kazınmış Verileri Görüntüle",
     "trim-whitespace-description": "Baştaki ve sondaki boşlukların yanı sıra boş satırları da kırpın",
@@ -579,7 +579,7 @@
     "made-this": "Bunu ben yaptım",
     "how-did-it-turn-out": "Nasıl oldu?",
     "user-made-this": "{user} bunu yaptı",
-    "api-extras-description": "Tarif ekstraları Mealie API'nin önemli bir özelliğidir. Üçüncü taraf uygulamalardan referans almak üzere bir tarif içinde özel JSON anahtar/değer çiftleri oluşturmanıza olanak tanır. Bu tuşları, örneğin otomasyonları tetiklemek veya istediğiniz cihaza iletilecek özel mesajları bilgi sağlamak için kullanabilirsiniz.",
+    "api-extras-description": "Tarif ekstraları Tartines API'nin önemli bir özelliğidir. Üçüncü taraf uygulamalardan referans almak üzere bir tarif içinde özel JSON anahtar/değer çiftleri oluşturmanıza olanak tanır. Bu tuşları, örneğin otomasyonları tetiklemek veya istediğiniz cihaza iletilecek özel mesajları bilgi sağlamak için kullanabilirsiniz.",
     "message-key": "İleti Anahtarı",
     "parse": "Ayrıştırma",
     "attach-images-hint": "Düzenleyiciye sürükleyip bırakarak görselleri ekleyin",
@@ -597,7 +597,7 @@
     "create-recipes": "Tarif Oluştur",
     "import-with-zip": ".zip ile içe aktar",
     "create-recipe-from-an-image": "Görüntüden yemek tarifi oluştur",
-    "create-recipe-from-an-image-description": "Bir görsel yükleyerek yemek tarifi oluşturun. Mealie, yapay zekâ kullanarak görseldeki bilgileri çekip yemek tarifini oluşturmaya çalışacaktır.",
+    "create-recipe-from-an-image-description": "Bir görsel yükleyerek yemek tarifi oluşturun. Tartines, yapay zekâ kullanarak görseldeki bilgileri çekip yemek tarifini oluşturmaya çalışacaktır.",
     "crop-and-rotate-the-image": "Resmi sadece yazılar gözükecek şekilde kesin ve döndürün, ayrıca doğru yönde durduğuna emin olun.",
     "create-from-images": "Create from Images",
     "should-translate-description": "Tarifi kendi dilime çevir",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "İsim vererek bir tarif oluşturun. Tüm tariflerin benzersiz isimleri olması gerekiyor.",
     "new-recipe-names-must-be-unique": "Yeni tarif ismi benzersiz olmalı",
     "scrape-recipe": "Tarifi Kazı",
-    "scrape-recipe-description": "Url'den bir tarif kazıyın. Kazımak istediğiniz sitenin url'sini verin ve Mealie, tarifi o siteden alıp koleksiyonunuza eklemeye çalışacaktır.",
+    "scrape-recipe-description": "Url'den bir tarif kazıyın. Kazımak istediğiniz sitenin url'sini verin ve Tartines, tarifi o siteden alıp koleksiyonunuza eklemeye çalışacaktır.",
     "scrape-recipe-have-a-lot-of-recipes": "Aynı anda kazımak istediğiniz birçok tarifiniz mi var?",
     "scrape-recipe-suggest-bulk-importer": "Toplu ithalatçıyı deneyin",
     "scrape-recipe-have-raw-html-or-json-data": "Ham HTML veya JSON verileriniz mi var?",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "Orijinal anahtar kelimeleri etiket olarak içe aktar",
     "stay-in-edit-mode": "Düzenleme modunda kalın",
     "import-from-zip": "Zip'ten içeri aktar",
-    "import-from-zip-description": "Başka bir Mealie örneğinden dışa aktarılmış tek bir tarifi içe aktarın.",
+    "import-from-zip-description": "Başka bir Tartines örneğinden dışa aktarılmış tek bir tarifi içe aktarın.",
     "import-from-html-or-json": "HTML veya JSON veriden içe aktar",
-    "import-from-html-or-json-description": "Ham HTML veya JSON'dan tek bir tarif içe aktar. Bu, Mealie'nin normalde veri çekemediği bir siteden ya da başka bir dış kaynaktan bir tarifin varsa faydalıdır.",
+    "import-from-html-or-json-description": "Ham HTML veya JSON'dan tek bir tarif içe aktar. Bu, Tartines'nin normalde veri çekemediği bir siteden ya da başka bir dış kaynaktan bir tarifin varsa faydalıdır.",
     "json-import-format-description-colon": "To import via JSON, it must be in valid format:",
     "json-editor": "JSON Editör",
-    "zip-files-must-have-been-exported-from-mealie": ".zip dosyası Mealie'den dışa aktarılmış olmalıdır",
+    "zip-files-must-have-been-exported-from-tartines": ".zip dosyası Tartines'den dışa aktarılmış olmalıdır",
     "create-a-recipe-by-uploading-a-scan": "Bir tarama yükleyerek tarif oluşturun.",
     "upload-a-png-image-from-a-recipe-book": "Yemek tarifi kitabından bir png resmi yükleyin",
     "recipe-bulk-importer": "Toplu Tarif İçe Aktarıcı",
-    "recipe-bulk-importer-description": "Toplu tarif içe aktarıcı, arka uçtaki siteleri sıraya koyarak ve görevi arka planda çalıştırarak aynı anda birden fazla tarifi içe aktarmanıza olanak tanır. Bu, başlangıçta Mealie'ye geçiş yaparken veya çok sayıda tarifi içe aktarmak istediğinizde yararlı olabilir.",
+    "recipe-bulk-importer-description": "Toplu tarif içe aktarıcı, arka uçtaki siteleri sıraya koyarak ve görevi arka planda çalıştırarak aynı anda birden fazla tarifi içe aktarmanıza olanak tanır. Bu, başlangıçta Tartines'ye geçiş yaparken veya çok sayıda tarifi içe aktarmak istediğinizde yararlı olabilir.",
     "set-categories-and-tags": "Kategorileri ve Etiketleri Belirleyin",
     "bulk-imports": "Toplu İçe Aktarmalar",
     "bulk-import-process-has-started": "Toplu İçe Aktarma işlemi başladı",
     "bulk-import-process-has-failed": "Toplu içe aktarma işlemi başarısız oldu",
     "report-deletion-failed": "Rapor silme başarısız oldu",
     "recipe-debugger": "Tarif Hata Ayıklayıcı",
-    "recipe-debugger-description": "Hata ayıklamak istediğiniz tarifin URL'sini alın ve buraya yapıştırın. URL, tarif kazıyıcı tarafından kazınacak ve sonuçlar görüntülenecektir. Herhangi bir veri çıktısı göremiyorsanız, kazımaya çalıştığınız site Mealie veya kazıyıcı kitaplığı tarafından desteklenmiyor demektir.",
+    "recipe-debugger-description": "Hata ayıklamak istediğiniz tarifin URL'sini alın ve buraya yapıştırın. URL, tarif kazıyıcı tarafından kazınacak ve sonuçlar görüntülenecektir. Herhangi bir veri çıktısı göremiyorsanız, kazımaya çalıştığınız site Tartines veya kazıyıcı kitaplığı tarafından desteklenmiyor demektir.",
     "use-openai": "OpenAI Kullan",
     "recipe-debugger-use-openai-description": "Sonuçları ayrıştırmak için kazıyıcı kitaplığına güvenmek yerine OpenAI'yi kullanın. URL aracılığıyla bir tarif oluştururken, kazıyıcı kitaplığı başarısız olursa bu otomatik olarak yapılır, ancak burada manuel olarak test edebilirsiniz.",
     "debug": "Hata ayıklama",
@@ -695,7 +695,7 @@
     "clear-selection": "Seçimi Temizle",
     "results": "Sonuçlar",
     "search": "Ara",
-    "search-mealie": "Mealie'de Ara (/ tuşuna basın)",
+    "search-tartines": "Tartines'de Ara (/ tuşuna basın)",
     "search-placeholder": "Ara...",
     "tag-filter": "Etiket Filtresi",
     "search-hint": "'/' Tuşuna Basın",
@@ -720,7 +720,7 @@
       "import-summary": "İçe aktarma özeti",
       "partial-backup": "Parçalı Yedekleme",
       "unable-to-delete-backup": "Yedekleme Silinemedi.",
-      "experimental-description": "Yedeklemeler, sitenin veritabanının ve veri dizininin toplam anlık görüntüleridir. Bu, tüm verileri içerir ve verilerin alt kümelerini hariç tutacak şekilde ayarlanamaz. Bunu Mealie'nin belirli bir andaki anlık görüntüsü olarak düşünebilirsiniz. Bunlar, verileri dışa ve içe aktarmanın veya siteyi harici bir konuma yedeklemenin veritabanından bağımsız bir yolu olarak hizmet eder.",
+      "experimental-description": "Yedeklemeler, sitenin veritabanının ve veri dizininin toplam anlık görüntüleridir. Bu, tüm verileri içerir ve verilerin alt kümelerini hariç tutacak şekilde ayarlanamaz. Bunu Tartines'nin belirli bir andaki anlık görüntüsü olarak düşünebilirsiniz. Bunlar, verileri dışa ve içe aktarmanın veya siteyi harici bir konuma yedeklemenin veritabanından bağımsız bir yolu olarak hizmet eder.",
       "backup-restore": "Yedekleme Geri Yükleme",
       "back-restore-description": "Bu yedeği geri yüklemek, veritabanınızdaki ve veri dizinindeki tüm mevcut verilerin üzerine yazacak ve bunları bu yedeğin içeriğiyle değiştirecektir. {cannot-be-undone} Geri yükleme başarılı olursa oturumunuz kapatılacaktır.",
       "cannot-be-undone": "Bu işlem geri alınamaz - dikkatli kullanın.",
@@ -819,7 +819,7 @@
     "tracker": "Takipçi",
     "configuration": "Yapılandırma",
     "docker-volume": "Docker Birimi",
-    "docker-volume-help": "Mealie frontend ve backend konteynerlerinin aynı Docker volume'unu ya da depolamasını kullanmasını gerektirir. Bu frontent konteynerinin diskinizdeki resim ve diğer bileşenlere düzgün bir şekilde erişebildiğinden emin olur.",
+    "docker-volume-help": "Tartines frontend ve backend konteynerlerinin aynı Docker volume'unu ya da depolamasını kullanmasını gerektirir. Bu frontent konteynerinin diskinizdeki resim ve diğer bileşenlere düzgün bir şekilde erişebildiğinden emin olur.",
     "volumes-are-misconfigured": "Birimler yanlış yapılandırılmış.",
     "volumes-are-configured-correctly": "Birimler doğru yapılandırılmış.",
     "status-unknown-try-running-a-validation": "Durum bilinmiyor. Bir doğrulama çalıştırmayı deneyin.",
@@ -834,7 +834,7 @@
     "general-about": "Genel Hakkında",
     "application-version": "Uygulama Sürümü",
     "application-version-error-text": "Geçerli sürümünüz ({0}) en son sürümle eşleşmiyor. En son sürüme ({1}) güncelleme düşünülüyor.",
-    "mealie-is-up-to-date": "Mealie güncel",
+    "tartines-is-up-to-date": "Tartines güncel",
     "secure-site": "Güvenli Site",
     "secure-site-error-text": "Localhost aracılığıyla servis yapın veya https ile güvenli hale getirin. Pano ve ek tarayıcı API'leri çalışmayabilir.",
     "secure-site-success-text": "Siteye localhost veya https ile erişilmektedir",
@@ -918,7 +918,7 @@
     "sign-up-links": "Üye Olma Bağlantıları",
     "sign-up-token-deleted": "Üye Olma Jetonu Silindi",
     "sign-up-token-deletion-failed": "Üye olma jetonu silme başarısız oldu",
-    "welcome-to-mealie": "Mealie'ye Hoşgeldin! Bu örneğin bir kullanıcısı olabilmek için geçerli bir davet bağlantısına sahip olmanız gerekmektedir. Eğer davet almadıysanız kayıt olamazsınız. Bağlantı almak için site yöneticisiyle iletişime geçin."
+    "welcome-to-tartines": "Tartines'ye Hoşgeldin! Bu örneğin bir kullanıcısı olabilmek için geçerli bir davet bağlantısına sahip olmanız gerekmektedir. Eğer davet almadıysanız kayıt olamazsınız. Bağlantı almak için site yöneticisiyle iletişime geçin."
   },
   "tag": {
     "tag-created": "Etiket oluşturuldu",
@@ -1027,7 +1027,7 @@
     "user-details": "Kullanıcı Ayrıntıları",
     "user-name": "Kullanıcı Adı",
     "authentication-method": "Kimlik Doğrulama Metodu",
-    "authentication-method-hint": "Bu, bir kullanıcının Mealie ile nasıl kimlik doğrulaması yapacağını belirtir. Emin değilseniz, 'Mealie'yi seçin",
+    "authentication-method-hint": "Bu, bir kullanıcının Tartines ile nasıl kimlik doğrulaması yapacağını belirtir. Emin değilseniz, 'Tartines'yi seçin",
     "permissions": "İzinler",
     "administrator": "Yönetici",
     "user-can-invite-other-to-group": "Kullanıcı, başkalarını gruba davet edebilir",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "çevirilmiş",
     "choose-language": "Dil Seç",
-    "select-description": "Mealie kullanıcı arayüzü dilini seçin. Bu ayar yalnızca sizin için geçerlidir, diğer kullanıcılar için geçerli değildir.",
+    "select-description": "Tartines kullanıcı arayüzü dilini seçin. Bu ayar yalnızca sizin için geçerlidir, diğer kullanıcılar için geçerli değildir.",
     "how-to-contribute-description": "Henüz çevrilmemiş, yanlış çevrilmiş bir şeyler var ya da diliniz listede eksik mi? Nasıl katkıda bulunacağınız hakkında {read-the-docs-link}!",
     "read-the-docs": "Belgeleri okuyun"
   },
@@ -1157,7 +1157,7 @@
     "group-details": "Grup Detayları",
     "group-details-description": "Hesap oluşturmadan önce bir grup oluşturmanız gerekir. Grubunuzda yalnızca siz yer alacaksınız ancak daha sonra başkalarını da davet edebileceksiniz. Grubunuzdaki üyeler yemek planlarını, alışveriş listelerini, tarifleri ve daha fazlasını paylaşabilir!",
     "use-seed-data": "Tohum Verisi Kullan",
-    "use-seed-data-description": "Mealie, grubunuzu tariflerinizi düzenlemenize yardımcı olacak yararlı verilerle doldurmak için kullanılabilecek bir Yiyecek, Birim ve Etiket koleksiyonuyla birlikte gelir.",
+    "use-seed-data-description": "Tartines, grubunuzu tariflerinizi düzenlemenize yardımcı olacak yararlı verilerle doldurmak için kullanılabilecek bir Yiyecek, Birim ve Etiket koleksiyonuyla birlikte gelir.",
     "account-details": "Hesap Detayları"
   },
   "validation": {
@@ -1257,14 +1257,14 @@
       "actions-description-destructive": "yıkıcı",
       "actions-description-irreversible": "geri alınamaz",
       "logs-action-refresh": "Günlükleri Yenile",
-      "logs-page-title": "Mealie Günlükleri",
+      "logs-page-title": "Tartines Günlükleri",
       "logs-tail-lines-label": "Kuyruk Çizgileri"
     },
     "mainentance": {
       "actions-title": "Eylemler"
     },
     "ingredients-natural-language-processor": "İçindekiler Doğal Dil İşlemcisi",
-    "ingredients-natural-language-processor-explanation": "Mealie, bileşenleri ayrıştırmak ve işlemek için Koşullu Rastgele Alanlar (CRF'ler) kullanır. İçerikler için kullanılan model, New York Times tarafından derlenen bir veri setinden 100.000'den fazla içerikten oluşan bir veri setine dayanmaktadır. Model yalnızca İngilizce olarak oluşturulduğundan, modeli diğer dillerde kullanırken farklı sonuçlar elde edebileceğinizi unutmayın. Bu sayfa, modeli test etmek için bir oyun alanıdır.",
+    "ingredients-natural-language-processor-explanation": "Tartines, bileşenleri ayrıştırmak ve işlemek için Koşullu Rastgele Alanlar (CRF'ler) kullanır. İçerikler için kullanılan model, New York Times tarafından derlenen bir veri setinden 100.000'den fazla içerikten oluşan bir veri setine dayanmaktadır. Model yalnızca İngilizce olarak oluşturulduğundan, modeli diğer dillerde kullanırken farklı sonuçlar elde edebileceğinizi unutmayın. Bu sayfa, modeli test etmek için bir oyun alanıdır.",
     "ingredients-natural-language-processor-explanation-2": "Mükemmel değil, ancak genel olarak harika sonuçlar veriyor ve malzemeleri manuel olarak ayrı alanlara ayrıştırmak için iyi bir başlangıç noktası. Alternatif olarak, malzemeleri tanımlamak için bir model eşleştirme tekniği kullanan \"Brute\" işlemciyi de kullanabilirsiniz.",
     "nlp": "NLP",
     "brute": "Kaba",
@@ -1280,12 +1280,12 @@
     "tasks": "Görevler",
     "setup": {
       "first-time-setup": "İlk Kurulum",
-      "welcome-to-mealie-get-started": "Mealie'ye hoş geldiniz! Haydi başlayalım",
+      "welcome-to-tartines-get-started": "Tartines'ye hoş geldiniz! Haydi başlayalım",
       "already-set-up-bring-to-homepage": "Kurulumu zaten yaptım, beni yalnızca ana sayfaya götür",
       "common-settings-for-new-sites": "Yeni siteler için bazı ortak ayarlar şunlardır",
       "setup-complete": "Kurulum tamamlandı!",
-      "here-are-a-few-things-to-help-you-get-started": "Mealie'yi kullanmaya başlamanıza yardımcı olacak birkaç şey",
-      "restore-from-v1-backup": "Mealie v1'in önceki örneğinden bir yedeğiniz mi var? Buradan geri yükleyebilirsiniz.",
+      "here-are-a-few-things-to-help-you-get-started": "Tartines'yi kullanmaya başlamanıza yardımcı olacak birkaç şey",
+      "restore-from-v1-backup": "Tartines v1'in önceki örneğinden bir yedeğiniz mi var? Buradan geri yükleyebilirsiniz.",
       "manage-profile-or-get-invite-link": "Kendi profilinizi yönetin veya başkalarıyla paylaşmak için bir davet bağlantısı alın."
     },
     "debug-openai-services": "Debug OpenAI Services",
@@ -1304,9 +1304,9 @@
     "account-summary": "Hesap Özeti",
     "account-summary-description": "Burada grubunuzun bilgilerinin bir özeti bulunmaktadır.",
     "group-statistics": "Grup İstatistikleri",
-    "group-statistics-description": "Grup İstatistikleriniz Mealie'yi nasıl kullandığınıza dair bazı bilgiler sağlar.",
+    "group-statistics-description": "Grup İstatistikleriniz Tartines'yi nasıl kullandığınıza dair bazı bilgiler sağlar.",
     "household-statistics": "Hane İstatistikleri",
-    "household-statistics-description": "Hanenize ait istatistikler, Mealie'yi nasıl kullandığınıza dair bazı bilgiler sunar.",
+    "household-statistics-description": "Hanenize ait istatistikler, Tartines'yi nasıl kullandığınıza dair bazı bilgiler sunar.",
     "storage-capacity": "Depolama Kapasitesi",
     "storage-capacity-description": "Depolama kapasiten yüklediğin resim ve diğer bileşenlerin toplamıdır.",
     "personal": "Kişisel",
@@ -1327,7 +1327,7 @@
     "notifiers": "Bildirimciler",
     "notifiers-description": "Belirli etkinliklerde tetiklenen e-posta ve anlık bildirimleri ayarlayın.",
     "manage-data": "Verileri Yönet",
-    "manage-data-description": "Mealie verilerinizi yönetin; Gıdalar, Birimler, Kategoriler, Etiketler ve daha fazlası.",
+    "manage-data-description": "Tartines verilerinizi yönetin; Gıdalar, Birimler, Kategoriler, Etiketler ve daha fazlası.",
     "data-migrations": "Veri Taşımaları",
     "data-migrations-description": "Mevcut verilerinizi Nextcloud Recipes ve Chowdown gibi diğer uygulamalardan taşıyın.",
     "email-sent": "E-posta Gönderildi",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "Hide Cookbooks from Other Households",
     "hide-cookbooks-from-other-households-description": "When enabled, only cookbooks from your household will appear on the sidebar",
     "public-cookbook": "Herkese Açık Tarif Kitabı",
-    "public-cookbook-description": "Herkese Açık Tarif Kitapları, mealie kullanıcısı olmayanlarla paylaşılabilir ve grup sayfanızda görüntülenir.",
+    "public-cookbook-description": "Herkese Açık Tarif Kitapları, tartines kullanıcısı olmayanlarla paylaşılabilir ve grup sayfanızda görüntülenir.",
     "filter-options": "Filtre Seçenekleri",
     "filter-options-description": "Tümünü gerektir seçildiğinde tarif kitabı yalnızca tüm öğelerin seçili olduğu tarifleri içerecektir. Bu, seçilen öğelerin bir kesiti için değil, seçicilerin her bir alt kümesi için geçerlidir.",
     "require-all-categories": "Tüm Kategorileri Gerektir",

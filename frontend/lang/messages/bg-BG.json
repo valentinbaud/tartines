@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "Относно",
-    "about-mealie": "Относно Mealie",
+    "about-tartines": "Относно Tartines",
     "api-docs": "API Документация",
     "api-port": "API Порт",
     "application-mode": "Приложението",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "Наистина ли искате да премахнете това събитие?",
     "event-deleted": "Събитието изтрито",
     "event-updated": "Събитие Обновено",
-    "new-notification-form-description": "Mealie използва библиотеката Apprise да генерира нотификации. Тя предлага много опции за услуги и нотификации. Прегледайте нейната Wiki страница за подробен гайд как да създадете URL за вашата услуга. Ако е налично, селектирайки типа на нотификацията може да са налични допълнителни функционалности.",
+    "new-notification-form-description": "Tartines използва библиотеката Apprise да генерира нотификации. Тя предлага много опции за услуги и нотификации. Прегледайте нейната Wiki страница за подробен гайд как да създадете URL за вашата услуга. Ако е налично, селектирайки типа на нотификацията може да са налични допълнителни функционалности.",
     "new-version": "Налична е нова версия!",
     "notification": "Известие",
     "refresh": "Опресни",
@@ -373,7 +373,7 @@
     "recipe-migration": "Миграция на рецепта",
     "chowdown": {
       "description": "Мигриране на данни от Chowdown",
-      "description-long": "Mealie поддържа формата на хранилището на Chowdown. Свалете кода на хранилището като .zip файл и го качете по-долу.",
+      "description-long": "Tartines поддържа формата на хранилището на Chowdown. Свалете кода на хранилището като .zip файл и го качете по-долу.",
       "title": "Chowdown"
     },
     "nextcloud": {
@@ -382,48 +382,48 @@
       "title": "Nextcloud Cookbook"
     },
     "copymethat": {
-      "description-long": "Mealie може да импортирай рецепти от Copy Me That. Експортирайте рецептите в HTML формат, след това ги качете като .zip файл по-долу.",
+      "description-long": "Tartines може да импортирай рецепти от Copy Me That. Експортирайте рецептите в HTML формат, след това ги качете като .zip файл по-долу.",
       "title": "Copy Me That мениджър на рецепти"
     },
     "paprika": {
-      "description-long": "Mealie може да импортирай рецепти от приложението Paprika. Експортирайте рецептите си от Paprika, преименувате файловото разширение на .zip и го качете по-долу.",
+      "description-long": "Tartines може да импортирай рецепти от приложението Paprika. Експортирайте рецептите си от Paprika, преименувате файловото разширение на .zip и го качете по-долу.",
       "title": "Paprika мениджър на рецепти"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie може да импортира рецепти от Mealie преди версия 1.0. Експортирайте рецептите от старата си инстанция и ги качете като .zip файл по-долу. Бележка: могат да бъдат импортирани само рецептите.",
-      "title": "Mealie преди версия 1.0"
+    "tartines-pre-v1": {
+      "description-long": "Tartines може да импортира рецепти от Tartines преди версия 1.0. Експортирайте рецептите от старата си инстанция и ги качете като .zip файл по-долу. Бележка: могат да бъдат импортирани само рецептите.",
+      "title": "Tartines преди версия 1.0"
     },
     "tandoor": {
-      "description-long": "Mealie може да импортира рецепти от Tandoor. Експортирайте данните в стандартния формат и ги качете като .zip файл по-долу.",
+      "description-long": "Tartines може да импортира рецепти от Tandoor. Експортирайте данните в стандартния формат и ги качете като .zip файл по-долу.",
       "title": "Tandoor рецепти"
     },
     "recipe-data-migrations": "Миграция на данни на рецепти",
-    "recipe-data-migrations-explanation": "Рецептите могат да бъдат мигрирани от други приложения поддържани от Mealie. Това е добър начин да започнете използването си на Mealie.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "Идваш от друго приложение или дори по-стара версия на Mealie? Провери миграциите и виж дали данните ти могат да бъдат импорторани.",
+    "recipe-data-migrations-explanation": "Рецептите могат да бъдат мигрирани от други приложения поддържани от Tartines. Това е добър начин да започнете използването си на Tartines.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "Идваш от друго приложение или дори по-стара версия на Tartines? Провери миграциите и виж дали данните ти могат да бъдат импорторани.",
     "choose-migration-type": "Избери тип на миграцията",
     "tag-all-recipes": "Добави {tag-name} като етикет във всички рецепти",
     "nextcloud-text": "Nextcloud рецептите могат да бъдат импортирани от .zip файл, който съдържа данни съхранени в Nextcloud. Вижте примерната структура на папките по-долу за да се подсигурите, че рецептите Ви могат да бъдат импортирани.",
-    "chowdown-text": "Mealie поддържа формата на хранилището на Chowdown. Свалете кода на хранилището като .zip файл и го качете по-долу.",
+    "chowdown-text": "Tartines поддържа формата на хранилището на Chowdown. Свалете кода на хранилището като .zip файл и го качете по-долу.",
     "recipe-1": "Рецепта 1",
     "recipe-2": "Рецепта 2",
-    "paprika-text": "Mealie може да импортирай рецепти от приложението Paprika. Експортирайте рецептите си от Paprika, преименувате файловото разширение на .zip и го качете по-долу.",
-    "mealie-text": "Mealie може да импортира рецепти от Mealie преди версия 1.0. Експортирайте рецептите от старата си инстанция и ги качете като .zip файл по-долу. Бележка: могат да бъдат импортирани само рецептите.",
+    "paprika-text": "Tartines може да импортирай рецепти от приложението Paprika. Експортирайте рецептите си от Paprika, преименувате файловото разширение на .zip и го качете по-долу.",
+    "tartines-text": "Tartines може да импортира рецепти от Tartines преди версия 1.0. Експортирайте рецептите от старата си инстанция и ги качете като .zip файл по-долу. Бележка: могат да бъдат импортирани само рецептите.",
     "plantoeat": {
       "title": "Планиране на меню",
-      "description-long": "Mealie може да импортира рецепти от Plan to Eat."
+      "description-long": "Tartines може да импортира рецепти от Plan to Eat."
     },
     "myrecipebox": {
       "title": "Моята кутия с рецепти",
-      "description-long": "Mealie може да импортира рецепти от Моята кутия за рецепти. Експортирайте рецептите си в CSV формат, после качете .csv файлът по-долу."
+      "description-long": "Tartines може да импортира рецепти от Моята кутия за рецепти. Експортирайте рецептите си в CSV формат, после качете .csv файлът по-долу."
     },
     "recipekeeper": {
       "title": "Recipe Keeper",
-      "description-long": "Mealie can import recipes from Recipe Keeper. Export your recipes in zip format, then upload the .zip file below."
+      "description-long": "Tartines can import recipes from Recipe Keeper. Export your recipes in zip format, then upload the .zip file below."
     }
   },
   "new-recipe": {
     "bulk-add": "Масово добавяне",
-    "error-details": "Mealie може да импортира само сайтове, които поддържат Id+Json или микроданни. Повечето големи сайтове за рецепти поддържат тази структура. Ако някой сайт не може да бъде импортиран, но поддържа json данни в лога, моля създайте проблем в GitHub с URL и данни.",
+    "error-details": "Tartines може да импортира само сайтове, които поддържат Id+Json или микроданни. Повечето големи сайтове за рецепти поддържат тази структура. Ако някой сайт не може да бъде импортиран, но поддържа json данни в лога, моля създайте проблем в GitHub с URL и данни.",
     "error-title": "Изглежда, че не можахме да намерим данни",
     "from-url": "Импортирай рецепта",
     "github-issues": "GitHub проблеми",
@@ -434,7 +434,7 @@
     "recipe-url": "URL на рецептата",
     "recipe-html-or-json": "Recipe HTML or JSON",
     "upload-a-recipe": "Качи рецепта",
-    "upload-individual-zip-file": "Качи като индивидуален .zip файлов формат от друга инстанция на Mealie.",
+    "upload-individual-zip-file": "Качи като индивидуален .zip файлов формат от друга инстанция на Tartines.",
     "url-form-hint": "Копирай и постави линк от твоя любим сайт за рецепти",
     "view-scraped-data": "Виж събраните данни",
     "trim-whitespace-description": "Премахни интервалите в началото и края на текста, също така и празните редове",
@@ -579,7 +579,7 @@
     "made-this": "Сготвих рецептата",
     "how-did-it-turn-out": "Как се получи?",
     "user-made-this": "{user} направи това",
-    "api-extras-description": "Екстрите за рецепти са ключова характеристика на Mealie API. Те Ви позволяват да създавате персонализирани JSON двойки ключ/стойност в рамките на рецепта, за да ги препращате към други приложения. Можете да използвате тези ключове, за да предоставите информация за задействане на автоматизация или персонализирани съобщения, за препращане към желаното от Вас устройство.",
+    "api-extras-description": "Екстрите за рецепти са ключова характеристика на Tartines API. Те Ви позволяват да създавате персонализирани JSON двойки ключ/стойност в рамките на рецепта, за да ги препращате към други приложения. Можете да използвате тези ключове, за да предоставите информация за задействане на автоматизация или персонализирани съобщения, за препращане към желаното от Вас устройство.",
     "message-key": "Ключ на съобщението",
     "parse": "Анализирай",
     "attach-images-hint": "Прикачете снимки като ги влачете и пуснете в редактора",
@@ -597,7 +597,7 @@
     "create-recipes": "Създайте рецепти",
     "import-with-zip": "Импортирай от .zip",
     "create-recipe-from-an-image": "Create Recipe from an Image",
-    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Mealie will attempt to extract the text from the image using AI and create a recipe from it.",
+    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Tartines will attempt to extract the text from the image using AI and create a recipe from it.",
     "crop-and-rotate-the-image": "Crop and rotate the image so that only the text is visible, and it's in the correct orientation.",
     "create-from-images": "Create from Images",
     "should-translate-description": "Translate the recipe into my language",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "Добави рецепта като предоставиш име. Всички рецепти трябва да имат уникални имена.",
     "new-recipe-names-must-be-unique": "Името на рецептата трябва да бъде уникално",
     "scrape-recipe": "Обхождане на рецепта",
-    "scrape-recipe-description": "Обходи рецепта по линк. Предоставете линк за сайт, който искате да бъде обходен. Mealie ще опита да обходи рецептата от този сайт и да я добави във Вашата колекция.",
+    "scrape-recipe-description": "Обходи рецепта по линк. Предоставете линк за сайт, който искате да бъде обходен. Tartines ще опита да обходи рецептата от този сайт и да я добави във Вашата колекция.",
     "scrape-recipe-have-a-lot-of-recipes": "Имате много рецепти, които искате да обходите наведнъж?",
     "scrape-recipe-suggest-bulk-importer": "Пробвайте масовото импорторане",
     "scrape-recipe-have-raw-html-or-json-data": "Have raw HTML or JSON data?",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "Добави оригиналните ключови думи като етикети",
     "stay-in-edit-mode": "Остани в режим на редакция",
     "import-from-zip": "Импортирай от Zip",
-    "import-from-zip-description": "Импортирай рецепта, която е била експортирана от друга инстанция на Mealie.",
+    "import-from-zip-description": "Импортирай рецепта, която е била експортирана от друга инстанция на Tartines.",
     "import-from-html-or-json": "Import from HTML or JSON",
-    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Mealie can't scrape normally, or from some other external source.",
+    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Tartines can't scrape normally, or from some other external source.",
     "json-import-format-description-colon": "To import via JSON, it must be in valid format:",
     "json-editor": "JSON Editor",
-    "zip-files-must-have-been-exported-from-mealie": ".zip файловете трябва да бъдат експортирани от Mealie",
+    "zip-files-must-have-been-exported-from-tartines": ".zip файловете трябва да бъдат експортирани от Tartines",
     "create-a-recipe-by-uploading-a-scan": "Добави рецепта като качиш сканирано копие.",
     "upload-a-png-image-from-a-recipe-book": "Качи png изображение от книга с рецепти",
     "recipe-bulk-importer": "Масово импортиране на рецепти",
-    "recipe-bulk-importer-description": "Масовото импортиране Ви позволява да импортиране множество рецепти наведнъж като постави сайтовете на опашка в бекенда и изпълненява задачата във фонов режим. Това може да бъде полезно когато първоначално мигрирате Mealie, или когато искате да импортиране голям брой рецепти наведнъж.",
+    "recipe-bulk-importer-description": "Масовото импортиране Ви позволява да импортиране множество рецепти наведнъж като постави сайтовете на опашка в бекенда и изпълненява задачата във фонов режим. Това може да бъде полезно когато първоначално мигрирате Tartines, или когато искате да импортиране голям брой рецепти наведнъж.",
     "set-categories-and-tags": "Задай категории и етикети",
     "bulk-imports": "Масови импортирания",
     "bulk-import-process-has-started": "Процеса на масово импортиране започна",
     "bulk-import-process-has-failed": "Процеса на масово импортиране се прекрати с грешка",
     "report-deletion-failed": "Неуспешно изтриване на доклад",
     "recipe-debugger": "Debugger на рецепти",
-    "recipe-debugger-description": "Вземете URL на рецептата, която желаете да проверите за грешки и го поставете тук. URL ще бъде обходен и резултатите ще бъдат визуализирани. Ако не виждате върнати данни, сайтът който се опитвате да обходите не се поддържа от Mealie или библиотеката за обхождане.",
+    "recipe-debugger-description": "Вземете URL на рецептата, която желаете да проверите за грешки и го поставете тук. URL ще бъде обходен и резултатите ще бъдат визуализирани. Ако не виждате върнати данни, сайтът който се опитвате да обходите не се поддържа от Tartines или библиотеката за обхождане.",
     "use-openai": "Use OpenAI",
     "recipe-debugger-use-openai-description": "Use OpenAI to parse the results instead of relying on the scraper library. When creating a recipe via URL, this is done automatically if the scraper library fails, but you may test it manually here.",
     "debug": "Отстраняване на грешки",
@@ -695,7 +695,7 @@
     "clear-selection": "Clear Selection",
     "results": "Резултати",
     "search": "Търсене",
-    "search-mealie": "Търсене в Mealie (Натисни /)",
+    "search-tartines": "Търсене в Tartines (Натисни /)",
     "search-placeholder": "Търсене...",
     "tag-filter": "Филтриране по етикет",
     "search-hint": "Натисни '/'",
@@ -720,7 +720,7 @@
       "import-summary": "Обобщение на импортирането",
       "partial-backup": "Частично резервно копие",
       "unable-to-delete-backup": "Невъзможно е да се изтрие това резервно копие.",
-      "experimental-description": "Резервните копия са моменти копия на базата данни и директорията за данни на сайта. Това включва цялата информация и е невъзможно да изключите определени раздели от информация. Може да гледате на това като моменти копия на Mealie за специфично време. Те служат като агностичен начин за експортиране на базата данни и импортиране на данни или архивиране на сайта към външна локация.",
+      "experimental-description": "Резервните копия са моменти копия на базата данни и директорията за данни на сайта. Това включва цялата информация и е невъзможно да изключите определени раздели от информация. Може да гледате на това като моменти копия на Tartines за специфично време. Те служат като агностичен начин за експортиране на базата данни и импортиране на данни или архивиране на сайта към външна локация.",
       "backup-restore": "Възстановяване на резервно копие",
       "back-restore-description": "Възстановяването на това резервно копие ще презапише цялата текуща информация във Вашата база данни и директорията с данни, и ще ги замени със съдържанието от резервното копие. {cannot-be-undone} Ако възстановяването е успешно ще бъдете отписан от системата.",
       "cannot-be-undone": "Това действие не може да бъде отменено - използвайте с внимание.",
@@ -819,7 +819,7 @@
     "tracker": "Преследвач",
     "configuration": "Конфигурация",
     "docker-volume": "Docker том",
-    "docker-volume-help": "Mealie изисква контейнерът на frontend и backend да споделят един и същ том на docker или място за съхранение. Това гарантира, че frontend контейнера може да има правилен достъп до изображенията и активите, съхранени на диска.",
+    "docker-volume-help": "Tartines изисква контейнерът на frontend и backend да споделят един и същ том на docker или място за съхранение. Това гарантира, че frontend контейнера може да има правилен достъп до изображенията и активите, съхранени на диска.",
     "volumes-are-misconfigured": "Томовете са конфигурирани неправилно.",
     "volumes-are-configured-correctly": "Томовете са конфигурирани правилно.",
     "status-unknown-try-running-a-validation": "Статус Неизвестен. Опитайте да стартирате проверка.",
@@ -834,7 +834,7 @@
     "general-about": "Основни настройки",
     "application-version": "Версия на приложението",
     "application-version-error-text": "Вашата текуща версия ({0}) не съответства на най-новата версия. Обмисляте актуализиране до най-новата версия ({1}).",
-    "mealie-is-up-to-date": "Mealie е обновен до актуалната версия",
+    "tartines-is-up-to-date": "Tartines е обновен до актуалната версия",
     "secure-site": "Сигурен сайт",
     "secure-site-error-text": "Сервирайте чрез localhost или защитено с https. Клипбордът и допълнителните API на браузъра може да не работят.",
     "secure-site-success-text": "Сайтът е достъпен чрез localhost или https",
@@ -918,7 +918,7 @@
     "sign-up-links": "Линкове за регистриране",
     "sign-up-token-deleted": "Токенът за регистрация е изтрит",
     "sign-up-token-deletion-failed": "Неуспешно изтриване на токена за регистрация",
-    "welcome-to-mealie": "Добре дошли в Mealie! За да станете потребител на тази инстанция сте длъжни да имате валиден линк за покана. Ако не сте получили покана, тогава е невъзможно да се регистрирате. За да получите линк, свържете се с администратора на сайта."
+    "welcome-to-tartines": "Добре дошли в Tartines! За да станете потребител на тази инстанция сте длъжни да имате валиден линк за покана. Ако не сте получили покана, тогава е невъзможно да се регистрирате. За да получите линк, свържете се с администратора на сайта."
   },
   "tag": {
     "tag-created": "Етикетът беше добавен",
@@ -1027,7 +1027,7 @@
     "user-details": "Детайли за потребителя",
     "user-name": "Потребителско име",
     "authentication-method": "Метод за автентикация",
-    "authentication-method-hint": "This specifies how a user will authenticate with Mealie. If you're not sure, choose 'Mealie",
+    "authentication-method-hint": "This specifies how a user will authenticate with Tartines. If you're not sure, choose 'Tartines",
     "permissions": "Права",
     "administrator": "Администратор",
     "user-can-invite-other-to-group": "User can invite others to group",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "преведено",
     "choose-language": "Избери Език",
-    "select-description": "Изберете език за Mealie. Тази настройка засяга само текущия профил.",
+    "select-description": "Изберете език за Tartines. Тази настройка засяга само текущия профил.",
     "how-to-contribute-description": "Има ли нещо все още непреведено, с грешка в превода, или езикът Ви липсва в списъка? {read-the-docs-link} за да видите как да допринесете!",
     "read-the-docs": "Прочетете документацията"
   },
@@ -1157,7 +1157,7 @@
     "group-details": "Подробности за групата",
     "group-details-description": "Преди да създадете акаунт, ще трябва да създадете група. Вашата група ще съдържа само Вас, но ще можете да поканите други по-късно. Членовете във вашата група могат да споделят планове за хранене, списъци за пазаруване, рецепти и други!",
     "use-seed-data": "Използвай предварителни данни",
-    "use-seed-data-description": "Mealie се доставя с колекция от продукти, мерни единици и етикети за попълване на Вашата група с полезни данни за организиране на рецептите.",
+    "use-seed-data-description": "Tartines се доставя с колекция от продукти, мерни единици и етикети за попълване на Вашата група с полезни данни за организиране на рецептите.",
     "account-details": "Подробни данни за акаунта"
   },
   "validation": {
@@ -1257,14 +1257,14 @@
       "actions-description-destructive": "разрушителни",
       "actions-description-irreversible": "необратимо",
       "logs-action-refresh": "Опресняване на логовете",
-      "logs-page-title": "Mealie логове",
+      "logs-page-title": "Tartines логове",
       "logs-tail-lines-label": "Следвай новите редове"
     },
     "mainentance": {
       "actions-title": "Действия"
     },
     "ingredients-natural-language-processor": "Процесор за естествен език за съставки",
-    "ingredients-natural-language-processor-explanation": "Mealie използва условни случайни полета (CRF) за анализиране и обработка на съставките. Моделът, използван за съставките, се основава на набор от данни от над 100 000 съставки от набор от данни, събран от New York Times. Имайте предвид, че тъй като моделът се обучава само на английски, може да имате различни резултати, когато използвате модела на други езици. Тази страница е площадка за тестване на модела.",
+    "ingredients-natural-language-processor-explanation": "Tartines използва условни случайни полета (CRF) за анализиране и обработка на съставките. Моделът, използван за съставките, се основава на набор от данни от над 100 000 съставки от набор от данни, събран от New York Times. Имайте предвид, че тъй като моделът се обучава само на английски, може да имате различни резултати, когато използвате модела на други езици. Тази страница е площадка за тестване на модела.",
     "ingredients-natural-language-processor-explanation-2": "Не е перфектно, но като цяло дава страхотни резултати и е добра отправна точка за ръчно анализиране на съставки в отделни полета. Като алтернатива можете също да използвате процесора \"Груб\", който използва техника за съвпадение на шаблони, за да идентифицира съставките.",
     "nlp": "ПЕЕ",
     "brute": "Груб",
@@ -1280,12 +1280,12 @@
     "tasks": "Задачи",
     "setup": {
       "first-time-setup": "Настройка за първи път",
-      "welcome-to-mealie-get-started": "Добре дошли в Mealie! Да започваме",
+      "welcome-to-tartines-get-started": "Добре дошли в Tartines! Да започваме",
       "already-set-up-bring-to-homepage": "Вече съм настроен, просто ме отведете до началната страница",
       "common-settings-for-new-sites": "Ето някои общи настройки за нови сайтове",
       "setup-complete": "Настройката е завършена!",
-      "here-are-a-few-things-to-help-you-get-started": "Ето няколко неща, които ще Ви помогнат да започнете с Mealie",
-      "restore-from-v1-backup": "Имате резервно копие от предишна инстанция на Mealie v1? Можете да го възстановите тук.",
+      "here-are-a-few-things-to-help-you-get-started": "Ето няколко неща, които ще Ви помогнат да започнете с Tartines",
+      "restore-from-v1-backup": "Имате резервно копие от предишна инстанция на Tartines v1? Можете да го възстановите тук.",
       "manage-profile-or-get-invite-link": "Управлявайте собствения си профил или вземете връзка за покана, която да споделите с други."
     },
     "debug-openai-services": "Debug OpenAI Services",
@@ -1304,9 +1304,9 @@
     "account-summary": "Обобщение на акаунта",
     "account-summary-description": "Обобщение на информацията за Вашата група.",
     "group-statistics": "Статистики на групата",
-    "group-statistics-description": "Вашата статистика на групата дава известна представа как използвате Mealie.",
+    "group-statistics-description": "Вашата статистика на групата дава известна представа как използвате Tartines.",
     "household-statistics": "Household Statistics",
-    "household-statistics-description": "Your Household Statistics provide some insight how you're using Mealie.",
+    "household-statistics-description": "Your Household Statistics provide some insight how you're using Tartines.",
     "storage-capacity": "Капацитет за съхранение",
     "storage-capacity-description": "Вашият капацитет за съхранение е изчисление на изображенията и активите, които сте качили.",
     "personal": "Лични",
@@ -1327,7 +1327,7 @@
     "notifiers": "Уведомители",
     "notifiers-description": "Настройте имейл и push известия, които се задействат при конкретни събития.",
     "manage-data": "Управление на данни",
-    "manage-data-description": "Управлявай данните в Mealie: Храни, Единици, Категории, Тагове и други.",
+    "manage-data-description": "Управлявай данните в Tartines: Храни, Единици, Категории, Тагове и други.",
     "data-migrations": "Миграция на данни",
     "data-migrations-description": "Мигрирайте вашите съществуващи данни от други приложения като Nextcloud Recipes и Chowdown.",
     "email-sent": "Имейлът е изпратен",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "Hide Cookbooks from Other Households",
     "hide-cookbooks-from-other-households-description": "When enabled, only cookbooks from your household will appear on the sidebar",
     "public-cookbook": "Публична книга с рецепти",
-    "public-cookbook-description": "Публичните готварски книги могат да се споделят с потребители, които не са в Mealie, и ще се показват на страницата на вашите групи.",
+    "public-cookbook-description": "Публичните готварски книги могат да се споделят с потребители, които не са в Tartines, и ще се показват на страницата на вашите групи.",
     "filter-options": "Опции на филтъра",
     "filter-options-description": "Когато е избрано изискване на всички, готварската книга ще включва само рецепти, които имат всички избрани елементи. Това се отнася за всяко подмножество от селектори, а не за напречно сечение на избраните елементи.",
     "require-all-categories": "Изискване на всички категории",

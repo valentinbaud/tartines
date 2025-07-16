@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "Meer oor",
-    "about-mealie": "Meer oor Mealie",
+    "about-tartines": "Meer oor Tartines",
     "api-docs": "API Dokumentasie",
     "api-port": "API Poort",
     "application-mode": "Applikasie modues",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "Is jy seker jy wil hierdie gebeurtenis verwyder?",
     "event-deleted": "Gebeurtenis verwyder",
     "event-updated": "Gebeurtenis is opgedateer",
-    "new-notification-form-description": "Mealie maak van Apprise gebruik om kennisgewings te genereer. Hulle bied baie verskeie dienste as dit kom by kennisgewings. Verwys na hulle wiki vir 'n meer omvattende gids oor hoe om 'n URL vir jou gebruik te genereer. Indien beskikbaar, wanneer die tipe kennisgewing gespesifeer word, ontsluit dit ekstra funksies.",
+    "new-notification-form-description": "Tartines maak van Apprise gebruik om kennisgewings te genereer. Hulle bied baie verskeie dienste as dit kom by kennisgewings. Verwys na hulle wiki vir 'n meer omvattende gids oor hoe om 'n URL vir jou gebruik te genereer. Indien beskikbaar, wanneer die tipe kennisgewing gespesifeer word, ontsluit dit ekstra funksies.",
     "new-version": "Nuwe weergawe is beskikbaar!",
     "notification": "Kennisgewing",
     "refresh": "Verfris",
@@ -373,7 +373,7 @@
     "recipe-migration": "Resep migrasie",
     "chowdown": {
       "description": "Migreer data vanaf Chowdown",
-      "description-long": "Mealie ondersteun die chowdown-bewaarplekformaat. Laai die kodebewaarplek af as 'n .zip-lêer en laai dit hieronder op.",
+      "description-long": "Tartines ondersteun die chowdown-bewaarplekformaat. Laai die kodebewaarplek af as 'n .zip-lêer en laai dit hieronder op.",
       "title": "Chowdown"
     },
     "nextcloud": {
@@ -382,48 +382,48 @@
       "title": "Nextcloud Cookbook"
     },
     "copymethat": {
-      "description-long": "Mealie kan resepte van Copy Me That invoer. Voer jou resepte in HTML-formaat uit en laai dan die .zip hieronder op.",
+      "description-long": "Tartines kan resepte van Copy Me That invoer. Voer jou resepte in HTML-formaat uit en laai dan die .zip hieronder op.",
       "title": "Reseptebestuurder Copy Me That"
     },
     "paprika": {
-      "description-long": "Mealie kan resepte vanaf die Paprika-program invoer. Voer jou resepte uit Paprika uit, hernoem die uitvoeruitbreiding na .zip en laai dit hieronder op.",
+      "description-long": "Tartines kan resepte vanaf die Paprika-program invoer. Voer jou resepte uit Paprika uit, hernoem die uitvoeruitbreiding na .zip en laai dit hieronder op.",
       "title": "Paprika resepte bestuurder"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie kan resepte invoer vanaf ou weergawes van Mealie (voor weergawe 1.0). Voer jou resepte uit die ou weergawe uit en laai die zip-dokument hieronder op. Neem asseblief kennis dat slegs resepte van uitvoer ingevoer kan word.",
-      "title": "Ou weergawes Mealie (voor weergawe 1.0)"
+    "tartines-pre-v1": {
+      "description-long": "Tartines kan resepte invoer vanaf ou weergawes van Tartines (voor weergawe 1.0). Voer jou resepte uit die ou weergawe uit en laai die zip-dokument hieronder op. Neem asseblief kennis dat slegs resepte van uitvoer ingevoer kan word.",
+      "title": "Ou weergawes Tartines (voor weergawe 1.0)"
     },
     "tandoor": {
-      "description-long": "Mealie kan resepte van Tandoor invoer. Voer jou data uit in die \"Standaardformaat\" en laai dan die .zip-lêer op.",
+      "description-long": "Tartines kan resepte van Tandoor invoer. Voer jou data uit in die \"Standaardformaat\" en laai dan die .zip-lêer op.",
       "title": "Tandoor resepte"
     },
     "recipe-data-migrations": "Resep migrasie",
-    "recipe-data-migrations-explanation": "Jy kan resepte vanaf 'n ander program in Mealie invoer. Op hierdie manier kan jy vinnig aan die gang kom.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "Coming from another application or an even older version of Mealie? Check out migrations and see if your data can be imported.",
+    "recipe-data-migrations-explanation": "Jy kan resepte vanaf 'n ander program in Tartines invoer. Op hierdie manier kan jy vinnig aan die gang kom.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "Coming from another application or an even older version of Tartines? Check out migrations and see if your data can be imported.",
     "choose-migration-type": "Kies die tipe migrasie",
     "tag-all-recipes": "Merk alle resepte met {tag-name}-merker",
     "nextcloud-text": "Nextcloud-resepte kan ingevoer word vanaf 'n zip-dokument wat die data bevat wat in Nextcloud gestoor is. Sien die voorbeeldstruktuur hieronder om te verseker dat jou resepte ingevoer kan word.",
-    "chowdown-text": "Mealie natively supports the chowdown repository format. Download the code repository as a .zip file and upload it below.",
+    "chowdown-text": "Tartines natively supports the chowdown repository format. Download the code repository as a .zip file and upload it below.",
     "recipe-1": "Resep 1",
     "recipe-2": "Resep 2",
-    "paprika-text": "Mealie kan resepte vanaf die Paprika-program invoer. Voer jou resepte uit Paprika uit, hernoem die uitvoeruitbreiding na .zip en laai dit hieronder op.",
-    "mealie-text": "Mealie kan resepte invoer vanaf ou weergawes van Mealie (voor weergawe 1.0). Voer jou resepte uit die ou weergawe uit en laai die zip-dokument hieronder op. Neem asseblief kennis dat slegs resepte van uitvoer ingevoer kan word.",
+    "paprika-text": "Tartines kan resepte vanaf die Paprika-program invoer. Voer jou resepte uit Paprika uit, hernoem die uitvoeruitbreiding na .zip en laai dit hieronder op.",
+    "tartines-text": "Tartines kan resepte invoer vanaf ou weergawes van Tartines (voor weergawe 1.0). Voer jou resepte uit die ou weergawe uit en laai die zip-dokument hieronder op. Neem asseblief kennis dat slegs resepte van uitvoer ingevoer kan word.",
     "plantoeat": {
       "title": "Plan to Eat",
-      "description-long": "Mealie kan resepte invoer vanaf Plan to Eat."
+      "description-long": "Tartines kan resepte invoer vanaf Plan to Eat."
     },
     "myrecipebox": {
       "title": "My Recipe Box",
-      "description-long": "Mealie can import recipes from My Recipe Box. Export your recipes in CSV format, then upload the .csv file below."
+      "description-long": "Tartines can import recipes from My Recipe Box. Export your recipes in CSV format, then upload the .csv file below."
     },
     "recipekeeper": {
       "title": "Recipe Keeper",
-      "description-long": "Mealie can import recipes from Recipe Keeper. Export your recipes in zip format, then upload the .zip file below."
+      "description-long": "Tartines can import recipes from Recipe Keeper. Export your recipes in zip format, then upload the .zip file below."
     }
   },
   "new-recipe": {
     "bulk-add": "Voeg in grootmaat by",
-    "error-details": "Slegs webwerwe met ld+json of mikrodata kan deur Mealie ingevoer word. Die meeste groot resepwebwerwe ondersteun hierdie datastruktuur. As jou werf nie ingevoer kan word nie, maar daar is json-data in die logboek, skep 'n GitHub issue met die URL en data.",
+    "error-details": "Slegs webwerwe met ld+json of mikrodata kan deur Tartines ingevoer word. Die meeste groot resepwebwerwe ondersteun hierdie datastruktuur. As jou werf nie ingevoer kan word nie, maar daar is json-data in die logboek, skep 'n GitHub issue met die URL en data.",
     "error-title": "Dit blyk dat ons niks kon vind nie",
     "from-url": "Voer resep in",
     "github-issues": "GitHub Issues",
@@ -434,7 +434,7 @@
     "recipe-url": "Resep URL",
     "recipe-html-or-json": "Recipe HTML or JSON",
     "upload-a-recipe": "Laai 'n resep op",
-    "upload-individual-zip-file": "Laai 'n .zip-lêer op wat vanaf 'n ander Mealie-instansie uitgevoer is.",
+    "upload-individual-zip-file": "Laai 'n .zip-lêer op wat vanaf 'n ander Tartines-instansie uitgevoer is.",
     "url-form-hint": "Kopieer en plak 'n skakel vanaf jou gunstelingresepwebwerf",
     "view-scraped-data": "Bekyk opgespoorde data",
     "trim-whitespace-description": "Knip voorste en agterste witspasie sowel as leë reëls",
@@ -579,7 +579,7 @@
     "made-this": "Ek het dit gemaak",
     "how-did-it-turn-out": "Hoe het dit uitgedraai?",
     "user-made-this": "{user} het dit gemaak",
-    "api-extras-description": "Recipes extras are a key feature of the Mealie API. They allow you to create custom JSON key/value pairs within a recipe, to reference from 3rd party applications. You can use these keys to provide information, for example to trigger automations or custom messages to relay to your desired device.",
+    "api-extras-description": "Recipes extras are a key feature of the Tartines API. They allow you to create custom JSON key/value pairs within a recipe, to reference from 3rd party applications. You can use these keys to provide information, for example to trigger automations or custom messages to relay to your desired device.",
     "message-key": "Boodskap sleutel",
     "parse": "Verwerk",
     "attach-images-hint": "Voeg prente by deur dit in die bewerker te sleep en los",
@@ -597,7 +597,7 @@
     "create-recipes": "Create Recipes",
     "import-with-zip": "Voer in met .zip",
     "create-recipe-from-an-image": "Create Recipe from an Image",
-    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Mealie will attempt to extract the text from the image using AI and create a recipe from it.",
+    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Tartines will attempt to extract the text from the image using AI and create a recipe from it.",
     "crop-and-rotate-the-image": "Crop and rotate the image so that only the text is visible, and it's in the correct orientation.",
     "create-from-images": "Create from Images",
     "should-translate-description": "Translate the recipe into my language",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "Skep 'n resep deur dit 'n naam te gee. Alle resepte moet unieke name hê.",
     "new-recipe-names-must-be-unique": "Nuwe resepname moet uniek wees",
     "scrape-recipe": "Skraap resep",
-    "scrape-recipe-description": "Voeg 'n resep by via 'n url. Voer die url van die webwerf in wat jy vir 'n resep wil skandeer, Mealie sal probeer om die resep vanaf daardie plek te skandeer en by jou versameling te voeg.",
+    "scrape-recipe-description": "Voeg 'n resep by via 'n url. Voer die url van die webwerf in wat jy vir 'n resep wil skandeer, Tartines sal probeer om die resep vanaf daardie plek te skandeer en by jou versameling te voeg.",
     "scrape-recipe-have-a-lot-of-recipes": "Have a lot of recipes you want to scrape at once?",
     "scrape-recipe-suggest-bulk-importer": "Try out the bulk importer",
     "scrape-recipe-have-raw-html-or-json-data": "Have raw HTML or JSON data?",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "Voer oorspronklike sleutelwoorde as merkers in",
     "stay-in-edit-mode": "Bly in redigeer modus",
     "import-from-zip": "Voer vanaf zip in",
-    "import-from-zip-description": "Voer 'n enkele resep in wat vanaf 'n ander Mealie-instansie uitgevoer is.",
+    "import-from-zip-description": "Voer 'n enkele resep in wat vanaf 'n ander Tartines-instansie uitgevoer is.",
     "import-from-html-or-json": "Import from HTML or JSON",
-    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Mealie can't scrape normally, or from some other external source.",
+    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Tartines can't scrape normally, or from some other external source.",
     "json-import-format-description-colon": "To import via JSON, it must be in valid format:",
     "json-editor": "JSON Editor",
-    "zip-files-must-have-been-exported-from-mealie": ".zip-lêers moes vanaf Mealie uitgevoer gewees het",
+    "zip-files-must-have-been-exported-from-tartines": ".zip-lêers moes vanaf Tartines uitgevoer gewees het",
     "create-a-recipe-by-uploading-a-scan": "Skep 'n resep deur 'n skandering op te laai.",
     "upload-a-png-image-from-a-recipe-book": "Laai 'n png-prent uit 'n resepteboek op",
     "recipe-bulk-importer": "Resep bondel invoerder",
-    "recipe-bulk-importer-description": "Die grootmaatresep-invoerder laat jou toe om veelvuldige resepte gelyktydig in te voer deur die webwerwe op die agterkant in tou te plaas en die taak in die agtergrond uit te voer. Dit kan nuttig wees wanneer jy aanvanklik na Mealie migreer, of wanneer jy 'n groot aantal resepte wil invoer.",
+    "recipe-bulk-importer-description": "Die grootmaatresep-invoerder laat jou toe om veelvuldige resepte gelyktydig in te voer deur die webwerwe op die agterkant in tou te plaas en die taak in die agtergrond uit te voer. Dit kan nuttig wees wanneer jy aanvanklik na Tartines migreer, of wanneer jy 'n groot aantal resepte wil invoer.",
     "set-categories-and-tags": "Stel kategorieë en merkers op",
     "bulk-imports": "Bondel invoere",
     "bulk-import-process-has-started": "Bondel invoer proses het begin",
     "bulk-import-process-has-failed": "Bondel invoer proses het misluk",
     "report-deletion-failed": "Kon nie verslag uitvee nie",
     "recipe-debugger": "Resep debugger",
-    "recipe-debugger-description": "Gryp die URL van die resep wat jy wil debug en plak dit hier. Die URL sal deur die resepskraper geskraap word en die resultate sal vertoon word. As jy nie enige data terugstuur sien nie, word die webwerf wat jy probeer skraap nie deur Mealie of sy skraperbiblioteek ondersteun nie.",
+    "recipe-debugger-description": "Gryp die URL van die resep wat jy wil debug en plak dit hier. Die URL sal deur die resepskraper geskraap word en die resultate sal vertoon word. As jy nie enige data terugstuur sien nie, word die webwerf wat jy probeer skraap nie deur Tartines of sy skraperbiblioteek ondersteun nie.",
     "use-openai": "Use OpenAI",
     "recipe-debugger-use-openai-description": "Use OpenAI to parse the results instead of relying on the scraper library. When creating a recipe via URL, this is done automatically if the scraper library fails, but you may test it manually here.",
     "debug": "Debug",
@@ -695,7 +695,7 @@
     "clear-selection": "Clear Selection",
     "results": "Resultate",
     "search": "Soek",
-    "search-mealie": "Soek in Mealie (druk /)",
+    "search-tartines": "Soek in Tartines (druk /)",
     "search-placeholder": "Soek...",
     "tag-filter": "Merker filter",
     "search-hint": "Druk '/'",
@@ -720,7 +720,7 @@
       "import-summary": "Invoeropsomming",
       "partial-backup": "Gedeeltelike back-up",
       "unable-to-delete-backup": "Kon nie back-up verwyder nie.",
-      "experimental-description": "Backups are total snapshots of the database and data directory of the site. This includes all data and cannot be set to exclude subsets of data. You can think of this as a snapshot of Mealie at a specific time. These serve as a database agnostic way to export and import data, or back up the site to an external location.",
+      "experimental-description": "Backups are total snapshots of the database and data directory of the site. This includes all data and cannot be set to exclude subsets of data. You can think of this as a snapshot of Tartines at a specific time. These serve as a database agnostic way to export and import data, or back up the site to an external location.",
       "backup-restore": "Herlaai vanaf back-up",
       "back-restore-description": "Die herstel van hierdie back-up sal alle huidige data in jou databasis en in die data-lêergids oorskryf. {cannot-be-undone} As die herstel suksesvol was, sal jy afgemeld word.",
       "cannot-be-undone": "Hierdie aksie kan nie ongedaan gemaak word nie - gebruik met omsigtigheid.",
@@ -819,7 +819,7 @@
     "tracker": "Tracker",
     "configuration": "Konfigurasie",
     "docker-volume": "Docker Volume",
-    "docker-volume-help": "Mealie vereis dat die frontend container en die backend dieselfde docker volume of stoorspasie deel. Dit verseker dat die frontend container toegang tot die prente en lêers op die skyf kan kry.",
+    "docker-volume-help": "Tartines vereis dat die frontend container en die backend dieselfde docker volume of stoorspasie deel. Dit verseker dat die frontend container toegang tot die prente en lêers op die skyf kan kry.",
     "volumes-are-misconfigured": "Volumes are misconfigured.",
     "volumes-are-configured-correctly": "Volumes is korrek opgestel.",
     "status-unknown-try-running-a-validation": "Status onbekend. Probeer om 'n mate van validering te doen.",
@@ -834,7 +834,7 @@
     "general-about": "Algemene inligting",
     "application-version": "Toepassing weergawe",
     "application-version-error-text": "Die huidige weergawe ({0}) stem nie ooreen met die nuutste weergawe nie. Oorweeg dit om op te dateer na die nuutste weergawe ({1}).",
-    "mealie-is-up-to-date": "Nuutste weergawe van Mealie",
+    "tartines-is-up-to-date": "Nuutste weergawe van Tartines",
     "secure-site": "Veilige webwerf",
     "secure-site-error-text": "Toegang via localhost of beveilig met https. Knipbord en bykomende webblaaier-API's sal moontlik nie werk nie.",
     "secure-site-success-text": "Toegang tot die webwerf word verkry deur localhost of https",
@@ -918,7 +918,7 @@
     "sign-up-links": "Registrasie skakels",
     "sign-up-token-deleted": "Registrasie token is verwyder",
     "sign-up-token-deletion-failed": "Verwydering van registrasie token het misluk",
-    "welcome-to-mealie": "Welkom by Mealie! Om 'n gebruiker van hierdie instansie te word, moet jy 'n geldige uitnodigingskakel hê. As jy nog nie 'n uitnodiging ontvang het nie, kontak asseblief jou administrateur."
+    "welcome-to-tartines": "Welkom by Tartines! Om 'n gebruiker van hierdie instansie te word, moet jy 'n geldige uitnodigingskakel hê. As jy nog nie 'n uitnodiging ontvang het nie, kontak asseblief jou administrateur."
   },
   "tag": {
     "tag-created": "Merker geskep",
@@ -1027,7 +1027,7 @@
     "user-details": "Gebruikersbesonderhede",
     "user-name": "Gebruikersnaam",
     "authentication-method": "Verifikasie metode",
-    "authentication-method-hint": "This specifies how a user will authenticate with Mealie. If you're not sure, choose 'Mealie",
+    "authentication-method-hint": "This specifies how a user will authenticate with Tartines. If you're not sure, choose 'Tartines",
     "permissions": "Permissies",
     "administrator": "Administrateur",
     "user-can-invite-other-to-group": "User can invite others to group",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "vertaal",
     "choose-language": "Kies taal",
-    "select-description": "Kies die taal vir die Mealie UI. Die verstelling is slegs van toepassing op jou, nie ander gebruikers nie.",
+    "select-description": "Kies die taal vir die Tartines UI. Die verstelling is slegs van toepassing op jou, nie ander gebruikers nie.",
     "how-to-contribute-description": "Is iets nog nie vertaal nie, verkeerd vertaal, of ontbreek jou taal op die lys? {read-the-docs-link} oor hoe om by te dra!",
     "read-the-docs": "Lees die dokumentasie"
   },
@@ -1157,7 +1157,7 @@
     "group-details": "Groep besonderhede",
     "group-details-description": "Voordat jy 'n rekening skep, moet jy eers 'n groep skep. Jy sal die enigste lid van die groep wees, maar jy kan later ander nooi. Lede van jou groep kan maaltydplanne, inkopielyste, resepte en meer deel!",
     "use-seed-data": "Gebruik voorbeelddata",
-    "use-seed-data-description": "Mealie bevat 'n versameling bestanddele, eenhede en etikette wat gebruik kan word om jou groep met nuttige data te vul om jou resepte te organiseer.",
+    "use-seed-data-description": "Tartines bevat 'n versameling bestanddele, eenhede en etikette wat gebruik kan word om jou groep met nuttige data te vul om jou resepte te organiseer.",
     "account-details": "Rekening besonderhede"
   },
   "validation": {
@@ -1257,14 +1257,14 @@
       "actions-description-destructive": "vernietigend",
       "actions-description-irreversible": "onomkeerbaar",
       "logs-action-refresh": "Herlaai logs",
-      "logs-page-title": "Mealie logs",
+      "logs-page-title": "Tartines logs",
       "logs-tail-lines-label": "Laaste reëls"
     },
     "mainentance": {
       "actions-title": "Aksies"
     },
     "ingredients-natural-language-processor": "Natuurlike taalverwerker vir bestanddele",
-    "ingredients-natural-language-processor-explanation": "Mealie gebruik willekeurige voorwaardelike velde vir die ontleed en verwerking van bestanddele. Die model is gebaseer op 'n datastel van meer as 100 000 bestanddele. Dit kom uit 'n datastel wat deur die New York Times saamgestel is. Aangesien die model slegs in Engels opgelei is, kan die gebruik van die model in ander tale verskil. Hierdie bladsy is 'n speelgrond om die model te toets.",
+    "ingredients-natural-language-processor-explanation": "Tartines gebruik willekeurige voorwaardelike velde vir die ontleed en verwerking van bestanddele. Die model is gebaseer op 'n datastel van meer as 100 000 bestanddele. Dit kom uit 'n datastel wat deur die New York Times saamgestel is. Aangesien die model slegs in Engels opgelei is, kan die gebruik van die model in ander tale verskil. Hierdie bladsy is 'n speelgrond om die model te toets.",
     "ingredients-natural-language-processor-explanation-2": "Dit is nie perfek nie, maar dit lewer oor die algemeen uitstekende resultate en is 'n goeie beginpunt vir die handverwerking van bestanddele in individuele velde. Jy kan ook die \"Brute\" verwerker gebruik wat 'n patroonpastegniek gebruik om bestanddele te identifiseer.",
     "nlp": "NLP",
     "brute": "Brute",
@@ -1280,12 +1280,12 @@
     "tasks": "Take",
     "setup": {
       "first-time-setup": "First Time Setup",
-      "welcome-to-mealie-get-started": "Welcome to Mealie! Let's get started",
+      "welcome-to-tartines-get-started": "Welcome to Tartines! Let's get started",
       "already-set-up-bring-to-homepage": "I'm already set up, just bring me to the homepage",
       "common-settings-for-new-sites": "Here are some common settings for new sites",
       "setup-complete": "Setup Complete!",
-      "here-are-a-few-things-to-help-you-get-started": "Here are a few things to help you get started with Mealie",
-      "restore-from-v1-backup": "Have a backup from a previous instance of Mealie v1? You can restore it here.",
+      "here-are-a-few-things-to-help-you-get-started": "Here are a few things to help you get started with Tartines",
+      "restore-from-v1-backup": "Have a backup from a previous instance of Tartines v1? You can restore it here.",
       "manage-profile-or-get-invite-link": "Manage your own profile, or grab an invite link to share with others."
     },
     "debug-openai-services": "Debug OpenAI Services",
@@ -1304,9 +1304,9 @@
     "account-summary": "Rekeningopsomming",
     "account-summary-description": "Here's a summary of your group's information.",
     "group-statistics": "Groepstatistieke",
-    "group-statistics-description": "Jou groepstatistieke gee 'n bietjie insig hoe jy Mealie gebruik.",
+    "group-statistics-description": "Jou groepstatistieke gee 'n bietjie insig hoe jy Tartines gebruik.",
     "household-statistics": "Household Statistics",
-    "household-statistics-description": "Your Household Statistics provide some insight how you're using Mealie.",
+    "household-statistics-description": "Your Household Statistics provide some insight how you're using Tartines.",
     "storage-capacity": "Stoorkapasiteit",
     "storage-capacity-description": "Jou stoorkapasiteit is 'n berekening van die prente en dokumente wat jy opgelaai het.",
     "personal": "Persoonlik",
@@ -1327,7 +1327,7 @@
     "notifiers": "Kennisgewers",
     "notifiers-description": "Stel e-pos- en stootkennisgewings op wat deur spesifieke gebeurtenisse geaktiveer word.",
     "manage-data": "Databestuur",
-    "manage-data-description": "Manage your Mealie data; Foods, Units, Categories, Tags and more.",
+    "manage-data-description": "Manage your Tartines data; Foods, Units, Categories, Tags and more.",
     "data-migrations": "Data-migrasies",
     "data-migrations-description": "Migrate your existing data from other applications like Nextcloud Recipes and Chowdown.",
     "email-sent": "E-pos gestuur",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "Hide Cookbooks from Other Households",
     "hide-cookbooks-from-other-households-description": "When enabled, only cookbooks from your household will appear on the sidebar",
     "public-cookbook": "Openbare kookboek",
-    "public-cookbook-description": "Publieke kookboeke kan met nie-mealie-gebruikers gedeel word en sal op jou groepbladsy verskyn.",
+    "public-cookbook-description": "Publieke kookboeke kan met nie-tartines-gebruikers gedeel word en sal op jou groepbladsy verskyn.",
     "filter-options": "Filter opsies",
     "filter-options-description": "As \"Alle...\" gekies is, sal die kookboek slegs resepte bevat wat aan al die geselekteerde kriteria voldoen.",
     "require-all-categories": "Vereis alle kategorieë",

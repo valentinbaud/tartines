@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "Quant a",
-    "about-mealie": "Quant a Mealie",
+    "about-tartines": "Quant a Tartines",
     "api-docs": "Documentació de l'API",
     "api-port": "Port de l'API",
     "application-mode": "Mode",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "Està segur que vol suprimir aquest esdeveniment?",
     "event-deleted": "Esdeveniment eliminat",
     "event-updated": "Esdeveniment actualitzat",
-    "new-notification-form-description": "Mealie utilitza la llibreria Apprise per a generar notificacions. Ofereix moltes opcions de serveis de notificació. A la seva wiki, disposeu de guies d'ús i informació per a crear l'URL al vostre servei. Si està disponible, en seleccionar el tipus de notificació, pot incloure funcions addicionals.",
+    "new-notification-form-description": "Tartines utilitza la llibreria Apprise per a generar notificacions. Ofereix moltes opcions de serveis de notificació. A la seva wiki, disposeu de guies d'ús i informació per a crear l'URL al vostre servei. Si està disponible, en seleccionar el tipus de notificació, pot incloure funcions addicionals.",
     "new-version": "Hi ha una nova versió disponible!",
     "notification": "Notificacions",
     "refresh": "Recarrega",
@@ -373,7 +373,7 @@
     "recipe-migration": "Migració de receptes",
     "chowdown": {
       "description": "Migreu les dades de Chowdown",
-      "description-long": "Mealie suporta de forma nativa el format de Chowdown. Descarrega el codi del repositori com a .zip i carrega'l a sota.",
+      "description-long": "Tartines suporta de forma nativa el format de Chowdown. Descarrega el codi del repositori com a .zip i carrega'l a sota.",
       "title": "Chowdown"
     },
     "nextcloud": {
@@ -382,48 +382,48 @@
       "title": "Nextcloud Cookbook"
     },
     "copymethat": {
-      "description-long": "Mealie pot importar receptes de Copy Me That. Exporta les teves receptes en format HTML i llavors puja el fitxer .zip aquí sota.",
+      "description-long": "Tartines pot importar receptes de Copy Me That. Exporta les teves receptes en format HTML i llavors puja el fitxer .zip aquí sota.",
       "title": "Copia aquest gestor de receptes"
     },
     "paprika": {
-      "description-long": "Mealie pot importar receptes de l'aplicació Paprika. Exporta les teves receptes de Paprika, reanomena l'arxiu a format .zip i carrega'l a sota.",
+      "description-long": "Tartines pot importar receptes de l'aplicació Paprika. Exporta les teves receptes de Paprika, reanomena l'arxiu a format .zip i carrega'l a sota.",
       "title": "Paprika Recipe Manager"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie pot importar les receptes des de versions prèvies a la v1.0 d'aquesta aplicació. Exporta les teves receptes des de la teva antiga instància i carrega l'arxiu. zip a sota. Només s'importaran les receptes, i cap dada més.",
-      "title": "Mealie Pre v1.0"
+    "tartines-pre-v1": {
+      "description-long": "Tartines pot importar les receptes des de versions prèvies a la v1.0 d'aquesta aplicació. Exporta les teves receptes des de la teva antiga instància i carrega l'arxiu. zip a sota. Només s'importaran les receptes, i cap dada més.",
+      "title": "Tartines Pre v1.0"
     },
     "tandoor": {
-      "description-long": "Mealie pot importar les receptes de Tandoor. Exporta les dades en format \"Default\", i carrega el .zip a sota.",
+      "description-long": "Tartines pot importar les receptes de Tandoor. Exporta les dades en format \"Default\", i carrega el .zip a sota.",
       "title": "Tandoor Recipes"
     },
     "recipe-data-migrations": "Migració de receptes",
-    "recipe-data-migrations-explanation": "Les receptes es poden migrar des d'una altra aplicació suportada cap a Mealie. És una manera genial de començar a utilitzar el Mealie.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "Véns d'una altra aplicació o una versió més antiga de Mealia? Fés un cop d'ull a migracions i mira si pots importar les teves dades.",
+    "recipe-data-migrations-explanation": "Les receptes es poden migrar des d'una altra aplicació suportada cap a Tartines. És una manera genial de començar a utilitzar el Tartines.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "Véns d'una altra aplicació o una versió més antiga de Mealia? Fés un cop d'ull a migracions i mira si pots importar les teves dades.",
     "choose-migration-type": "Elegeix un tipus de migració",
     "tag-all-recipes": "Etiqueta totes les receptes amb {tag-name}",
     "nextcloud-text": "Les receptes de Nextcloud poden ser importades d'un fitxer ZIP que contingui les dades emmagatzemades en Nextcloud. Segueix l'exemple d'estructura de directori de sota per assegurar que les receptes podran ser importades.",
-    "chowdown-text": "Mealie suporta de forma nativa el format de Chowdown. Descarrega el codi del repositori com a .zip i puja'l a sota.",
+    "chowdown-text": "Tartines suporta de forma nativa el format de Chowdown. Descarrega el codi del repositori com a .zip i puja'l a sota.",
     "recipe-1": "Recepta 1",
     "recipe-2": "Recepta 2",
-    "paprika-text": "Mealie pot importar receptes des de l'aplicació Paprika. Exporta les teves receptes de Paprika, reanomena l'extensió de l'arxiu a .zip i penja'l aquí sota.",
-    "mealie-text": "Mealie pot importar les receptes des de versions prèvies a la v1.0 d'aquesta aplicació. Exporta les teves receptes des de la teva antiga instància i carrega l'arxiu. zip a sota. Només s'importaran les receptes, i cap dada més.",
+    "paprika-text": "Tartines pot importar receptes des de l'aplicació Paprika. Exporta les teves receptes de Paprika, reanomena l'extensió de l'arxiu a .zip i penja'l aquí sota.",
+    "tartines-text": "Tartines pot importar les receptes des de versions prèvies a la v1.0 d'aquesta aplicació. Exporta les teves receptes des de la teva antiga instància i carrega l'arxiu. zip a sota. Només s'importaran les receptes, i cap dada més.",
     "plantoeat": {
       "title": "Plan to Eat",
-      "description-long": "Mealie pot importar receptes de Plan to Eat."
+      "description-long": "Tartines pot importar receptes de Plan to Eat."
     },
     "myrecipebox": {
       "title": "La Meva Caixa de Receptes",
-      "description-long": "Mealie pot importar receptes de My Recipe Box. Exporta les teves receptes en format CSV, després puja el fitxer .csv aquí sota."
+      "description-long": "Tartines pot importar receptes de My Recipe Box. Exporta les teves receptes en format CSV, després puja el fitxer .csv aquí sota."
     },
     "recipekeeper": {
       "title": "Recipe Keeper",
-      "description-long": "Mealie pot importar receptes de RecipeKeeper. Exporta les teves receptes en format zip, després puja el fitxer .zip aquí sota."
+      "description-long": "Tartines pot importar receptes de RecipeKeeper. Exporta les teves receptes en format zip, després puja el fitxer .zip aquí sota."
     }
   },
   "new-recipe": {
     "bulk-add": "Afegiu tot d'una",
-    "error-details": "Mealie només pot importar els llocs web amb Id+json o microdata. Els principals llocs de receptes suporten aquesta estructura de les dades. Si no pot importar-les però hi ha dades json al registre, per favor, obriu un problema (issue) a GitHub amb l'URL i les dades. A GitHub només obriu problemes en anglés.",
+    "error-details": "Tartines només pot importar els llocs web amb Id+json o microdata. Els principals llocs de receptes suporten aquesta estructura de les dades. Si no pot importar-les però hi ha dades json al registre, per favor, obriu un problema (issue) a GitHub amb l'URL i les dades. A GitHub només obriu problemes en anglés.",
     "error-title": "No hem pout trobar res",
     "from-url": "Importa una recepta",
     "github-issues": "Incidència a Github",
@@ -434,7 +434,7 @@
     "recipe-url": "URL de la recepta",
     "recipe-html-or-json": "Recepta HTML o JSON",
     "upload-a-recipe": "Puja una recepta",
-    "upload-individual-zip-file": "Puja només un arxiu zip, exportat d'altre Mealie.",
+    "upload-individual-zip-file": "Puja només un arxiu zip, exportat d'altre Tartines.",
     "url-form-hint": "Copia i enganxa l'enllaç del teu lloc web de receptes preferit",
     "view-scraped-data": "Visualitza les dades recuperades",
     "trim-whitespace-description": "Elimina els espais a principi i final; i elimina les línies buides",
@@ -579,7 +579,7 @@
     "made-this": "Ho he fet",
     "how-did-it-turn-out": "Com ha sortit?",
     "user-made-this": "{user} ha fet això",
-    "api-extras-description": "Els extres de receptes són una funcionalitat clau de l'API de Mealie. Permeten crear parells clau/valor JSON personalitzats dins una recepta, per referenciar-los des d'aplicacions de tercers. Pots emprar aquestes claus per proveir informació, per exemple per a desencadenar automatitzacions o missatges personlitzats per a propagar al teu dispositiu desitjat.",
+    "api-extras-description": "Els extres de receptes són una funcionalitat clau de l'API de Tartines. Permeten crear parells clau/valor JSON personalitzats dins una recepta, per referenciar-los des d'aplicacions de tercers. Pots emprar aquestes claus per proveir informació, per exemple per a desencadenar automatitzacions o missatges personlitzats per a propagar al teu dispositiu desitjat.",
     "message-key": "Clau del missatge",
     "parse": "Analitzar",
     "attach-images-hint": "Afegeix imatges arrossegant i deixant anar la imatge a l'editor",
@@ -597,7 +597,7 @@
     "create-recipes": "Crea Receptes",
     "import-with-zip": "Importar amb un .zip",
     "create-recipe-from-an-image": "Crear una recepta a partir d'una imatge",
-    "create-recipe-from-an-image-description": "Crear una recepta pujant una imatge d'ella. Mealie intentarà extreure el text de la imatge mitjançant IA i crear-ne la recepta.",
+    "create-recipe-from-an-image-description": "Crear una recepta pujant una imatge d'ella. Tartines intentarà extreure el text de la imatge mitjançant IA i crear-ne la recepta.",
     "crop-and-rotate-the-image": "Retalla i rota la imatge, per tal que només el text sigui visible, i estigui orientat correctament.",
     "create-from-images": "Create from Images",
     "should-translate-description": "Tradueix la recepta a la meva llengua",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "Crea la recepta proporcionant-ne un nom. Totes les receptes han de tenir un nom únic.",
     "new-recipe-names-must-be-unique": "Els noms de les noves receptes han de ser únics",
     "scrape-recipe": "Rastrejar recepta",
-    "scrape-recipe-description": "Rastrejar recepta des de l'Url. Proporciona un Url del lloc que vols rastrejar i Mealie intentarà analitzar la recepta del lloc web i afegir-la a la teva col·lecció.",
+    "scrape-recipe-description": "Rastrejar recepta des de l'Url. Proporciona un Url del lloc que vols rastrejar i Tartines intentarà analitzar la recepta del lloc web i afegir-la a la teva col·lecció.",
     "scrape-recipe-have-a-lot-of-recipes": "Tens moltes receptes a processar alhora?",
     "scrape-recipe-suggest-bulk-importer": "Prova l'importador a granel",
     "scrape-recipe-have-raw-html-or-json-data": "Teniu dades HTML o JSON pla?",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "Importa les paraules clau originals com a tags",
     "stay-in-edit-mode": "Segueix en el mode d'edició",
     "import-from-zip": "Importa des d'un ZIP",
-    "import-from-zip-description": "Importa una sola recepta que ha estat importada d'una altra instància de Mealie.",
+    "import-from-zip-description": "Importa una sola recepta que ha estat importada d'una altra instància de Tartines.",
     "import-from-html-or-json": "Importar des d'un HTML o JSON",
-    "import-from-html-or-json-description": "Importar una recepta des d'un HTML o JSON pla. Això és important si teniu una recepta des d'una web on Mealie no pot extreure dates, o des d'una altra font externa.",
+    "import-from-html-or-json-description": "Importar una recepta des d'un HTML o JSON pla. Això és important si teniu una recepta des d'una web on Tartines no pot extreure dates, o des d'una altra font externa.",
     "json-import-format-description-colon": "Per importar via JSON, aquest ha de tenir un format vàlid:",
     "json-editor": "Editor JSON",
-    "zip-files-must-have-been-exported-from-mealie": "Els fitxers .zip han d'haver sigut exportats des de Mealie",
+    "zip-files-must-have-been-exported-from-tartines": "Els fitxers .zip han d'haver sigut exportats des de Tartines",
     "create-a-recipe-by-uploading-a-scan": "Crea la recepta pujant-ne un escaneig.",
     "upload-a-png-image-from-a-recipe-book": "Puja una imatge PNG d'un llibre de receptes",
     "recipe-bulk-importer": "Importador de receptes en massa",
-    "recipe-bulk-importer-description": "L'importador de receptes a granel, permet que importis múltiples receptes a la vegada posant a la cua els llocs al backend i executant la tasca en segon pla. Això pot ser útil si es migra inicialment a Mealie o quan es vol importar un gran nombre de receptes.",
+    "recipe-bulk-importer-description": "L'importador de receptes a granel, permet que importis múltiples receptes a la vegada posant a la cua els llocs al backend i executant la tasca en segon pla. Això pot ser útil si es migra inicialment a Tartines o quan es vol importar un gran nombre de receptes.",
     "set-categories-and-tags": "Estableix Categories i Etiquetes",
     "bulk-imports": "Importacions a granel",
     "bulk-import-process-has-started": "El procés d'importació a granel ha començat",
     "bulk-import-process-has-failed": "El procés d'importació a granel ha fallat",
     "report-deletion-failed": "No s'ha pogut suprimir l'informe",
     "recipe-debugger": "Depuradora de receptes",
-    "recipe-debugger-description": "Agafa l'URL de la recepta que vols depurar i enganxa-la aquí. L'URL serà reastrejada pel rastrejador de receptes i es mostraran els resultats. Si no veieu cap dada retornada, el lloc que esteu provant de rastrejar no és compatible amb Mealie ni la seva biblioteca de rastreig.",
+    "recipe-debugger-description": "Agafa l'URL de la recepta que vols depurar i enganxa-la aquí. L'URL serà reastrejada pel rastrejador de receptes i es mostraran els resultats. Si no veieu cap dada retornada, el lloc que esteu provant de rastrejar no és compatible amb Tartines ni la seva biblioteca de rastreig.",
     "use-openai": "Fes servir OpenAI",
     "recipe-debugger-use-openai-description": "Fes servir OpenAI per processar els resultats en comptes d'emprar la llibreria de processat. Quan creis una recepta via URL, es fa automàticament si la llibreria falla, però ho pots provar manualment aquí.",
     "debug": "Depuració",
@@ -695,7 +695,7 @@
     "clear-selection": "Netejar la selecció",
     "results": "Resultats",
     "search": "Cerca",
-    "search-mealie": "Cerca a Melie (prem /)",
+    "search-tartines": "Cerca a Melie (prem /)",
     "search-placeholder": "Cerca...",
     "tag-filter": "Filtra per etiqueta",
     "search-hint": "Prem '/'",
@@ -720,7 +720,7 @@
       "import-summary": "Resum de la importació",
       "partial-backup": "Còpia de seguretat parcial",
       "unable-to-delete-backup": "No s'ha pogut suprimir la còpia.",
-      "experimental-description": "Les còpies de seguretat són captures instantànies totals de la base de dades i el directori de dades de la pàgina. Això inclou totes les dades i no es pot configurar per excloure subconjunts de dades. Pots conceptualiztar-ho com una captura de Mealie en un moment concret. Permeten poder exportar i importar dades d'una manera agnòstica de bases de dades, o per fer còpies de seguretat de la pàgina a localitzacions externes.",
+      "experimental-description": "Les còpies de seguretat són captures instantànies totals de la base de dades i el directori de dades de la pàgina. Això inclou totes les dades i no es pot configurar per excloure subconjunts de dades. Pots conceptualiztar-ho com una captura de Tartines en un moment concret. Permeten poder exportar i importar dades d'una manera agnòstica de bases de dades, o per fer còpies de seguretat de la pàgina a localitzacions externes.",
       "backup-restore": "Restaura la còpia de seguretat",
       "back-restore-description": "Restaurar aquesta còpia de seguretat sobreescriurà totes les dades actuals de la teva base de dades i qualsevol directori i els substituirà amb el contingut d'aquesta còpia de seguretat. {cannot-be-undone} Si la restauració es duu a terme correctament, se us tancarà la sessió.",
       "cannot-be-undone": "Aquesta acció no es pot desfer. Utilitza-la amb precaució.",
@@ -819,7 +819,7 @@
     "tracker": "Tracker",
     "configuration": "Configuració",
     "docker-volume": "Volum de Docker",
-    "docker-volume-help": "Mealie requereix que els contenidors del frontend i del backend comparteixin el mateix volum docker o emmagatzematge. Això assegura que el contenidor del frontend pot accedir correctament les imatges i béns guardats en disc.",
+    "docker-volume-help": "Tartines requereix que els contenidors del frontend i del backend comparteixin el mateix volum docker o emmagatzematge. Això assegura que el contenidor del frontend pot accedir correctament les imatges i béns guardats en disc.",
     "volumes-are-misconfigured": "Els volums no estan ben configurats.",
     "volumes-are-configured-correctly": "Els volums estan ben configurats.",
     "status-unknown-try-running-a-validation": "Estat desconegut. Prova a executar una validació.",
@@ -834,7 +834,7 @@
     "general-about": "Informació General",
     "application-version": "Versió de l'Aplicació",
     "application-version-error-text": "La teva versió actual ({0}) no correspon amb l'última publicada. Considera actualitzar a l'última versió ({1}).",
-    "mealie-is-up-to-date": "Mealie està actualitzat",
+    "tartines-is-up-to-date": "Tartines està actualitzat",
     "secure-site": "Web Segur",
     "secure-site-error-text": "Allotja mitjançant localhost o assegura amb https. És possible que el porta-retalls i API addicionals del navegador no funcionin.",
     "secure-site-success-text": "El web és accedit amb localhost o https",
@@ -918,7 +918,7 @@
     "sign-up-links": "Enllaços de registre",
     "sign-up-token-deleted": "S'ha suprimit el token de registre",
     "sign-up-token-deletion-failed": "S'ha produït un error a l'eliminar el token per a registrar-se",
-    "welcome-to-mealie": "Benvingut a Mealie! Per a poder ser usuari d'aquesta instància ha de tenir un enllaç d'invitació vàlid. Si no l'ha rebut, no podrà registrar-se. Per a rebre'l, contacte amb l'administrador."
+    "welcome-to-tartines": "Benvingut a Tartines! Per a poder ser usuari d'aquesta instància ha de tenir un enllaç d'invitació vàlid. Si no l'ha rebut, no podrà registrar-se. Per a rebre'l, contacte amb l'administrador."
   },
   "tag": {
     "tag-created": "S'ha creat l'etiqueta",
@@ -1027,7 +1027,7 @@
     "user-details": "Detalls de l'usuari",
     "user-name": "Nom de l'usuari",
     "authentication-method": "Mètode d'autentificació",
-    "authentication-method-hint": "This specifies how a user will authenticate with Mealie. If you're not sure, choose 'Mealie",
+    "authentication-method-hint": "This specifies how a user will authenticate with Tartines. If you're not sure, choose 'Tartines",
     "permissions": "Permisos",
     "administrator": "Administrador",
     "user-can-invite-other-to-group": "L'usuari pot convidar a altres al grup",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "traduït",
     "choose-language": "Trieu l'idioma",
-    "select-description": "Tria l'idioma de la interfície de Mealie. Només canvia per al teu usuari, no per als altres.",
+    "select-description": "Tria l'idioma de la interfície de Tartines. Només canvia per al teu usuari, no per als altres.",
     "how-to-contribute-description": "N'hi ha textos sense traduir, la traducció no és correcta o no està disponible el teu idioma? {read-the-docs-link} per a més informació de com podeu contribuir.",
     "read-the-docs": "Llegiu la documentació"
   },
@@ -1157,7 +1157,7 @@
     "group-details": "Detalls del grup",
     "group-details-description": "Abans de crear un compte heu de crear un grup. Al grup només hi serà vostè, però després podeu convidar d'altres. Els membres d'un grup poden compartir menús, llistes de la compra, receptes i molt més!",
     "use-seed-data": "Afegiu dades predeterminades",
-    "use-seed-data-description": "Mealie ve configurat amb una col·lecció d'aliments, unitats i etiquetes que poden ser emprades pel vostre grup per a ajudar-vos a organitzar les vostres receptes.",
+    "use-seed-data-description": "Tartines ve configurat amb una col·lecció d'aliments, unitats i etiquetes que poden ser emprades pel vostre grup per a ajudar-vos a organitzar les vostres receptes.",
     "account-details": "Detalls del compte"
   },
   "validation": {
@@ -1257,14 +1257,14 @@
       "actions-description-destructive": "destructiu",
       "actions-description-irreversible": "irreversible",
       "logs-action-refresh": "Actualitza logs",
-      "logs-page-title": "Logs de Mealie",
+      "logs-page-title": "Logs de Tartines",
       "logs-tail-lines-label": "Línies de la cua"
     },
     "mainentance": {
       "actions-title": "Accions"
     },
     "ingredients-natural-language-processor": "Processador de llenguatge natural d'ingredients",
-    "ingredients-natural-language-processor-explanation": "Mealie fa servir Camps Condicionals Aleatoris (CRFs) per processar ingredients. El model emprat es basa en un conjunt de dades de més de 100.000 ingredients d'un conjunt de dades compilat pel New York Times. Noti's que aquest model s'ha entrenat només en anglès, pots tenir resultats variats fent-lo servir en altres idiomes. Aquesta pàgina és un espai de joc per provar el model.",
+    "ingredients-natural-language-processor-explanation": "Tartines fa servir Camps Condicionals Aleatoris (CRFs) per processar ingredients. El model emprat es basa en un conjunt de dades de més de 100.000 ingredients d'un conjunt de dades compilat pel New York Times. Noti's que aquest model s'ha entrenat només en anglès, pots tenir resultats variats fent-lo servir en altres idiomes. Aquesta pàgina és un espai de joc per provar el model.",
     "ingredients-natural-language-processor-explanation-2": "No és perfecte, però ofereix bons resultats en general i és un bon punt de partida per processar manualment ingredients a camps individuals. Alternativament, també pots fer servir el processador \"brut\" que fa servir una tècnica de reconeixement de patrons per identificar ingredients.",
     "nlp": "NLP",
     "brute": "Brut",
@@ -1280,12 +1280,12 @@
     "tasks": "Tasques",
     "setup": {
       "first-time-setup": "Configuració de primer cop",
-      "welcome-to-mealie-get-started": "Benvingut/da a Mealie! Anem per feina",
+      "welcome-to-tartines-get-started": "Benvingut/da a Tartines! Anem per feina",
       "already-set-up-bring-to-homepage": "Ja ho tinc configurat, porta'm a la pàgina principal",
       "common-settings-for-new-sites": "Aquí hi ha algunes configuracions comunes per noves pàgines",
       "setup-complete": "Configuració completada!",
-      "here-are-a-few-things-to-help-you-get-started": "Aquí hi ha unes quantes coses per ajudar-te a posar Mealie en marxa",
-      "restore-from-v1-backup": "Tens una còpia de seguretat d'una instància prèvia de Mealie v1? Pots restaurar-la aquí.",
+      "here-are-a-few-things-to-help-you-get-started": "Aquí hi ha unes quantes coses per ajudar-te a posar Tartines en marxa",
+      "restore-from-v1-backup": "Tens una còpia de seguretat d'una instància prèvia de Tartines v1? Pots restaurar-la aquí.",
       "manage-profile-or-get-invite-link": "Gestiona el teu propi perfil, o agafa un enllaç d'invitació per compartir amb altres."
     },
     "debug-openai-services": "Depurar els serveis d'OpenAI",
@@ -1304,9 +1304,9 @@
     "account-summary": "Resum del compte",
     "account-summary-description": "Aquí tens un resum de la informació del teu grup.",
     "group-statistics": "Estadístiques del grup",
-    "group-statistics-description": "Les estadístiques del grup ofereixen certa visió de com feu servir Mealie.",
+    "group-statistics-description": "Les estadístiques del grup ofereixen certa visió de com feu servir Tartines.",
     "household-statistics": "Estadístiques de la llar",
-    "household-statistics-description": "Les estadístiques de la llar ofereixen una visió de com feu servir Mealie.",
+    "household-statistics-description": "Les estadístiques de la llar ofereixen una visió de com feu servir Tartines.",
     "storage-capacity": "Capacitat d'emmagatzematge",
     "storage-capacity-description": "La teva capacitat d'emmagatzematge és un càlcul de les imatges i béns que has pujat.",
     "personal": "Personal",
@@ -1327,7 +1327,7 @@
     "notifiers": "Notificadors",
     "notifiers-description": "Setup email and push notifications that trigger on specific events.",
     "manage-data": "Gestiona dades",
-    "manage-data-description": "Gestiona es teves dades de Mealie: Menjars, unitats, categories, etiquetes i més.",
+    "manage-data-description": "Gestiona es teves dades de Tartines: Menjars, unitats, categories, etiquetes i més.",
     "data-migrations": "Migracions de dades",
     "data-migrations-description": "Migra les teves dades ja existents des d'altres aplicacions com Nextcloud Recipes i Chowdown.",
     "email-sent": "Correu electrònic enviat",

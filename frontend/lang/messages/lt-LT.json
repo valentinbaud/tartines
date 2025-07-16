@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "Apie",
-    "about-mealie": "Apie Mealie",
+    "about-tartines": "Apie Tartines",
     "api-docs": "API Docs",
     "api-port": "API Port",
     "application-mode": "Application Mode",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "Ar tikrai norite pašalinti šį įvykį?",
     "event-deleted": "Įvykis pašalintas",
     "event-updated": "Įvykis atnaujintas",
-    "new-notification-form-description": "Pranešimams generuoti Mealie naudoja \"Apprise\" pranešimų biblioteką, kuri siūlo įvairias paslaugas pranešimams siųsti. Išsamų vadovą, kaip sukurti savo paslaugos prieigos URL, rasite jų \"Wiki\" puslapyje. Jei prieinama, pasirinkus pranešimo tipą gali būti papildomų funkcijų.",
+    "new-notification-form-description": "Pranešimams generuoti Tartines naudoja \"Apprise\" pranešimų biblioteką, kuri siūlo įvairias paslaugas pranešimams siųsti. Išsamų vadovą, kaip sukurti savo paslaugos prieigos URL, rasite jų \"Wiki\" puslapyje. Jei prieinama, pasirinkus pranešimo tipą gali būti papildomų funkcijų.",
     "new-version": "Galima nauja versija!",
     "notification": "Pranešimas",
     "refresh": "Atnaujinti",
@@ -373,7 +373,7 @@
     "recipe-migration": "Receptų perkėlimas",
     "chowdown": {
       "description": "Perkelti duomenis iš Chowdown",
-      "description-long": "Mealie palaiko \"Chowdown\" repozitorijos formatą. Atsisiųskite kodo repozitoriją kaip .ZIP failą ir įkelkite žemiau.",
+      "description-long": "Tartines palaiko \"Chowdown\" repozitorijos formatą. Atsisiųskite kodo repozitoriją kaip .ZIP failą ir įkelkite žemiau.",
       "title": "Chowdown"
     },
     "nextcloud": {
@@ -382,48 +382,48 @@
       "title": "\"Nextcloud Cookbook\""
     },
     "copymethat": {
-      "description-long": "Į Mealie galima importuoti receptus iš \"Copy Me That\". Eksportuokite receptus HTML formatu, o tada įkelkite .ZIP failą žemiau.",
+      "description-long": "Į Tartines galima importuoti receptus iš \"Copy Me That\". Eksportuokite receptus HTML formatu, o tada įkelkite .ZIP failą žemiau.",
       "title": "\"Copy Me That\" receptų tvarkyklė"
     },
     "paprika": {
-      "description-long": "Į Mealie galima importuoti receptus iš \"Paprika\" sistemos. Eksportuokite duomenis iš \"Paprika\", pervadinkite failo plėtinį į .ZIP ir įkelkite žemiau.",
+      "description-long": "Į Tartines galima importuoti receptus iš \"Paprika\" sistemos. Eksportuokite duomenis iš \"Paprika\", pervadinkite failo plėtinį į .ZIP ir įkelkite žemiau.",
       "title": "\"Paprika\" receptų tvarkyklė"
     },
-    "mealie-pre-v1": {
-      "description-long": "Į Mealie galima importuoti receptus iš senesnių už v1.0 Mealie versijų. Eksportuokite receptus iš senosios sistemos ir įkelkite .ZIP failą žemiau. Svarbu: perkeliami tik receptų duomenys.",
-      "title": "Senesnės Mealie versijos (iki v1.0)"
+    "tartines-pre-v1": {
+      "description-long": "Į Tartines galima importuoti receptus iš senesnių už v1.0 Tartines versijų. Eksportuokite receptus iš senosios sistemos ir įkelkite .ZIP failą žemiau. Svarbu: perkeliami tik receptų duomenys.",
+      "title": "Senesnės Tartines versijos (iki v1.0)"
     },
     "tandoor": {
-      "description-long": "Mealie gali importuoti receptus iš \"Tandoor\". Eksportuokite savo duomenis \"Default\" formatu ir įkelkite .ZIP failą žemiau.",
+      "description-long": "Tartines gali importuoti receptus iš \"Tandoor\". Eksportuokite savo duomenis \"Default\" formatu ir įkelkite .ZIP failą žemiau.",
       "title": "\"Tandoor\" receptai"
     },
     "recipe-data-migrations": "Receptų duomenų migracijos",
-    "recipe-data-migrations-explanation": "Receptai gali būti importuojami į Mealie iš kitų palaikomų sistemų. Tai - puikus būdas pradėti naudotis Mealie.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "Coming from another application or an even older version of Mealie? Check out migrations and see if your data can be imported.",
+    "recipe-data-migrations-explanation": "Receptai gali būti importuojami į Tartines iš kitų palaikomų sistemų. Tai - puikus būdas pradėti naudotis Tartines.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "Coming from another application or an even older version of Tartines? Check out migrations and see if your data can be imported.",
     "choose-migration-type": "Pasirinkite migracijos tipą",
     "tag-all-recipes": "Pažymėti visus receptus {tag-name} žyma",
     "nextcloud-text": "\"Nextcloud\" receptus galima importuoti iš .ZIP failo. Žemiau galima rasti tinkamos aplankų struktūros pavyzdį.",
-    "chowdown-text": "Mealie natively supports the chowdown repository format. Download the code repository as a .zip file and upload it below.",
+    "chowdown-text": "Tartines natively supports the chowdown repository format. Download the code repository as a .zip file and upload it below.",
     "recipe-1": "Receptas 1",
     "recipe-2": "Receptas 2",
-    "paprika-text": "Į Mealie galima importuoti receptus iš \"Paprika\" sistemos. Eksportuokite duomenis iš \"Paprika\", pervadinkite failo plėtinį į .ZIP ir įkelkite žemiau.",
-    "mealie-text": "Į Mealie galima importuoti receptus iš senesnių už v1.0 Mealie versijų. Eksportuokite receptus iš senosios sistemos ir įkelkite .ZIP failą žemiau. Svarbu: perkeliami tik receptų duomenys.",
+    "paprika-text": "Į Tartines galima importuoti receptus iš \"Paprika\" sistemos. Eksportuokite duomenis iš \"Paprika\", pervadinkite failo plėtinį į .ZIP ir įkelkite žemiau.",
+    "tartines-text": "Į Tartines galima importuoti receptus iš senesnių už v1.0 Tartines versijų. Eksportuokite receptus iš senosios sistemos ir įkelkite .ZIP failą žemiau. Svarbu: perkeliami tik receptų duomenys.",
     "plantoeat": {
       "title": "Plan to Eat",
-      "description-long": "Mealie can import recipies from Plan to Eat."
+      "description-long": "Tartines can import recipies from Plan to Eat."
     },
     "myrecipebox": {
       "title": "Mano receptų dėžutė",
-      "description-long": "Mealie can import recipes from My Recipe Box. Export your recipes in CSV format, then upload the .csv file below."
+      "description-long": "Tartines can import recipes from My Recipe Box. Export your recipes in CSV format, then upload the .csv file below."
     },
     "recipekeeper": {
       "title": "Recipe Keeper",
-      "description-long": "Mealie can import recipes from Recipe Keeper. Export your recipes in zip format, then upload the .zip file below."
+      "description-long": "Tartines can import recipes from Recipe Keeper. Export your recipes in zip format, then upload the .zip file below."
     }
   },
   "new-recipe": {
     "bulk-add": "Pridėti urmu",
-    "error-details": "Mealie gali importuoti tik svetaines, kuriose yra \"ld+json\" arba \"mikroduomenų\". Dauguma pagrindinių receptų svetainių palaiko šią duomenų struktūrą. Jei jūsų svetainės nepavyksta importuoti, bet žurnale yra JSON tipo duomenų, registruokitė problemą \"github\" su URL ir papildomais duomenimis.",
+    "error-details": "Tartines gali importuoti tik svetaines, kuriose yra \"ld+json\" arba \"mikroduomenų\". Dauguma pagrindinių receptų svetainių palaiko šią duomenų struktūrą. Jei jūsų svetainės nepavyksta importuoti, bet žurnale yra JSON tipo duomenų, registruokitė problemą \"github\" su URL ir papildomais duomenimis.",
     "error-title": "Mums nieko rasti nepavyko",
     "from-url": "Importuoti receptą",
     "github-issues": "Github Issues",
@@ -434,7 +434,7 @@
     "recipe-url": "Recepto nuoroda",
     "recipe-html-or-json": "Recipe HTML or JSON",
     "upload-a-recipe": "Įkelti receptą",
-    "upload-individual-zip-file": "Įkelkite .zip failą, eksportuotą iš kitos \"Mealie\" sistemos.",
+    "upload-individual-zip-file": "Įkelkite .zip failą, eksportuotą iš kitos \"Tartines\" sistemos.",
     "url-form-hint": "Nukopijuokite ir įklijuokite nuorodą iš mėgstamų receptų svetainės",
     "view-scraped-data": "Peržiūrėti nuskaitytus duomenis",
     "trim-whitespace-description": "Pašalinti tarpus bei tuščias eilutes pradžioje ir pabaigoje",
@@ -579,7 +579,7 @@
     "made-this": "Aš tai gaminau",
     "how-did-it-turn-out": "Kaip tai pavyko?",
     "user-made-this": "{user} gamino šį patiekalą",
-    "api-extras-description": "Recipes extras are a key feature of the Mealie API. They allow you to create custom JSON key/value pairs within a recipe, to reference from 3rd party applications. You can use these keys to provide information, for example to trigger automations or custom messages to relay to your desired device.",
+    "api-extras-description": "Recipes extras are a key feature of the Tartines API. They allow you to create custom JSON key/value pairs within a recipe, to reference from 3rd party applications. You can use these keys to provide information, for example to trigger automations or custom messages to relay to your desired device.",
     "message-key": "Žinutės raktas",
     "parse": "Nuskaityti",
     "attach-images-hint": "Pridėkite vaizdus vilkdami ir numesdami juos į redaktorių",
@@ -597,7 +597,7 @@
     "create-recipes": "Create Recipes",
     "import-with-zip": "Įkelti naudojant .zip failus",
     "create-recipe-from-an-image": "Create Recipe from an Image",
-    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Mealie will attempt to extract the text from the image using AI and create a recipe from it.",
+    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Tartines will attempt to extract the text from the image using AI and create a recipe from it.",
     "crop-and-rotate-the-image": "Crop and rotate the image so that only the text is visible, and it's in the correct orientation.",
     "create-from-images": "Create from Images",
     "should-translate-description": "Translate the recipe into my language",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "Sukurti receptą įrašant pavadinimą. Visi receptai privalo turėti unikalius pavadinimus.",
     "new-recipe-names-must-be-unique": "Naujo recepto pavadinimas turi būti unikalus",
     "scrape-recipe": "Nuskaityti receptą",
-    "scrape-recipe-description": "Nuskaityti receptą iš URL nuorodos. Pateikite recepto nuorodą, ir Mealie pabandys paimti recepto informaciją iš šios svetainės ir patalpinti ją jūsų kolekcijoje.",
+    "scrape-recipe-description": "Nuskaityti receptą iš URL nuorodos. Pateikite recepto nuorodą, ir Tartines pabandys paimti recepto informaciją iš šios svetainės ir patalpinti ją jūsų kolekcijoje.",
     "scrape-recipe-have-a-lot-of-recipes": "Have a lot of recipes you want to scrape at once?",
     "scrape-recipe-suggest-bulk-importer": "Try out the bulk importer",
     "scrape-recipe-have-raw-html-or-json-data": "Have raw HTML or JSON data?",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "Įkelti pradinius raktažodžius kaip žymas",
     "stay-in-edit-mode": "Toliau redaguoti",
     "import-from-zip": "Įkelti iš .ZIP archyvo",
-    "import-from-zip-description": "Įkelti atskirą receptą, išsaugotą iš Mealie.",
+    "import-from-zip-description": "Įkelti atskirą receptą, išsaugotą iš Tartines.",
     "import-from-html-or-json": "Import from HTML or JSON",
-    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Mealie can't scrape normally, or from some other external source.",
+    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Tartines can't scrape normally, or from some other external source.",
     "json-import-format-description-colon": "To import via JSON, it must be in valid format:",
     "json-editor": "JSON Editor",
-    "zip-files-must-have-been-exported-from-mealie": ".ZIP archyvai privalo būti išsaugoti iš Mealie",
+    "zip-files-must-have-been-exported-from-tartines": ".ZIP archyvai privalo būti išsaugoti iš Tartines",
     "create-a-recipe-by-uploading-a-scan": "Sukurti receptą iš nuskenuoto dokumento.",
     "upload-a-png-image-from-a-recipe-book": "Įkelti .PNG nuotrauką iš receptų knygos",
     "recipe-bulk-importer": "Masinis receptų importavimas",
-    "recipe-bulk-importer-description": "Leidžia įkelti daug receptų vienu metu serveriui iš eilės atidarinėjant nuorodas foniniame režime. Naudinga migravimo į Mealie pradžioje, arba kai reikia įkelti didelį receptų kiekį.",
+    "recipe-bulk-importer-description": "Leidžia įkelti daug receptų vienu metu serveriui iš eilės atidarinėjant nuorodas foniniame režime. Naudinga migravimo į Tartines pradžioje, arba kai reikia įkelti didelį receptų kiekį.",
     "set-categories-and-tags": "Nustatyti kategorijas ir žymas",
     "bulk-imports": "Masinis importavimas",
     "bulk-import-process-has-started": "Masinis importavimas pradėtas",
     "bulk-import-process-has-failed": "Masinis importavimas nepavyko",
     "report-deletion-failed": "Ataskaitų trynimas nepavyko",
     "recipe-debugger": "Recepto klaidų radimas",
-    "recipe-debugger-description": "Įkelkite neveikiančio recepto URL nuorodą. Iš nuorodos bus nuskaitytas receptas ir parodyti nuskaitymo rezultatai. Jei nematote jokių duomenų - ši svetainė nėra suderinama su Mealie.",
+    "recipe-debugger-description": "Įkelkite neveikiančio recepto URL nuorodą. Iš nuorodos bus nuskaitytas receptas ir parodyti nuskaitymo rezultatai. Jei nematote jokių duomenų - ši svetainė nėra suderinama su Tartines.",
     "use-openai": "Naudoti 'OpenAI'",
     "recipe-debugger-use-openai-description": "Naudokite 'OpenAI', kad išanalizuoti rezultatus, o ne pasikliauti tinklalapių duomenų rinkiklio įrankiu. Kuriant receptą naudojant URL, tai padaroma automatiškai, jei duomenų rinkiklio įrankiui nepavyksta apdoroti rezultatų, tačiau čia jį galite išbandyti rankiniu būdu.",
     "debug": "Šalinti klaidas",
@@ -695,7 +695,7 @@
     "clear-selection": "Clear Selection",
     "results": "Rezultatai",
     "search": "Ieškoti",
-    "search-mealie": "Pradėti ieškoti \"Mealie\" (spauskite /)",
+    "search-tartines": "Pradėti ieškoti \"Tartines\" (spauskite /)",
     "search-placeholder": "Paieška...",
     "tag-filter": "Žymos filtras",
     "search-hint": "Paspauskite '/'",
@@ -720,7 +720,7 @@
       "import-summary": "Įkėlimo santrauka",
       "partial-backup": "Dalinė atsarginė kopija",
       "unable-to-delete-backup": "Nepavyko ištrinti atsarginės kopijos.",
-      "experimental-description": "Backups are total snapshots of the database and data directory of the site. This includes all data and cannot be set to exclude subsets of data. You can think of this as a snapshot of Mealie at a specific time. These serve as a database agnostic way to export and import data, or back up the site to an external location.",
+      "experimental-description": "Backups are total snapshots of the database and data directory of the site. This includes all data and cannot be set to exclude subsets of data. You can think of this as a snapshot of Tartines at a specific time. These serve as a database agnostic way to export and import data, or back up the site to an external location.",
       "backup-restore": "Atkurti iš atsarginės kopijos",
       "back-restore-description": "Atkūrimas ištrina visus šiuo metu duomenų bazėje ir duomenų archyve esančius duomenis ir perrašo juos į duomenis iš atsarginės kopijos. {cannot-be-undone} Jei atkūrimas bus sėkmingas, būsite atjungti nuo savo paskyros.",
       "cannot-be-undone": "Atsargiai - šis veiksmas negrįžtamas.",
@@ -815,11 +815,11 @@
       "description": "Žemiau apibrėžti Webhooks bus paleidžiami, kai dienai bus numatyta patiekalų. Nustatytu laiku šie Webhooks bus išsiųsti su duomenimis apie receptą, kuris numatytas tai dienai. Pažymėtina, kad Webhook paleidimas nėra tikslus. Webhooks yra paleidžiami 5 minučių intervalu, todėl suveiks nustatytu laiku su +/- 5 min. paklaida."
     },
     "bug-report": "Pranešimas apie klaidą",
-    "bug-report-information": "Naudokite šią informaciją savo pranešime apie klaidą. Pateikdami vystytojams detalią informaciją apie savo \"Mealie\" sistemą padėsite greičiau išspręsti problemą.",
+    "bug-report-information": "Naudokite šią informaciją savo pranešime apie klaidą. Pateikdami vystytojams detalią informaciją apie savo \"Tartines\" sistemą padėsite greičiau išspręsti problemą.",
     "tracker": "Sekimas",
     "configuration": "Konfigūracija",
     "docker-volume": "Docker Volume",
-    "docker-volume-help": "\"Mealie\" reikalinga, kad sistemos frontend ir backend konteineriai būtų tame pačiame docker volume ar talpykloje. Tai užtikrina, kad frontend konteineris turės tinkamą prieigą prie nuotraukų ir turinio, saugomo diske.",
+    "docker-volume-help": "\"Tartines\" reikalinga, kad sistemos frontend ir backend konteineriai būtų tame pačiame docker volume ar talpykloje. Tai užtikrina, kad frontend konteineris turės tinkamą prieigą prie nuotraukų ir turinio, saugomo diske.",
     "volumes-are-misconfigured": "Volumes are misconfigured.",
     "volumes-are-configured-correctly": "Volumes yra sukonfigūruoti teisingai.",
     "status-unknown-try-running-a-validation": "Būsena nežinoma. Pabandykite paleisti patikrinimą.",
@@ -834,7 +834,7 @@
     "general-about": "Bendrai apie",
     "application-version": "Programos versija",
     "application-version-error-text": "Dabartinė versija ({0}) neatitinka naujausios. Apsvarstykite atnaujinimą į naujausią versiją ({1}).",
-    "mealie-is-up-to-date": "Naudojama naujausia Mealie versija",
+    "tartines-is-up-to-date": "Naudojama naujausia Tartines versija",
     "secure-site": "Secure Site",
     "secure-site-error-text": "Pateikti per localhost arba https. Iškarpinė ar papildomi naršyklės API gali neveikti.",
     "secure-site-success-text": "Svetainė pasiekiama per localhost ar https",
@@ -918,7 +918,7 @@
     "sign-up-links": "Prisijungimo nuorodos",
     "sign-up-token-deleted": "Prisijungimo prieigos raktas ištrintas",
     "sign-up-token-deletion-failed": "Nepavyko ištrinti prisijungimo prieeigos rakto",
-    "welcome-to-mealie": "Sveiki atvykę į Mealie! Norėdami tapti šios sistemos vartotojais privalote turėti galiojančią pakvietimo nuorodą. Jei negavote pakvietimo, negalėsite prisijungti. Norėdami gauti šią nuorodą, susisiekite su svetainės administratoriumi."
+    "welcome-to-tartines": "Sveiki atvykę į Tartines! Norėdami tapti šios sistemos vartotojais privalote turėti galiojančią pakvietimo nuorodą. Jei negavote pakvietimo, negalėsite prisijungti. Norėdami gauti šią nuorodą, susisiekite su svetainės administratoriumi."
   },
   "tag": {
     "tag-created": "Žyma sukurta",
@@ -1027,7 +1027,7 @@
     "user-details": "Naudotojo duomenys",
     "user-name": "Naudotojo vardas",
     "authentication-method": "Prisijungimo metodas",
-    "authentication-method-hint": "This specifies how a user will authenticate with Mealie. If you're not sure, choose 'Mealie",
+    "authentication-method-hint": "This specifies how a user will authenticate with Tartines. If you're not sure, choose 'Tartines",
     "permissions": "Leidimai",
     "administrator": "Administratorius",
     "user-can-invite-other-to-group": "User can invite others to group",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "išversta",
     "choose-language": "Pasirinkite kalbą",
-    "select-description": "Pasirinkite „Mealie“ vartotojo sąsajos kalbą. Šis nustatymas taikomas tik jums ir nepakeis kalbos kitiems vartotojams.",
+    "select-description": "Pasirinkite „Tartines“ vartotojo sąsajos kalbą. Šis nustatymas taikomas tik jums ir nepakeis kalbos kitiems vartotojams.",
     "how-to-contribute-description": "Ar kažkas dar neišversta, neteisingai išversta arba sąraše trūksta jūsų kalbos? Paskaitykite {read-the-docs-link} kaip prie to prisidėti!",
     "read-the-docs": "Skaityti dokumentus"
   },
@@ -1157,7 +1157,7 @@
     "group-details": "Grupės informacija",
     "group-details-description": "Prieš kurdami paskyrą turite sukurti grupę. Jūsų grupėje būsite tik jūs, tačiau vėliau galėsite pakviesti ir kitus. Jūsų grupės nariai galės dalintis maitinimo planais, pirkinių sąrašais, receptais ir kita!",
     "use-seed-data": "Naudoti pradinius duomenis",
-    "use-seed-data-description": "\"Mealie\" sistemoje jau yra pradinis duomenų rinkinys su produktais, vienetais ir etiketėmis. Jį galite panaudoti savo grupės užpildymui naudinga informacija, kuri padės organizuoti jūsų receptus.",
+    "use-seed-data-description": "\"Tartines\" sistemoje jau yra pradinis duomenų rinkinys su produktais, vienetais ir etiketėmis. Jį galite panaudoti savo grupės užpildymui naudinga informacija, kuri padės organizuoti jūsų receptus.",
     "account-details": "Paskyros informacija"
   },
   "validation": {
@@ -1264,7 +1264,7 @@
       "actions-title": "Veiksmai"
     },
     "ingredients-natural-language-processor": "Ingredientų natūralios kalbos procesorius (NLP)",
-    "ingredients-natural-language-processor-explanation": "\"Mealie\" ingredientų nuskaitymui ir apdorojimui naudoja sąlyginius atsitiktinius laukelius (Conditional Random Fields). Ingredientams naudojamas modelis paremtas 100 tūkst. ingredientų sąrašu iš duomenų rinkinio, kurį sudarė \"New York Times\". Kadangi modelis yra apmokytas tik anglų kalba, rezultatai naudojant jį su kitomis kalbomis gali būti įvairūs. Šis puslapis yra modelio testavimo aplinka.",
+    "ingredients-natural-language-processor-explanation": "\"Tartines\" ingredientų nuskaitymui ir apdorojimui naudoja sąlyginius atsitiktinius laukelius (Conditional Random Fields). Ingredientams naudojamas modelis paremtas 100 tūkst. ingredientų sąrašu iš duomenų rinkinio, kurį sudarė \"New York Times\". Kadangi modelis yra apmokytas tik anglų kalba, rezultatai naudojant jį su kitomis kalbomis gali būti įvairūs. Šis puslapis yra modelio testavimo aplinka.",
     "ingredients-natural-language-processor-explanation-2": "Šiuo metu funkcionalumo veikimas tobulinamas, bet jau duoda pakankamai gerus rezultatus ir yra nebloga pradžia rankiniu būdu skirstant ingredientus į atskirus laukelius. Taip pat galima pasinaudoti funkcija \"Netikslus apdorojimas\", kuri atpažįsta ingredientus pagal šabloninį algoritmą.",
     "nlp": "NLP",
     "brute": "Netikslus apdorojimas",
@@ -1280,12 +1280,12 @@
     "tasks": "Užduotys",
     "setup": {
       "first-time-setup": "First Time Setup",
-      "welcome-to-mealie-get-started": "Welcome to Mealie! Let's get started",
+      "welcome-to-tartines-get-started": "Welcome to Tartines! Let's get started",
       "already-set-up-bring-to-homepage": "I'm already set up, just bring me to the homepage",
       "common-settings-for-new-sites": "Here are some common settings for new sites",
       "setup-complete": "Setup Complete!",
-      "here-are-a-few-things-to-help-you-get-started": "Here are a few things to help you get started with Mealie",
-      "restore-from-v1-backup": "Have a backup from a previous instance of Mealie v1? You can restore it here.",
+      "here-are-a-few-things-to-help-you-get-started": "Here are a few things to help you get started with Tartines",
+      "restore-from-v1-backup": "Have a backup from a previous instance of Tartines v1? You can restore it here.",
       "manage-profile-or-get-invite-link": "Manage your own profile, or grab an invite link to share with others."
     },
     "debug-openai-services": "Debug OpenAI Services",
@@ -1304,9 +1304,9 @@
     "account-summary": "Paskyros apžvalga",
     "account-summary-description": "Here's a summary of your group's information.",
     "group-statistics": "Grupės statistika",
-    "group-statistics-description": "Jūsų grupės statistika pateikia įžvalgų apie jūsų Mealie naudojimą.",
+    "group-statistics-description": "Jūsų grupės statistika pateikia įžvalgų apie jūsų Tartines naudojimą.",
     "household-statistics": "Household Statistics",
-    "household-statistics-description": "Your Household Statistics provide some insight how you're using Mealie.",
+    "household-statistics-description": "Your Household Statistics provide some insight how you're using Tartines.",
     "storage-capacity": "Atminties talpa",
     "storage-capacity-description": "Duomenų užimama talpa yra dydis, apskaičiuojamas pagal jkeltų nuotraukų ir duomenų dydį.",
     "personal": "Asmeniniai",
@@ -1327,7 +1327,7 @@
     "notifiers": "Pranešikliai",
     "notifiers-description": "Setup email and push notifications that trigger on specific events.",
     "manage-data": "Duomenų valdymas",
-    "manage-data-description": "Manage your Mealie data; Foods, Units, Categories, Tags and more.",
+    "manage-data-description": "Manage your Tartines data; Foods, Units, Categories, Tags and more.",
     "data-migrations": "Duomenų migracijos",
     "data-migrations-description": "Migrate your existing data from other applications like Nextcloud Recipes and Chowdown.",
     "email-sent": "El. laiškas išsiųstas",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "Hide Cookbooks from Other Households",
     "hide-cookbooks-from-other-households-description": "When enabled, only cookbooks from your household will appear on the sidebar",
     "public-cookbook": "Vieša receptų knyga",
-    "public-cookbook-description": "Viešos receptų knygos gali būti bendrinamos su Mealie paskyros neturinčiais naudotojais ir bus rodomos jūsų grupių puslapyje.",
+    "public-cookbook-description": "Viešos receptų knygos gali būti bendrinamos su Tartines paskyros neturinčiais naudotojais ir bus rodomos jūsų grupių puslapyje.",
     "filter-options": "Filtro parinktys",
     "filter-options-description": "Kai pažymėta \"Būtinos visos kategorijos\", į receptų knygą bus įtraukti tik visoms pasirinktoms kategorijoms priklausantys receptai.",
     "require-all-categories": "Būtinos visos kategorijos",

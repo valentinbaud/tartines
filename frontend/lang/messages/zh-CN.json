@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "关于",
-    "about-mealie": "关于 Mealie",
+    "about-tartines": "关于 Tartines",
     "api-docs": "API 文档",
     "api-port": "API 端口",
     "application-mode": "应用模式",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "你确定要删除这个事件？",
     "event-deleted": "事件已删除",
     "event-updated": "事件已更新",
-    "new-notification-form-description": "Mealie使用Apprise库生成通知。Apprise适配了多种通知服务方式，若想了解如何为你所使用的通知服务创建URL，可以通过Apprise仓库的维基页面获得详细指南，其中有些通知服务可能包含额外功能。",
+    "new-notification-form-description": "Tartines使用Apprise库生成通知。Apprise适配了多种通知服务方式，若想了解如何为你所使用的通知服务创建URL，可以通过Apprise仓库的维基页面获得详细指南，其中有些通知服务可能包含额外功能。",
     "new-version": "有新版本可用！",
     "notification": "通知",
     "refresh": "刷新",
@@ -373,7 +373,7 @@
     "recipe-migration": "食谱迁移",
     "chowdown": {
       "description": "从Chowdown迁移数据",
-      "description-long": "Mealie原生支持chowdown格式，只需将代码仓库打包成zip文件，并在下方上传。",
+      "description-long": "Tartines原生支持chowdown格式，只需将代码仓库打包成zip文件，并在下方上传。",
       "title": "Chowdown"
     },
     "nextcloud": {
@@ -382,48 +382,48 @@
       "title": "Nextcloud Cookbook"
     },
     "copymethat": {
-      "description-long": "Mealie 可以从 Copy Mee That导入食谱。将您的食谱以HTML 格式导出，然后在下面上传 .zip压缩包",
+      "description-long": "Tartines 可以从 Copy Mee That导入食谱。将您的食谱以HTML 格式导出，然后在下面上传 .zip压缩包",
       "title": "Copy Me That 食谱管理器"
     },
     "paprika": {
-      "description-long": "Mealie 可以从 Paprika 导入食谱。请从paprika 导出食谱，重命名并压缩导出文件成.zip格式后，在下方上传",
+      "description-long": "Tartines 可以从 Paprika 导入食谱。请从paprika 导出食谱，重命名并压缩导出文件成.zip格式后，在下方上传",
       "title": "Paprika食谱管理器"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie支持从其（1.0版本之前的）早期版本中导入食谱。你需要在老版本服务器上导出食谱，并在下方上传zip文件。注意，只有食谱数据能被导入。",
-      "title": "Mealie Pre v1.0"
+    "tartines-pre-v1": {
+      "description-long": "Tartines支持从其（1.0版本之前的）早期版本中导入食谱。你需要在老版本服务器上导出食谱，并在下方上传zip文件。注意，只有食谱数据能被导入。",
+      "title": "Tartines Pre v1.0"
     },
     "tandoor": {
-      "description-long": "Mealie支持从Tandoor中导入食谱。在Tandoor中以“默认”格式导出数据，并在下方上传zip文件。",
+      "description-long": "Tartines支持从Tandoor中导入食谱。在Tandoor中以“默认”格式导出数据，并在下方上传zip文件。",
       "title": "Tandoor食谱"
     },
     "recipe-data-migrations": "食谱数据迁移",
-    "recipe-data-migrations-explanation": "你可以从受支持的应用中将食谱迁移至Mealie，这是上手Mealie的好方法。",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "之前使用其他食谱应用或是旧版本Mealie吗？检查迁移设置，来确认你的原有数据是否可以导入。",
+    "recipe-data-migrations-explanation": "你可以从受支持的应用中将食谱迁移至Tartines，这是上手Tartines的好方法。",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "之前使用其他食谱应用或是旧版本Tartines吗？检查迁移设置，来确认你的原有数据是否可以导入。",
     "choose-migration-type": "选择迁移类型",
     "tag-all-recipes": "用{tag-name} 标签标记所有食谱",
-    "nextcloud-text": "Mealie支持从Nextcloud中导入食谱。为了确保能被导入，应按照下方示例整理文件夹结构，并将其压缩成zip文件，然后在下方上传。",
-    "chowdown-text": "Mealie原生支持chowdown格式，只需将代码仓库打包成zip文件，并在下方上传。",
+    "nextcloud-text": "Tartines支持从Nextcloud中导入食谱。为了确保能被导入，应按照下方示例整理文件夹结构，并将其压缩成zip文件，然后在下方上传。",
+    "chowdown-text": "Tartines原生支持chowdown格式，只需将代码仓库打包成zip文件，并在下方上传。",
     "recipe-1": "食谱 1",
     "recipe-2": "食谱 2",
-    "paprika-text": "Mealie 可以从 Paprika 导入食谱。请从paprika 导出食谱，重命名导出文件并压缩成.zip格式后，在下方上传",
-    "mealie-text": "Mealie支持从其（1.0版本之前的）早期版本中导入食谱。你需要在老版本服务器上导出食谱，并在下方上传zip文件。注意，只有食谱数据能被导入。",
+    "paprika-text": "Tartines 可以从 Paprika 导入食谱。请从paprika 导出食谱，重命名导出文件并压缩成.zip格式后，在下方上传",
+    "tartines-text": "Tartines支持从其（1.0版本之前的）早期版本中导入食谱。你需要在老版本服务器上导出食谱，并在下方上传zip文件。注意，只有食谱数据能被导入。",
     "plantoeat": {
       "title": "Plan to Eat",
-      "description-long": "Mealie支持从 Plan to Eat 中导入食谱。"
+      "description-long": "Tartines支持从 Plan to Eat 中导入食谱。"
     },
     "myrecipebox": {
       "title": "My Recipe Box",
-      "description-long": "Mealie可以从“My Recipe Box\"导入食谱。把你的食谱导出为CSV模式，然后在下面上传.csv文件。"
+      "description-long": "Tartines可以从“My Recipe Box\"导入食谱。把你的食谱导出为CSV模式，然后在下面上传.csv文件。"
     },
     "recipekeeper": {
       "title": "食谱保存者",
-      "description-long": "Mealie can import recipes from Recipe Keeper. Export your recipes in zip format, then upload the .zip file below."
+      "description-long": "Tartines can import recipes from Recipe Keeper. Export your recipes in zip format, then upload the .zip file below."
     }
   },
   "new-recipe": {
     "bulk-add": "批量添加",
-    "error-details": "只有包含ld+json或微观数据的网站可以被Mealie导入。大多数主要配方网站支持此数据结构。 如果您的网站不能被导入，但日志里有json数据，请提交一个 github 问题与 URL 和数据。",
+    "error-details": "只有包含ld+json或微观数据的网站可以被Tartines导入。大多数主要配方网站支持此数据结构。 如果您的网站不能被导入，但日志里有json数据，请提交一个 github 问题与 URL 和数据。",
     "error-title": "看起来我们没找到任何内容",
     "from-url": "输入网址",
     "github-issues": "Github问题报告",
@@ -434,7 +434,7 @@
     "recipe-url": "食谱网址",
     "recipe-html-or-json": "食谱的 HTML 或 JSON",
     "upload-a-recipe": "上传食谱",
-    "upload-individual-zip-file": "上传从Mealie导出的.zip文件。",
+    "upload-individual-zip-file": "上传从Tartines导出的.zip文件。",
     "url-form-hint": "从您最喜爱的食谱网站复制并粘贴链接",
     "view-scraped-data": "查看爬取的数据",
     "trim-whitespace-description": "删除开头和结尾的空格和空行",
@@ -579,7 +579,7 @@
     "made-this": "我做了这道菜",
     "how-did-it-turn-out": "成品怎么样?",
     "user-made-this": "{user}做了",
-    "api-extras-description": "食谱扩展是Mealie API的关键功能之一。它允许你在食谱中添加自定义JSON键值对，以供第三方程序使用。你可以利用这些键提供信息，实现更多功能，例如触发自动化，或转发自定义信息到指定的设备上。",
+    "api-extras-description": "食谱扩展是Tartines API的关键功能之一。它允许你在食谱中添加自定义JSON键值对，以供第三方程序使用。你可以利用这些键提供信息，实现更多功能，例如触发自动化，或转发自定义信息到指定的设备上。",
     "message-key": "键名",
     "parse": "自动解析",
     "attach-images-hint": "如需添加图片，可将其拖拽到编辑器",
@@ -597,7 +597,7 @@
     "create-recipes": "创建食谱",
     "import-with-zip": "使用 .zip 导入",
     "create-recipe-from-an-image": "Create Recipe from an Image",
-    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Mealie will attempt to extract the text from the image using AI and create a recipe from it.",
+    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Tartines will attempt to extract the text from the image using AI and create a recipe from it.",
     "crop-and-rotate-the-image": "Crop and rotate the image so that only the text is visible, and it's in the correct orientation.",
     "create-from-images": "从图片创建",
     "should-translate-description": "翻译该食谱",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "通过名称创建食谱，食谱不可重名。",
     "new-recipe-names-must-be-unique": "新食谱名必须唯一",
     "scrape-recipe": "刮削食谱",
-    "scrape-recipe-description": "通过URL刮削食谱。提供你想要刮削网址的URL，Mealie会尝试从该网址刮削食谱并添加到你的收藏中。",
+    "scrape-recipe-description": "通过URL刮削食谱。提供你想要刮削网址的URL，Tartines会尝试从该网址刮削食谱并添加到你的收藏中。",
     "scrape-recipe-have-a-lot-of-recipes": "你想要一次刮削多个食谱吗？",
     "scrape-recipe-suggest-bulk-importer": "试试批量导入器",
     "scrape-recipe-have-raw-html-or-json-data": "有原始 HTML 或 JSON 数据？",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "导入原始关键字作为标签",
     "stay-in-edit-mode": "留在编辑模式",
     "import-from-zip": "从Zip压缩包导入",
-    "import-from-zip-description": "导入从另一个Mealie应用导出的单个食谱。",
+    "import-from-zip-description": "导入从另一个Tartines应用导出的单个食谱。",
     "import-from-html-or-json": "Import from HTML or JSON",
-    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Mealie can't scrape normally, or from some other external source.",
+    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Tartines can't scrape normally, or from some other external source.",
     "json-import-format-description-colon": "To import via JSON, it must be in valid format:",
     "json-editor": "JSON Editor",
-    "zip-files-must-have-been-exported-from-mealie": "必须是由Mealie导出的zip文件才有效",
+    "zip-files-must-have-been-exported-from-tartines": "必须是由Tartines导出的zip文件才有效",
     "create-a-recipe-by-uploading-a-scan": "通过上传扫描图创建食谱。",
     "upload-a-png-image-from-a-recipe-book": "上传一张PNG格式的纸质食谱照片",
     "recipe-bulk-importer": "食谱批量导入器",
-    "recipe-bulk-importer-description": "食谱批量导入器可以在后台创建网址队列、依次执行导入任务，从而一次性导入多个食谱。这在你刚上手Mealie做数据迁移，或是导入大量食谱时都非常有用。",
+    "recipe-bulk-importer-description": "食谱批量导入器可以在后台创建网址队列、依次执行导入任务，从而一次性导入多个食谱。这在你刚上手Tartines做数据迁移，或是导入大量食谱时都非常有用。",
     "set-categories-and-tags": "设置分类和标签",
     "bulk-imports": "批量导入",
     "bulk-import-process-has-started": "批量导入开始",
     "bulk-import-process-has-failed": "批量导入失败",
     "report-deletion-failed": "删除报告失败",
     "recipe-debugger": "食谱调试器",
-    "recipe-debugger-description": "抓取你想要的食谱的URL并粘贴在此。食谱刮削器将尝试刮削该URL并显示结果。如果你没看到任何返回数据，则说明对应的网站不支持Mealie或它的刮削库。",
+    "recipe-debugger-description": "抓取你想要的食谱的URL并粘贴在此。食谱刮削器将尝试刮削该URL并显示结果。如果你没看到任何返回数据，则说明对应的网站不支持Tartines或它的刮削库。",
     "use-openai": "Use OpenAI",
     "recipe-debugger-use-openai-description": "Use OpenAI to parse the results instead of relying on the scraper library. When creating a recipe via URL, this is done automatically if the scraper library fails, but you may test it manually here.",
     "debug": "调试",
@@ -695,7 +695,7 @@
     "clear-selection": "Clear Selection",
     "results": "结果",
     "search": "搜索",
-    "search-mealie": "搜索Mealie (按 /)",
+    "search-tartines": "搜索Tartines (按 /)",
     "search-placeholder": "搜索...",
     "tag-filter": "标签筛选",
     "search-hint": "按 '/'",
@@ -720,7 +720,7 @@
       "import-summary": "导入概况",
       "partial-backup": "部分备份",
       "unable-to-delete-backup": "无法删除备份",
-      "experimental-description": "备份是网站数据库和数据目录的共同快照。它必须包含全部数据，不能排除任何数据。你可以把它视为Mealie在某个时刻的快照。这些备份作为一种与数据库无关的方式，用于导入和导出数据，或将站点备份到外部位置。",
+      "experimental-description": "备份是网站数据库和数据目录的共同快照。它必须包含全部数据，不能排除任何数据。你可以把它视为Tartines在某个时刻的快照。这些备份作为一种与数据库无关的方式，用于导入和导出数据，或将站点备份到外部位置。",
       "backup-restore": "备份恢复",
       "back-restore-description": "恢复该备份将覆盖当前数据库和数据文件夹的数据。 {cannot-be-undone} 若恢复成功，你需要重新登录。",
       "cannot-be-undone": "该操作无法撤销，请谨慎使用！",
@@ -819,7 +819,7 @@
     "tracker": "报告问题",
     "configuration": "配置",
     "docker-volume": "Docker目录",
-    "docker-volume-help": "Mealie的正常运行依赖前端容器和后端共享相同的docker数据卷或本地存储路径。这保证了前端容器可以正常访问硬盘中的图像和其他资源。",
+    "docker-volume-help": "Tartines的正常运行依赖前端容器和后端共享相同的docker数据卷或本地存储路径。这保证了前端容器可以正常访问硬盘中的图像和其他资源。",
     "volumes-are-misconfigured": "数据卷配置错误。",
     "volumes-are-configured-correctly": "数据卷配置正确。",
     "status-unknown-try-running-a-validation": "状态未知，请尝试运行验证。",
@@ -834,7 +834,7 @@
     "general-about": "关于",
     "application-version": "软件版本",
     "application-version-error-text": "您当前的版本 ({0}) 与最新版本不匹配。请考虑更新到最新版本 ({1})。",
-    "mealie-is-up-to-date": "Mealie 是最新版",
+    "tartines-is-up-to-date": "Tartines 是最新版",
     "secure-site": "安全站点",
     "secure-site-error-text": "运行于本机或受https保护，剪切板和一些浏览器API可能无法正常工作。",
     "secure-site-success-text": "本站点经由本机或https协议访问",
@@ -918,7 +918,7 @@
     "sign-up-links": "注册链接",
     "sign-up-token-deleted": "注册令牌已删除",
     "sign-up-token-deletion-failed": "注册令牌删除失败",
-    "welcome-to-mealie": "欢迎来到Mealie！要成为此实例的用户，您必须有一个有效的邀请链接。 如果您没有收到邀请，您无法注册。要接收链接，请联系站点管理员。"
+    "welcome-to-tartines": "欢迎来到Tartines！要成为此实例的用户，您必须有一个有效的邀请链接。 如果您没有收到邀请，您无法注册。要接收链接，请联系站点管理员。"
   },
   "tag": {
     "tag-created": "标签已创建",
@@ -1027,7 +1027,7 @@
     "user-details": "用户详情",
     "user-name": "用户名",
     "authentication-method": "验证方式",
-    "authentication-method-hint": "This specifies how a user will authenticate with Mealie. If you're not sure, choose 'Mealie",
+    "authentication-method-hint": "This specifies how a user will authenticate with Tartines. If you're not sure, choose 'Tartines",
     "permissions": "权限",
     "administrator": "管理员",
     "user-can-invite-other-to-group": "User can invite others to group",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "已翻译",
     "choose-language": "选择语言",
-    "select-description": "选择Mealie UI的语言。该设置仅对你生效，不会影响其他用户。",
+    "select-description": "选择Tartines UI的语言。该设置仅对你生效，不会影响其他用户。",
     "how-to-contribute-description": "是否存在未翻译、错翻译的地方，或是列表根本没有你的语言？{read-the-docs-link}了解如何贡献翻译！",
     "read-the-docs": "阅读文档"
   },
@@ -1157,7 +1157,7 @@
     "group-details": "群组详情",
     "group-details-description": "在你创建账户之前，需要先创建一个群组。此时群组将只包含你自己，但稍后你便可邀请其他人。 你的群组成员可以分享食谱、饮食计划、购物清单等！",
     "use-seed-data": "使用初始数据",
-    "use-seed-data-description": "Mealie附带一套现成的“食品”、“单位”、“标签”数据，可以帮助你的群组管理食谱。",
+    "use-seed-data-description": "Tartines附带一套现成的“食品”、“单位”、“标签”数据，可以帮助你的群组管理食谱。",
     "account-details": "账户详情"
   },
   "validation": {
@@ -1257,14 +1257,14 @@
       "actions-description-destructive": "具有破坏性的",
       "actions-description-irreversible": "不可逆的",
       "logs-action-refresh": "刷新日志",
-      "logs-page-title": "Mealie日志",
+      "logs-page-title": "Tartines日志",
       "logs-tail-lines-label": "显示行数"
     },
     "mainentance": {
       "actions-title": "操作"
     },
     "ingredients-natural-language-processor": "食材条目自然语言处理器",
-    "ingredients-natural-language-processor-explanation": "Mealie用条件随机场(CRFs) 算法解析食材。模型的数据集则基于纽约时报编写的一个包含十万多种食材的数据库。注意该模型仅采用英文数据训练，因此用于其他语言时未必有好的效果。本页面用于测试模型效果。",
+    "ingredients-natural-language-processor-explanation": "Tartines用条件随机场(CRFs) 算法解析食材。模型的数据集则基于纽约时报编写的一个包含十万多种食材的数据库。注意该模型仅采用英文数据训练，因此用于其他语言时未必有好的效果。本页面用于测试模型效果。",
     "ingredients-natural-language-processor-explanation-2": "它不完美，但通常来说结果还不错。推荐用它上手来把食材手动解析成独立字段。或者，你也可以选择“Brute解析器“，它使用一种模式匹配技术来识别食材。",
     "nlp": "自然语言处理",
     "brute": "Brute",
@@ -1280,12 +1280,12 @@
     "tasks": "任务",
     "setup": {
       "first-time-setup": "初始配置",
-      "welcome-to-mealie-get-started": "欢迎来到Mealie！让我们开始吧！",
+      "welcome-to-tartines-get-started": "欢迎来到Tartines！让我们开始吧！",
       "already-set-up-bring-to-homepage": "我已经配置好了，直接跳转到主页",
       "common-settings-for-new-sites": "这有一些新站点的常见设置",
       "setup-complete": "配置完成！",
-      "here-are-a-few-things-to-help-you-get-started": "以下这些可以帮助你开始使用Mealie",
-      "restore-from-v1-backup": "有之前Mealie v1实例的备份数据？你可以在这里恢复它们。",
+      "here-are-a-few-things-to-help-you-get-started": "以下这些可以帮助你开始使用Tartines",
+      "restore-from-v1-backup": "有之前Tartines v1实例的备份数据？你可以在这里恢复它们。",
       "manage-profile-or-get-invite-link": "管理你自己的个人资料，或者获取邀请链接分享给其他人。"
     },
     "debug-openai-services": "Debug OpenAI Services",
@@ -1304,9 +1304,9 @@
     "account-summary": "账户概况",
     "account-summary-description": "以下是你群组信息的摘要。",
     "group-statistics": "群组统计",
-    "group-statistics-description": "群组统计为你如何使用Mealie提供一些深入信息。",
+    "group-statistics-description": "群组统计为你如何使用Tartines提供一些深入信息。",
     "household-statistics": "Household Statistics",
-    "household-statistics-description": "Your Household Statistics provide some insight how you're using Mealie.",
+    "household-statistics-description": "Your Household Statistics provide some insight how you're using Tartines.",
     "storage-capacity": "总储存容量",
     "storage-capacity-description": "你的存储容量基于你上传的图片和资源计算得出。",
     "personal": "个人",
@@ -1327,9 +1327,9 @@
     "notifiers": "通知方案",
     "notifiers-description": "设置基于特定事件触发的邮件提醒和通知推送。",
     "manage-data": "数据库",
-    "manage-data-description": "管理Mealie数据，包括食物种类、计量单位、分类、标签等",
+    "manage-data-description": "管理Tartines数据，包括食物种类、计量单位、分类、标签等",
     "data-migrations": "数据迁移",
-    "data-migrations-description": "将其他应用（如Nextcloud Recipes、Chowdown等）的现有数据迁移至Mealie。",
+    "data-migrations-description": "将其他应用（如Nextcloud Recipes、Chowdown等）的现有数据迁移至Tartines。",
     "email-sent": "邮件已发送",
     "error-sending-email": "发送邮件出错",
     "personal-information": "个人信息",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "Hide Cookbooks from Other Households",
     "hide-cookbooks-from-other-households-description": "When enabled, only cookbooks from your household will appear on the sidebar",
     "public-cookbook": "公开食谱合集",
-    "public-cookbook-description": "公开食谱合集可以分享和非Mealie用户，同时也会显示在你的群组页面上。",
+    "public-cookbook-description": "公开食谱合集可以分享和非Tartines用户，同时也会显示在你的群组页面上。",
     "filter-options": "过滤器选项",
     "filter-options-description": "当“包含全部xx”选中时，食谱合集将仅保留那些xx中含有全部上方所选项的食谱。（xx指目录、标签或用具）",
     "require-all-categories": "包含全部分类",

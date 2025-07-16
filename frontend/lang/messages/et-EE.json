@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "Teave",
-    "about-mealie": "Mealie teave",
+    "about-tartines": "Tartines teave",
     "api-docs": "API dokumentatsioon",
     "api-port": "API Port",
     "application-mode": "Rakenduse režiim",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "Kas oled kindel, et soovid sündmust kustutada?",
     "event-deleted": "Sündmus kustutatud",
     "event-updated": "Sündmus uuendatud",
-    "new-notification-form-description": "Mealie kasutab Apprise tarkvarateeki, et genereerida teavitusi. Need pakuvad teenustele mitmeid valikuid teavituse kasutamiseks. Konsulteeri nende wiki detailse juhendiga loomaks URL-i oma teenusele. Olemasolu korral võib sinu valitud teavitus hõlmata ka lisaomadusi.",
+    "new-notification-form-description": "Tartines kasutab Apprise tarkvarateeki, et genereerida teavitusi. Need pakuvad teenustele mitmeid valikuid teavituse kasutamiseks. Konsulteeri nende wiki detailse juhendiga loomaks URL-i oma teenusele. Olemasolu korral võib sinu valitud teavitus hõlmata ka lisaomadusi.",
     "new-version": "Uus versioon saadaval!",
     "notification": "Teade",
     "refresh": "Värskenda",
@@ -382,48 +382,48 @@
       "title": "Nextcloud Cookbook"
     },
     "copymethat": {
-      "description-long": "Mealie võimaldab importida retsepte \"Copy Me That\"-st. Ekspordi oma retseptid HTML formaati ning lae .zip allolevasse kasti.",
+      "description-long": "Tartines võimaldab importida retsepte \"Copy Me That\"-st. Ekspordi oma retseptid HTML formaati ning lae .zip allolevasse kasti.",
       "title": "Copy Me That retseptihaldur"
     },
     "paprika": {
-      "description-long": "Mealie saab importida retsepte Paprika rakendusest. Ekspordi oma retseptid Paprikast, nimeta ekspordi laiend .zip-ks ning lae see üles allolevasse kasti",
+      "description-long": "Tartines saab importida retsepte Paprika rakendusest. Ekspordi oma retseptid Paprikast, nimeta ekspordi laiend .zip-ks ning lae see üles allolevasse kasti",
       "title": "Paprika retseptihaldur"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie saab importida retsepte Mealie rakendusest enne versiooni 1.0 väljalaskmist. Eksportige oma retseptid vanast installist ja laadige alla .zip fail. Pange tähele, et ekspordist saab importida ainult retsepte.",
-      "title": "Mealie v1.0-le eelnev versioon"
+    "tartines-pre-v1": {
+      "description-long": "Tartines saab importida retsepte Tartines rakendusest enne versiooni 1.0 väljalaskmist. Eksportige oma retseptid vanast installist ja laadige alla .zip fail. Pange tähele, et ekspordist saab importida ainult retsepte.",
+      "title": "Tartines v1.0-le eelnev versioon"
     },
     "tandoor": {
-      "description-long": "Mealie saab importida retsepte Tandoor-ist. Ekspordi oma andmed \"Default\" formaadis ning lae .zip allolevasse kasti",
+      "description-long": "Tartines saab importida retsepte Tandoor-ist. Ekspordi oma andmed \"Default\" formaadis ning lae .zip allolevasse kasti",
       "title": "Tandoor-i retsptid"
     },
     "recipe-data-migrations": "Retsepti andmete ületoomised",
-    "recipe-data-migrations-explanation": "Retsepte saab üle tuua teisest toetatud rakendusest Mealiesse. See on hea viis tegemaks algust Mealie-ga.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "Tuled teisest rakendusest või hoopis vanemast Mealie versioonist? Uuri ületoomise võimalusi ning vaata kas su andmeid saab importida.",
+    "recipe-data-migrations-explanation": "Retsepte saab üle tuua teisest toetatud rakendusest Tartinessse. See on hea viis tegemaks algust Tartines-ga.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "Tuled teisest rakendusest või hoopis vanemast Tartines versioonist? Uuri ületoomise võimalusi ning vaata kas su andmeid saab importida.",
     "choose-migration-type": "Vali ületoomise tüüp",
     "tag-all-recipes": "Märgista kõik retseptid märgiga {tag-name}",
     "nextcloud-text": "Nextcloudi retsepte saab importida .zip failist, mis sisaldab Nextcloudi poolt salvestatud andmeid. Vaata alltoodud näidiskausta struktuuri, et veenduda retseptide importimise võimalikkuses.",
     "chowdown-text": "Meali toetab Chowdowni varamu formaati. Lae alla koodi varamu .zip failina ja lae see allolevasse kasti üles.",
     "recipe-1": "Retsept 1",
     "recipe-2": "Retsept 2",
-    "paprika-text": "Mealie saab importida retsepte Paprika rakendusest. Ekspordi oma retseptid Paprikast, nimeta ekspordi laiend .zip-ks ning lae see üles allolevasse kasti",
-    "mealie-text": "Mealie saab importida retsepte Mealie rakendusest enne versiooni 1.0 väljalaskmist. Eksportige oma retseptid vanast installist ja laadige alla .zip fail. Pange tähele, et ekspordist saab importida ainult retsepte.",
+    "paprika-text": "Tartines saab importida retsepte Paprika rakendusest. Ekspordi oma retseptid Paprikast, nimeta ekspordi laiend .zip-ks ning lae see üles allolevasse kasti",
+    "tartines-text": "Tartines saab importida retsepte Tartines rakendusest enne versiooni 1.0 väljalaskmist. Eksportige oma retseptid vanast installist ja laadige alla .zip fail. Pange tähele, et ekspordist saab importida ainult retsepte.",
     "plantoeat": {
       "title": "Plan to Eat",
-      "description-long": "Mealie saab importida retsepte Plan to Eat-st"
+      "description-long": "Tartines saab importida retsepte Plan to Eat-st"
     },
     "myrecipebox": {
       "title": "My Recipe Box",
-      "description-long": "Mealie saab importida retsepte My Recipe Box-st. Ekspordi oma retsept CSV formaadis ning lae .csv fail allolevasse kasti."
+      "description-long": "Tartines saab importida retsepte My Recipe Box-st. Ekspordi oma retsept CSV formaadis ning lae .csv fail allolevasse kasti."
     },
     "recipekeeper": {
       "title": "Recipe Keeper",
-      "description-long": "Mealie saab importida retsepte Recipe Keeper-st. Ekspordi oma retsept .zip formaadis ning lae .zip fail allolevasse kasti."
+      "description-long": "Tartines saab importida retsepte Recipe Keeper-st. Ekspordi oma retsept .zip formaadis ning lae .zip fail allolevasse kasti."
     }
   },
   "new-recipe": {
     "bulk-add": "Mitme korraga lisamine",
-    "error-details": "Mealiesse saab importida ainult neid lehti, mis sisaldavad mikroandmeid või ld+jsonit. Enamik populaarseid retseptisaite toetavad seda. Kui teie saiti ei saa importida, kuid logis on JSON-andmeid, teatage sellest GitHubile koos URL-i ja üksikasjadega.",
+    "error-details": "Tartinessse saab importida ainult neid lehti, mis sisaldavad mikroandmeid või ld+jsonit. Enamik populaarseid retseptisaite toetavad seda. Kui teie saiti ei saa importida, kuid logis on JSON-andmeid, teatage sellest GitHubile koos URL-i ja üksikasjadega.",
     "error-title": "Paistab, et me ei suutnud midagi leida",
     "from-url": "Impordi retsept",
     "github-issues": "GitHub issue-d",
@@ -434,7 +434,7 @@
     "recipe-url": "Retsepti URL",
     "recipe-html-or-json": "Retsepti HTML või JSON",
     "upload-a-recipe": "Retsepti üleslaadimne",
-    "upload-individual-zip-file": "Lae üles üksik .zip fail, mis eksporditi teisest Mealie ekspemplarist.",
+    "upload-individual-zip-file": "Lae üles üksik .zip fail, mis eksporditi teisest Tartines ekspemplarist.",
     "url-form-hint": "Kopeeri ja kleebi link oma lemmikust retsepti leheküljest",
     "view-scraped-data": "Kuva omandatud andmed",
     "trim-whitespace-description": "Eemalda alguses ning lõpus olevad tühikud ning tühjad read",
@@ -597,7 +597,7 @@
     "create-recipes": "Loo retseptid",
     "import-with-zip": "Impordi .zip failist",
     "create-recipe-from-an-image": "Retsepti loomine pildist",
-    "create-recipe-from-an-image-description": "Retsepti loomiseks lae üles selle pilt. Mealie üritab ekstraheerida pildil oleva teksti ning luua retsepti sellest kasutades AI-d.",
+    "create-recipe-from-an-image-description": "Retsepti loomiseks lae üles selle pilt. Tartines üritab ekstraheerida pildil oleva teksti ning luua retsepti sellest kasutades AI-d.",
     "crop-and-rotate-the-image": "Kärpige ja pöörake pilti nii, et ainult tekst oleks nähtaval ja see oleks suunatud ülespoole.",
     "create-from-images": "Create from Images",
     "should-translate-description": "Tõlgi retsept minu keelde",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "Loo retsept selle nime kasutades. Igal retseptil peab olema unikaalne nimi",
     "new-recipe-names-must-be-unique": "Uue retsepti nimed peavad olema unikaalsed",
     "scrape-recipe": "Retsepti lugemine",
-    "scrape-recipe-description": "Lugege retsept URL-i abil. Sisestage soovitud retsepti URL, ja Mealie proovib selle saidi retsepti jäädvustada ja lisada selle teie kogusse.",
+    "scrape-recipe-description": "Lugege retsept URL-i abil. Sisestage soovitud retsepti URL, ja Tartines proovib selle saidi retsepti jäädvustada ja lisada selle teie kogusse.",
     "scrape-recipe-have-a-lot-of-recipes": "Sul on palju retsepte ja sa soovida lugeda kõik sisse üheaegselt?",
     "scrape-recipe-suggest-bulk-importer": "Proovi hulgiimportimist.",
     "scrape-recipe-have-raw-html-or-json-data": "Sul on töötlemata HTMLi või JSONi andmed?",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "Impordi originaal võtmesõnad siltidena",
     "stay-in-edit-mode": "Püsige redigeerimisrežiimis",
     "import-from-zip": "Impordi .zip-st",
-    "import-from-zip-description": "Impordi üks retsept, mis oli eksporditud teisest Mealie paigaldusest.",
+    "import-from-zip-description": "Impordi üks retsept, mis oli eksporditud teisest Tartines paigaldusest.",
     "import-from-html-or-json": "Impordi HTMLst või JSONist",
-    "import-from-html-or-json-description": "Importige üks retsept töötlemata HTML- või JSON-failist. See on kasulik, kui teil on retsept lehelt, mida Mealie ei suuda tavaliselt jäädvustada, või mõnest muust välisest allikast.",
+    "import-from-html-or-json-description": "Importige üks retsept töötlemata HTML- või JSON-failist. See on kasulik, kui teil on retsept lehelt, mida Tartines ei suuda tavaliselt jäädvustada, või mõnest muust välisest allikast.",
     "json-import-format-description-colon": "JSON-faili importimiseks peab see olema õiges formaadis:",
     "json-editor": "JSON Editor",
-    "zip-files-must-have-been-exported-from-mealie": ".zip failid peavad olema eksporditud Mealiest",
+    "zip-files-must-have-been-exported-from-tartines": ".zip failid peavad olema eksporditud Tartinesst",
     "create-a-recipe-by-uploading-a-scan": "Loo retsept laadides üles skanneeritud pilt.",
     "upload-a-png-image-from-a-recipe-book": "Lae üles .png pilt retseptiraamatust",
     "recipe-bulk-importer": "Retseptide hulgi-importimine",
-    "recipe-bulk-importer-description": "Retseptide hulgi-importimine võimaldab importida mitu retsepti korraga, asetades leheküljed taustaprogrammi järjekorda ja käivitades importimise ülesanded taustal. See on kasulik, kui lülitute ümber Mealie-le või kui soovite importida suure hulga retsepte.",
+    "recipe-bulk-importer-description": "Retseptide hulgi-importimine võimaldab importida mitu retsepti korraga, asetades leheküljed taustaprogrammi järjekorda ja käivitades importimise ülesanded taustal. See on kasulik, kui lülitute ümber Tartines-le või kui soovite importida suure hulga retsepte.",
     "set-categories-and-tags": "Sea kategooriad ning Sildid",
     "bulk-imports": "Hulgi-impordid",
     "bulk-import-process-has-started": "Hulgi-importimise protsess on alanud",
     "bulk-import-process-has-failed": "Hulgi-importimise protsess ebaõnnestus",
     "report-deletion-failed": "Raporti kustutamine ebaõnnestus",
     "recipe-debugger": "Retsepti vigadeotsing",
-    "recipe-debugger-description": "Võtke selle retsepti URL, milles soovite vigu otsida, ja kleepige see siia. Retseptihaaraja otsib URL-i ja tulemused kuvatakse. Kui te ei näe tagastatud andmeid, ei toeta Mealie või selle kogumisteek lehte, mida proovite haarata.",
+    "recipe-debugger-description": "Võtke selle retsepti URL, milles soovite vigu otsida, ja kleepige see siia. Retseptihaaraja otsib URL-i ja tulemused kuvatakse. Kui te ei näe tagastatud andmeid, ei toeta Tartines või selle kogumisteek lehte, mida proovite haarata.",
     "use-openai": "Kasuta OpenAI-d",
     "recipe-debugger-use-openai-description": "Kasutage tulemuste sõelumiseks kaabitsateegi asemel OpenAI-d. Kuigi URL-i kaudu retsepti loomisel tehakse seda  kaabitsateegi mitte-toimimise korral automaatselt, saate seda proovida siin käsitsi.",
     "debug": "Veaotsing",
@@ -695,7 +695,7 @@
     "clear-selection": "Tühjenda valik",
     "results": "Tulemused",
     "search": "Otsing",
-    "search-mealie": "Otsi Mealies (vajuta \"/\" )",
+    "search-tartines": "Otsi Tartiness (vajuta \"/\" )",
     "search-placeholder": "Otsi ...",
     "tag-filter": "Sildifilter",
     "search-hint": "Vajuta \"/\"",
@@ -720,7 +720,7 @@
       "import-summary": "Impordi kokkuvõte",
       "partial-backup": "Osaline tagavarakoopia",
       "unable-to-delete-backup": "Ei saa kustutada tagavarakoopiat",
-      "experimental-description": "Varukoopiad on teie saidi andmebaasi ja kataloogi hetktõmmised. See sisaldab kogu teavet ja te ei saa sellest teabe alamhulki eemaldada. See on võrreldav Mealie hetkepildiga konkreetsel ajahetkel. Need toimivad andmebaaside viisina andmete importimiseks ja eksportimiseks, samuti saidi varukoopiate tegemiseks välisesse asukohta.",
+      "experimental-description": "Varukoopiad on teie saidi andmebaasi ja kataloogi hetktõmmised. See sisaldab kogu teavet ja te ei saa sellest teabe alamhulki eemaldada. See on võrreldav Tartines hetkepildiga konkreetsel ajahetkel. Need toimivad andmebaaside viisina andmete importimiseks ja eksportimiseks, samuti saidi varukoopiate tegemiseks välisesse asukohta.",
       "backup-restore": "Taasta tagavarakoopiast",
       "back-restore-description": "Selle varukoopia taastamisel kirjutatakse üle kõik teie andmebaasis ja andmebaasihalduris olevad andmed ning asendatakse need selle varukoopia sisuga. {cannot-be-undone} Kui taastamine õnnestub, logitakse teid välja.",
       "cannot-be-undone": "Seda tegevust ei saa tagasi võtta - kasuta ettevaatusega.",
@@ -819,7 +819,7 @@
     "tracker": "Tracker",
     "configuration": "Konfiguratsioon",
     "docker-volume": "Dockeri failisüsteem",
-    "docker-volume-help": "Mealie nõuab, et frontendi konteiner ja taustaprogramm jagaksid sama Dockeri failisüsteemi või salvestusruumi. See tagab, et frontendi konteiner pääseb korralikult juurde kettale salvestatud piltidele ja ressurssidele.",
+    "docker-volume-help": "Tartines nõuab, et frontendi konteiner ja taustaprogramm jagaksid sama Dockeri failisüsteemi või salvestusruumi. See tagab, et frontendi konteiner pääseb korralikult juurde kettale salvestatud piltidele ja ressurssidele.",
     "volumes-are-misconfigured": "Failisüsteemid on valesti konfigureeritud.",
     "volumes-are-configured-correctly": "Failisüsteemid on õigesti konfigureeritud",
     "status-unknown-try-running-a-validation": "Olek teadmata. Proovi valideerida. ",
@@ -834,7 +834,7 @@
     "general-about": "Üldine info",
     "application-version": "Rakenduse versioon",
     "application-version-error-text": "Sinu praegune versioon ({0}) ei ühti viimatise väljalaskega. Kaalu uuendamist viimatisele versioonile ({1}).",
-    "mealie-is-up-to-date": "Mealie on ajakohane",
+    "tartines-is-up-to-date": "Tartines on ajakohane",
     "secure-site": "Turvaline lehekülg",
     "secure-site-error-text": "Esitage kohaliku või turvalise serveri kaudu, kasutades https-i. Lõikelaud ja muud brauseri API-d ei pruugi töötada.",
     "secure-site-success-text": "Lehekülge külastatakse läbi localhost-i või hhtps-i",
@@ -918,7 +918,7 @@
     "sign-up-links": "Registreerimislingid",
     "sign-up-token-deleted": "Tegistreerimise identifikaator kustutatud",
     "sign-up-token-deletion-failed": "Tegistreerimise identifikaatori kustutatamine ebaõnnestus",
-    "welcome-to-mealie": "Tere tulemast Mealiesse! Kui soovite selle rakenduse kasutajaks saada, peab teil olema kehtiv kutselink. Kui te pole kutset saanud, ei saa te registreeruda. Lingi saamiseks võtke ühendust lehe administraatoriga."
+    "welcome-to-tartines": "Tere tulemast Tartinessse! Kui soovite selle rakenduse kasutajaks saada, peab teil olema kehtiv kutselink. Kui te pole kutset saanud, ei saa te registreeruda. Lingi saamiseks võtke ühendust lehe administraatoriga."
   },
   "tag": {
     "tag-created": "Silt loodud",
@@ -1027,7 +1027,7 @@
     "user-details": "Kasutaja üksikasjad",
     "user-name": "Kasutaja nimi",
     "authentication-method": "Autentimise meetod",
-    "authentication-method-hint": "Sellega määratakse kuidas kasutaja autendib Mealiega. Kui sa pole kindel, siis vali \"Mealie\"",
+    "authentication-method-hint": "Sellega määratakse kuidas kasutaja autendib Tartinesga. Kui sa pole kindel, siis vali \"Tartines\"",
     "permissions": "Õigused",
     "administrator": "Administraator",
     "user-can-invite-other-to-group": "Kasutaja võib kutsuda teisi gruppi",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "tõlgitud",
     "choose-language": "Vali keel",
-    "select-description": "Vali keel Mealie UI jaoks. See valik mõjutab ainult sind, ning ei muuda midagi teiste kasutajate jaoks.",
+    "select-description": "Vali keel Tartines UI jaoks. See valik mõjutab ainult sind, ning ei muuda midagi teiste kasutajate jaoks.",
     "how-to-contribute-description": "On midagi jäänud tõlkimata, on valesti tõlgitud või sinu keel puudub nimekirjast täielikult? {read-the-docs-link} panustamiseks!",
     "read-the-docs": "Loe dokumentatsiooni"
   },
@@ -1257,14 +1257,14 @@
       "actions-description-destructive": "destrucktiivsed",
       "actions-description-irreversible": "tagasivõetamatu",
       "logs-action-refresh": "Uuenda logisid",
-      "logs-page-title": "Mealie logid",
+      "logs-page-title": "Tartines logid",
       "logs-tail-lines-label": "Piira ridu"
     },
     "mainentance": {
       "actions-title": "Tegevused"
     },
     "ingredients-natural-language-processor": "Koostisosade loomuliku keele töötlemine",
-    "ingredients-natural-language-processor-explanation": "Mealie kasutab koostisosade analüüsimiseks ja töötlemiseks tingimuslikke juhuslikke välju (CRF). Koostisosade jaoks kasutatav mudel põhineb enam kui 100 000 koostisosal New York Timesi koostatud andmekogumist. Pange tähele, et mudelit õpetati ainult inglise keeles, seega võivad tulemused teiste keelte kasutamisel erineda. See leht on mudeli testimise mängumaa.",
+    "ingredients-natural-language-processor-explanation": "Tartines kasutab koostisosade analüüsimiseks ja töötlemiseks tingimuslikke juhuslikke välju (CRF). Koostisosade jaoks kasutatav mudel põhineb enam kui 100 000 koostisosal New York Timesi koostatud andmekogumist. Pange tähele, et mudelit õpetati ainult inglise keeles, seega võivad tulemused teiste keelte kasutamisel erineda. See leht on mudeli testimise mängumaa.",
     "ingredients-natural-language-processor-explanation-2": "See ei ole täiuslik, kuid annab tavaliselt väga häid tulemusi ja on hea algus koostisosade käsitsi määramiseks üksikutele väljadele. Teise võimalusena võite kasutada \"jõulist\" protsessorit, mis kasutab koostisosade tuvastamiseks mustri sobitamise tehnikat.",
     "nlp": "NLP",
     "brute": "Jõuline",
@@ -1280,12 +1280,12 @@
     "tasks": "Ülesanded",
     "setup": {
       "first-time-setup": "Esimese korra seadistus",
-      "welcome-to-mealie-get-started": "Teretulemast Mealie-sse! Alustame",
+      "welcome-to-tartines-get-started": "Teretulemast Tartines-sse! Alustame",
       "already-set-up-bring-to-homepage": "Ma olen juba vajalikud asjad seadistanud, vii mind pealehele",
       "common-settings-for-new-sites": "Siin on mõned harilikud sätted uute lehekülgede jaoks",
       "setup-complete": "Seadistus valmis!",
-      "here-are-a-few-things-to-help-you-get-started": "Siin on mõned asjad mis aitavad sul teha algust Mealie-ga",
-      "restore-from-v1-backup": "Kas sul on tagavarakoopia varasemast Mealie v1 instantsist? Sa saad taastada selle siin.",
+      "here-are-a-few-things-to-help-you-get-started": "Siin on mõned asjad mis aitavad sul teha algust Tartines-ga",
+      "restore-from-v1-backup": "Kas sul on tagavarakoopia varasemast Tartines v1 instantsist? Sa saad taastada selle siin.",
       "manage-profile-or-get-invite-link": "Halda oma profiili, või haara kutselink teistega jagamiseks."
     },
     "debug-openai-services": "Otsi vigu OpenAI teenustes",
@@ -1304,9 +1304,9 @@
     "account-summary": "Konto kokkuvõte",
     "account-summary-description": "Siin on kokkuvõte sinu grupi infost",
     "group-statistics": "Grupi statistika",
-    "group-statistics-description": "Sinu grupi statistika heidab pilgu sinu Mealie kasutusmustritesse.",
+    "group-statistics-description": "Sinu grupi statistika heidab pilgu sinu Tartines kasutusmustritesse.",
     "household-statistics": "Leibkonna statistika",
-    "household-statistics-description": "Sinu leibkonna statistika  heidab pilgu sinu Mealie kasutusmustritesse.",
+    "household-statistics-description": "Sinu leibkonna statistika  heidab pilgu sinu Tartines kasutusmustritesse.",
     "storage-capacity": "Salvestusruumi maht",
     "storage-capacity-description": "Sinu salvestusruumi maht on sinu üleslaetud summa piltide ja manuste mahtude summa",
     "personal": "Personaalne",
@@ -1327,7 +1327,7 @@
     "notifiers": "Teavitajad",
     "notifiers-description": "Sea üles email ja tõukemärguanded mis käivitatakse kindlatel sündmustel.",
     "manage-data": "Halda andmeid",
-    "manage-data-description": "Halda oma Mealie andmeid: toidud, ühikud, kategooriad, sildid ja muu.",
+    "manage-data-description": "Halda oma Tartines andmeid: toidud, ühikud, kategooriad, sildid ja muu.",
     "data-migrations": "Andmete rändlus",
     "data-migrations-description": "Impordi oma olemasolevad andmed teisest rakendusest nagu Nextcloud retseptid ning Chowdown.",
     "email-sent": "Email saadetud",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "Peida kokaraamatud teiste leibkondade eest",
     "hide-cookbooks-from-other-households-description": "Kui lubatud, ainult sinu leibkonna kokaraamatud ilmuvad külgribale",
     "public-cookbook": "Avalik kokaraamat",
-    "public-cookbook-description": "Avalikke kokaraamatuid saab jagada Mealie-väliste kasutajatega. Neid näidatakse grupi leheküljel.",
+    "public-cookbook-description": "Avalikke kokaraamatuid saab jagada Tartines-väliste kasutajatega. Neid näidatakse grupi leheküljel.",
     "filter-options": "Filtreerimisseaded",
     "filter-options-description": "Kui valitud on \"Nõua kõike\", siis valitud kokaraamat  sisaldab ainult retsepte, mis sisaldavad kõiki valitud üksusi. See kehtib valijate iga alamhulga, mitte valitud üksuste üleselt.",
     "require-all-categories": "Nõua kõik kategooriad",

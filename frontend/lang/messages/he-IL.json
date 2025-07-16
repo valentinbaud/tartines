@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "אודות",
-    "about-mealie": "אודות מילי",
+    "about-tartines": "אודות מילי",
     "api-docs": "תיעוד API",
     "api-port": "פורט API",
     "application-mode": "מצב האפליקציה",
@@ -389,36 +389,36 @@
       "description-long": "מילי יכולה לייבא מתכונים מאפליקציית Paprika. ייצא את המתכונים מהאפליקציה, שנה את סיומת הקובץ ל- zip והעלה אותו למטה.",
       "title": "מנהל מתכוני Paprika"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie יכול לייבא מתכונים מגרסאות ישנות של Mealie מתחת ל- v1.0. ייצא את המתכונים מהסביבה הישנה והעלה את קובץ ה- zip למטה. ניתן לייבא רק מתכונים מתהליך הייצוא.",
+    "tartines-pre-v1": {
+      "description-long": "Tartines יכול לייבא מתכונים מגרסאות ישנות של Tartines מתחת ל- v1.0. ייצא את המתכונים מהסביבה הישנה והעלה את קובץ ה- zip למטה. ניתן לייבא רק מתכונים מתהליך הייצוא.",
       "title": "מילי לפני V1.0"
     },
     "tandoor": {
-      "description-long": "Mealie יכול לייבא מתכונים מ-Tandoor, תייצא את המתכון בפורמט הדיפולטיבי ולאחר מכן העלאה אותם בחזרה בפורמט zip.",
+      "description-long": "Tartines יכול לייבא מתכונים מ-Tandoor, תייצא את המתכון בפורמט הדיפולטיבי ולאחר מכן העלאה אותם בחזרה בפורמט zip.",
       "title": "מתכוני Tandoor"
     },
     "recipe-data-migrations": "מגרציית מידע מתכונים",
-    "recipe-data-migrations-explanation": "ניתן לייבא מתכונים מאפליקציות תומכות אחרות אל Mealie. זו דרך מעולה להתחיל במילי.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "הגעת מתוכנה אחרת או גרסה ישנה יותר של Mealie? מומלץ לבדוק מיגרציות ולראות אם ניתן לייבא את המידע שלך.",
+    "recipe-data-migrations-explanation": "ניתן לייבא מתכונים מאפליקציות תומכות אחרות אל Tartines. זו דרך מעולה להתחיל במילי.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "הגעת מתוכנה אחרת או גרסה ישנה יותר של Tartines? מומלץ לבדוק מיגרציות ולראות אם ניתן לייבא את המידע שלך.",
     "choose-migration-type": "בחר סוג מיגרציה",
     "tag-all-recipes": "תיוג את כל המתכונים עם תגית {tag-name}",
     "nextcloud-text": "ייבוא מתכונים מ-Nextcould יכול להתבצע בקובץ zip שמכיל את המידע. המבנה צריך להתאים לתיקייה לדוגמא למטה כדי להבטיח שניתן לייבא את המתכון.",
-    "chowdown-text": "Mealie תומכת באופן טבעי בפורמט Chowdown. יש להוריד את רפוזיטורי הקוד כ-zip ולהעלות אותו כאן.",
+    "chowdown-text": "Tartines תומכת באופן טבעי בפורמט Chowdown. יש להוריד את רפוזיטורי הקוד כ-zip ולהעלות אותו כאן.",
     "recipe-1": "מתכון 1",
     "recipe-2": "מתכון 2",
-    "paprika-text": "Mealie יכולה לייבא מתכונים מאפליקציית Paprika. יש לייצא את המתכונים מהאפליקציה, לשנות את סיומת הקובץ ל- zip ולהעלות אותו כאן.",
-    "mealie-text": "Mealie יכול לייבא מתכונים מגרסאות ישנות של Mealie מתחת ל- v1.0. ייצא את המתכונים מהסביבה הישנה והעלה את קובץ ה- zip למטה. ניתן לייבא רק מתכונים מתהליך הייצוא.",
+    "paprika-text": "Tartines יכולה לייבא מתכונים מאפליקציית Paprika. יש לייצא את המתכונים מהאפליקציה, לשנות את סיומת הקובץ ל- zip ולהעלות אותו כאן.",
+    "tartines-text": "Tartines יכול לייבא מתכונים מגרסאות ישנות של Tartines מתחת ל- v1.0. ייצא את המתכונים מהסביבה הישנה והעלה את קובץ ה- zip למטה. ניתן לייבא רק מתכונים מתהליך הייצוא.",
     "plantoeat": {
       "title": "Plan to Eat",
-      "description-long": "Mealie יכולה לייבא מתכונים מהאתר- Plan to Eat."
+      "description-long": "Tartines יכולה לייבא מתכונים מהאתר- Plan to Eat."
     },
     "myrecipebox": {
       "title": "תיבת המתכונים שלי",
-      "description-long": "Mealie יכולה לייבא מתכונים מתיבת המתכונים שלי. יש לייצא את המתכונים שלך בפורמט CSV ולהעלות אותו כאן."
+      "description-long": "Tartines יכולה לייבא מתכונים מתיבת המתכונים שלי. יש לייצא את המתכונים שלך בפורמט CSV ולהעלות אותו כאן."
     },
     "recipekeeper": {
       "title": "שומר המתכון",
-      "description-long": "Mealie יכולה לייבא מתכונים מ-Recipe Keeper. יש לייצא את המתכונים בפורמט zip ולהעלות אותו כאן."
+      "description-long": "Tartines יכולה לייבא מתכונים מ-Recipe Keeper. יש לייצא את המתכונים בפורמט zip ולהעלות אותו כאן."
     }
   },
   "new-recipe": {
@@ -579,7 +579,7 @@
     "made-this": "הכנתי את זה",
     "how-did-it-turn-out": "איך יצא?",
     "user-made-this": "{user} הכין את זה",
-    "api-extras-description": "מתכונים נוספים הם יכולת מפתח של Mealie API. הם מאפשרים ליצור צמדי key/value בצורת JSON על מנת לקרוא אותם בתוכנת צד שלישית. תוכלו להשתמש בצמדים האלה כדי לספק מידע, לדוגמא להפעיל אוטומציות או הודעות מותאמות אישית למכשירים מסויימים.",
+    "api-extras-description": "מתכונים נוספים הם יכולת מפתח של Tartines API. הם מאפשרים ליצור צמדי key/value בצורת JSON על מנת לקרוא אותם בתוכנת צד שלישית. תוכלו להשתמש בצמדים האלה כדי לספק מידע, לדוגמא להפעיל אוטומציות או הודעות מותאמות אישית למכשירים מסויימים.",
     "message-key": "מפתח הודעה",
     "parse": "ניתוח",
     "attach-images-hint": "הוסף תמונות ע\"י גרירה ושחרור אל תוך העורך",
@@ -597,7 +597,7 @@
     "create-recipes": "יצירת מתכונים",
     "import-with-zip": "ייבא באמצעות zip",
     "create-recipe-from-an-image": "יצירת מתכון מתמונה",
-    "create-recipe-from-an-image-description": "יצירת מתכון ע\"י העלאת תמונה שלו. Mealie תנסה לחלץ את הטקסט מהתמונה באמצעות AI ותייצר ממנו מתכון.",
+    "create-recipe-from-an-image-description": "יצירת מתכון ע\"י העלאת תמונה שלו. Tartines תנסה לחלץ את הטקסט מהתמונה באמצעות AI ותייצר ממנו מתכון.",
     "crop-and-rotate-the-image": "נא לחתוך ולסובב את התמונה כך שרואים רק את הטקסט, והוא בכיוון הנכון.",
     "create-from-images": "יצירה מתמונה",
     "should-translate-description": "תרגום המתכון לשפה שלי",
@@ -618,21 +618,21 @@
     "import-from-zip": "ייבא מקובץ",
     "import-from-zip-description": "ייבוא מתכון בודד שיוצא ממילי אחרת.",
     "import-from-html-or-json": "ייבוא מ-HTML או JSON",
-    "import-from-html-or-json-description": "יבא מתכון יחיד מ-HTML או JSON גולמי. זה שימושי אם יש לך מתכון מאתר ש-Mealie לא יכול לסרוק באופן רגיל, או ממקור חיצוני.",
+    "import-from-html-or-json-description": "יבא מתכון יחיד מ-HTML או JSON גולמי. זה שימושי אם יש לך מתכון מאתר ש-Tartines לא יכול לסרוק באופן רגיל, או ממקור חיצוני.",
     "json-import-format-description-colon": "כדי לייבא מ-JSON, הוא חייב להיות בפורמט חוקי:",
     "json-editor": "עורך JSON",
-    "zip-files-must-have-been-exported-from-mealie": "קבצי zip חייבים להיות מיוצאים ממילי",
+    "zip-files-must-have-been-exported-from-tartines": "קבצי zip חייבים להיות מיוצאים ממילי",
     "create-a-recipe-by-uploading-a-scan": "הוספת מתכון באמצעות סריקה.",
     "upload-a-png-image-from-a-recipe-book": "העלאת קובץ PNG מספר מתכונים",
     "recipe-bulk-importer": "ייבוא מתכונים רבים ביחד",
-    "recipe-bulk-importer-description": "ייבוא מתכונים רבים ביחד מאפשר לטעון מספר מתכונים בבת אחת ע״י הוספת האתרים בצד השרת וריצה מאחורי הקלעים. זה שימושי בטעינה ראשונית של Mealie, או כשברצונך לייבא מספר רב של מתכונים.",
+    "recipe-bulk-importer-description": "ייבוא מתכונים רבים ביחד מאפשר לטעון מספר מתכונים בבת אחת ע״י הוספת האתרים בצד השרת וריצה מאחורי הקלעים. זה שימושי בטעינה ראשונית של Tartines, או כשברצונך לייבא מספר רב של מתכונים.",
     "set-categories-and-tags": "הגדרת קטגוריות ותגיות",
     "bulk-imports": "ייבוא קבוצתי",
     "bulk-import-process-has-started": "ייבוא קבוצה התחיל",
     "bulk-import-process-has-failed": "יבוא קבוצתי נכשל",
     "report-deletion-failed": "מחיקת דוח נכשלה",
     "recipe-debugger": "מנפה שגיאות למתכון",
-    "recipe-debugger-description": "ניתן להדביק פה קישור למתכון שברצונך לנפות שגיאות עבורו. הכתובת תיסרק ע\"י סורק המתכונים והתוצאות יוצגו. אם לא חוזרות תוצאות, האתר לא נתמך ע\"י Mealie או ספריית הסריקה.",
+    "recipe-debugger-description": "ניתן להדביק פה קישור למתכון שברצונך לנפות שגיאות עבורו. הכתובת תיסרק ע\"י סורק המתכונים והתוצאות יוצגו. אם לא חוזרות תוצאות, האתר לא נתמך ע\"י Tartines או ספריית הסריקה.",
     "use-openai": "השתמש ב-OpenAI",
     "recipe-debugger-use-openai-description": "ניתן להשתמש ב-OpenAI כדי לפענח את התוצאות במקום להסתמך על ספריית הסריקה. כאשר מייצרים מתכון באמצעות כתובת, זה נעשה אוטומטית אם ספריית הסריקה נכשלת, אך ניתן לבדוק זאת ידנית כאן.",
     "debug": "ניפוי שגיאות",
@@ -695,7 +695,7 @@
     "clear-selection": "ניקוי בחירה",
     "results": "תוצאות",
     "search": "חיפוש",
-    "search-mealie": "חיפוש ב-Mealie (לחץ /)",
+    "search-tartines": "חיפוש ב-Tartines (לחץ /)",
     "search-placeholder": "חיפוש...",
     "tag-filter": "סינון תגית",
     "search-hint": "לחץ '/'",
@@ -720,7 +720,7 @@
       "import-summary": "ייבא תקציר",
       "partial-backup": "גיבוי חלקי",
       "unable-to-delete-backup": "לא ניתן למחוק גיבוי.",
-      "experimental-description": "גיבויים הם תמונת מצב של מסד הנתונים ותיקיית המידע של האתר. זה כולל את כל המידע ולא ניתן להוריד חלק מהמידע. ניתן להתייחס אליהם כתמונת מצב של Mealie בזמן מסוים. הגיבויים הם דרך לייבוא ולייצוא מידע ללא תלות במסד הנתונים עצמו, או לגיבוי האתר למיקום חיצוני.",
+      "experimental-description": "גיבויים הם תמונת מצב של מסד הנתונים ותיקיית המידע של האתר. זה כולל את כל המידע ולא ניתן להוריד חלק מהמידע. ניתן להתייחס אליהם כתמונת מצב של Tartines בזמן מסוים. הגיבויים הם דרך לייבוא ולייצוא מידע ללא תלות במסד הנתונים עצמו, או לגיבוי האתר למיקום חיצוני.",
       "backup-restore": "גיבוי / שחזור",
       "back-restore-description": "שחזור מגיבוי זה ידרוס את המידע הקיים במסד הנתונים ובספריות האתר ויחליף אותם בזה הקיים בגיבוי. {cannot-be-undone} אם השחזור יצליח, המשתמש ינותק מהמערכת.",
       "cannot-be-undone": "פעולה זו לא בלתי הפיכה - השתמש בזהירות.",
@@ -819,7 +819,7 @@
     "tracker": "טראקר",
     "configuration": "הגדרות",
     "docker-volume": "Docker Volume",
-    "docker-volume-help": "Mealie דורשת שקונטיינר הקצה הקדמי והקצה האחורי יחלקו את אותו כונן / נפח אחסון. זה יבטיח שהקצה הקדמי יוכל לגשת לתמונות ונכסים ששמורים בדיסק.",
+    "docker-volume-help": "Tartines דורשת שקונטיינר הקצה הקדמי והקצה האחורי יחלקו את אותו כונן / נפח אחסון. זה יבטיח שהקצה הקדמי יוכל לגשת לתמונות ונכסים ששמורים בדיסק.",
     "volumes-are-misconfigured": "כוננים אינם מוגדרים בצורה תקינה.",
     "volumes-are-configured-correctly": "ה-Volumeים מוגדרים תקין.",
     "status-unknown-try-running-a-validation": "מצב לא ידוע. נסה להריץ אימות.",
@@ -834,7 +834,7 @@
     "general-about": "מידע כללי",
     "application-version": "גרסת אפליקציה",
     "application-version-error-text": "הגרסה הנוכחית ({0}) לא מתאימה לגרסה האחרונה. יש לשקול שדרוג לגרסה האחרונה ({1}).",
-    "mealie-is-up-to-date": "Mealie מעודכנת",
+    "tartines-is-up-to-date": "Tartines מעודכנת",
     "secure-site": "אבטוח אתר",
     "secure-site-error-text": "שלח באמצעות כתובת המערכת בלופבאק או בצורה מאובטחת בעזרת https. לוח ההעתקה ו- API נוספים בדפדפן עשויים לא לעבוד.",
     "secure-site-success-text": "האתר נגיש דרך כתובת המערכת בלופבאק או בצורה מאובטחת בעזרת https",
@@ -918,7 +918,7 @@
     "sign-up-links": "קישורי הרשמה",
     "sign-up-token-deleted": "Token הרשמה נמחק",
     "sign-up-token-deletion-failed": "מחיקת Token הרשמה נכשלה",
-    "welcome-to-mealie": "ברוכים הבאים לMealie! כדי להפוך למשתמש של מופע זה, עליך להצטייד בקישור הזמנה חוקי. אם לא קיבלת הזמנה אינך יכול להירשם. לקבלת קישור יש לפנות למנהל האתר."
+    "welcome-to-tartines": "ברוכים הבאים לTartines! כדי להפוך למשתמש של מופע זה, עליך להצטייד בקישור הזמנה חוקי. אם לא קיבלת הזמנה אינך יכול להירשם. לקבלת קישור יש לפנות למנהל האתר."
   },
   "tag": {
     "tag-created": "התגית נוצרה",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "תורגם",
     "choose-language": "בחר שפה",
-    "select-description": "בחר את שפת הממשק של Mealie. הגדרה זו היא עבורך בלבד ולא תחול על משתמשים אחרים.",
+    "select-description": "בחר את שפת הממשק של Tartines. הגדרה זו היא עבורך בלבד ולא תחול על משתמשים אחרים.",
     "how-to-contribute-description": "האם משהו לא תורגם עדיין, תרגום שגוי או שהשפה שלך חסרה ברשימה? {read-the-docs-link} על איך לתרום!",
     "read-the-docs": "קרא את ההוראות"
   },
@@ -1157,7 +1157,7 @@
     "group-details": "פרטי הקבוצה",
     "group-details-description": "לפני יצירת חשבון יש צורך ליצור קבוצה. הקבוצה תכיל רק אותך אבל תוכל להזמין אחרים בשלב מאוחר יותר. חברים בקבוצה יכולים לשתף תוכנית ארוחות, רשימות קניות, מתכונים ועוד!",
     "use-seed-data": "השתמש בנתוני האכלוס",
-    "use-seed-data-description": "Mealie מגיעה עם אוסף של מאכלים, יחידות מדידה ותוויות שניתן להשתמש לאכלוס הקבוצות עם מידע שימושי לארגון המתכונים.",
+    "use-seed-data-description": "Tartines מגיעה עם אוסף של מאכלים, יחידות מדידה ותוויות שניתן להשתמש לאכלוס הקבוצות עם מידע שימושי לארגון המתכונים.",
     "account-details": "פרטי חשבון"
   },
   "validation": {
@@ -1257,14 +1257,14 @@
       "actions-description-destructive": "הרסני",
       "actions-description-irreversible": "בלתי הפיך",
       "logs-action-refresh": "רענן לוגים",
-      "logs-page-title": "לוגים של Mealie",
+      "logs-page-title": "לוגים של Tartines",
       "logs-tail-lines-label": "קווים סופיים"
     },
     "mainentance": {
       "actions-title": "פעולות"
     },
     "ingredients-natural-language-processor": "מעבד שפה טבעי לרכיבים",
-    "ingredients-natural-language-processor-explanation": "Mealie עושה שימוש בשדות מותנים אקראית (CRFs) עבור ניתוח ועיבוד מרכיבים. שימוש במודל זה עבור מרכיבים מסתמך על נתונים של מעל ל- 100 אלף מרכיבים מרשימה של ה- New York Times. מכיוון שמודל זה אומן בשפה האנגלית בלבד, ייתכן ותחווה תוצאות שונות בשפות אחרות. עמוד זה הוא סביבה לבדיקת המודל.",
+    "ingredients-natural-language-processor-explanation": "Tartines עושה שימוש בשדות מותנים אקראית (CRFs) עבור ניתוח ועיבוד מרכיבים. שימוש במודל זה עבור מרכיבים מסתמך על נתונים של מעל ל- 100 אלף מרכיבים מרשימה של ה- New York Times. מכיוון שמודל זה אומן בשפה האנגלית בלבד, ייתכן ותחווה תוצאות שונות בשפות אחרות. עמוד זה הוא סביבה לבדיקת המודל.",
     "ingredients-natural-language-processor-explanation-2": "זה לא מושלם, אבל מספק תוצאות טובות באופן כללי ומספק נקודת התחלה טובה עבור עיבוד ידני של מרכיבים לשדות נפרדים. לחילופין ניתן להשתמש בעיבוד \"נוקשה\" לזיהוי המרכיבים.",
     "nlp": "NLP",
     "brute": "נוקשה",
@@ -1280,12 +1280,12 @@
     "tasks": "משימות",
     "setup": {
       "first-time-setup": "הגדרה ראשונית",
-      "welcome-to-mealie-get-started": "ברוכים הבאים ל-Mealie! בואו נתחיל",
+      "welcome-to-tartines-get-started": "ברוכים הבאים ל-Tartines! בואו נתחיל",
       "already-set-up-bring-to-homepage": "כבר הגדרתי הכל, תעבירו אותי לעמוד הבית",
       "common-settings-for-new-sites": "הגדרות נפוצות לאתרים חדשים יופיעו כאן",
       "setup-complete": "ההגדרה הושלמה!",
-      "here-are-a-few-things-to-help-you-get-started": "כמה דברים שיעזרו לך להתחיל להשתמש ב-Mealie",
-      "restore-from-v1-backup": "יש לך גיבוי משרת Mealie v1? ניתן לשחזר אותו כאן.",
+      "here-are-a-few-things-to-help-you-get-started": "כמה דברים שיעזרו לך להתחיל להשתמש ב-Tartines",
+      "restore-from-v1-backup": "יש לך גיבוי משרת Tartines v1? ניתן לשחזר אותו כאן.",
       "manage-profile-or-get-invite-link": "ניתן לנהל את הפרופיל שלך, או לשתף את לינק ההזמנה לאחרים."
     },
     "debug-openai-services": "ניפוי שגיאות לשירותי OpenAI",
@@ -1306,7 +1306,7 @@
     "group-statistics": "נתונים סטטיסטיים של קבוצה",
     "group-statistics-description": "סטטיסטיקות על הקבוצה שלך.",
     "household-statistics": "סטטיסטיקות משק הבית",
-    "household-statistics-description": "סטטיסטיקות משק הבית שלך מספקות תובנות לאיך אתם משתמשים ב-Mealie.",
+    "household-statistics-description": "סטטיסטיקות משק הבית שלך מספקות תובנות לאיך אתם משתמשים ב-Tartines.",
     "storage-capacity": "מקום אחסון",
     "storage-capacity-description": "מקום האחסון מחושב ע\"י סיכום התמונות והקבצים שהעלת.",
     "personal": "אישי",
@@ -1327,7 +1327,7 @@
     "notifiers": "מתריעים",
     "notifiers-description": "הגדרת הודעות דואל והודעות בדחיפה אשר יופעלו עם אירועים ספציפיים.",
     "manage-data": "נהל נתונים",
-    "manage-data-description": "ניהול המידע שלך ב-Mealie; אוכל, יחידות מידה, קטגוריות, תגיות ועוד.",
+    "manage-data-description": "ניהול המידע שלך ב-Tartines; אוכל, יחידות מידה, קטגוריות, תגיות ועוד.",
     "data-migrations": "ניוד נתונים",
     "data-migrations-description": "העברת המידע שלך מאפליקציות אחרות כגון Nextcloud Recipes ו-Chowdown.",
     "email-sent": "דוא\"ל נשלח",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "הסתרת ספר מתכונים ממשקי בית אחרים",
     "hide-cookbooks-from-other-households-description": "כאשר האפשרות מופעלת, רק ספרי בישול ממשק הבית שלך יופיעו בסרגל הצד",
     "public-cookbook": "ספר בישול פומבי",
-    "public-cookbook-description": "ספרי בישול ניתנים לשיתוף עם משתמשים מחוץ ל-Mealie ויופיעו בתוך עמוד הקבוצות.",
+    "public-cookbook-description": "ספרי בישול ניתנים לשיתוף עם משתמשים מחוץ ל-Tartines ויופיעו בתוך עמוד הקבוצות.",
     "filter-options": "אפשרויות סינון",
     "filter-options-description": "כאשר מסומן 'זקוק לכל' ספר הבישול יכיל רק את המתכונים שמכילים את כל הפריטים שנבחרו. זה מתייחס לכל תתי הבחירות ולא לנושאים של האפשרויות שסומנו.",
     "require-all-categories": "זקוק לכל הקטגוריות",

@@ -1,7 +1,7 @@
 {
   "about": {
     "about": "O",
-    "about-mealie": "O Mealie",
+    "about-tartines": "O Tartines",
     "api-docs": "API Dokumentacija",
     "api-port": "API Port",
     "application-mode": "Način rada aplikacije",
@@ -57,7 +57,7 @@
     "event-delete-confirmation": "Jeste li sigurni da želite izbrisati ovaj događaj?",
     "event-deleted": "Događaj je Izbrisan",
     "event-updated": "Događaj je Ažuriran",
-    "new-notification-form-description": "Mealie koristi biblioteku Apprise za generiranje obavijesti. Apprise nudi mnogo opcija za usluge koje se mogu koristiti za obavijesti. Za sveobuhvatni vodič o tome kako stvoriti URL za vašu uslugu, pogledajte njihovu wiki stranicu. Ako je dostupno, odabir vrste vaše obavijesti može uključiti dodatne značajke.",
+    "new-notification-form-description": "Tartines koristi biblioteku Apprise za generiranje obavijesti. Apprise nudi mnogo opcija za usluge koje se mogu koristiti za obavijesti. Za sveobuhvatni vodič o tome kako stvoriti URL za vašu uslugu, pogledajte njihovu wiki stranicu. Ako je dostupno, odabir vrste vaše obavijesti može uključiti dodatne značajke.",
     "new-version": "Dostupna je nova verzija!",
     "notification": "Obavijest",
     "refresh": "Osvježi",
@@ -373,7 +373,7 @@
     "recipe-migration": "Migracije Recepata",
     "chowdown": {
       "description": "Migriraj podatke s platforme Chowdown",
-      "description-long": "Mealie podržava nativno format repozitorija platforme Chowdown. Preuzmite repozitorij kao .zip datoteku i prenesite je u nastavku.",
+      "description-long": "Tartines podržava nativno format repozitorija platforme Chowdown. Preuzmite repozitorij kao .zip datoteku i prenesite je u nastavku.",
       "title": "Chowdown"
     },
     "nextcloud": {
@@ -382,48 +382,48 @@
       "title": "Nextcloud Kuharica"
     },
     "copymethat": {
-      "description-long": "Mealie može inportirati recepte iz \"Copy Me That\" platforme. Eksportirajte vaše recepte u HTML format, pa učitajte .zip ispod.",
+      "description-long": "Tartines može inportirati recepte iz \"Copy Me That\" platforme. Eksportirajte vaše recepte u HTML format, pa učitajte .zip ispod.",
       "title": "Copy Me That platforma za Recepte"
     },
     "paprika": {
-      "description-long": "Mealie može inportirati recepte iz \"Paprika\" aplikacije. Eksportirajte vaše recepte iz Paprika alikacije, preimenujte ekstenziju u .zip i zada možete učitati .zip ispod.",
+      "description-long": "Tartines može inportirati recepte iz \"Paprika\" aplikacije. Eksportirajte vaše recepte iz Paprika alikacije, preimenujte ekstenziju u .zip i zada možete učitati .zip ispod.",
       "title": "Paprika aplikacija"
     },
-    "mealie-pre-v1": {
-      "description-long": "Mealie može uvesti recepte iz Mealie aplikacije iz verzije prije 1.0. Izvezite svoje recepte iz stare instance i prenesite zip datoteku u nastavku. Imajte na umu da se mogu uvesti samo recepti iz izvoza.",
-      "title": "Mealie aplikacije iz verzije prije 1.0"
+    "tartines-pre-v1": {
+      "description-long": "Tartines može uvesti recepte iz Tartines aplikacije iz verzije prije 1.0. Izvezite svoje recepte iz stare instance i prenesite zip datoteku u nastavku. Imajte na umu da se mogu uvesti samo recepti iz izvoza.",
+      "title": "Tartines aplikacije iz verzije prije 1.0"
     },
     "tandoor": {
-      "description-long": "Mealie može inportirati recepte iz Tandoor-a. Izvezite Vaše recepte u uobičajnom formatu, pa učitajte .zip ispod.",
+      "description-long": "Tartines može inportirati recepte iz Tandoor-a. Izvezite Vaše recepte u uobičajnom formatu, pa učitajte .zip ispod.",
       "title": "Tandoor Recepti"
     },
     "recipe-data-migrations": "Migracije Podataka Recepata",
-    "recipe-data-migrations-explanation": "Recepti se mogu prenijeti s druge podržane aplikacije na Mealie. To je sjajan način za započetak korištenja Mealieja.",
-    "coming-from-another-application-or-an-even-older-version-of-mealie": "Coming from another application or an even older version of Mealie? Check out migrations and see if your data can be imported.",
+    "recipe-data-migrations-explanation": "Recepti se mogu prenijeti s druge podržane aplikacije na Tartines. To je sjajan način za započetak korištenja Tartinesja.",
+    "coming-from-another-application-or-an-even-older-version-of-tartines": "Coming from another application or an even older version of Tartines? Check out migrations and see if your data can be imported.",
     "choose-migration-type": "Odaberi Vrstu Migracije",
     "tag-all-recipes": "Označi sve recepte s oznakom {tag-name}",
     "nextcloud-text": "Recepti iz Nextcloud-a mogu se uvesti iz zip datoteke koja sadrži podatke pohranjene u Nextcloud-u. Pogledajte primjer strukture mape u nastavku kako biste osigurali da se vaši recepti mogu uspješno uvesti.",
-    "chowdown-text": "Mealie natively supports the chowdown repository format. Download the code repository as a .zip file and upload it below.",
+    "chowdown-text": "Tartines natively supports the chowdown repository format. Download the code repository as a .zip file and upload it below.",
     "recipe-1": "Recept 1",
     "recipe-2": "Recept 2",
-    "paprika-text": "Mealie može uvesti recepte iz aplikacije Paprika. Izvezite svoje recepte iz Paprike, preimenujte ekstenziju izvoza u .zip i učitajte je u nastavku.",
-    "mealie-text": "Mealie može uvesti recepte iz Mealie aplikacije iz verzije prije v1.0. Izvezite svoje recepte iz starog primjerka i učitajte zip datoteku u nastavku. Napomena: Samo recepti mogu biti uvezeni iz izvoza.",
+    "paprika-text": "Tartines može uvesti recepte iz aplikacije Paprika. Izvezite svoje recepte iz Paprike, preimenujte ekstenziju izvoza u .zip i učitajte je u nastavku.",
+    "tartines-text": "Tartines može uvesti recepte iz Tartines aplikacije iz verzije prije v1.0. Izvezite svoje recepte iz starog primjerka i učitajte zip datoteku u nastavku. Napomena: Samo recepti mogu biti uvezeni iz izvoza.",
     "plantoeat": {
       "title": "Plan to Eat",
-      "description-long": "Mealie can import recipies from Plan to Eat."
+      "description-long": "Tartines can import recipies from Plan to Eat."
     },
     "myrecipebox": {
       "title": "My Recipe Box",
-      "description-long": "Mealie can import recipes from My Recipe Box. Export your recipes in CSV format, then upload the .csv file below."
+      "description-long": "Tartines can import recipes from My Recipe Box. Export your recipes in CSV format, then upload the .csv file below."
     },
     "recipekeeper": {
       "title": "Recipe Keeper",
-      "description-long": "Mealie can import recipes from Recipe Keeper. Export your recipes in zip format, then upload the .zip file below."
+      "description-long": "Tartines can import recipes from Recipe Keeper. Export your recipes in zip format, then upload the .zip file below."
     }
   },
   "new-recipe": {
     "bulk-add": "Dodajte više recepata odjednom",
-    "error-details": "Samo web stranice koje sadrže ld+json ili mikrodatoteke mogu se uvesti u Mealie. Većina glavnih web stranica s receptima podržava ovu strukturu podataka. Ako se vaša stranica ne može uvesti, ali u zapisu postoje JSON podaci, molimo podnesite problem na GitHubu s URL-om i podacima.",
+    "error-details": "Samo web stranice koje sadrže ld+json ili mikrodatoteke mogu se uvesti u Tartines. Većina glavnih web stranica s receptima podržava ovu strukturu podataka. Ako se vaša stranica ne može uvesti, ali u zapisu postoje JSON podaci, molimo podnesite problem na GitHubu s URL-om i podacima.",
     "error-title": "Izgleda da nismo pronašli ništa",
     "from-url": "Učitaj Recept",
     "github-issues": "GitHub Problemi",
@@ -434,7 +434,7 @@
     "recipe-url": "URL Recepta",
     "recipe-html-or-json": "Recipe HTML or JSON",
     "upload-a-recipe": "Učitaj Recept",
-    "upload-individual-zip-file": "Prenesite pojedinačnu .zip datoteku koja je izvezena iz druge instance Mealie aplikacije.",
+    "upload-individual-zip-file": "Prenesite pojedinačnu .zip datoteku koja je izvezena iz druge instance Tartines aplikacije.",
     "url-form-hint": "Kopirajte i zalijepite poveznicu s vaše omiljene web stranice za recepte",
     "view-scraped-data": "Prikaz Prikupljenih Podataka",
     "trim-whitespace-description": "Ukloni vodeće i slijedeće praznine, kao i prazne linije",
@@ -579,7 +579,7 @@
     "made-this": "Napravio/la sam ovo",
     "how-did-it-turn-out": "Kako je ispalo?",
     "user-made-this": "{user} je napravio/la ovo",
-    "api-extras-description": "Recipes extras are a key feature of the Mealie API. They allow you to create custom JSON key/value pairs within a recipe, to reference from 3rd party applications. You can use these keys to provide information, for example to trigger automations or custom messages to relay to your desired device.",
+    "api-extras-description": "Recipes extras are a key feature of the Tartines API. They allow you to create custom JSON key/value pairs within a recipe, to reference from 3rd party applications. You can use these keys to provide information, for example to trigger automations or custom messages to relay to your desired device.",
     "message-key": "Ključ poruke",
     "parse": "Razluči (parsiraj)",
     "attach-images-hint": "Priložite slike povlačenjem i ispuštanjem u uređivaču",
@@ -597,7 +597,7 @@
     "create-recipes": "Create Recipes",
     "import-with-zip": "Učitaj pomoću .zip-a",
     "create-recipe-from-an-image": "Create Recipe from an Image",
-    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Mealie will attempt to extract the text from the image using AI and create a recipe from it.",
+    "create-recipe-from-an-image-description": "Create a recipe by uploading an image of it. Tartines will attempt to extract the text from the image using AI and create a recipe from it.",
     "crop-and-rotate-the-image": "Crop and rotate the image so that only the text is visible, and it's in the correct orientation.",
     "create-from-images": "Create from Images",
     "should-translate-description": "Translate the recipe into my language",
@@ -608,7 +608,7 @@
     "create-a-recipe-by-providing-the-name-all-recipes-must-have-unique-names": "Kreirajte recept pružajući naziv. Svi recepti moraju imati jedinstvena imena.",
     "new-recipe-names-must-be-unique": "Naziv novog recepta mora imati jedinstveno ime",
     "scrape-recipe": "Prikupi (skraperaj) recept",
-    "scrape-recipe-description": "Prikupi (skraperaj) recept putem URL-a. Priložite URL web stranice s koje želite prikupiti recept, a Mealie će pokušati prikupiti recept s te stranice i dodati ga u vašu kolekciju.",
+    "scrape-recipe-description": "Prikupi (skraperaj) recept putem URL-a. Priložite URL web stranice s koje želite prikupiti recept, a Tartines će pokušati prikupiti recept s te stranice i dodati ga u vašu kolekciju.",
     "scrape-recipe-have-a-lot-of-recipes": "Have a lot of recipes you want to scrape at once?",
     "scrape-recipe-suggest-bulk-importer": "Try out the bulk importer",
     "scrape-recipe-have-raw-html-or-json-data": "Have raw HTML or JSON data?",
@@ -616,23 +616,23 @@
     "import-original-keywords-as-tags": "Uvezi originalne ključne riječi kao oznake",
     "stay-in-edit-mode": "Ostanite u načinu uređivanja",
     "import-from-zip": "Uvoz iz Zip-a",
-    "import-from-zip-description": "Uvezi pojedinačni recept koji je izvezen iz druge instance Mealie aplikacije.",
+    "import-from-zip-description": "Uvezi pojedinačni recept koji je izvezen iz druge instance Tartines aplikacije.",
     "import-from-html-or-json": "Import from HTML or JSON",
-    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Mealie can't scrape normally, or from some other external source.",
+    "import-from-html-or-json-description": "Import a single recipe from raw HTML or JSON. This is useful if you have a recipe from a site that Tartines can't scrape normally, or from some other external source.",
     "json-import-format-description-colon": "To import via JSON, it must be in valid format:",
     "json-editor": "JSON Editor",
-    "zip-files-must-have-been-exported-from-mealie": ".zip datoteke moraju biti izvezeni iz Mealie-a",
+    "zip-files-must-have-been-exported-from-tartines": ".zip datoteke moraju biti izvezeni iz Tartines-a",
     "create-a-recipe-by-uploading-a-scan": "Izradite recept tako što ćete učitati skeniranu kopiju.",
     "upload-a-png-image-from-a-recipe-book": "Učitajte png sliku iz kuharice",
     "recipe-bulk-importer": "Uvoz većeg broja recepata",
-    "recipe-bulk-importer-description": "Uvoz više recepata omogućuje vam da odjednom uvezete više recepata tako što ćete ih staviti u red na pozadini i pokrenuti zadatak u pozadini. Ovo može biti korisno prilikom prvog migriranja na Mealie ili kada želite uvesti veliki broj recepata.",
+    "recipe-bulk-importer-description": "Uvoz više recepata omogućuje vam da odjednom uvezete više recepata tako što ćete ih staviti u red na pozadini i pokrenuti zadatak u pozadini. Ovo može biti korisno prilikom prvog migriranja na Tartines ili kada želite uvesti veliki broj recepata.",
     "set-categories-and-tags": "Postavi Kategorije i Oznake",
     "bulk-imports": "Uvoz više Recepata",
     "bulk-import-process-has-started": "Proces uvoza većeg broja recepata je započeo",
     "bulk-import-process-has-failed": "Uvoz većeg broja recepata nije uspio",
     "report-deletion-failed": "Brisanje nije uspjelo",
     "recipe-debugger": "Ispravljač Pogrešaka Recepta",
-    "recipe-debugger-description": "Preuzmite URL recepta koji želite ispraviti i zalijepite ga ovdje. URL će biti obrađen od strane scraper-a za recepte i rezultati će biti prikazani. Ako ne vidite nikakve povratne podatke, to znači da web stranica koju pokušavate obraditi nije podržana od strane Mealie-a ili njegove biblioteke za scraper-e.",
+    "recipe-debugger-description": "Preuzmite URL recepta koji želite ispraviti i zalijepite ga ovdje. URL će biti obrađen od strane scraper-a za recepte i rezultati će biti prikazani. Ako ne vidite nikakve povratne podatke, to znači da web stranica koju pokušavate obraditi nije podržana od strane Tartines-a ili njegove biblioteke za scraper-e.",
     "use-openai": "Use OpenAI",
     "recipe-debugger-use-openai-description": "Use OpenAI to parse the results instead of relying on the scraper library. When creating a recipe via URL, this is done automatically if the scraper library fails, but you may test it manually here.",
     "debug": "Ispravljanje grešaka",
@@ -695,7 +695,7 @@
     "clear-selection": "Clear Selection",
     "results": "Rezultati",
     "search": "Traži",
-    "search-mealie": "Pretraži Mealie (pritisnite /)",
+    "search-tartines": "Pretraži Tartines (pritisnite /)",
     "search-placeholder": "Pretraga...",
     "tag-filter": "Filter Oznaka",
     "search-hint": "Pritisni '/'",
@@ -720,7 +720,7 @@
       "import-summary": "Uvoz sažetka",
       "partial-backup": "Djelomična sigurnosna kopija",
       "unable-to-delete-backup": "Ne Mogu Obrisati Sigurnosnu Kopiju.",
-      "experimental-description": "Backups are total snapshots of the database and data directory of the site. This includes all data and cannot be set to exclude subsets of data. You can think of this as a snapshot of Mealie at a specific time. These serve as a database agnostic way to export and import data, or back up the site to an external location.",
+      "experimental-description": "Backups are total snapshots of the database and data directory of the site. This includes all data and cannot be set to exclude subsets of data. You can think of this as a snapshot of Tartines at a specific time. These serve as a database agnostic way to export and import data, or back up the site to an external location.",
       "backup-restore": "Sigurnosno kopiranje/vraćanje",
       "back-restore-description": "Vraćanje ove sigurnosne kopije će prepisati sve trenutne podatke u vašoj bazi podataka i direktoriju podataka i zamijeniti ih sadržajem ove sigurnosne kopije. Ova radnja je {cannot-be-undone}. Ako se vraćanje uspješno izvrši, bit ćete odjavljeni iz sustava.",
       "cannot-be-undone": "Ova radnja ne može se poništiti - koristite je oprezno.",
@@ -819,7 +819,7 @@
     "tracker": "Tracker",
     "configuration": "Konfiguracija",
     "docker-volume": "Docker Volumen",
-    "docker-volume-help": "Mealie zahtijeva da frontend kontejner i backend dijele isti Docker volumen ili pohranu. To osigurava da frontend kontejner pravilno pristupa slikama i resursima pohranjenim na disku.",
+    "docker-volume-help": "Tartines zahtijeva da frontend kontejner i backend dijele isti Docker volumen ili pohranu. To osigurava da frontend kontejner pravilno pristupa slikama i resursima pohranjenim na disku.",
     "volumes-are-misconfigured": "Volumes are misconfigured.",
     "volumes-are-configured-correctly": "Volumeni su ispravno konfigurirani.",
     "status-unknown-try-running-a-validation": "Status nepoznat. Pokušajte pokrenuti provjeru valjanosti.",
@@ -834,7 +834,7 @@
     "general-about": "Općenito o tome",
     "application-version": "Verzija Aplikacije",
     "application-version-error-text": "Vaša trenutna verzija ({0}) ne odgovara najnovijem izdanju. Razmotrite ažuriranje na najnoviju verziju ({1}).",
-    "mealie-is-up-to-date": "Mealie je ažuriran na najnoviju verziju",
+    "tartines-is-up-to-date": "Tartines je ažuriran na najnoviju verziju",
     "secure-site": "Sigurna web Stranica",
     "secure-site-error-text": "Poslužite putem \"localhost\" ili osigurajte s HTTPS-om. Kopiranje u međuspremnik i dodatni API-ji preglednika možda neće raditi.",
     "secure-site-success-text": "Pristup web stranici vrši se putem lokalnog poslužitelja (localhost) ili HTTPS protokola",
@@ -918,7 +918,7 @@
     "sign-up-links": "Registracijski Linkovi",
     "sign-up-token-deleted": "Registracijski Token je Obrisan",
     "sign-up-token-deletion-failed": "Brisanje registracijskog tokena nije uspjelo",
-    "welcome-to-mealie": "Dobrodošli u Mealie! Da biste postali korisnik ove instance, potrebna vam je valjana pozivnica. Ako niste primili pozivnicu, nećete se moći registrirati. Da biste dobili link, kontaktirajte administratora ovog web mjesta."
+    "welcome-to-tartines": "Dobrodošli u Tartines! Da biste postali korisnik ove instance, potrebna vam je valjana pozivnica. Ako niste primili pozivnicu, nećete se moći registrirati. Da biste dobili link, kontaktirajte administratora ovog web mjesta."
   },
   "tag": {
     "tag-created": "Kreirana Oznaka",
@@ -1027,7 +1027,7 @@
     "user-details": "Podaci o Korisniku",
     "user-name": "Korisničko Ime",
     "authentication-method": "Metoda provjere Autentičnosti",
-    "authentication-method-hint": "Ovo određuje način autentifikacije korisnika u Mealie sustavu. Ako niste sigurni, odaberite 'Mealie",
+    "authentication-method-hint": "Ovo određuje način autentifikacije korisnika u Tartines sustavu. Ako niste sigurni, odaberite 'Tartines",
     "permissions": "Dozvole",
     "administrator": "Administrator",
     "user-can-invite-other-to-group": "User can invite others to group",
@@ -1044,7 +1044,7 @@
   "language-dialog": {
     "translated": "prevedeno",
     "choose-language": "Odaberite jezik",
-    "select-description": "Odaberite jezik za Mealie korisničko sučelje. Ova postavka se primjenjuje samo na vas, a ne na druge korisnike.",
+    "select-description": "Odaberite jezik za Tartines korisničko sučelje. Ova postavka se primjenjuje samo na vas, a ne na druge korisnike.",
     "how-to-contribute-description": "Ako nešto nije još prevedeno ili je krivo prevedeno i/ili vaš jezik nedostaje na popisu? Pogledajte {read-the-docs-link} kako biste saznali kako sudjelovati i doprinijeti!",
     "read-the-docs": "Pročitajte dokumentaciju"
   },
@@ -1157,7 +1157,7 @@
     "group-details": "Detalji o Grupi",
     "group-details-description": "Prije nego što kreirate korisnički račun, morat ćete stvoriti grupu. Vaša grupa će sadržavati samo vas, ali kasnije ćete moći pozvati druge članove. Članovi vaše grupe mogu dijeliti planove obroka, popise za kupovinu, recepte i još mnogo toga!",
     "use-seed-data": "Koristi Pridržane Podatke",
-    "use-seed-data-description": "Mealie dolazi s kolekcijom hrane, jedinica i oznaka koje se mogu koristiti za popunjavanje vaše grupe korisnim podacima za organiziranje vaših recepata.",
+    "use-seed-data-description": "Tartines dolazi s kolekcijom hrane, jedinica i oznaka koje se mogu koristiti za popunjavanje vaše grupe korisnim podacima za organiziranje vaših recepata.",
     "account-details": "Detalji Računa"
   },
   "validation": {
@@ -1257,14 +1257,14 @@
       "actions-description-destructive": "destruktivne",
       "actions-description-irreversible": "nepovratno",
       "logs-action-refresh": "Osvježi Log zapise",
-      "logs-page-title": "Mealie Log Zapisi",
+      "logs-page-title": "Tartines Log Zapisi",
       "logs-tail-lines-label": "Zadnje linije"
     },
     "mainentance": {
       "actions-title": "Radnje"
     },
     "ingredients-natural-language-processor": "Procesor prirodnog jezika za sastojke",
-    "ingredients-natural-language-processor-explanation": "Mealie koristi kondicionirana slučajna polja (CRFs) za parsiranje i obradu sastojaka. Model koji se koristi za sastojke temelji se na skupu podataka od preko 100.000 sastojaka iz zbirke podataka koju je sastavio New York Times. Napomena: Budući da je model treniran samo na engleskom jeziku, rezultati mogu varirati prilikom korištenja modela na drugim jezicima. Ova stranica je poligon za testiranje NLP modela.",
+    "ingredients-natural-language-processor-explanation": "Tartines koristi kondicionirana slučajna polja (CRFs) za parsiranje i obradu sastojaka. Model koji se koristi za sastojke temelji se na skupu podataka od preko 100.000 sastojaka iz zbirke podataka koju je sastavio New York Times. Napomena: Budući da je model treniran samo na engleskom jeziku, rezultati mogu varirati prilikom korištenja modela na drugim jezicima. Ova stranica je poligon za testiranje NLP modela.",
     "ingredients-natural-language-processor-explanation-2": "Nije savršen, ali općenito daje odlične rezultate i dobra je polazna točka za ručno parsiranje sastojaka u pojedinačna polja. Alternativno, možete koristiti \"Brute\" procesor koji koristi tehniku usklađivanja uzoraka za identifikaciju sastojaka.",
     "nlp": "NLP",
     "brute": "Brute",
@@ -1280,12 +1280,12 @@
     "tasks": "Zadatci",
     "setup": {
       "first-time-setup": "First Time Setup",
-      "welcome-to-mealie-get-started": "Welcome to Mealie! Let's get started",
+      "welcome-to-tartines-get-started": "Welcome to Tartines! Let's get started",
       "already-set-up-bring-to-homepage": "I'm already set up, just bring me to the homepage",
       "common-settings-for-new-sites": "Here are some common settings for new sites",
       "setup-complete": "Setup Complete!",
-      "here-are-a-few-things-to-help-you-get-started": "Here are a few things to help you get started with Mealie",
-      "restore-from-v1-backup": "Have a backup from a previous instance of Mealie v1? You can restore it here.",
+      "here-are-a-few-things-to-help-you-get-started": "Here are a few things to help you get started with Tartines",
+      "restore-from-v1-backup": "Have a backup from a previous instance of Tartines v1? You can restore it here.",
       "manage-profile-or-get-invite-link": "Manage your own profile, or grab an invite link to share with others."
     },
     "debug-openai-services": "Debug OpenAI Services",
@@ -1304,9 +1304,9 @@
     "account-summary": "Zbirni Prikaz Računa",
     "account-summary-description": "Here's a summary of your group's information.",
     "group-statistics": "Statistika Grupe",
-    "group-statistics-description": "Statistika vaše grupe pruža uvid u to kako koristite Mealie.",
+    "group-statistics-description": "Statistika vaše grupe pruža uvid u to kako koristite Tartines.",
     "household-statistics": "Household Statistics",
-    "household-statistics-description": "Your Household Statistics provide some insight how you're using Mealie.",
+    "household-statistics-description": "Your Household Statistics provide some insight how you're using Tartines.",
     "storage-capacity": "Prostor za Pohranu",
     "storage-capacity-description": "Vaša kapacitet za pohranu je izračun temeljen na slikama i resursima koje ste prenijeli.",
     "personal": "Osobno",
@@ -1327,7 +1327,7 @@
     "notifiers": "Obavještavači (Notifiers)",
     "notifiers-description": "Postavi obavijesti putem e-pošte i push obavijesti koje se aktiviraju na određene događaje.",
     "manage-data": "Upravljaj podacima",
-    "manage-data-description": "Manage your Mealie data; Foods, Units, Categories, Tags and more.",
+    "manage-data-description": "Manage your Tartines data; Foods, Units, Categories, Tags and more.",
     "data-migrations": "Migracija podataka",
     "data-migrations-description": "Migrate your existing data from other applications like Nextcloud Recipes and Chowdown.",
     "email-sent": "E-pošta poslana",
@@ -1351,7 +1351,7 @@
     "hide-cookbooks-from-other-households": "Hide Cookbooks from Other Households",
     "hide-cookbooks-from-other-households-description": "When enabled, only cookbooks from your household will appear on the sidebar",
     "public-cookbook": "Javna zbirka recepata",
-    "public-cookbook-description": "Javne zbirke recepata mogu se dijeliti s korisnicima koji nisu Mealie korisnici i bit će prikazane na stranici vaše grupe.",
+    "public-cookbook-description": "Javne zbirke recepata mogu se dijeliti s korisnicima koji nisu Tartines korisnici i bit će prikazane na stranici vaše grupe.",
     "filter-options": "Opcije filtra",
     "filter-options-description": "Kada je odabrana opcija \"require all\" (zahtijevaj sve), kuharica će uključivati samo recepte koji sadrže sve odabrane stavke. Ovo se primjenjuje na svaki podskup selektora, a ne na križanje odabranih stavki.",
     "require-all-categories": "Zahtijevaj sve kategorije",
