@@ -315,7 +315,7 @@ export default defineNuxtConfig({
       short_name: "Tartines",
       id: "mealie",
       description: "Tartines is a recipe management and meal planning app",
-      theme_color: process.env.THEME_LIGHT_PRIMARY || "#E58325",
+      theme_color: process.env.THEME_LIGHT_PRIMARY || "#E85C60",
       background_color: "#FFFFFF",
       display: "standalone",
       display_override: [
