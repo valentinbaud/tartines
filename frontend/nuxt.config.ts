@@ -30,14 +30,14 @@ export default defineNuxtConfig({
     baseURL: process.env.SUB_PATH || "",
 
     head: {
-      title: "Mealie",
+      title: "Tartines",
       meta: [
         { property: "og:type", content: "website" },
-        { property: "og:title", content: "Mealie" },
-        { property: "og:site_name", content: "Mealie" },
+        { property: "og:title", content: "Tartines" },
+        { property: "og:site_name", content: "Tartines" },
         {
           property: "og:description",
-          content: "Mealie is a recipe management app for your kitchen.",
+          content: "Tartines is a recipe management app for your kitchen.",
         },
         {
           property: "og:image",
@@ -48,7 +48,7 @@ export default defineNuxtConfig({
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
           name: "description",
-          content: "Mealie is a recipe management app for your kitchen.",
+          content: "Tartines is a recipe management app for your kitchen.",
         },
       ],
       link: [
@@ -80,23 +80,23 @@ export default defineNuxtConfig({
       useDark: Boolean(process.env.THEME_USE_DARK) || false,
       themes: {
         dark: {
-          primary: process.env.THEME_DARK_PRIMARY || "#E58325",
-          accent: process.env.THEME_DARK_ACCENT || "#007A99",
-          secondary: process.env.THEME_DARK_SECONDARY || "#973542",
-          success: process.env.THEME_DARK_SUCCESS || "#43A047",
-          info: process.env.THEME_DARK_INFO || "#1976d2",
-          warning: process.env.THEME_DARK_WARNING || "#FF6D00",
-          error: process.env.THEME_DARK_ERROR || "#EF5350",
+          primary: process.env.THEME_DARK_PRIMARY || "#E85C60",
+          accent: process.env.THEME_DARK_ACCENT || "#D9A74A",
+          secondary: process.env.THEME_DARK_SECONDARY || "#FACFCE",
+          success: process.env.THEME_DARK_SUCCESS || "#A3CEA2",
+          info: process.env.THEME_DARK_INFO || "#72A2BE",
+          warning: process.env.THEME_DARK_WARNING || "#ECD69C",
+          error: process.env.THEME_DARK_ERROR || "#F07C7C",
           background: "#1E1E1E",
         },
         light: {
-          primary: process.env.THEME_LIGHT_PRIMARY || "#E58325",
-          accent: process.env.THEME_LIGHT_ACCENT || "#007A99",
-          secondary: process.env.THEME_DARK_SECONDARY || "#973542",
-          success: process.env.THEME_DARK_SUCCESS || "#43A047",
-          info: process.env.THEME_LIGHT_INFO || "#1976d2",
-          warning: process.env.THEME_LIGHT_WARNING || "#FF6D00",
-          error: process.env.THEME_LIGHT_ERROR || "#EF5350",
+          primary: process.env.THEME_LIGHT_PRIMARY || "#E85C60",
+          accent: process.env.THEME_LIGHT_ACCENT || "#D9A74A",
+          secondary: process.env.THEME_DARK_SECONDARY || "#F6ADAB",
+          success: process.env.THEME_DARK_SUCCESS || "#A3CEA2",
+          info: process.env.THEME_LIGHT_INFO || "#304F65",
+          warning: process.env.THEME_LIGHT_WARNING || "#C68A2C",
+          error: process.env.THEME_LIGHT_ERROR || "#D22C39",
         },
       },
     },
@@ -249,11 +249,11 @@ export default defineNuxtConfig({
       start_url: "/",
       scope: "/",
       lang: "en",
-      name: "Mealie",
-      short_name: "Mealie",
+      name: "Tartines",
+      short_name: "Tartines",
       id: "mealie",
-      description: "Mealie is a recipe management and meal planning app",
-      theme_color: process.env.THEME_LIGHT_PRIMARY || "#E58325",
+      description: "Tartines is a recipe management and meal planning app",
+      theme_color: process.env.THEME_LIGHT_PRIMARY || "#E85C60",
       background_color: "#FFFFFF",
       display: "standalone",
       display_override: [
@@ -266,7 +266,7 @@ export default defineNuxtConfig({
         action: "/r/create/url",
         method: "GET",
         params: {
-          /* title and url are not currently used in Mealie. If there are issues
+          /* title and url are not currently used in Tartines. If there are issues
               with sharing, uncommenting those lines might help solve the puzzle. */
           // "title": "title",
           text: "recipe_import_url",

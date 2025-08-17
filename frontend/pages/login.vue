@@ -49,7 +49,7 @@
         dark
       >
         <v-toolbar-title class="text-h4 text-center">
-          Mealie
+          Tartines
         </v-toolbar-title>
       </v-toolbar>
 

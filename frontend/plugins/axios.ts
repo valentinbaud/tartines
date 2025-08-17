@@ -5,7 +5,7 @@ export default defineNuxtPlugin(() => {
   const tokenName = useRuntimeConfig().public.AUTH_TOKEN;
   const axiosInstance = axios.create({
     baseURL: "/", // api calls already pass with /api
-    timeout: 10000,
+    timeout: 60000,
     headers: {
       Authorization: "Bearer " + useCookie(tokenName).value,
     },
