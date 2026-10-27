@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>AI providers can now be configured directly in Mealie, without managing environment variables or secrets.</p>
+    <p>AI providers can now be configured directly in Tartines, without managing environment variables or secrets.</p>
     <div class="mb-2">
       AI providers enable features such as:
       <ul class="ml-6">
@@ -10,17 +10,13 @@
         <li>And more!</li>
       </ul>
     </div>
-    <hr class="mt-2 mb-4">
+    <hr class="mt-2 mb-4" />
     <p>
-      <span v-if="group?.aiProviderSettings?.aiEnabled">
-        Your group already has AI providers configured.
-      </span>
-      <span v-else>
-        Your group does not currently have any AI providers configured.
-      </span>
+      <span v-if="group?.aiProviderSettings?.aiEnabled"> Your group already has AI providers configured. </span>
+      <span v-else> Your group does not currently have any AI providers configured. </span>
       <span v-if="user?.canManage">
         You can manage them here:
-        <br>
+        <br />
         <v-btn class="mt-2" color="primary" to="/group">
           {{ $t("profile.group-settings") }}
         </v-btn>
@@ -30,10 +26,11 @@
       </span>
     </p>
     <div v-if="user?.admin">
-      <br>
+      <br />
       <p>
-        As an admin, you can configure AI providers for any group. Unlike the old environment variable approach, providers are configured per-group:
-        <br>
+        As an admin, you can configure AI providers for any group. Unlike the old environment variable approach,
+        providers are configured per-group:
+        <br />
         <v-btn class="mt-2" color="primary" to="/admin/manage/groups">
           {{ $t("group.admin-group-management") }}
         </v-btn>

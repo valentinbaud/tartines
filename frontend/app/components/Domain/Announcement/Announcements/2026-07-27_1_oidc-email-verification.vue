@@ -1,18 +1,18 @@
 <template>
   <div>
     <p>
-      If your server signs users in with an external identity provider (OIDC), Mealie now requires that
-      provider to confirm the user's email address before allowing the login.
+      If your server signs users in with an external identity provider (OIDC), Tartines requires the provider to confirm
+      the user's email address before allowing the login.
     </p>
     <p>
-      This prevents an unverified, self-asserted email address from being used to match (and sign in) to
-      an existing Mealie account.
+      This prevents an unverified, self-asserted email address from being used to match (and sign in) to an existing
+      Tartines account.
     </p>
     <div v-if="user?.admin">
-      <hr class="mt-2 mb-4">
+      <hr class="mt-2 mb-4" />
       <p>
-        As an admin, be aware that this is a <strong>breaking change</strong> for identity providers that do
-        not emit the <code>email_verified</code> claim. Those logins now fail, and
+        As an admin, be aware that this is a <strong>breaking change</strong> for identity providers that do not emit
+        the <code>email_verified</code> claim. Those logins now fail, and
         <code>[OIDC] email_verified claim is missing or false</code> is written to the server logs.
       </p>
       <div class="mb-2">
@@ -25,7 +25,7 @@
       <p>
         Most providers (Authentik, Authelia, Keycloak, Google, Entra ID, ...) send this claim already and are
         unaffected. See the OIDC docs for details:
-        <br>
+        <br />
         <v-btn
           class="mt-2"
           color="primary"
@@ -38,8 +38,8 @@
     </div>
     <div v-else>
       <p>
-        If you can no longer sign in with your external account, contact your server admin. They may need to
-        update the server's OIDC configuration.
+        If you can no longer sign in with your external account, contact your server admin. They may need to update the
+        server's OIDC configuration.
       </p>
     </div>
   </div>

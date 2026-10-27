@@ -6,12 +6,7 @@
       'bg-off-white': !$vuetify.theme.current.dark && !isDark,
     }"
   >
-    <v-progress-circular
-      v-if="reverseProxyLoggingIn"
-      indeterminate
-      color="primary"
-      size="64"
-    />
+    <v-progress-circular v-if="reverseProxyLoggingIn" indeterminate color="primary" size="64" />
     <template v-else>
       <v-alert
         v-if="isFirstLogin"
@@ -22,46 +17,28 @@
       >
         <div>
           <p class="mb-3">
-            {{ $t('user.it-looks-like-this-is-your-first-time-logging-in') }}
+            {{ $t("user.it-looks-like-this-is-your-first-time-logging-in") }}
           </p>
           <p class="mb-1">
-            <strong>{{ $t('user.username') }}: </strong>changeme@example.com
-            <AppButtonCopy
-              copy-text="changeme@example.com"
-              color="info"
-              btn-class="h-auto"
-            />
+            <strong>{{ $t("user.username") }}: </strong>changeme@example.com
+            <AppButtonCopy copy-text="changeme@example.com" color="info" btn-class="h-auto" />
           </p>
           <p class="mb-3">
-            <strong>{{ $t('user.password') }}: </strong>MyPassword
-            <AppButtonCopy
-              copy-text="MyPassword"
-              color="info"
-              btn-class="h-auto"
-            />
+            <strong>{{ $t("user.password") }}: </strong>MyPassword
+            <AppButtonCopy copy-text="MyPassword" color="info" btn-class="h-auto" />
           </p>
           <p>
-            {{ $t('user.dont-want-to-see-this-anymore-be-sure-to-change-your-email') }}
+            {{ $t("user.dont-want-to-see-this-anymore-be-sure-to-change-your-email") }}
           </p>
         </div>
       </v-alert>
-      <v-card
-        tag="section"
-        class="d-flex flex-column align-center w-100"
-        max-width="600"
-      >
-        <v-toolbar
-          color="primary"
-          class="d-flex justify-center mb-4"
-          dark
-        >
-          <v-toolbar-title class="text-h4 text-center">
-            Mealie
-          </v-toolbar-title>
+      <v-card tag="section" class="d-flex flex-column align-center w-100" max-width="600">
+        <v-toolbar color="primary" class="d-flex justify-center mb-4" dark>
+          <v-toolbar-title class="text-h4 text-center"> Tartines </v-toolbar-title>
         </v-toolbar>
         <AppLogo :size="100" />
         <v-card-title class="text-h5 justify-center pb-3">
-          {{ $t('user.sign-in') }}
+          {{ $t("user.sign-in") }}
         </v-card-title>
         <v-card-text class="w-100">
           <v-form @submit.prevent="authenticate">
@@ -133,10 +110,7 @@
                 {{ $t("user.or") }}
               </span>
             </div>
-            <v-card-actions
-              v-if="$appInfo.enableOidc"
-              class="justify-center"
-            >
+            <v-card-actions v-if="$appInfo.enableOidc" class="justify-center">
               <div class="max-button">
                 <v-btn
                   :loading="oidcLoggingIn"
@@ -155,26 +129,13 @@
           </v-form>
         </v-card-text>
         <v-card-actions class="d-flex justify-center flex-column flex-sm-row">
-          <v-btn
-            v-if="$appInfo.allowSignup && $appInfo.allowPasswordLogin"
-            variant="text"
-            to="/register"
-          >
+          <v-btn v-if="$appInfo.allowSignup && $appInfo.allowPasswordLogin" variant="text" to="/register">
             {{ $t("user.register") }}
           </v-btn>
-          <v-btn
-            v-else
-            variant="text"
-            disabled
-          >
+          <v-btn v-else variant="text" disabled>
             {{ $t("user.invite-only") }}
           </v-btn>
-          <v-btn
-            v-if="$appInfo.allowPasswordLogin"
-            class="mr-auto"
-            variant="text"
-            to="/forgot-password"
-          >
+          <v-btn v-if="$appInfo.allowPasswordLogin" class="mr-auto" variant="text" to="/forgot-password">
             {{ $t("user.reset-password") }}
           </v-btn>
         </v-card-actions>
@@ -190,7 +151,7 @@
               {
                 text: $t('about.github'),
                 icon: $globals.icons.github,
-                href: 'https://github.com/mealie-recipes/mealie',
+                href: 'https://github.com/valentinbaud/tartines',
               },
               {
                 text: $t('about.docs'),
@@ -201,11 +162,7 @@
             :key="link.text"
             class="text-center"
           >
-            <v-btn
-              variant="text"
-              :href="link.href"
-              target="_blank"
-            >
+            <v-btn variant="text" :href="link.href" target="_blank">
               <v-icon start>
                 {{ link.icon }}
               </v-icon>
@@ -295,18 +252,14 @@ whenever(
       return;
     }
 
-    const defaultActivityRoute = getDefaultActivityRoute(
-      activityPreferences.value.defaultActivity,
-      groupSlug.value,
-    );
+    const defaultActivityRoute = getDefaultActivityRoute(activityPreferences.value.defaultActivity, groupSlug.value);
     if (defaultActivityRoute) {
       router.push(defaultActivityRoute);
-    }
-    else {
+    } else {
       router.push(`/g/${groupSlug.value || ""}`);
     }
   },
-  { immediate: true },
+  { immediate: true }
 );
 
 const loggingIn = ref(false);
@@ -318,7 +271,7 @@ const { passwordIcon, inputType, togglePasswordShow } = usePasswordField();
 whenever(
   () => $appInfo.enableOidc && $appInfo.oidcRedirect && !isCallback() && !isDirectLogin() /* && !auth.check().valid */,
   () => oidcAuthenticate(),
-  { immediate: true },
+  { immediate: true }
 );
 
 onBeforeMount(async () => {
@@ -332,8 +285,7 @@ onBeforeMount(async () => {
   if ($appInfo.enableReverseProxyAuth && !isDirectLogin() && !loggedIn.value) {
     try {
       await auth.reverseProxySignIn();
-    }
-    catch {
+    } catch {
       // Header missing/invalid - fall back to the regular login form
     }
   }
@@ -355,14 +307,12 @@ async function oidcAuthenticate(callback = false) {
     oidcLoggingIn.value = true;
     try {
       await auth.oauthSignIn();
-    }
-    catch (error) {
+    } catch (error) {
       await router.replace("/login?direct=1");
       alertOnError(error);
     }
     oidcLoggingIn.value = false;
-  }
-  else {
+  } else {
     // Save any pending PWA share redirect before leaving for the OIDC provider.
     // The OIDC callback reloads the page, which clears the query string, so we
     // persist the target in sessionStorage and restore it after login.
@@ -388,8 +338,7 @@ async function authenticate() {
 
   try {
     await auth.signIn(formData);
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error);
     alertOnError(error);
   }
@@ -403,11 +352,9 @@ function alertOnError(error: any) {
   // if ($axios.isAxiosError(error) && error.response?.status === 401) {
   if (error.response?.status === 401) {
     alert.error(i18n.t("user.invalid-credentials"));
-  }
-  else if (error.response?.status === 423) {
+  } else if (error.response?.status === 423) {
     alert.error(i18n.t("user.account-locked-please-try-again-later"));
-  }
-  else {
+  } else {
     alert.error(i18n.t("events.something-went-wrong"));
   }
 }

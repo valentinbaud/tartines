@@ -1,8 +1,8 @@
 <template>
   <div>
     <p>
-      To harden Mealie against malicious content, <code>&lt;iframe&gt;</code> embeds in recipe
-      instructions, notes, and descriptions are now restricted to a trusted set of hosts.
+      To harden Tartines against malicious content, <code>&lt;iframe&gt;</code> embeds in recipe instructions, notes,
+      and descriptions are now restricted to a trusted set of hosts.
     </p>
     <div class="mb-2">
       By default, embeds are allowed only from well-known video providers:
@@ -12,16 +12,16 @@
       </ul>
     </div>
     <p>
-      Existing recipes that embed content from <strong>other</strong> hosts will no longer render
-      those embeds. The rest of the recipe is unaffected.
+      Existing recipes that embed content from <strong>other</strong> hosts will no longer render those embeds. The rest
+      of the recipe is unaffected.
     </p>
     <div v-if="user?.admin">
-      <hr class="mt-2 mb-4">
+      <hr class="mt-2 mb-4" />
       <p>
         As an admin, you can allow additional hosts with the <code>ALLOWED_IFRAME_HOSTS</code>
         environment variable (comma-separated). It extends the built-in defaults, and only
         <code>https</code> sources are permitted. See the configuration docs for details:
-        <br>
+        <br />
         <v-btn
           class="mt-2"
           color="primary"

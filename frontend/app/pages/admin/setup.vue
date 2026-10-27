@@ -1,21 +1,15 @@
 <template>
   <v-container
     fluid
-    class="d-flex justify-center  align-start  fill-height"
+    class="d-flex justify-center align-start fill-height"
     :class="{
       'bg-off-white': !$vuetify.theme.current.dark && !isDark,
     }"
   >
     <!-- Header Toolbar -->
     <v-card class="elevation-4" width="1200" :class="{ 'my-10': $vuetify.display.mdAndUp }">
-      <v-toolbar
-        color="primary"
-        class="d-flex justify-center"
-        dark
-      >
-        <v-toolbar-title class="headline text-h4 text-center mx-0">
-          Mealie
-        </v-toolbar-title>
+      <v-toolbar color="primary" class="d-flex justify-center" dark>
+        <v-toolbar-title class="headline text-h4 text-center mx-0"> Tartines </v-toolbar-title>
       </v-toolbar>
 
       <!-- Stepper Wizard -->
@@ -82,10 +76,10 @@
             <v-container class="mb-12">
               <AppLogo />
               <v-card-title class="text-headline-medium my-5 justify-center text-center text-break text-pre-wrap">
-                {{ $t('admin.setup.welcome-to-mealie-get-started') }}
+                {{ $t("admin.setup.welcome-to-mealie-get-started") }}
               </v-card-title>
               <p class="text-body-1 text-center">
-                {{ $t('admin.setup.previous-mealie-instance') }}
+                {{ $t("admin.setup.previous-mealie-instance") }}
               </p>
               <v-btn
                 to="backups"
@@ -93,9 +87,9 @@
                 variant="outlined"
                 color="primary"
                 class="text-subtitle-2 d-flex mx-auto my-3"
-                style="width: fit-content;"
+                style="width: fit-content"
               >
-                {{ $t('settings.backup.restore-backup') }}
+                {{ $t("settings.backup.restore-backup") }}
               </v-btn>
               <v-btn
                 :to="groupSlug ? `/g/${groupSlug}` : '/login'"
@@ -103,9 +97,9 @@
                 variant="outlined"
                 color="grey-lighten-1"
                 class="text-subtitle-2 d-flex mx-auto"
-                style="width: fit-content;"
+                style="width: fit-content"
               >
-                {{ $t('admin.setup.already-set-up-bring-to-homepage') }}
+                {{ $t("admin.setup.already-set-up-bring-to-homepage") }}
               </v-btn>
             </v-container>
 
@@ -118,7 +112,7 @@
                 :icon="$globals.icons.translate"
                 @click="langDialog = true"
               >
-                {{ $t('language-dialog.choose-language') }}
+                {{ $t("language-dialog.choose-language") }}
               </BaseButton>
             </v-card-actions>
 
@@ -147,11 +141,7 @@
             <v-container max-width="880">
               <UserRegistrationForm />
             </v-container>
-            <v-stepper-actions
-              :disabled="isSubmitting"
-              prev-text="general.back"
-              @click:prev="onPrev"
-            >
+            <v-stepper-actions :disabled="isSubmitting" prev-text="general.back" @click:prev="onPrev">
               <template #next>
                 <v-btn
                   variant="flat"
@@ -169,18 +159,11 @@
           <v-stepper-window-item :value="Pages.PAGE_2">
             <v-container max-width="880">
               <v-card-title class="headline pa-0">
-                {{ $t('admin.setup.common-settings-for-new-sites') }}
+                {{ $t("admin.setup.common-settings-for-new-sites") }}
               </v-card-title>
-              <AutoForm
-                v-model="commonSettings"
-                :items="commonSettingsForm"
-              />
+              <AutoForm v-model="commonSettings" :items="commonSettingsForm" />
             </v-container>
-            <v-stepper-actions
-              :disabled="isSubmitting"
-              prev-text="general.back"
-              @click:prev="onPrev"
-            >
+            <v-stepper-actions :disabled="isSubmitting" prev-text="general.back" @click:prev="onPrev">
               <template #next>
                 <v-btn
                   variant="flat"
@@ -198,10 +181,10 @@
           <v-stepper-window-item :value="Pages.AI_PROVIDERS">
             <v-container max-width="880">
               <v-card-title class="headline pa-0">
-                {{ $t('group.ai-provider-settings.ai-providers') }}
+                {{ $t("group.ai-provider-settings.ai-providers") }}
               </v-card-title>
               <v-card-subtitle class="px-0 py-2 text-wrap">
-                {{ $t('group.ai-provider-settings.ai-providers-description') }}
+                {{ $t("group.ai-provider-settings.ai-providers-description") }}
               </v-card-subtitle>
               <GroupAIProviderSettingsEditor
                 v-if="group?.aiProviderSettings"
@@ -213,11 +196,7 @@
                 @delete="handleDeleteProvider"
               />
             </v-container>
-            <v-stepper-actions
-              :disabled="isSubmitting"
-              prev-text="general.back"
-              @click:prev="onPrev"
-            >
+            <v-stepper-actions :disabled="isSubmitting" prev-text="general.back" @click:prev="onPrev">
               <template #next>
                 <v-btn
                   variant="flat"
@@ -235,30 +214,19 @@
           <v-stepper-window-item :value="Pages.CONFIRM">
             <v-container max-width="880">
               <v-card-title class="headline pa-0">
-                {{ $t('general.confirm-how-does-everything-look') }}
+                {{ $t("general.confirm-how-does-everything-look") }}
               </v-card-title>
               <v-list>
                 <template v-for="(item, idx) in confirmationData">
-                  <v-list-item
-                    v-if="item.display"
-                    :key="idx"
-                    class="px-0"
-                  >
+                  <v-list-item v-if="item.display" :key="idx" class="px-0">
                     <v-list-item-title>{{ item.text }}</v-list-item-title>
                     <v-list-item-subtitle>{{ item.value }}</v-list-item-subtitle>
                   </v-list-item>
-                  <v-divider
-                    v-if="idx !== confirmationData.length - 1"
-                    :key="`divider-${idx}`"
-                  />
+                  <v-divider v-if="idx !== confirmationData.length - 1" :key="`divider-${idx}`" />
                 </template>
               </v-list>
             </v-container>
-            <v-stepper-actions
-              :disabled="isSubmitting"
-              prev-text="general.back"
-              @click:prev="onPrev"
-            >
+            <v-stepper-actions :disabled="isSubmitting" prev-text="general.back" @click:prev="onPrev">
               <template #next>
                 <BaseButton
                   create
@@ -276,11 +244,7 @@
           <!-- END -->
           <v-stepper-window-item :value="Pages.END">
             <EndPageContent />
-            <v-stepper-actions
-              :disabled="isSubmitting"
-              prev-text="general.back"
-              @click:prev="onPrev"
-            >
+            <v-stepper-actions :disabled="isSubmitting" prev-text="general.back" @click:prev="onPrev">
               <template #next>
                 <BaseButton
                   flat
@@ -338,8 +302,7 @@ async function handleCreateProvider(data: AIProviderCreate) {
   if (result.data) {
     await groupActions.refresh();
     alert.success(i18n.t("group.ai-provider-settings.provider-created"));
-  }
-  else {
+  } else {
     alert.error(i18n.t("group.ai-provider-settings.provider-create-failed"));
   }
 }
@@ -349,8 +312,7 @@ async function handleUpdateProvider(id: string, data: AIProviderUpdate) {
   if (result.data) {
     await groupActions.refresh();
     alert.success(i18n.t("group.ai-provider-settings.provider-updated"));
-  }
-  else {
+  } else {
     alert.error(i18n.t("group.ai-provider-settings.provider-update-failed"));
   }
 }
@@ -360,8 +322,7 @@ async function handleDeleteProvider(id: string) {
   if (result.data) {
     await groupActions.refresh();
     alert.success(i18n.t("group.ai-provider-settings.provider-deleted"));
-  }
-  else {
+  } else {
     alert.error(i18n.t("group.ai-provider-settings.provider-delete-failed"));
   }
 }
@@ -457,8 +418,7 @@ async function updateUser() {
 
   if (!response || response.status !== 200) {
     alert.error(i18n.t("events.something-went-wrong"));
-  }
-  else {
+  } else {
     auth.getSession();
   }
 }
@@ -488,8 +448,7 @@ async function updatePassword() {
 
   try {
     await auth.signIn(formData);
-  }
-  catch {
+  } catch {
     alert.error(i18n.t("events.something-went-wrong"));
   }
 }
@@ -573,11 +532,7 @@ async function seedData() {
 }
 
 async function submitCommonSettings() {
-  const tasks = [
-    updateGroup(),
-    updateHousehold(),
-    seedData(),
-  ];
+  const tasks = [updateGroup(), updateHousehold(), seedData()];
 
   await Promise.all(tasks);
 }
@@ -587,10 +542,7 @@ async function submitAll() {
   // new one, and any request landing in that window would 401 and bounce the admin out of setup.
   await submitRegistration();
 
-  const tasks = [
-    submitCommonSettings(),
-    groupActions.updateAIProviderSettings(),
-  ];
+  const tasks = [submitCommonSettings(), groupActions.updateAIProviderSettings()];
 
   await Promise.all(tasks);
 }

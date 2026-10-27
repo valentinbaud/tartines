@@ -5,7 +5,7 @@
   >
     <div>
       <v-card-title class="headline">
-        {{ $t('recipe.import-from-html-or-json') }}
+        {{ $t("recipe.import-from-html-or-json") }}
       </v-card-title>
       <v-card-text>
         <p>
@@ -13,15 +13,12 @@
         </p>
         <p>
           {{ $t("recipe.json-import-format-description-colon") }}
-          <a
-            href="https://schema.org/Recipe"
-            target="_blank"
-            class="text-primary"
-          >https://schema.org/Recipe</a>
+          <a href="https://schema.org/Recipe" target="_blank" class="text-primary">https://schema.org/Recipe</a>
         </p>
         <p v-if="aiEnabled">
           {{ $t("recipe.import-from-html-or-json-have-ai-read-it") }}
-          <router-link :to="aiImporterTarget" class="text-primary">{{ $t("recipe.import-with-ai") }}</router-link>.
+          <router-link :to="aiImporterTarget" class="text-primary">{{ $t("recipe.import-with-ai") }}</router-link
+          >.
         </p>
         <v-switch
           v-model="state.isEditJSON"
@@ -74,12 +71,7 @@
           hide-details
           :label="$t('recipe.import-original-categories')"
         />
-        <v-checkbox
-          v-model="stayInEditMode"
-          color="primary"
-          hide-details
-          :label="$t('recipe.stay-in-edit-mode')"
-        />
+        <v-checkbox v-model="stayInEditMode" color="primary" hide-details :label="$t('recipe.stay-in-edit-mode')" />
         <v-checkbox
           v-model="parseRecipe"
           color="primary"
@@ -90,13 +82,7 @@
       <v-card-actions class="justify-center">
         <div style="width: 100%" class="text-center">
           <div style="width: 250px; margin: 0 auto">
-            <BaseButton
-              :disabled="!newRecipeData"
-              rounded
-              block
-              type="submit"
-              :loading="state.loading"
-            />
+            <BaseButton :disabled="!newRecipeData" rounded block type="submit" :loading="state.loading" />
           </div>
           <v-card-text class="py-2">
             <!-- render &nbsp; to maintain layout -->
@@ -105,17 +91,9 @@
         </div>
       </v-card-actions>
       <v-expand-transition>
-        <v-alert
-          v-if="state.error"
-          color="error"
-          class="mt-6 white--text"
-        >
+        <v-alert v-if="state.error" color="error" class="mt-6 white--text">
           <v-card-title class="ma-0 pa-0">
-            <v-icon
-              start
-              color="white"
-              size="x-large"
-            >
+            <v-icon start color="white" size="x-large">
               {{ $globals.icons.robot }}
             </v-icon>
             {{ $t("new-recipe.error-title") }}
@@ -138,18 +116,13 @@
             </a>
             <a
               class="text-primary"
-              href="https://github.com/mealie-recipes/mealie/issues"
+              href="https://github.com/valentinbaud/tartines/issues"
               target="_blank"
               rel="noreferrer nofollow"
             >
               {{ $t("new-recipe.github-issues") }}
             </a>
-            <a
-              class="text-primary"
-              href="https://schema.org/Recipe"
-              target="_blank"
-              rel="noreferrer nofollow"
-            >
+            <a class="text-primary" href="https://schema.org/Recipe" target="_blank" rel="noreferrer nofollow">
               {{ $t("new-recipe.recipe-markup-specification") }}
             </a>
           </div>
@@ -178,11 +151,11 @@ const state = reactive({
 // error codes, and the stream client's own fallback when no error message arrived.
 const genericErrors = ["BAD_RECIPE_DATA", "NO_RECIPE_DATA", "CONNECTION_ERROR", "Recipe creation failed"];
 const errorDetails = computed(() =>
-  state.errorMessage && !genericErrors.includes(state.errorMessage) ? state.errorMessage : null,
+  state.errorMessage && !genericErrors.includes(state.errorMessage) ? state.errorMessage : null
 );
 const auth = useMealieAuth();
 const route = useRoute();
-const groupSlug = computed(() => route.params.groupSlug as string || auth.user.value?.groupSlug || "");
+const groupSlug = computed(() => (route.params.groupSlug as string) || auth.user.value?.groupSlug || "");
 const domUrlForm = ref<VForm | null>(null);
 
 const { group } = useGroupSelf();
@@ -192,13 +165,7 @@ const aiEnabled = computed(() => !!group.value?.aiProviderSettings?.aiEnabled);
 const api = useUserApi();
 const tags = useTagStore();
 
-const {
-  importKeywordsAsTags,
-  importCategories,
-  stayInEditMode,
-  parseRecipe,
-  navigateToRecipe,
-} = useNewRecipeOptions();
+const { importKeywordsAsTags, importCategories, stayInEditMode, parseRecipe, navigateToRecipe } = useNewRecipeOptions();
 
 function handleResponse(response: AxiosResponse<string> | null, refreshTags = false) {
   if (response?.status !== 201) {
@@ -221,26 +188,27 @@ function handleIsEditJson() {
     if (newRecipeData.value) {
       try {
         newRecipeData.value = JSON.parse(newRecipeData.value as string);
-      }
-      catch {
+      } catch {
         newRecipeData.value = { data: newRecipeData.value };
       }
-    }
-    else {
+    } else {
       newRecipeData.value = {};
     }
-  }
-  else if (newRecipeData.value && Object.keys(newRecipeData.value).length > 0) {
+  } else if (newRecipeData.value && Object.keys(newRecipeData.value).length > 0) {
     newRecipeData.value = JSON.stringify(newRecipeData.value);
-  }
-  else {
+  } else {
     newRecipeData.value = null;
   }
 }
 handleIsEditJson();
 
 const createStatus = ref<string | null>(null);
-async function createFromHtmlOrJson(htmlOrJsonData: string | object | null, importKeywordsAsTags: boolean, importCategories: boolean, url: string | null = null) {
+async function createFromHtmlOrJson(
+  htmlOrJsonData: string | object | null,
+  importKeywordsAsTags: boolean,
+  importCategories: boolean,
+  url: string | null = null
+) {
   if (!htmlOrJsonData) {
     return;
   }
@@ -253,8 +221,7 @@ async function createFromHtmlOrJson(htmlOrJsonData: string | object | null, impo
   let dataString;
   if (typeof htmlOrJsonData === "string") {
     dataString = htmlOrJsonData;
-  }
-  else {
+  } else {
     dataString = JSON.stringify(htmlOrJsonData);
   }
 
@@ -266,7 +233,7 @@ async function createFromHtmlOrJson(htmlOrJsonData: string | object | null, impo
     importKeywordsAsTags,
     importCategories,
     url,
-    (message: string) => createStatus.value = message,
+    (message: string) => (createStatus.value = message)
   );
   createStatus.value = null;
   state.errorMessage = error?.message || "";
