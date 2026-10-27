@@ -2,17 +2,34 @@ import logging
 import os
 import secrets
 from datetime import UTC, datetime
+from enum import StrEnum
 from pathlib import Path
-from typing import Annotated, Any, NamedTuple
+from typing import Annotated, Literal, NamedTuple
+from urllib.parse import urlparse
 
 from dateutil.tz import tzlocal
 from pydantic import PlainSerializer, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+from mealie.core.settings.branding import Branding
 from mealie.core.settings.themes import Theme
 
 from .db_providers import AbstractDBProvider, db_provider_factory
 from .static import PACKAGE_DIR
+
+
+class ScraperProxyMode(StrEnum):
+    """How the scraper uses a configured proxy."""
+
+    always = "always"
+    """Route every request through the proxy (IP-based blocks trigger on the first request)."""
+    fallback = "fallback"
+    """Try direct first; only retry through the proxy when a block is detected."""
+
+    @classmethod
+    def _missing_(cls, value: object) -> ScraperProxyMode:
+        # Default any unrecognized configuration value to the safest, most useful mode.
+        return cls.always
 
 
 class ScheduleTime(NamedTuple):
@@ -33,6 +50,16 @@ class FeatureDetails(NamedTuple):
         return s
 
 
+DEFAULT_ALLOWED_IFRAME_HOSTS = [
+    "youtube.com",
+    "youtube-nocookie.com",
+    "vimeo.com",
+    "player.vimeo.com",
+]
+"""Secure-by-default hostnames permitted as `<iframe>` sources in user content. Limited to
+well-known video providers. Subdomains of these hosts are also allowed (e.g. `www.youtube.com`)."""
+
+
 MaskedNoneString = Annotated[
     str | None,
     PlainSerializer(lambda x: None if x is None else "*****", return_type=str | None),
@@ -50,13 +77,19 @@ def determine_secrets(data_dir: Path, secret: str, production: bool) -> str:
     secrets_file = data_dir.joinpath(secret)
     if secrets_file.is_file():
         with open(secrets_file) as f:
-            return f.read()
-    else:
-        data_dir.mkdir(parents=True, exist_ok=True)
-        with open(secrets_file, "w") as f:
-            new_secret = secrets.token_hex(32)
-            f.write(new_secret)
-        return new_secret
+            existing_secret = f.read().strip()
+        if existing_secret:
+            return existing_secret
+
+    data_dir.mkdir(parents=True, exist_ok=True)
+    new_secret = secrets.token_hex(32)
+    tmp_file = secrets_file.with_suffix(".tmp")
+    with open(tmp_file, "w") as f:
+        f.write(new_secret)
+        f.flush()
+        os.fsync(f.fileno())
+    tmp_file.replace(secrets_file)
+    return new_secret
 
 
 def get_secrets_dir() -> str | None:
@@ -106,9 +139,15 @@ class AppLoggingSettings(BaseSettings):
 
 class AppSettings(AppLoggingSettings):
     theme: Theme = Theme()
+    branding: Branding = Branding()
 
     BASE_URL: str = "http://localhost:8080"
     """trailing slashes are trimmed (ex. `http://localhost:8080/` becomes ``http://localhost:8080`)"""
+
+    @property
+    def is_default_base_url(self) -> bool:
+        """Returns True if BASE_URL has not been changed from the default."""
+        return self.BASE_URL == "http://localhost:8080"
 
     STATIC_FILES: str = str(PACKAGE_DIR / "frontend")
     """path to static files directory (ex. `mealie/dist`)"""
@@ -123,6 +162,14 @@ class AppSettings(AppLoggingSettings):
     TOKEN_TIME: int = 48
     """time in hours"""
 
+    @field_validator("TOKEN_TIME")
+    @classmethod
+    def validate_token_time(cls, v: int) -> int:
+        if v < 1:
+            raise ValueError("TOKEN_TIME must be at least 1 hour")
+        # Certain browsers (webkit) have issues with very long-lived cookies, so we limit to 400 days
+        return min(v, 400 * 24)
+
     SECRET: str
     SESSION_SECRET: str
 
@@ -130,6 +177,36 @@ class AppSettings(AppLoggingSettings):
 
     ALLOW_SIGNUP: bool = False
     ALLOW_PASSWORD_LOGIN: bool = True
+
+    ALLOWED_IFRAME_HOSTS: str = ""
+    """Comma-separated list of additional hostnames allowed as `<iframe>` sources in user content
+    (recipe instructions, notes, descriptions). Extends `DEFAULT_ALLOWED_IFRAME_HOSTS`. Subdomains of
+    a listed host are also allowed. Adding hosts is opt-in to riskier behavior; the defaults are
+    limited to well-known video providers."""
+
+    @property
+    def allowed_iframe_hosts(self) -> list[str]:
+        """The full set of hostnames permitted as `<iframe>` sources, secure defaults plus any
+        admin-configured additions via `ALLOWED_IFRAME_HOSTS`."""
+        extra = [host.strip().lower() for host in self.ALLOWED_IFRAME_HOSTS.split(",") if host.strip()]
+        return list(dict.fromkeys(DEFAULT_ALLOWED_IFRAME_HOSTS + extra))
+
+    HTTP_ALLOW_LIST: str = ""
+    """Comma-separated hosts or CIDRs that server-initiated requests (recipe scraping, webhooks,
+    recipe actions) may reach even if they resolve to an otherwise-blocked private/internal address.
+    Use this to allow a known internal server."""
+
+    HTTP_DISALLOW_LIST: str = ""
+    """Comma-separated hosts or CIDRs that server-initiated requests may never reach, even if public.
+    Takes precedence over `HTTP_ALLOW_LIST`."""
+
+    @property
+    def http_allow_list(self) -> list[str]:
+        return [host.strip() for host in self.HTTP_ALLOW_LIST.split(",") if host.strip()]
+
+    @property
+    def http_disallow_list(self) -> list[str]:
+        return [host.strip() for host in self.HTTP_DISALLOW_LIST.split(",") if host.strip()]
 
     DAILY_SCHEDULE_TIME: str = "23:45"
     """Local server time, in HH:MM format. See `DAILY_SCHEDULE_TIME_UTC` for the parsed UTC equivalent"""
@@ -186,15 +263,13 @@ class AppSettings(AppLoggingSettings):
     def DOCS_URL(self) -> str | None:
         return "/docs" if self.API_DOCS else None
 
-    @property
-    def REDOC_URL(self) -> str | None:
-        return "/redoc" if self.API_DOCS else None
-
     # ===============================================
     # Database Configuration
 
     DB_ENGINE: str = "sqlite"  # Options: 'sqlite', 'postgres'
     DB_PROVIDER: AbstractDBProvider | None = None
+
+    SQLITE_MIGRATE_JOURNAL_WAL: bool = False
 
     @property
     def DB_URL(self) -> str | None:
@@ -264,20 +339,15 @@ class AppSettings(AppLoggingSettings):
             "SMTP_FROM_EMAIL": from_email,
             "SMTP_AUTH_STRATEGY": strategy,
         }
-        missing_values = [key for (key, value) in required.items() if value is None]
+        if user or password:
+            required["SMTP_USER"] = user
+            required["SMTP_PASSWORD"] = password
+
+        missing_values = [key for (key, value) in required.items() if value is None or value == ""]
         if missing_values:
             description = f"Missing required values for {missing_values}"
 
-        if strategy and strategy.upper() in {"TLS", "SSL"}:
-            required["SMTP_USER"] = user
-            required["SMTP_PASSWORD"] = password
-            if not description:
-                missing_values = [key for (key, value) in required.items() if value is None]
-                description = f"Missing required values for {missing_values} because SMTP_AUTH_STRATEGY is not None"
-
-        not_none = "" not in required.values() and None not in required.values()
-
-        return FeatureDetails(enabled=not_none, description=description)
+        return FeatureDetails(enabled=not missing_values, description=description)
 
     # ===============================================
     # LDAP Configuration
@@ -328,6 +398,7 @@ class AppSettings(AppLoggingSettings):
     OIDC_CLIENT_SECRET: MaskedNoneString = None
     OIDC_CONFIGURATION_URL: str | None = None
     OIDC_SIGNUP_ENABLED: bool = True
+    OIDC_REQUIRES_EMAIL_VERIFICATION: bool = True
     OIDC_USER_GROUP: str | None = None
     OIDC_ADMIN_GROUP: str | None = None
     OIDC_AUTO_REDIRECT: bool = False
@@ -338,6 +409,16 @@ class AppSettings(AppLoggingSettings):
     OIDC_GROUPS_CLAIM: str | None = "groups"
     OIDC_SCOPES_OVERRIDE: str | None = None
     OIDC_TLS_CACERTFILE: str | None = None
+    OIDC_VERIFY_X509_STRICT: bool = True
+    OIDC_CLIENT_TIMEOUT: float | Literal["None", "default"] = "default"
+
+    OIDC_NATIVE_CLIENT_ID: str | None = None
+    """Client ID used by the native (mobile/desktop) OIDC endpoints. Falls back to OIDC_CLIENT_ID when unset."""
+
+    OIDC_NATIVE_CONFIDENTIAL: bool = True
+    """When false, the native client is treated as a public client: the client secret is omitted from the token
+    exchange and PKCE alone is relied on. Required for Google and Microsoft, which do not allow custom-scheme
+    redirects on confidential clients."""
 
     @property
     def OIDC_REQUIRES_GROUP_CLAIM(self) -> bool:
@@ -374,52 +455,75 @@ class AppSettings(AppLoggingSettings):
         return self.OIDC_FEATURE.enabled
 
     # ===============================================
-    # OpenAI Configuration
+    # Reverse Proxy Auth Configuration
+    REVERSE_PROXY_AUTH_ENABLED: bool = False
+    REVERSE_PROXY_AUTH_HEADER: str = "X-Forwarded-User"
+    REVERSE_PROXY_AUTH_SIGNUP_ENABLED: bool = False
 
-    OPENAI_BASE_URL: str | None = None
-    """The base URL for the OpenAI API. Leave this unset for most usecases"""
-    OPENAI_API_KEY: MaskedNoneString = None
-    """Your OpenAI API key. Required to enable OpenAI features"""
-    OPENAI_MODEL: str = "gpt-4o"
-    """Which OpenAI model to send requests to. Leave this unset for most usecases"""
-    OPENAI_CUSTOM_HEADERS: dict[str, str] = {}
-    """Custom HTTP headers to send with each OpenAI request"""
-    OPENAI_CUSTOM_PARAMS: dict[str, Any] = {}
-    """Custom HTTP parameters to send with each OpenAI request"""
-    OPENAI_ENABLE_IMAGE_SERVICES: bool = True
-    """Whether to enable image-related features in OpenAI"""
-    OPENAI_WORKERS: int = 2
-    """
-    Number of OpenAI workers per request. Higher values may increase
-    processing speed, but will incur additional API costs
-    """
-    OPENAI_SEND_DATABASE_DATA: bool = True
-    """
-    Sending database data may increase accuracy in certain requests,
-    but will incur additional API costs
-    """
-    OPENAI_REQUEST_TIMEOUT: int = 60
-    """
-    The number of seconds to wait for an OpenAI request to complete before cancelling the request
-    """
+    REVERSE_PROXY_AUTH_SECRET: str | None = None
+    """Shared secret the proxy must send in REVERSE_PROXY_AUTH_SECRET_HEADER on every request. Checking
+    the connecting IP instead doesn't work: with the default HOST_IP="*", uvicorn trusts every peer and
+    will happily replace request.client with whatever X-Forwarded-For a direct request supplies, letting
+    an attacker impersonate the proxy's address; narrowing HOST_IP to the proxy instead makes
+    request.client the *end user's* IP, which isn't a fixed value to allowlist. A shared secret isn't
+    forgeable either way. Strongly recommended in production; left unset for backwards compatibility
+    with simple setups that trust their whole network."""
+
+    REVERSE_PROXY_AUTH_SECRET_HEADER: str = "X-Mealie-Reverse-Proxy-Secret"
+    """The header REVERSE_PROXY_AUTH_SECRET is expected in."""
 
     @property
-    def OPENAI_FEATURE(self) -> FeatureDetails:
-        description = None
-        if not self.OPENAI_API_KEY:
-            description = "OPENAI_API_KEY is not set"
-        elif not self.OPENAI_MODEL:
-            description = "OPENAI_MODEL is not set"
+    def REVERSE_PROXY_AUTH_FEATURE(self) -> FeatureDetails:
+        description = None if self.REVERSE_PROXY_AUTH_ENABLED else "REVERSE_PROXY_AUTH_ENABLED is false"
+        has_header = bool(self.REVERSE_PROXY_AUTH_HEADER)
+        if not has_header and not description:
+            description = "REVERSE_PROXY_AUTH_HEADER is not set"
 
         return FeatureDetails(
-            enabled=bool(self.OPENAI_API_KEY and self.OPENAI_MODEL),
+            enabled=self.REVERSE_PROXY_AUTH_ENABLED and has_header,
             description=description,
         )
 
     @property
-    def OPENAI_ENABLED(self) -> bool:
-        """Validates OpenAI settings are all set"""
-        return self.OPENAI_FEATURE.enabled
+    def REVERSE_PROXY_AUTH_READY(self) -> bool:
+        """Validates reverse proxy auth settings are all set"""
+        return self.REVERSE_PROXY_AUTH_FEATURE.enabled
+
+    # ===============================================
+    # Scraper Configuration
+
+    SCRAPER_PROXY_URL: str | None = None
+    """Optional proxy for all outbound recipe/image scraping requests (e.g. ``http://user:pass@host:port``).
+    Routing through a proxy with a better IP reputation helps bypass IP-based bot blocks. Unset disables it."""
+
+    SCRAPER_PROXY_MODE: ScraperProxyMode = ScraperProxyMode.always
+    """How the scraper uses ``SCRAPER_PROXY_URL`` (when set): ``always`` routes every request through the
+    proxy (recommended, since IP-based blocks trigger on the first request); ``fallback`` tries a direct
+    request first and only retries through the proxy when a block is detected (useful for metered proxies).
+    Any unrecognized value falls back to ``always``."""
+
+    SCRAPER_FLARESOLVERR_URL: str | None = None
+    """Optional base URL of a self-hosted FlareSolverr instance (e.g. ``http://flaresolverr:8191``). When
+    set, HTML scrapes that remain blocked after the direct/proxy attempts are retried through FlareSolverr,
+    which drives a real browser to solve JS/Cloudflare challenges. Mealie neither ships nor manages it.
+    Image downloads never use it, since FlareSolverr returns HTML rather than binary content."""
+
+    SCRAPER_FLARESOLVERR_TIMEOUT: int = 60
+    """Maximum seconds FlareSolverr may spend solving a single challenge before giving up."""
+
+    @field_validator("SCRAPER_PROXY_URL", "SCRAPER_FLARESOLVERR_URL")
+    @classmethod
+    def validate_scraper_url(cls, v: str | None, info) -> str | None:
+        """Fail fast at startup if a scraper URL is set but malformed (e.g. missing the scheme)."""
+        if not v:
+            return v
+
+        parsed = urlparse(v)
+        if not parsed.scheme or not parsed.netloc:
+            raise ValueError(
+                f"{info.field_name} must be a full URL including scheme and host, e.g. 'http://host:port' (got '{v}')"
+            )
+        return v
 
     # ===============================================
     # Web Concurrency
@@ -434,7 +538,7 @@ class AppSettings(AppLoggingSettings):
     def WORKERS(self) -> int:
         return max(1, self.WORKER_PER_CORE * self.UVICORN_WORKERS)
 
-    model_config = SettingsConfigDict(arbitrary_types_allowed=True, extra="allow")
+    model_config = SettingsConfigDict(arbitrary_types_allowed=True, extra="allow", env_nested_delimiter="__")
 
     # ===============================================
     # TLS
@@ -444,6 +548,11 @@ class AppSettings(AppLoggingSettings):
 
     TLS_PRIVATE_KEY_PATH: str | os.PathLike[str] | None = None
     """Path where the private key resides."""
+
+    # ===============================================
+    # YtDLP Configuration
+    YTDLP_COOKIEFILE: str | None = None
+    """Path to a cookies file for yt_dlp (used for video transcription scraping)"""
 
 
 def app_settings_constructor(data_dir: Path, production: bool, env_file: Path, env_encoding="utf-8") -> AppSettings:

@@ -3,25 +3,25 @@
         "name": "łyżeczka",
         "plural_name": "łyżeczki",
         "description": "",
-        "abbreviation": ""
+        "abbreviation": "łyżecz."
     },
     "tablespoon": {
         "name": "łyżka",
         "plural_name": "łyżki",
         "description": "",
-        "abbreviation": ""
+        "abbreviation": "łyż."
     },
     "cup": {
         "name": "szklanka",
         "plural_name": "szklanki",
         "description": "",
-        "abbreviation": ""
+        "abbreviation": "szkl."
     },
     "fluid-ounce": {
-        "name": "uncja",
-        "plural_name": "uncje",
+        "name": "uncja płynna",
+        "plural_name": "uncje płynne",
         "description": "",
-        "abbreviation": ""
+        "abbreviation": "fl oz"
     },
     "pint": {
         "name": "pinta",
@@ -46,6 +46,12 @@
         "plural_name": "mililitry",
         "description": "",
         "abbreviation": "ml"
+    },
+    "centiliter": {
+        "name": "centiliter",
+        "plural_name": "centiliters",
+        "description": "",
+        "abbreviation": "cl"
     },
     "liter": {
         "name": "litr",
@@ -85,8 +91,8 @@
         "abbreviation": "mg"
     },
     "splash": {
-        "name": "kapka",
-        "plural_name": "kapki",
+        "name": "odrobina",
+        "plural_name": "odrobiny",
         "description": "",
         "abbreviation": ""
     },
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "szczypta",
         "plural_name": "szczypty",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "gałązka",
+        "plural_name": "gałązki",
         "description": "",
         "abbreviation": ""
     }

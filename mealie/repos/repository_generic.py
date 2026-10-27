@@ -9,9 +9,8 @@ from typing import Any
 from fastapi import HTTPException
 from pydantic import UUID4, BaseModel
 from sqlalchemy import ColumnElement, Select, case, delete, func, nulls_first, nulls_last, select
-from sqlalchemy.orm import InstrumentedAttribute
+from sqlalchemy.ext.associationproxy import AssociationProxyInstance
 from sqlalchemy.orm.session import Session
-from sqlalchemy.sql import sqltypes
 
 from mealie.core.root_logger import get_logger
 from mealie.db.models._model_base import SqlAlchemyBase
@@ -23,8 +22,8 @@ from mealie.schema.response.pagination import (
     PaginationQuery,
     RequestQuery,
 )
-from mealie.schema.response.query_filter import QueryFilterBuilder
 from mealie.schema.response.query_search import SearchFilter
+from mealie.services.query_filter.builder import NonFilterableValueError, QueryFilterBuilder
 
 from ._utils import NOT_SET, NotSet
 
@@ -77,6 +76,13 @@ class RepositoryGeneric[Schema: MealieModel, Model: SqlAlchemyBase]:
 
     def _query(self, override_schema: type[MealieModel] | None = None, with_options=True):
         q = select(self.model)
+
+        try:
+            if isinstance(self.model.household_id, AssociationProxyInstance):
+                q.filter(self.model.household_id.is_not(None))
+        except AttributeError, NotImplementedError:
+            pass
+
         if with_options:
             schema = override_schema or self.schema
             return q.options(*schema.loader_options())
@@ -87,6 +93,7 @@ class RepositoryGeneric[Schema: MealieModel, Model: SqlAlchemyBase]:
         dct = {}
         if self.group_id:
             dct["group_id"] = self.group_id
+
         if self.household_id:
             dct["household_id"] = self.household_id
 
@@ -185,13 +192,17 @@ class RepositoryGeneric[Schema: MealieModel, Model: SqlAlchemyBase]:
 
     def create_many(self, data: Iterable[Schema | dict]) -> list[Schema]:
         new_documents = []
-        for document in data:
-            document = document if isinstance(document, dict) else document.model_dump()
-            new_document = self.model(session=self.session, **document)
-            new_documents.append(new_document)
+        try:
+            for document in data:
+                document = document if isinstance(document, dict) else document.model_dump()
+                new_document = self.model(session=self.session, **document)
+                new_documents.append(new_document)
 
-        self.session.add_all(new_documents)
-        self.session.commit()
+            self.session.add_all(new_documents)
+            self.session.commit()
+        except Exception:
+            self.session.rollback()
+            raise
 
         for created_document in new_documents:
             self.session.refresh(created_document)
@@ -222,7 +233,11 @@ class RepositoryGeneric[Schema: MealieModel, Model: SqlAlchemyBase]:
             document_data = document if isinstance(document, dict) else document.model_dump()
             document_data_by_id[document_data["id"]] = document_data
 
-        documents_to_update_query = self._query().filter(self.model.id.in_(list(document_data_by_id.keys())))
+        documents_to_update_query = (
+            self._query()
+            .filter(self.model.id.in_(list(document_data_by_id.keys())))
+            .filter_by(**self._filter_builder())
+        )
         documents_to_update = self.session.execute(documents_to_update_query).unique().scalars().all()
 
         updated_documents = []
@@ -260,7 +275,7 @@ class RepositoryGeneric[Schema: MealieModel, Model: SqlAlchemyBase]:
         return result_as_model
 
     def delete_many(self, values: Iterable) -> list[Schema]:
-        query = self._query().filter(self.model.id.in_(values))
+        query = self._query().filter(self.model.id.in_(values)).filter_by(**self._filter_builder())
         results = self.session.execute(query).unique().scalars().all()
         results_as_model = [self.schema.model_validate(result) for result in results]
 
@@ -284,7 +299,7 @@ class RepositoryGeneric[Schema: MealieModel, Model: SqlAlchemyBase]:
     def count_all(self, match_key=None, match_value=None) -> int:
         q = select(func.count(self.model.id))
         if None not in [match_key, match_value]:
-            q = q.filter_by(**{match_key: match_value})
+            q = q.where(getattr(self.model, match_key) == match_value)
         return self.session.scalar(q)
 
     def _count_attribute(
@@ -364,14 +379,16 @@ class RepositoryGeneric[Schema: MealieModel, Model: SqlAlchemyBase]:
                 self.logger.error(e)
                 raise HTTPException(status_code=400, detail=str(e)) from e
 
-        count_query = select(func.count()).select_from(query.subquery())
+        count_query = select(func.count()).select_from(query.order_by(None).distinct().subquery())
         count = self.session.scalar(count_query)
         if not count:
             count = 0
 
         # interpret -1 as "get_all"
+        limit: int | None = pagination.per_page
         if pagination.per_page == -1:
             pagination.per_page = count
+            limit = None
 
         try:
             total_pages = ceil(count / pagination.per_page)
@@ -387,21 +404,19 @@ class RepositoryGeneric[Schema: MealieModel, Model: SqlAlchemyBase]:
             pagination.page = 1
 
         query = self.add_order_by_to_query(query, pagination)
-        return query.limit(pagination.per_page).offset((pagination.page - 1) * pagination.per_page), count, total_pages
+
+        if limit is not None:
+            query = query.limit(limit)
+
+        return query.offset((pagination.page - 1) * pagination.per_page), count, total_pages
 
     def add_order_attr_to_query(
         self,
         query: Select,
-        order_attr: InstrumentedAttribute,
+        order_attr: ColumnElement,
         order_dir: OrderDirection,
         order_by_null: OrderByNullPosition | None,
     ) -> Select:
-        order_attr = self.column_aliases.get(order_attr.key, order_attr)
-
-        # queries handle uppercase and lowercase differently, which is undesirable
-        if isinstance(order_attr.type, sqltypes.String):
-            order_attr = func.lower(order_attr)
-
         if order_dir is OrderDirection.asc:
             order_attr = order_attr.asc()
         elif order_dir is OrderDirection.desc:
@@ -444,13 +459,22 @@ class RepositoryGeneric[Schema: MealieModel, Model: SqlAlchemyBase]:
                         order_by = order_by_val
                         order_dir = request_query.order_direction
 
-                    _, order_attr, query = QueryFilterBuilder.get_model_and_model_attr_from_attr_string(
-                        order_by, self.model, query=query
+                    order_attr = QueryFilterBuilder.get_order_attr(
+                        order_by,
+                        self.model,
+                        descending=order_dir is OrderDirection.desc,
+                        column_aliases=self.column_aliases,
                     )
 
                     query = self.add_order_attr_to_query(
                         query, order_attr, order_dir, request_query.order_by_null_position
                     )
+
+                except NonFilterableValueError as e:
+                    raise HTTPException(
+                        status_code=400,
+                        detail=f'Invalid order_by statement "{request_query.order_by}": {e.message}',
+                    ) from e
 
                 except ValueError as e:
                     raise HTTPException(

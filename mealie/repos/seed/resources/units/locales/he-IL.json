@@ -47,6 +47,12 @@
         "description": "",
         "abbreviation": "מ\"ל"
     },
+    "centiliter": {
+        "name": "centiliter",
+        "plural_name": "centiliters",
+        "description": "",
+        "abbreviation": "cl"
+    },
     "liter": {
         "name": "ליטר",
         "plural_name": "ליטרים",
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "קמצוץ",
         "plural_name": "קמצוצים",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "ענף",
+        "plural_name": "ענפים",
         "description": "",
         "abbreviation": ""
     }

@@ -9,7 +9,7 @@
         "name": "cuillère à soupe",
         "plural_name": "cuillères à soupe",
         "description": "",
-        "abbreviation": "càS"
+        "abbreviation": "càs"
     },
     "cup": {
         "name": "tasse",
@@ -18,10 +18,10 @@
         "abbreviation": "tasses"
     },
     "fluid-ounce": {
-        "name": "centilitre",
-        "plural_name": "centilitres",
+        "name": "fl oz",
+        "plural_name": "fl oz",
         "description": "",
-        "abbreviation": "cL"
+        "abbreviation": "fl oz"
     },
     "pint": {
         "name": "pinte",
@@ -46,6 +46,12 @@
         "plural_name": "millilitres",
         "description": "",
         "abbreviation": "ml"
+    },
+    "centiliter": {
+        "name": "centilitre",
+        "plural_name": "centilitres",
+        "description": "",
+        "abbreviation": "cl"
     },
     "liter": {
         "name": "litre",
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "pincée",
         "plural_name": "pincées",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "brin",
+        "plural_name": "brins",
         "description": "",
         "abbreviation": ""
     }

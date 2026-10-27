@@ -3,19 +3,21 @@ import json
 import pathlib
 from dataclasses import dataclass
 from typing import Any
+from urllib.parse import urlsplit, urlunsplit
 
-from bs4 import BeautifulSoup
 from fastapi import Depends, FastAPI, Response
 from fastapi.encoders import jsonable_encoder
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm.session import Session
 from starlette.exceptions import HTTPException
+from starlette.responses import RedirectResponse
 from text_unidecode import os
 
 from mealie.core.config import get_app_settings
 from mealie.core.dependencies.dependencies import try_get_current_user
 from mealie.db.db_setup import generate_session
 from mealie.repos.repository_factory import AllRepositories
+from mealie.routes.spa.manifest import serve_manifest
 from mealie.schema.recipe.recipe import Recipe
 from mealie.schema.user.user import PrivateUser
 
@@ -33,14 +35,37 @@ class MetaTag:
 class SPAStaticFiles(StaticFiles):
     async def get_response(self, path: str, scope):
         try:
-            return await super().get_response(path, scope)
+            response = await super().get_response(path, scope)
         except HTTPException as ex:
             if ex.status_code == 404:
-                return await super().get_response("index.html", scope)
+                response = await super().get_response("index.html", scope)
             else:
                 raise ex
-        except Exception as e:
-            raise e
+
+        # StaticFiles(html=True) redirects directory URLs without a trailing slash (e.g. /login -> /login/)
+        # to an absolute URL built from the request's Host header. That breaks behind reverse proxies that
+        # rewrite Host, and lets a spoofed Host pick the redirect target. Redirect to a relative path instead,
+        # collapsing leading slashes so it can't become a protocol-relative URL (//host/...).
+        if isinstance(response, RedirectResponse):
+            location = urlsplit(response.headers["location"])
+            response.headers["location"] = urlunsplit(("", "", "/" + location.path.lstrip("/"), location.query, ""))
+
+        # StaticFiles(html=True) serves 404.html (which IS the SPA shell) with
+        # status_code=404 for any unknown path, without raising HTTPException.
+        # Rewrite to 200 so reverse proxies that intercept 4xx don't replace the
+        # body with a generic error page.
+        if response.status_code == 404 and response.media_type == "text/html":
+            response.status_code = 200
+
+        # Hashed assets (_nuxt/*) are safe to cache forever since new builds produce new filenames.
+        # HTML must revalidate so browsers always fetch the correct bundle references after a
+        # container rebuild (prevents blank white page from stale index.html in HA iframes, etc).
+        if path.startswith("_nuxt/"):
+            response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+        elif path == "." or response.media_type == "text/html":
+            response.headers["Cache-Control"] = "no-cache"
+
+        return response
 
 
 __app_settings = get_app_settings()
@@ -59,21 +84,35 @@ def escape(content: Any) -> Any:
 
 
 def inject_meta(contents: str, tags: list[MetaTag]) -> str:
+    from bs4 import BeautifulSoup
+
     soup = BeautifulSoup(contents, "lxml")
     scraped_meta_tags = soup.find_all("meta")
 
     tags_by_hid = {tag.hid: tag for tag in tags}
-    for scraped_meta_tag in scraped_meta_tags:
-        try:
-            scraped_hid = scraped_meta_tag["data-hid"]
-        except KeyError:
-            continue
+    tags_by_property = {tag.property_name: tag for tag in tags}
 
-        if not (matched_tag := tags_by_hid.pop(scraped_hid, None)):
+    for scraped_meta_tag in scraped_meta_tags:
+        # Try to match by data-hid first
+        scraped_hid = scraped_meta_tag.get("data-hid")
+        matched_tag = tags_by_hid.pop(scraped_hid, None) if scraped_hid else None
+
+        # If no match by data-hid, try matching by property name
+        if not matched_tag:
+            scraped_property = scraped_meta_tag.get("property")
+            matched_tag = tags_by_property.get(scraped_property) if scraped_property else None
+            if matched_tag:
+                tags_by_hid.pop(matched_tag.hid, None)
+                tags_by_property.pop(scraped_property, None)
+
+        if not matched_tag:
             continue
 
         scraped_meta_tag["property"] = matched_tag.property_name
         scraped_meta_tag["content"] = matched_tag.content
+        # Add data-hid if it doesn't exist
+        if "data-hid" not in scraped_meta_tag.attrs:
+            scraped_meta_tag["data-hid"] = matched_tag.hid
 
     # add any tags we didn't find
     if soup.html and soup.html.head:
@@ -85,6 +124,16 @@ def inject_meta(contents: str, tags: list[MetaTag]) -> str:
             soup.html.head.append(html_tag)
 
     return str(soup)
+
+
+def iso_duration(seconds: int | None) -> str | None:
+    """schema.org requires ISO 8601 durations, e.g. 5400 -> "PT1H30M" """
+    if not seconds:
+        return None
+
+    hours, remainder = divmod(seconds, 3600)
+    minutes, seconds = divmod(remainder, 60)
+    return "PT" + "".join(f"{n}{unit}" for n, unit in ((hours, "H"), (minutes, "M"), (seconds, "S")) if n)
 
 
 def inject_recipe_json(contents: str, schema: dict) -> str:
@@ -102,15 +151,18 @@ def content_with_meta(group_slug: str, recipe: Recipe) -> str:
 
     ingredients: list[str] = []
     for ing in recipe.recipe_ingredient:
-        s = ""
+        components: list[str] = []
         if ing.quantity:
-            s += f"{ing.quantity} "
+            # Keep decimals machine-readable, even for units displayed as fractions.
+            quantity = int(ing.quantity) if ing.quantity.is_integer() else ing.quantity
+            components.append(str(quantity))
         if ing.unit:
-            s += f"{ing.unit.name} "
+            components.append(ing._format_unit_for_display())
         if ing.food:
-            s += f"{ing.food.name} "
+            components.append(ing.food.name)
+        s = " ".join(components)
         if ing.note:
-            s += f"{ing.note}"
+            s = f"{s}, {ing.note}" if s else ing.note
 
         ingredients.append(escape(s))
 
@@ -126,9 +178,9 @@ def content_with_meta(group_slug: str, recipe: Recipe) -> str:
         "description": escape(recipe.description),
         "image": [image_url],
         "datePublished": recipe.created_at,
-        "prepTime": escape(recipe.prep_time),
-        "cookTime": escape(recipe.cook_time),
-        "totalTime": escape(recipe.total_time),
+        "prepTime": iso_duration(recipe.prep_time_seconds),
+        "cookTime": iso_duration(recipe.perform_time_seconds),
+        "totalTime": iso_duration(recipe.total_time_seconds),
         "recipeYield": escape(recipe.recipe_yield_display),
         "recipeIngredient": ingredients,
         "recipeInstructions": [escape(i.text) for i in recipe.recipe_instructions]
@@ -231,4 +283,5 @@ def mount_spa(app: FastAPI):
 
     app.get("/g/{group_slug}/r/{recipe_slug}", include_in_schema=False)(serve_recipe_with_meta)
     app.get("/g/{group_slug}/shared/r/{token_id}", include_in_schema=False)(serve_shared_recipe_with_meta)
+    app.get("/manifest.webmanifest", include_in_schema=False)(serve_manifest)
     app.mount("/", SPAStaticFiles(directory=__app_settings.STATIC_FILES, html=True), name="spa")

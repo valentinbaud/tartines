@@ -1,3 +1,4 @@
+import sqlite3
 from collections.abc import Callable
 from logging import Logger
 
@@ -5,8 +6,31 @@ import sqlalchemy.exc
 from fastapi import HTTPException, status
 from pydantic import UUID4, BaseModel
 
+from mealie.core.config import get_app_settings
 from mealie.repos.repository_generic import RepositoryGeneric
+from mealie.routes._base.permissions import not_found
 from mealie.schema.response import ErrorResponse
+
+
+def is_postgres() -> bool:
+    return get_app_settings().DB_ENGINE == "postgres"
+
+
+def is_unique_violation(ex: sqlalchemy.exc.IntegrityError) -> bool:
+
+    try:
+        import psycopg2  # noqa: I001
+
+        if is_postgres() and isinstance(ex.orig, psycopg2.Error):
+            return getattr(ex.orig, "pgcode", None) == "23505"
+
+    except ImportError:
+        pass
+
+    if isinstance(ex.orig, sqlite3.Error):
+        return getattr(ex.orig, "sqlite_errorcode", None) == sqlite3.SQLITE_CONSTRAINT_UNIQUE
+
+    return False
 
 
 class HttpRepo[C: BaseModel, R: BaseModel, U: BaseModel]:
@@ -58,6 +82,13 @@ class HttpRepo[C: BaseModel, R: BaseModel, U: BaseModel]:
                 status.HTTP_404_NOT_FOUND,
                 detail=ErrorResponse.respond(message=msg, exception=str(ex)),
             )
+        elif isinstance(ex, sqlalchemy.exc.IntegrityError):
+            if is_unique_violation(ex):
+                msg = "This item already exists."
+            raise HTTPException(
+                status.HTTP_409_CONFLICT,
+                detail=ErrorResponse.respond(message=msg, exception=str(ex)),
+            )
         else:
             raise HTTPException(
                 status.HTTP_400_BAD_REQUEST,
@@ -77,10 +108,7 @@ class HttpRepo[C: BaseModel, R: BaseModel, U: BaseModel]:
         item = self.repo.get_one(item_id, key)
 
         if not item:
-            raise HTTPException(
-                status.HTTP_404_NOT_FOUND,
-                detail=ErrorResponse.respond(message="Not found."),
-            )
+            raise not_found("Not found.")
 
         return item
 
@@ -88,10 +116,7 @@ class HttpRepo[C: BaseModel, R: BaseModel, U: BaseModel]:
         item = self.repo.get_one(item_id)
 
         if not item:
-            raise HTTPException(
-                status.HTTP_404_NOT_FOUND,
-                detail=ErrorResponse.respond(message="Not found."),
-            )
+            raise not_found("Not found.")
 
         try:
             item = self.repo.update(item_id, data)  # type: ignore
@@ -104,10 +129,7 @@ class HttpRepo[C: BaseModel, R: BaseModel, U: BaseModel]:
         item = self.repo.get_one(item_id)
 
         if not item:
-            raise HTTPException(
-                status.HTTP_404_NOT_FOUND,
-                detail=ErrorResponse.respond(message="Not found."),
-            )
+            raise not_found("Not found.")
 
         try:
             item = self.repo.patch(item_id, data.model_dump(exclude_unset=True, exclude_defaults=True))

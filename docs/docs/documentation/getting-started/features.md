@@ -5,8 +5,19 @@
 ## Recipes
 
 ### Creating Recipes
+Mealie offers several ways to create recipes:
 
-Mealie offers two main ways to create recipes. You can use the integrated recipe-scraper to create recipes from hundreds of websites, or you can create recipes manually using the recipe editor.
+- **Recipe Scraper:** Create recipes from hundreds of websites by simply providing a URL.
+- **Recipe HTML or JSON:** Copy/paste structured HTML or JSON and Mealie can import it. A recipe copied from Mealie's own JSON editor, or the JSON file from a Mealie recipe export, is imported with its full structure: ingredient foods and units, step titles and ingredient links, notes, tools, and tags and categories (when those import options are ticked).
+- **Manual Editor:** Create recipes from scratch using the integrated editor.
+
+Mealie's [AI integration](./installation/ai-providers.md) adds an **Import with AI** page, which creates a recipe out of just about anything:
+
+- **A URL:** Mealie reads the page, or, for a video URL (e.g., YouTube or Instagram), transcribes the audio.
+- **Images:** Upload photos of a written or typed recipe and Mealie will read them.
+- **Text:** Paste a recipe as plain text, HTML, or JSON.
+
+Everything you provide is read and combined into a single recipe, so you can pair a link or photos with a few notes of your own to name the recipe or correct a detail.
 
 [Creation Demo](https://demo.mealie.io/g/home/r/create/url){ .md-button .md-button--primary .align-right }
 
@@ -22,6 +33,7 @@ Mealie supports importing recipes from a few other sources besides websites. Cur
 - Recipe Keeper
 - Copy Me That
 - My Recipe Box
+- DVO Cook'n X3
 
 You can access these options on your installation at the `/group/migrations` page on your installation. If you'd like to see another source added, feel free to request so on Github.
 
@@ -55,13 +67,14 @@ Each of the above organizers can be filtered in searches and have their own page
 
 #### Cookbooks
 
-Mealie also has the concept of cookbooks. These can be created inside of a group and can use a cross section of Categories, Tags, and Tools to filter recipes and view them in one specific page. Cookbooks are a great way to keep a subset of recipes easily accessible to you. You can think of them as a saved search results page. While most examples are simple, you can use as many organizers to filter a cookbook as you'd like.
+Mealie also has the concept of cookbooks. These can be created inside of a group and can use a cross section of Categories, Tags, and Tools to filter recipes and view them in one specific page. Recipes can also be filtered by their ingredients, either by a specific food or by the Food Label a food belongs to. Cookbooks are a great way to keep a subset of recipes easily accessible to you. You can think of them as a saved search results page. While most examples are simple, you can use as many organizers to filter a cookbook as you'd like.
 
 #### Examples:
 
 - Main Courses: This cookbooks has all the recipes that have the **Dinner** category
 - Pasta Sides: Recipes that have both the **Side** category and the **Pasta** tag
 - Dessert Breads: Recipes that have both the **Bread** category and the **Dessert** tag
+- Seafood: Recipes with an ingredient whose food carries the **Fish** label
 
 [Cookbooks Demo](https://demo.mealie.io/g/home/cookbooks){ .md-button .md-button--primary }
 
@@ -70,13 +83,15 @@ Mealie also has the concept of cookbooks. These can be created inside of a group
 Mealie uses a calendar like view to help you plan your meals. It shows you the previous day and the next 6 days by default. You can toggle through the calendar by clicking the arrows on the top of the page. In editor mode, you can use the random recipe buttons or manually add an entry.
 
 !!! tip
-    You can also add a "Note" type entry to your meal-plan when you want to include something that might not have a specific recipes. This is great for leftovers, or for ordering out.
+    You can also add a "Note" type entry to your meal plan when you want to include something that might not have a specific recipes. This is great for leftovers, or for ordering out.
 
-[Mealplanner Demo](https://demo.mealie.io/household/mealplan/planner/view){ .md-button .md-button--primary }
+Each recipe on your meal plan has its own serving size, which you can adjust right from the planner without changing the recipe itself. When you add a day or the whole plan to a shopping list, the ingredient quantities follow the serving sizes you've planned, and opening a recipe from the planner shows it at that size too.
+
+[Meal Planner Demo](https://demo.mealie.io/household/mealplan/planner/view){ .md-button .md-button--primary }
 
 ### Planner Rules
 
-The meal planner has the concept of plan rules. These offer a flexible way to use your organizers to customize how a random recipe is inserted into your meal plan. You can set rules to restrict the pool of recipes based on the Tags and/or Categories of a recipe. Additionally, since meal plans have a Breakfast, Lunch, Dinner, and Snack labels, you can specifically set a rule to be active for a **specific meal type** or even a **specific day of the week.**
+The meal planner has the concept of plan rules. These offer a flexible way to use your organizers to customize how a random recipe is inserted into your meal plan. You can set rules to restrict the pool of recipes based on the Tags and/or Categories of a recipe, or on its ingredients. Ingredients can be matched by their Food Label as well, so a "fish day" only takes one rule instead of a list of every fish you cook with. Additionally, since meal plans have a Breakfast, Lunch, Dinner, and Snack labels, you can specifically set a rule to be active for a **specific meal type** or even a **specific day of the week.**
 
 [Planner Settings Demo](https://demo.mealie.io/household/mealplan/settings){ .md-button .md-button--primary }
 
@@ -84,12 +99,13 @@ The meal planner has the concept of plan rules. These offer a flexible way to us
 
 The shopping lists feature is a great way to keep track of what you need to buy for your next meal. You can add items directly to the shopping list or link a recipe and all of it's ingredients to track meals during the week.
 
-Managing shopping lists can be done from the Sidebar > Shopping Lists. 
+Managing shopping lists can be done from the Sidebar > Shopping Lists.
 
 Here you will be able to:
+
 - See items already on the Shopping List
 - See linked recipes with ingredients
-    - Toggling via the 'Pot' icon will show you the linked recipe, allowing you to click to access it. 
+    - Toggling via the 'Pot' icon will show you the linked recipe, allowing you to click to access it.
 - Check off an item
 - Add / Change / Remove / Sort Items via the grid icon
     - Be sure if you are modifying an ingredient to click the 'Save' icon.
@@ -101,13 +117,10 @@ Here you will be able to:
 
 !!! tip
     You can use Labels to categorize your ingredients. You may want to Label by Food Type (Frozen, Fresh, etc), by Store, Tool, Recipe, or more. Play around with this to see what works best for you.
-    
-!!! tip
-    You can toggle 'Food' on items so that if you add multiple of the same food / ingredient, Mealie will automatically combine them together. Do this by editing an item in the Shopping List and clicking the 'Apple' icon. If you then have recipes that contain "1 | cup | cheese" and "2 | cup | cheese" this would be combined to show "3 cups of cheese."
 
 [See FAQ for more information](../getting-started/faq.md)
 
-    
+
 [Shopping List Demo](https://demo.mealie.io/shopping-lists){ .md-button .md-button--primary }
 
 ## Integrations
@@ -117,9 +130,10 @@ Mealie is designed to integrate with many different external services. There are
 ### Notifiers
 
 Notifiers are event-driven notifications sent when specific actions are performed within Mealie. Some actions include:
+
 - Creating / Updating a recipe
 - Adding items to a shopping list
-- Creating a new mealplan
+- Creating a new meal plan
 
 Notifiers use the [Apprise library](https://github.com/caronc/apprise/wiki), which integrates with a large number of notification services. In addition, certain custom notifiers send basic event data to the consumer (e.g. the `id` of the resource). These include:
 
@@ -127,11 +141,13 @@ Notifiers use the [Apprise library](https://github.com/caronc/apprise/wiki), whi
 - `json` and `jsons`
 - `xml` and `xmls`
 
+Only users with the **Manage household** permission can view and change notifiers.
+
 [Notifiers Demo](https://demo.mealie.io/household/notifiers){ .md-button .md-button--primary }
 
 ### Webhooks
 
-Unlike notifiers, which are event-driven notifications, Webhooks allow you to send scheduled notifications to your desired endpoint. Webhooks are sent on the day of a scheduled mealplan, at the specified time, and contain the mealplan data in the request.
+Unlike notifiers, which are event-driven notifications, Webhooks allow you to send scheduled notifications to your desired endpoint. Webhooks are sent on the day of a scheduled meal plan, at the specified time, and contain the meal plan data in the request. Only users with the **Manage household** permission can view and change webhooks.
 
 [Webhooks Demo](https://demo.mealie.io/household/webhooks){ .md-button .md-button--primary }
 
@@ -195,9 +211,10 @@ Mealie lets you fully customize how you organize your users. You can use Groups 
 
 ### Groups
 
-Groups are fully isolated instances of Mealie. Think of a goup as a completely separate, fully self-contained site. There is no data shared between groups. Each group has its own users, recipes, tags, categories, etc. A user logged-in to one group cannot make any changes to another.
+Groups are fully isolated instances of Mealie. Think of a group as a completely separate, fully self-contained site. There is no data shared between groups. Each group has its own users, recipes, tags, categories, etc. A user logged-in to one group cannot make any changes to another.
 
 Common use cases for groups include:
+
 - Hosting multiple instances of Mealie for others who want to keep their data private and secure
 - Creating completely isolated recipe pools
 
@@ -206,6 +223,7 @@ Common use cases for groups include:
 Households are subdivisions within a single Group. Households maintain their own users and settings, while sharing their recipes with other households. Households also share organizers (tags, categories, etc.) with the entire group. Meal Plans, Shopping Lists, and Integrations are only accessible within a household.
 
 Common use cases for households include:
+
 - Sharing a common recipe pool amongst families
 - Maintaining separate meal plans and shopping lists from other households
 - Maintaining separate integrations and customizations from other households

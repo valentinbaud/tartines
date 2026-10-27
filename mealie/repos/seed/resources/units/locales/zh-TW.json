@@ -47,6 +47,12 @@
         "description": "",
         "abbreviation": "毫升"
     },
+    "centiliter": {
+        "name": "centiliter",
+        "plural_name": "centiliters",
+        "description": "",
+        "abbreviation": "cl"
+    },
     "liter": {
         "name": "公升",
         "plural_name": "公升",
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "撮",
         "plural_name": "撮",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "枝",
+        "plural_name": "枝",
         "description": "",
         "abbreviation": ""
     }

@@ -19,6 +19,7 @@ class RecipeToolOut(RecipeToolCreate):
     id: UUID4
     group_id: UUID4
     slug: str
+    recipe_count: int = 0
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -32,9 +33,6 @@ class RecipeToolOut(RecipeToolCreate):
         except AttributeError:
             return v
 
-    def is_on_hand(self, household_slug: str) -> bool:
-        return household_slug in self.households_with_tool
-
     @classmethod
     def loader_options(cls) -> list[LoaderOption]:
         return [
@@ -42,8 +40,13 @@ class RecipeToolOut(RecipeToolCreate):
         ]
 
 
+class RecipeToolMerge(MealieModel):
+    from_id: UUID4
+    to_id: UUID4
+
+
 class RecipeToolResponse(RecipeToolOut):
-    recipes: list["RecipeSummary"] = []
+    recipes: list[RecipeSummary] = []
     model_config = ConfigDict(from_attributes=True)
 
     @classmethod

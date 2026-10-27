@@ -4,15 +4,22 @@ on:
   pull_request:
     branches:
       - mealie-next
+  merge_group:
+    types: [checks_requested]
+    branches:
+      - mealie-next
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.event.merge_group.head_ref }}
   cancel-in-progress: true
 
 jobs:
   pull-request-lint:
     name: "Lint PR"
+    if: github.event_name == 'pull_request'
     uses: ./.github/workflows/pull-request-lint.yml
+    permissions:
+      pull-requests: write
 
   backend-tests:
     name: "Backend Server Tests"
@@ -24,6 +31,8 @@ jobs:
 
   container-scanning:
     name: "Trivy Container Scanning"
+    if: github.event_name == 'pull_request'
+    needs: build-package
     uses: ./.github/workflows/partial-trivy-container-scanning.yml
 
   code-ql:
@@ -47,7 +56,10 @@ jobs:
 
   publish-image:
     name: "Publish PR Image"
-    if: contains(github.event.pull_request.labels.*.name, 'build-image') && github.repository == 'mealie-recipes/mealie'
+    if: |
+      github.event_name == 'pull_request' &&
+      contains(github.event.pull_request.labels.*.name, 'build-image') &&
+      github.repository == 'mealie-recipes/mealie'
     permissions:
       contents: read
       packages: write

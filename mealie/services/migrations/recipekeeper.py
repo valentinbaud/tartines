@@ -1,5 +1,4 @@
 import tempfile
-import zipfile
 from pathlib import Path
 
 from bs4 import BeautifulSoup
@@ -8,7 +7,7 @@ from mealie.services.scraper import cleaner
 
 from ._migration_base import BaseMigrator
 from .utils.migration_alias import MigrationAlias
-from .utils.migration_helpers import import_image, parse_iso8601_duration
+from .utils.migration_helpers import extract_zip, safe_local_path
 
 
 def clean_instructions(instructions: list[str]) -> list[str]:
@@ -30,7 +29,9 @@ def parse_recipe_div(recipe, image_path):
         elif item.name == "div":
             meta[item["itemprop"]] = list(item.stripped_strings)
         elif item.name == "img":
-            meta[item["itemprop"]] = str(image_path / item["src"])
+            safe = safe_local_path(image_path / item["src"], image_path)
+            if safe is not None:
+                meta[item["itemprop"]] = str(safe)
         else:
             meta[item["itemprop"]] = item.string
     # merge nutrition keys into their own dict.
@@ -71,22 +72,21 @@ class RecipeKeeperMigrator(BaseMigrator):
                 alias="recipeIngredients",
             ),
             MigrationAlias(key="recipeInstructions", alias="recipeDirections", func=clean_instructions),
-            MigrationAlias(key="performTime", alias="cookTime", func=parse_iso8601_duration),
-            MigrationAlias(key="prepTime", alias="prepTime", func=parse_iso8601_duration),
+            MigrationAlias(key="performTime", alias="cookTime", func=None),
+            MigrationAlias(key="prepTime", alias="prepTime", func=None),
             MigrationAlias(key="image", alias="photo0"),
             MigrationAlias(key="tags", alias="recipeCourse", func=to_list),
-            MigrationAlias(key="recipe_category", alias="recipeCategory", func=to_list),
+            MigrationAlias(key="recipeCategory", alias="recipeCategory", func=to_list),
             MigrationAlias(key="notes", alias="recipeNotes"),
             MigrationAlias(key="nutrition", alias="nutrition", func=cleaner.clean_nutrition),
             MigrationAlias(key="rating", alias="recipeRating"),
             MigrationAlias(key="orgURL", alias="recipeSource"),
-            MigrationAlias(key="recipe_yield", alias="recipeYield"),
+            MigrationAlias(key="recipeYield", alias="recipeYield"),
         ]
 
     def _migrate(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
-            with zipfile.ZipFile(self.archive) as zip_file:
-                zip_file.extractall(tmpdir)
+            extract_zip(self.archive, tmpdir)
 
             source_dir = self.get_zip_base_path(Path(tmpdir))
 
@@ -98,7 +98,7 @@ class RecipeKeeperMigrator(BaseMigrator):
 
             recipes = [self.clean_recipe_dictionary(x) for x in recipes_as_dicts]
             results = self.import_recipes_to_database(recipes)
-            for (_, recipe_id, status), recipe in zip(results, recipes, strict=False):
+            for (slug, recipe_id, status), recipe in zip(results, recipes, strict=False):
                 if status:
                     try:
                         if not recipe or not recipe.image:
@@ -107,4 +107,4 @@ class RecipeKeeperMigrator(BaseMigrator):
                     except StopIteration:
                         continue
 
-                    import_image(recipe.image, recipe_id)
+                    self.import_image(slug, recipe.image, recipe_id, extraction_root=source_dir)

@@ -1,4 +1,4 @@
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from uuid import UUID
 
 from fastapi.testclient import TestClient
@@ -6,6 +6,7 @@ from fastapi.testclient import TestClient
 from mealie.repos.repository_factory import AllRepositories
 from mealie.schema.recipe.recipe import Recipe
 from mealie.schema.recipe.recipe_settings import RecipeSettings
+from mealie.services.recipe.recipe_service import RecipeDataService
 from tests import data
 from tests.utils import api_routes
 from tests.utils.factories import random_string
@@ -117,10 +118,23 @@ def test_user_update_last_made(api_client: TestClient, user_tuple: list[TestUser
     )
     assert response.status_code == 200
 
+    response = api_client.get(api_routes.households_self_recipes_recipe_slug(recipe_name), headers=usr_2.token)
+    assert response.status_code == 200
+    assert response.json()["lastMade"] == last_made_json["timestamp"]
+
+    earlier_last_made_json = {"timestamp": (datetime.now(UTC) - timedelta(days=1)).isoformat().replace("+00:00", "Z")}
+    response = api_client.patch(
+        api_routes.recipes_slug_last_made(recipe_name), json=earlier_last_made_json, headers=usr_2.token
+    )
+    assert response.status_code == 200
+
+    response = api_client.get(api_routes.households_self_recipes_recipe_slug(recipe_name), headers=usr_2.token)
+    assert response.status_code == 200
+    assert response.json()["lastMade"] == earlier_last_made_json["timestamp"]
+
     response = api_client.get(api_routes.recipes + f"/{recipe_name}", headers=usr_1.token)
     assert response.status_code == 200
-    recipe = response.json()
-    assert recipe["lastMade"] == last_made_json["timestamp"]
+    assert "lastMade" not in response.json()
 
 
 def test_other_user_cant_lock_recipe(api_client: TestClient, user_tuple: list[TestUser]) -> None:
@@ -156,6 +170,78 @@ def test_other_user_cant_delete_recipe(api_client: TestClient, user_tuple: list[
     )
 
     response = api_client.delete(api_routes.recipes_slug(slug), headers=other_user.token)
+    assert response.status_code == 403
+
+
+def test_other_user_cant_delete_unlocked_recipe(api_client: TestClient, user_tuple: list[TestUser]):
+    """Non-owner must not delete an unlocked recipe — BOLA regression (GHSA-x5v9-9jvh-7c7q)."""
+    slug = random_string(10)
+    unique_user, other_user = user_tuple
+
+    unique_user.repos.recipes.create(
+        Recipe(
+            user_id=unique_user.user_id,
+            group_id=unique_user.group_id,
+            name=slug,
+            settings=RecipeSettings(locked=False),
+        )
+    )
+
+    response = api_client.delete(api_routes.recipes_slug(slug), headers=other_user.token)
+    assert response.status_code == 403
+
+
+def test_other_user_bulk_delete(api_client: TestClient, user_tuple: list[TestUser]):
+    slug_locked = random_string(10)
+    slug_unlocked = random_string(10)
+    unique_user, other_user = user_tuple
+
+    unique_user.repos.recipes.create(
+        Recipe(
+            user_id=unique_user.user_id,
+            group_id=unique_user.group_id,
+            name=slug_locked,
+            settings=RecipeSettings(locked=True),
+        )
+    )
+    unique_user.repos.recipes.create(
+        Recipe(
+            user_id=unique_user.user_id,
+            group_id=unique_user.group_id,
+            name=slug_unlocked,
+            settings=RecipeSettings(locked=False),
+        )
+    )
+
+    response = api_client.post(
+        api_routes.recipes_bulk_actions_delete,
+        json={"recipes": [slug_locked, slug_unlocked]},
+        headers=other_user.token,
+    )
+    assert response.status_code == 403
+
+
+def test_other_user_cant_bulk_delete_unlocked_recipes(api_client: TestClient, user_tuple: list[TestUser]):
+    """Non-owner must not bulk-delete unlocked recipes — BOLA regression (GHSA-x5v9-9jvh-7c7q)."""
+    slug_1 = random_string(10)
+    slug_2 = random_string(10)
+    unique_user, other_user = user_tuple
+
+    for slug in (slug_1, slug_2):
+        unique_user.repos.recipes.create(
+            Recipe(
+                user_id=unique_user.user_id,
+                group_id=unique_user.group_id,
+                name=slug,
+                settings=RecipeSettings(locked=False),
+            )
+        )
+
+    response = api_client.post(
+        api_routes.recipes_bulk_actions_delete,
+        json={"recipes": [slug_1, slug_2]},
+        headers=other_user.token,
+    )
     assert response.status_code == 403
 
 
@@ -211,3 +297,50 @@ def test_user_can_update_recipe_image(api_client: TestClient, unique_user: TestU
     response = api_client.get(api_routes.recipes_slug(recipe_id), headers=unique_user.token)
     recipe_respons = response.json()
     assert recipe_respons["image"] is not None
+
+    service = RecipeDataService(recipe_json.id)
+    assert service.dir_image.exists() and any(f.is_file() for f in service.dir_image.iterdir())
+
+
+def test_user_can_delete_recipe_image(api_client: TestClient, unique_user: TestUser):
+    data_payload = {"extension": "jpg"}
+    file_payload = {"image": data.images_test_image_1.read_bytes()}
+
+    household = unique_user.repos.households.get_one(unique_user.household_id)
+    assert household and household.preferences
+    household.preferences.private_household = True
+    household.preferences.lock_recipe_edits_from_other_households = True
+    unique_user.repos.household_preferences.update(household.id, household.preferences)
+
+    response = api_client.post(api_routes.recipes, json={"name": random_string()}, headers=unique_user.token)
+    assert response.status_code == 201
+    recipe_json = unique_user.repos.recipes.get_one(response.json())
+    assert recipe_json and recipe_json.id
+    assert recipe_json.image is None
+    recipe_id = str(recipe_json.id)
+
+    response = api_client.put(
+        api_routes.recipes_slug_image(recipe_json.slug),
+        data=data_payload,
+        files=file_payload,
+        headers=unique_user.token,
+    )
+    assert response.status_code == 200
+
+    response = api_client.get(api_routes.recipes_slug(recipe_id), headers=unique_user.token)
+    recipe_respons = response.json()
+    assert recipe_respons["image"] is not None
+
+    service = RecipeDataService(recipe_json.id)
+    assert service.dir_image.exists() and any(f.is_file() for f in service.dir_image.iterdir())
+
+    response = api_client.delete(
+        api_routes.recipes_slug_image(recipe_json.slug),
+        headers=unique_user.token,
+    )
+    assert response.status_code == 200
+
+    response = api_client.get(api_routes.recipes_slug(recipe_id), headers=unique_user.token)
+    recipe_respons = response.json()
+    assert recipe_respons["image"] is None
+    assert not service.dir_image.exists() or not any(f.is_file() for f in service.dir_image.iterdir())

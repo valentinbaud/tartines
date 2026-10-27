@@ -33,7 +33,7 @@
     6. Click the Edit button/icon again
     7. Scroll to the ingredients and you should see new fields for Amount, Unit, Food, and Note. The Note in particular will contain the original text of the Recipe.
     8. Click `Parse` and you will be taken to the ingredient parsing page.
-    9. Choose your parser. The `Natural Language Parser` works very well, but you can also use the `Brute Parser`, or the `OpenAI Parser` if you've [enabled OpenAI support](./installation/backend-config.md#openai).
+    9. Choose your parser. The `Natural Language Parser` works very well, but you can also use the `Brute Parser`, or the `AI Parser` if you've [enabled AI support](./installation/ai-providers.md).
     10. Click `Parse All`, and your ingredients should be separated out into Units and Foods based on your seeding in Step 1 above.
     11. For ingredients where the Unit or Food was not found, you can click a button to accept an automatically suggested Food to add to the database. Or, manually enter the Unit/Food and hit `Enter` (or click `Create`) to add it to the database
     12. When done, click `Save All` and you will be taken back to the recipe. Now the Unit and Food fields of the recipe should be filled out.
@@ -72,7 +72,7 @@
     Mealie allows you to link ingredients to specific steps in a recipe, ensuring you know exactly when to add each ingredient during the cooking process.
 
     **Link Ingredients to Steps in a Recipe**
-    
+
     1. Go to a recipe
     2. Click the Edit button/icon
     3. Scroll down to the step you want to link ingredients to
@@ -82,7 +82,7 @@
     7. Click 'Save' on the Recipe
 
     You can optionally link the same ingredient to multiple steps, which is useful for prepping an ingredient in one step and using it in another.
-    
+
 ??? question "What is fuzzy search and how do I use it?"
 
     ### What is fuzzy search and how do I use it?
@@ -111,7 +111,7 @@
 
     You can change the theme by settings the environment variables.
 
-    - [Backend Config - Themeing](./installation/backend-config.md#themeing)
+    - [Backend Config - Theming](./installation/backend-config.md#theming)
 
 
 ??? question "How can I change the login session timeout?"
@@ -119,6 +119,8 @@
     ### How can I change the login session timeout?
 
     Login session can be configured by setting the `TOKEN_TIME` variable on the backend container.
+
+    Sessions refresh automatically while Mealie is open, so `TOKEN_TIME` is how long you can go without using Mealie before you have to log in again, not a hard limit on the session. Ticking "Remember Me" at login keeps the session after you close the browser; leaving it unticked ends the session when the browser closes.
 
     - [Backend Config](./installation/backend-config.md)
 
@@ -148,7 +150,7 @@
     ```shell
     docker exec -it mealie bash
 
-    python /opt/mealie/lib64/python3.12/site-packages/mealie/scripts/reset_locked_users.py
+    python /opt/mealie/lib64/python3.14/site-packages/mealie/scripts/reset_locked_users.py
     ```
 
 
@@ -161,7 +163,7 @@
     ```shell
     docker exec -it mealie bash
 
-    python /opt/mealie/lib64/python3.12/site-packages/mealie/scripts/make_admin.py
+    python /opt/mealie/lib64/python3.14/site-packages/mealie/scripts/make_admin.py
     ```
 
 
@@ -174,7 +176,7 @@
     ```shell
     docker exec -it mealie bash
 
-    python /opt/mealie/lib64/python3.12/site-packages/mealie/scripts/change_password.py
+    python /opt/mealie/lib64/python3.14/site-packages/mealie/scripts/change_password.py
     ```
 
 
@@ -233,7 +235,7 @@
 
     ### How can I use Mealie externally
 
-    Exposing Mealie or any service to the internet can pose significant security risks. Before proceeding, carefully evaluate the potential impacts on your system. Due to the unique nature of each network, we cannot provide specific steps for your setup. 
+    Exposing Mealie or any service to the internet can pose significant security risks. Before proceeding, carefully evaluate the potential impacts on your system. Due to the unique nature of each network, we cannot provide specific steps for your setup.
 
     There is a community guide available for one way to potentially set this up, and you could reach out on Discord for further discussion on what may be best for your network.
 
@@ -263,11 +265,27 @@
 ## Technical Considerations
 
 
+??? question "Why do some recipe imports fail or get blocked?"
+
+    ### Why do some recipe imports fail or get blocked?
+
+    Some recipe websites sit behind bot-protection (e.g. Cloudflare) that can block Mealie from
+    fetching the page or its image. Mealie already impersonates real browsers and rotates between
+    several of them to get around most of this automatically, with no configuration needed.
+
+    If particular sites still fail to import, you can optionally route scraping through a **proxy**
+    with a better IP reputation, and/or fall back to a self-hosted **FlareSolverr** instance that
+    uses a real browser to solve challenges. Both are opt-in and configured via environment
+    variables:
+
+    - [Backend Config - Recipe Scraper](./installation/backend-config.md#recipe-scraper)
+
+
 ??? question "Why setup Email?"
 
     ### Why setup Email?
 
-    Mealie uses email to send account invites and password resets. If you don't use these features, you don't need to set up email. There are also other methods to perform these actions that do not require the setup of Email. 
+    Mealie uses email to send account invites and password resets. If you don't use these features, you don't need to set up email. There are also other methods to perform these actions that do not require the setup of Email.
 
     Email settings can be adjusted via environment variables on the backend container:
 

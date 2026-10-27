@@ -1,99 +1,84 @@
-import time
+from __future__ import annotations
+
+import asyncio
 from abc import ABC, abstractmethod
-from collections.abc import Callable
-from typing import Any
+from collections.abc import Awaitable, Callable
+from typing import TYPE_CHECKING, Any
 
-import bs4
-import extruct
 from fastapi import HTTPException, status
-from httpx import AsyncClient, Response
-from recipe_scrapers import NoSchemaFoundInWildMode, SchemaScraperFactory, scrape_html
-from slugify import slugify
-from w3lib.html import get_base_url
 
-from mealie.core.config import get_app_settings
+if TYPE_CHECKING:
+    from recipe_scrapers import SchemaScraperFactory
+
+from mealie.core import exceptions
+from mealie.core.dependencies.dependencies import get_temporary_path
 from mealie.core.root_logger import get_logger
 from mealie.lang.providers import Translator
-from mealie.pkgs import safehttp
+from mealie.repos.repository_factory import AllRepositories
+from mealie.schema.openai.recipe import OpenAIRecipe
 from mealie.schema.recipe.recipe import Recipe, RecipeStep
-from mealie.services.openai import OpenAIService
+from mealie.schema.recipe.recipe_ingredient import RecipeIngredient
+from mealie.schema.recipe.recipe_notes import RecipeNote
+from mealie.services.openai import OpenAIService, transcription
+from mealie.services.recipe.import_workflow import (
+    RecipeImportWorkflow,
+    WorkflowContext,
+    WorkflowInput,
+    WorkflowOptions,
+)
 from mealie.services.scraper.scraped_extras import ScrapedExtras
 
 from . import cleaner
-from .user_agents_manager import get_user_agents_manager
 
-SCRAPER_TIMEOUT = 15
+# Re-exported for backwards compatibility with existing importers (e.g. recipe route error handling).
+# safe_scrape_html lives in `fetch` so the import workflow can fetch pages without importing this module.
+from .fetch import (  # noqa: F401
+    BROWSER_IMPERSONATIONS,
+    SCRAPER_TIMEOUT,
+    ForceTimeoutException,
+    safe_scrape_html,
+)
+
 logger = get_logger()
 
 
-class ForceTimeoutException(Exception):
-    pass
+def _comparable(text: str) -> str:
+    return " ".join(str(text).split()).casefold()
 
 
-async def safe_scrape_html(url: str) -> str:
+def _is_stringified_mapping(text: str) -> bool:
+    """Detect a step dict that reached us as its own repr rather than as text.
+
+    recipe_scrapers stringifies the value when a site nests a single step where the spec
+    wants a list (hhursev/recipe-scrapers#2006), so this is never real instruction text and
+    must not count as content worth preserving.
     """
-    Scrapes the html from a url but will cancel the request
-    if the request takes longer than 15 seconds. This is used to mitigate
-    DDOS attacks from users providing a url with arbitrary large content.
+    return text.strip().startswith(("{'", '{"'))
+
+
+def prefer_structured_instructions(structured: list[dict], flat: list[dict]) -> bool:
+    """Decide whether the structured parse should replace the scraper's flattened text.
+
+    Two things have to hold. The structured parse must gain a heading, otherwise there is
+    nothing the flat text could not already express. And it must account for every piece of
+    text the flat parse produced, as either a step or a heading: a site specific scraper
+    reads the instructions off the page rather than out of the structured data, and its text
+    can differ from, or beat, what the page publishes as JSON-LD. That keeps the structured
+    data a refinement of the same content, never a replacement of better content.
     """
-    user_agents_manager = get_user_agents_manager()
+    headings = [step["title"] for step in structured if step.get("title")]
+    headings += [step["summary"] for step in structured if step.get("summary")]
+    if not headings:
+        return False
 
-    logger.debug(f"Scraping URL: {url}")
-    async with AsyncClient(transport=safehttp.AsyncSafeTransport()) as client:
-        for user_agent in user_agents_manager.user_agents:
-            logger.debug(f'Trying User-Agent: "{user_agent}"')
+    covered = {_comparable(step.get("text", "")) for step in structured}
+    covered |= {_comparable(heading) for heading in headings}
 
-            response: Response | None = None
-            html_bytes = b""
-            async with client.stream(
-                "GET",
-                url,
-                timeout=SCRAPER_TIMEOUT,
-                headers=user_agents_manager.get_scrape_headers(user_agent),
-                follow_redirects=True,
-            ) as resp:
-                if resp.status_code == status.HTTP_403_FORBIDDEN:
-                    logger.debug(f'403 Forbidden with User-Agent: "{user_agent}"')
-                    continue
-
-                start_time = time.time()
-
-                async for chunk in resp.aiter_bytes(chunk_size=1024):
-                    html_bytes += chunk
-
-                    if time.time() - start_time > SCRAPER_TIMEOUT:
-                        raise ForceTimeoutException()
-
-                response = resp
-                break
-
-        if not (response and html_bytes):
-            return ""
-
-        # =====================================
-        # Copied from requests text property
-
-        # Try charset from content-type
-        content = None
-        encoding = response.encoding
-
-        # Fallback to auto-detected encoding.
-        if encoding is None:
-            encoding = response.apparent_encoding
-
-        # Decode unicode from given encoding.
-        try:
-            content = str(html_bytes, encoding, errors="replace")
-        except (LookupError, TypeError):
-            # A LookupError is raised if the encoding was not found which could
-            # indicate a misspelling or similar mistake.
-            #
-            # A TypeError can be raised if encoding is None
-            #
-            # So we try blindly encoding.
-            content = str(html_bytes, errors="replace")
-
-        return content
+    return all(
+        _comparable(step["text"]) in covered
+        for step in flat
+        if step.get("text") and not _is_stringified_mapping(step["text"])
+    )
 
 
 class ABCScraperStrategy(ABC):
@@ -102,23 +87,45 @@ class ABCScraperStrategy(ABC):
     """
 
     url: str
+    resolved_url: str | None
 
     def __init__(
         self,
         url: str,
         translator: Translator,
+        repos: AllRepositories,
         raw_html: str | None = None,
+        include_tags: bool = False,
+        include_categories: bool = False,
+        resolved_url: str | None = None,
     ) -> None:
         self.logger = get_logger()
         self.url = url
+        self.resolved_url = resolved_url
         self.raw_html = raw_html
         self.translator = translator
+        self.repos = repos
+
+        # only used by strategies that have to ask for organizers, rather than reading them
+        # out of the page's structured data
+        self.include_tags = include_tags
+        self.include_categories = include_categories
+
+    @property
+    def resource_url(self) -> str:
+        """Landing URL after redirects, or the URL the user supplied if we have not fetched."""
+        return self.resolved_url or self.url
+
+    @abstractmethod
+    def can_scrape(self) -> bool: ...
 
     @abstractmethod
     async def get_html(self, url: str) -> str: ...
 
     @abstractmethod
-    async def parse(self) -> tuple[Recipe, ScrapedExtras] | tuple[None, None]:
+    async def parse(
+        self, on_progress: Callable[[str], Awaitable[None]] | None = None
+    ) -> tuple[Recipe, ScrapedExtras] | tuple[None, None]:
         """Parse a recipe from a web URL.
 
         Args:
@@ -131,6 +138,9 @@ class ABCScraperStrategy(ABC):
 
 
 class RecipeScraperPackage(ABCScraperStrategy):
+    def can_scrape(self) -> bool:
+        return bool(self.url or self.raw_html)
+
     @staticmethod
     def ld_json_to_html(ld_json: str) -> str:
         return (
@@ -170,6 +180,50 @@ class RecipeScraperPackage(ABCScraperStrategy):
             return value
 
         def get_instructions() -> list[RecipeStep]:
+            flat = get_flat_instructions()
+            instructions = pick_structured_instructions(flat) or flat
+
+            self.logger.debug(f"Cleaned Instructions: (Type: {type(instructions)}) \n {instructions}")
+
+            try:
+                return [
+                    RecipeStep(title=x.get("title", ""), summary=x.get("summary", ""), text=x.get("text"))
+                    for x in instructions
+                ]
+            except TypeError:
+                return []
+
+        def pick_structured_instructions(flat: list[dict]) -> list[dict]:
+            """Parse the recipe's own structured data, and use it only when it is strictly better.
+
+            recipe_scrapers renders instructions as text, which flattens HowToSections and emits
+            each section name as a line of its own (so headings arrive as bogus steps), and drops
+            a step's own heading entirely. The structured data still holds both.
+
+            It is not always the better source though, so `prefer_structured_instructions`
+            decides: see there for when the scraper's own parsing wins instead.
+            """
+            try:
+                raw_instructions = scraped_data.schema.data.get("recipeInstructions")
+            except Exception:
+                self.logger.error("Error reading structured recipeInstructions")
+                return []
+
+            try:
+                structured = cleaner.clean_instructions(raw_instructions or [])
+            except TypeError:
+                self.logger.error("Error parsing structured instructions, falling back to the scraped text")
+                return []
+
+            if not prefer_structured_instructions(structured, flat):
+                return []
+
+            self.logger.debug(
+                f"Scraped Structured Instructions: (Type: {type(raw_instructions)}) \n {raw_instructions}"
+            )
+            return structured
+
+        def get_flat_instructions() -> list[dict]:
             instruction_as_text = try_get_default(
                 scraped_data.instructions,
                 "recipeInstructions",
@@ -178,22 +232,46 @@ class RecipeScraperPackage(ABCScraperStrategy):
 
             self.logger.debug(f"Scraped Instructions: (Type: {type(instruction_as_text)}) \n {instruction_as_text}")
 
-            instruction_as_text = cleaner.clean_instructions(instruction_as_text)
+            return cleaner.clean_instructions(instruction_as_text)
 
-            self.logger.debug(f"Cleaned Instructions: (Type: {type(instruction_as_text)}) \n {instruction_as_text}")
+        def get_notes() -> list[RecipeNote]:
+            """Extract notes from schema.org recipe data and convert to RecipeNote objects"""
+            notes_data = try_get_default(None, "notes", None)
 
-            try:
-                return [RecipeStep(title="", text=x.get("text")) for x in instruction_as_text]
-            except TypeError:
+            if not notes_data or not isinstance(notes_data, list):
                 return []
 
-        cook_time = try_get_default(
-            None, "performTime", None, cleaner.clean_time, translator=self.translator
-        ) or try_get_default(scraped_data.cook_time, "cookTime", None, cleaner.clean_time, translator=self.translator)
+            cleaned_notes = []
+            for note in notes_data:
+                if not isinstance(note, dict):
+                    continue
+
+                if text := note.get("text"):
+                    cleaned_notes.append(
+                        RecipeNote(
+                            title=cleaner.clean_string(note.get("title", "")),
+                            text=cleaner.clean_string(text),
+                        )
+                    )
+
+            return cleaned_notes
+
+        def get_time(raw_time: Any) -> tuple[int | None, str | None]:
+            """Seconds when the time is structured, otherwise the cleaned text"""
+            if (seconds := cleaner.clean_duration(raw_time)) is not None:
+                return seconds, None
+            return None, cleaner.clean_time(raw_time, translator=self.translator)
+
+        total_time_seconds, total_time = get_time(try_get_default(scraped_data.total_time, "totalTime", None))
+        prep_time_seconds, prep_time = get_time(try_get_default(scraped_data.prep_time, "prepTime", None))
+        perform_time_seconds, perform_time = get_time(
+            try_get_default(None, "performTime", None) or try_get_default(scraped_data.cook_time, "cookTime", None)
+        )
 
         extras = ScrapedExtras()
 
         extras.set_tags(try_get_default(scraped_data.keywords, "keywords", "", cleaner.clean_tags))
+        extras.set_categories(try_get_default(scraped_data.category, "recipeCategory", "", cleaner.clean_categories))
 
         recipe = Recipe(
             name=try_get_default(scraped_data.title, "name", "No Name Found", cleaner.clean_string),
@@ -209,25 +287,27 @@ class RecipeScraperPackage(ABCScraperStrategy):
                 cleaner.clean_ingredients,
             ),
             recipe_instructions=get_instructions(),
-            total_time=try_get_default(
-                scraped_data.total_time, "totalTime", None, cleaner.clean_time, translator=self.translator
-            ),
-            prep_time=try_get_default(
-                scraped_data.prep_time, "prepTime", None, cleaner.clean_time, translator=self.translator
-            ),
-            perform_time=cook_time,
+            total_time=total_time,
+            total_time_seconds=total_time_seconds,
+            prep_time=prep_time,
+            prep_time_seconds=prep_time_seconds,
+            perform_time=perform_time,
+            perform_time_seconds=perform_time_seconds,
             org_url=url or try_get_default(None, "url", None, cleaner.clean_string),
+            notes=get_notes(),
         )
 
         return recipe, extras
 
     async def scrape_url(self) -> SchemaScraperFactory.SchemaScraper | Any | None:
+        from recipe_scrapers import NoSchemaFoundInWildMode, scrape_html
+
         recipe_html = await self.get_html(self.url)
 
         try:
             # scrape_html requires a URL, but we might not have one, so we default to a dummy URL
             scraped_schema = scrape_html(recipe_html, org_url=self.url or "https://example.com", supported_only=False)
-        except (NoSchemaFoundInWildMode, AttributeError):
+        except NoSchemaFoundInWildMode, AttributeError:
             self.logger.error(f"Recipe Scraper was unable to extract a recipe from {self.url}")
             return None
 
@@ -251,10 +331,14 @@ class RecipeScraperPackage(ABCScraperStrategy):
         self.logger.debug(f"Recipe Scraper [Package] was unable to extract a recipe from {self.url}")
         return None
 
-    async def parse(self):
+    async def parse(self, on_progress: Callable[[str], Awaitable[None]] | None = None):
         """
         Parse a recipe from a given url.
         """
+
+        if on_progress:
+            await on_progress(self.translator.t("recipe.create-progress.extracting-recipe-data"))
+
         scraped_data = await self.scrape_url()
 
         if scraped_data is None:
@@ -263,92 +347,143 @@ class RecipeScraperPackage(ABCScraperStrategy):
         return self.clean_scraper(scraped_data, self.url)
 
 
-class RecipeScraperOpenAI(RecipeScraperPackage):
+class RecipeScraperOpenAI(ABCScraperStrategy):
     """
-    A wrapper around the `RecipeScraperPackage` class that uses OpenAI to extract the recipe from the URL,
-    rather than trying to scrape it directly.
+    Extracts a recipe from a URL using AI, by running the recipe import workflow over the
+    page's contents rather than trying to scrape it directly.
     """
 
-    def extract_json_ld_data_from_html(self, soup: bs4.BeautifulSoup) -> str:
-        data_parts: list[str] = []
-        for script in soup.find_all("script", type="application/ld+json"):
-            try:
-                script_data = script.string
-                if script_data:
-                    data_parts.append(str(script_data))
-            except AttributeError:
-                pass
-
-        return "\n\n".join(data_parts)
-
-    def find_image(self, soup: bs4.BeautifulSoup) -> str | None:
-        # find the open graph image tag
-        og_image = soup.find("meta", property="og:image")
-        if og_image and og_image.get("content"):
-            return og_image["content"]
-
-        # find the largest image on the page
-        largest_img = None
-        max_size = 0
-        for img in soup.find_all("img"):
-            width = img.get("width", 0)
-            height = img.get("height", 0)
-            if not width or not height:
-                continue
-
-            try:
-                size = int(width) * int(height)
-            except (ValueError, TypeError):
-                size = 1
-            if size > max_size:
-                max_size = size
-                largest_img = img
-
-        if largest_img:
-            return largest_img.get("src")
-
-        return None
-
-    def format_html_to_text(self, html: str) -> str:
-        soup = bs4.BeautifulSoup(html, "lxml")
-
-        text = soup.get_text(separator="\n", strip=True)
-        text += self.extract_json_ld_data_from_html(soup)
-        if not text:
-            raise Exception("No text or ld+json data found in HTML")
-
-        try:
-            image = self.find_image(soup)
-        except Exception:
-            image = None
-
-        components = [f"Convert this content to JSON: {text}"]
-        if image:
-            components.append(f"Recipe Image: {image}")
-        return "\n".join(components)
+    def can_scrape(self) -> bool:
+        settings = self.repos.group_ai_provider_settings.get_one(self.repos.group_id)
+        return bool(settings and settings.ai_enabled and (self.url or self.raw_html))
 
     async def get_html(self, url: str) -> str:
-        settings = get_app_settings()
-        if not settings.OPENAI_ENABLED:
-            return ""
+        # required by the base class, but unused: the workflow fetches the page itself
+        return self.raw_html or await safe_scrape_html(url)
 
-        html = self.raw_html or await safe_scrape_html(url)
-        text = self.format_html_to_text(html)
+    def build_context(self, on_progress: Callable[[str], Awaitable[None]] | None = None) -> WorkflowContext:
+        return WorkflowContext(
+            # the HTML belongs to the URL, so it's passed as the page's content rather than as
+            # extra material, which would compile the same page twice
+            input=WorkflowInput(page_content=self.raw_html, url=self.url),
+            resolved_url=self.resolved_url,
+            options=WorkflowOptions(
+                # organizers are only worth asking for if the caller intends to use them, and
+                # they're reported back through ScrapedExtras so the caller stays in control
+                resolve_organizers=self.include_tags or self.include_categories,
+                attach_organizers=False,
+            ),
+            repos=self.repos,
+            translator=self.translator,
+            ai=OpenAIService(self.repos),
+            on_progress=on_progress,
+        )
+
+    async def parse(self, on_progress: Callable[[str], Awaitable[None]] | None = None):
+        ctx = self.build_context(on_progress)
+        result = await RecipeImportWorkflow().run(ctx)
+
+        extras = ScrapedExtras()
+        if ctx.organizer_names:
+            # normalized the same way as organizers read out of a page's structured data
+            extras.set_tags(cleaner.clean_tags(ctx.organizer_names.tags))
+            extras.set_categories(cleaner.clean_categories(ctx.organizer_names.categories))
+
+        return result.recipe, extras
+
+
+class RecipeScraperOpenAITranscription(ABCScraperStrategy):
+    def can_scrape(self) -> bool:
+        if not self.url:
+            return False
+
+        settings = self.repos.group_ai_provider_settings.get_one(self.repos.group_id)
+        if not (settings and settings.audio_provider_enabled):
+            return False
+
+        # Check if we can actually download something to transcribe
+        return transcription.is_video_url(self.resource_url)
+
+    async def get_html(self, url: str) -> str:
+        return self.raw_html or ""  # we don't use HTML with this scraper since we use ytdlp
+
+    async def parse(
+        self,
+        on_progress: Callable[[str], Awaitable[None]] | None = None,
+    ) -> tuple[Recipe, ScrapedExtras] | tuple[None, None]:
+        openai_service = OpenAIService(self.repos)
+
+        with get_temporary_path() as temp_path:
+            if on_progress:
+                await on_progress(self.translator.t("recipe.create-progress.downloading-video"))
+
+            video_data = await asyncio.to_thread(transcription.download_video, self.resource_url, temp_path)
+
+            async def report_transcribing() -> None:
+                if on_progress:
+                    await on_progress(self.translator.t("recipe.create-progress.transcribing-audio-with-ai"))
+
+            video_data["transcription"] = await transcription.resolve_transcription(
+                video_data, openai_service, before_transcribe=report_transcribing
+            )
+
+        if not video_data["transcription"]:
+            self.logger.error("Could not extract a transcript (no data)")
+            return None, None
+
+        self.logger.debug(f"Transcription: {video_data['transcription'][:200]}...")
+        prompt = openai_service.get_prompt("recipes.parse-recipe-video")
+
+        message_parts = [
+            f"Title: {video_data['title']}",
+            f"Description: {video_data['description']}",
+            f"Transcription: {video_data['transcription']}",
+        ]
+
+        if on_progress:
+            await on_progress(self.translator.t("recipe.create-progress.creating-recipe-from-transcript-with-ai"))
+
         try:
-            service = OpenAIService()
-            prompt = service.get_prompt("recipes.scrape-recipe")
+            response = await openai_service.get_response(prompt, "\n".join(message_parts), response_schema=OpenAIRecipe)
+        except exceptions.RateLimitError:
+            raise
+        except Exception as e:
+            raise exceptions.OpenAIServiceError(f"Failed to extract recipe from video: {e}") from e
 
-            response_json = await service.get_response(prompt, text, force_json_response=True)
-            if not response_json:
-                raise Exception("OpenAI did not return any data")
+        if not response:
+            raise exceptions.OpenAIServiceError("OpenAI returned an empty response when extracting recipe")
 
-            return self.ld_json_to_html(response_json)
-        except Exception:
-            self.logger.exception(f"OpenAI was unable to extract a recipe from {url}")
-            return ""
+        recipe = Recipe(
+            name=response.name,
+            slug="",
+            description=response.description,
+            recipe_yield=response.recipe_yield,
+            total_time=response.total_time,
+            prep_time=response.prep_time,
+            perform_time=response.perform_time,
+            recipe_ingredient=[
+                RecipeIngredient(title=ingredient.title, note=ingredient.text)
+                for ingredient in response.ingredients
+                if ingredient.text
+            ],
+            recipe_instructions=[
+                RecipeStep(title=instruction.title, text=instruction.text)
+                for instruction in response.instructions
+                if instruction.text
+            ],
+            notes=[RecipeNote(title=note.title or "", text=note.text) for note in response.notes if note.text],
+            image=video_data["thumbnail_url"] or None,
+            org_url=self.url,
+        )
+
+        self.logger.info(f"Successfully extracted recipe from video: {video_data['title']}")
+        return recipe, ScrapedExtras()
 
 
 class RecipeScraperOpenGraph(ABCScraperStrategy):
+    def can_scrape(self) -> bool:
+        return bool(self.url or self.raw_html)
+
     async def get_html(self, url: str) -> str:
         return self.raw_html or await safe_scrape_html(url)
 
@@ -362,6 +497,10 @@ class RecipeScraperOpenGraph(ABCScraperStrategy):
 
         def og_fields(properties: list[tuple[str, str]], field_name: str) -> list[str]:
             return list({val for name, val in properties if name == field_name})
+
+        import extruct
+        from slugify import slugify
+        from w3lib.html import get_base_url
 
         base_url = get_base_url(html, self.url)
         data = extruct.extract(html, base_url=base_url, errors="log")
@@ -386,10 +525,17 @@ class RecipeScraperOpenGraph(ABCScraperStrategy):
             "extras": [],
         }
 
-    async def parse(self):
+    async def parse(
+        self,
+        on_progress: Callable[[str], Awaitable[None]] | None = None,
+    ):
         """
         Parse a recipe from a given url.
         """
+
+        if on_progress:
+            await on_progress(self.translator.t("recipe.create-progress.creating-recipe-from-webpage-data"))
+
         html = await self.get_html(self.url)
 
         og_data = self.get_recipe_fields(html)

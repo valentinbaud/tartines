@@ -47,6 +47,12 @@
         "description": "",
         "abbreviation": "ml"
     },
+    "centiliter": {
+        "name": "centiliter",
+        "plural_name": "centiliters",
+        "description": "",
+        "abbreviation": "cl"
+    },
     "liter": {
         "name": "litre",
         "plural_name": "litres",
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "pinch",
         "plural_name": "pinches",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "sprig",
+        "plural_name": "sprigs",
         "description": "",
         "abbreviation": ""
     }

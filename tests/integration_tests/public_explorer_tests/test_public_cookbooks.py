@@ -139,6 +139,7 @@ def test_get_one_cookbook(
     assert response.status_code == 200
     cookbook_data = response.json()
     assert cookbook_data["id"] == str(cookbook.id)
+    assert cookbook_data["household"]["name"] == household.name
 
 
 def test_get_cookbooks_with_recipes(api_client: TestClient, unique_user: TestUser, h2_user: TestUser):
@@ -185,7 +186,7 @@ def test_get_cookbooks_with_recipes(api_client: TestClient, unique_user: TestUse
 
     other_household.preferences.private_household = False
     other_household.preferences.recipe_public = True
-    other_database.household_preferences.update(household.id, household.preferences)
+    other_database.household_preferences.update(other_household.id, other_household.preferences)
 
     other_household_public_recipe, other_household_private_recipe = database.recipes.create_many(
         Recipe(
@@ -271,7 +272,7 @@ def test_get_cookbooks_private_household(api_client: TestClient, unique_user: Te
 
     other_household.preferences.private_household = True
     other_household.preferences.recipe_public = True
-    other_database.household_preferences.update(household.id, household.preferences)
+    other_database.household_preferences.update(other_household.id, other_household.preferences)
 
     other_household_private_recipe = database.recipes.create(
         Recipe(

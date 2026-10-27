@@ -43,26 +43,28 @@ class PostgresProvider(AbstractDBProvider, BaseSettings):
 
     model_config = SettingsConfigDict(arbitrary_types_allowed=True, extra="allow")
 
+    def _parse_override_url(self, url: str) -> str:
+        if not url.startswith("postgresql://"):
+            raise ValueError("POSTGRES_URL_OVERRIDE scheme must be postgresql")
+
+        # SQLAlchemy resolves a bare postgresql:// to psycopg 3, so the installed driver is named explicitly
+        url = "postgresql+psycopg2://" + url.removeprefix("postgresql://")
+        scheme, remainder = url.split("://", 1)
+        if "@" in remainder and ":" in remainder.split("@")[0]:
+            credentials, host_part = remainder.rsplit("@", 1)
+            user, password = credentials.split(":", 1)
+            return f"{scheme}://{user}:{urlparse.quote(password, safe='')}@{host_part}"
+
+        return url
+
     @property
     def db_url(self) -> str:
         if self.POSTGRES_URL_OVERRIDE:
-            url = self.POSTGRES_URL_OVERRIDE
-
-            scheme, remainder = url.split("://", 1)
-            if scheme != "postgresql":
-                raise ValueError("POSTGRES_URL_OVERRIDE scheme must be postgresql")
-
-            remainder = remainder.split(":", 1)[1]
-            password = remainder[: remainder.rfind("@")]
-            quoted_password = urlparse.quote(password)
-
-            safe_url = url.replace(password, quoted_password)
-
-            return safe_url
+            return self._parse_override_url(self.POSTGRES_URL_OVERRIDE)
 
         return str(
             PostgresDsn.build(
-                scheme="postgresql",
+                scheme="postgresql+psycopg2",
                 username=self.POSTGRES_USER,
                 password=urlparse.quote(self.POSTGRES_PASSWORD),
                 host=f"{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}",
@@ -75,19 +77,15 @@ class PostgresProvider(AbstractDBProvider, BaseSettings):
         if self.POSTGRES_URL_OVERRIDE:
             return "Postgres Url Overridden"
 
-        return str(
-            PostgresDsn.build(
-                scheme="postgresql",
-                username="******",
-                password="******",
-                host=f"{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}",
-                path=f"{self.POSTGRES_DB or ''}",
-            )
-        )
+        return f"postgresql://******:******@{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}/{self.POSTGRES_DB or ''}"
 
 
 def db_provider_factory(provider_name: str, data_dir: Path, env_file: Path, env_encoding="utf-8") -> AbstractDBProvider:
+    # Documented engines are only sqlite and postgres. Anything else used to
+    # fall through to SQLite, so a typo such as "postgress" started a Postgres
+    # deployment on a local file and reported success.
     if provider_name == "postgres":
         return PostgresProvider(_env_file=env_file, _env_file_encoding=env_encoding)
-    else:
+    if provider_name == "sqlite":
         return SQLiteProvider(data_dir=data_dir)
+    raise ValueError(f"DB_ENGINE must be 'sqlite' or 'postgres', got {provider_name!r}")

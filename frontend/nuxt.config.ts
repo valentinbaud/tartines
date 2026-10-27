@@ -1,7 +1,7 @@
+import { fileURLToPath } from "node:url";
 import { defineNuxtConfig } from "nuxt/config";
-import commonjs from "vite-plugin-commonjs";
 
-const AUTH_TOKEN = "mealie.auth.token";
+const AUTH_TOKEN = "mealie.access_token";
 
 export default defineNuxtConfig({
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -10,7 +10,6 @@ export default defineNuxtConfig({
   modules: [
     "@vite-pwa/nuxt",
     "@nuxtjs/i18n",
-    "@sidebase/nuxt-auth",
     "@nuxt/fonts",
     "vuetify-nuxt-module",
     "@nuxt/eslint",
@@ -26,8 +25,9 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false,
   },
+
   app: {
-    baseURL: process.env.SUB_PATH || "",
+    baseURL: process.env.SUB_PATH || "/",
 
     head: {
       title: "Tartines",
@@ -51,11 +51,18 @@ export default defineNuxtConfig({
           content: "Tartines is a recipe management app for your kitchen.",
         },
       ],
+      script: [
+        {
+          innerHTML: `(function(){try{var d=localStorage.getItem('vueuse-color-scheme');var m=d==='dark'||(d!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.style.backgroundColor=m?'#1E1E1E':'#FFFFFF'}catch(e){}})()`,
+          type: "text/javascript",
+        },
+      ],
       link: [
-        { "rel": "icon", "type": "image/x-icon", "href": "/favicon.ico", "data-n-head": "ssr" },
-        { "rel": "shortcut icon", "type": "image/png", "href": "/icons/icon-x64.png", "data-n-head": "ssr" },
-        { "rel": "apple-touch-icon", "type": "image/png", "href": "/icons/apple-touch-icon.png", "data-n-head": "ssr" },
-        { "rel": "mask-icon", "href": "/icons/safari-pinned-tab.svg", "data-n-head": "ssr" },
+        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+        { rel: "shortcut icon", type: "image/png", href: "/icons/icon-x64.png" },
+        { rel: "apple-touch-icon", type: "image/png", href: "/icons/apple-touch-icon.png" },
+        { rel: "mask-icon", href: "/icons/safari-pinned-tab.svg" },
+        { rel: "manifest", href: "/manifest.webmanifest", crossorigin: "use-credentials" },
       ],
     },
 
@@ -101,9 +108,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  dir: {
-    static: "static",
-  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -117,41 +121,26 @@ export default defineNuxtConfig({
     transpile: process.env.NODE_ENV !== "production" ? [/@vue[\\/]composition-api/] : [],
   },
   future: {
-    compatibilityVersion: 3,
+    compatibilityVersion: 4,
   },
 
-  compatibilityDate: "2025-03-28",
+  compatibilityDate: "2026-04-08",
 
   nitro: {
     baseURL: process.env.SUB_PATH || "",
   },
 
   vite: {
-    plugins: [
-      commonjs(),
-    ],
-  },
-
-  auth: {
-    isEnabled: true,
-    // disableServerSideAuth: true,
-    originEnvKey: "AUTH_ORIGIN",
-    baseURL: "/api",
-    provider: {
-      type: "local",
-      endpoints: {
-        signIn: { path: "/auth/token", method: "post" },
-        signOut: { path: "/auth/logout", method: "post" },
-        getSession: { path: "/users/self", method: "get" },
-      },
-      token: {
-        signInResponseTokenPointer: "/access_token",
-        type: "Bearer",
-        cookieName: AUTH_TOKEN,
-        maxAgeInSeconds: 604800, // 7 days
-      },
-      pages: {
-        login: "/login",
+    server: {
+      fs: {
+        // app/lang/locales/*.ts import the seeded unit names from mealie/, which is outside
+        // this project. Vite's fs.allow *replaces* its default rather than extending it, and
+        // the default here resolves to frontend/ itself — there's no pnpm-workspace.yaml or
+        // root package.json for vite to detect — so the project root has to be listed too.
+        allow: [
+          fileURLToPath(new URL(".", import.meta.url)),
+          fileURLToPath(new URL("../mealie/repos/seed/resources/units/locales", import.meta.url)),
+        ],
       },
     },
   },
@@ -225,8 +214,7 @@ export default defineNuxtConfig({
     ],
     strategy: "no_prefix",
     lazy: true,
-    types: "composition",
-    langDir: "./../lang/locales", // note: we need to up one ../ because the default root of lang dir is the /frontend/i18n, which can not be configured
+    langDir: "./../app/lang/locales", // note: we need to up one ../ because the default root of lang dir is the /frontend/i18n, which can not be configured
     defaultLocale: "en-US",
     detectBrowserLanguage: {
       useCookie: true,
@@ -237,12 +225,11 @@ export default defineNuxtConfig({
       strictMessage: false,
       escapeHtml: true,
     },
-    vueI18n: "./../i18n.config.ts", // note: we need to up one ../ because the default root of lang dir is the /frontend/i18n, which can not be configured
+    vueI18n: "./../app/i18n.config.ts", // note: we need to up one ../ because the default root of lang dir is the /frontend/i18n, which can not be configured
   },
 
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
+  // PWA module configuration: https://vite-pwa-org.netlify.app/frameworks/nuxt.html
   pwa: {
-    mode: process.env.NODE_ENV === "production" ? "production" : "development",
     registerType: "autoUpdate",
     useCredentials: true,
     manifest: {
@@ -394,12 +381,32 @@ export default defineNuxtConfig({
       edge_side_panel: {
         preferred_width: 400,
       },
+    devOptions: {
+      enabled: false,
+      suppressWarnings: true,
     },
+    workbox: {
+      navigateFallback: "/",
+      navigateFallbackAllowlist: [/^(?!\/api|\/docs)/],
+      globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
+      globIgnores: ["404.html", "200.html", "index.html"],
+      cleanupOutdatedCaches: true,
+      skipWaiting: true,
+      clientsClaim: true,
+    },
+    client: {
+      installPrompt: true,
+      periodicSyncForUpdates: 120,
+    },
+    includeAssets: ["favicon.ico", "apple-touch-icon.png", "safari-pinned-tab.svg"],
+    manifest: false, // This is served via the backend, see mealie/routes/spa/manifest.py
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    moduleOptions: {},
+    moduleOptions: {
+      prefixComposables: ["useLayout"],
+    },
     vuetifyOptions: {
       icons: {
         defaultSet: "mdi-svg",
@@ -410,6 +417,23 @@ export default defineNuxtConfig({
       locale: {
         locale: "en-US",
         fallback: "en-US",
+      },
+      defaults: {
+        VOverlay: {
+          scrollStrategy: "close",
+        },
+        VMenu: {
+          scrollStrategy: "close",
+        },
+        VAutocomplete: {
+          scrollStrategy: "close",
+        },
+        VCombobox: {
+          scrollStrategy: "close",
+        },
+        VSelect: {
+          scrollStrategy: "close",
+        },
       },
     },
   },

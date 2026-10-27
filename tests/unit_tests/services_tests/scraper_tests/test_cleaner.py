@@ -3,10 +3,11 @@ import re
 from pathlib import Path
 
 import pytest
+from recipe_scrapers import scrape_html
 
-from mealie.lang.providers import local_provider
+from mealie.lang.providers import get_locale_provider
 from mealie.services.scraper import cleaner
-from mealie.services.scraper.scraper_strategies import RecipeScraperOpenGraph
+from mealie.services.scraper.scraper_strategies import RecipeScraperOpenGraph, RecipeScraperPackage
 from tests import data as test_data
 
 # https://github.com/django/django/blob/stable/1.3.x/django/core/validators.py#L45
@@ -38,7 +39,7 @@ test_cleaner_data = [
 
 @pytest.mark.parametrize("json_file,num_steps", test_cleaner_data)
 def test_cleaner_clean(json_file: Path, num_steps):
-    translator = local_provider()
+    translator = get_locale_provider()
     recipe_data = cleaner.clean(json.loads(json_file.read_text()), translator)
     assert len(recipe_data.recipe_instructions or []) == num_steps
 
@@ -46,9 +47,9 @@ def test_cleaner_clean(json_file: Path, num_steps):
 def test_html_with_recipe_data():
     path = test_data.html_healthy_pasta_bake_60759
     url = "https://www.bbc.co.uk/food/recipes/healthy_pasta_bake_60759"
-    translator = local_provider()
+    translator = get_locale_provider()
 
-    open_graph_strategy = RecipeScraperOpenGraph(url, translator)
+    open_graph_strategy = RecipeScraperOpenGraph(url, translator, None)  # type: ignore[arg-type]
 
     recipe_data = open_graph_strategy.get_recipe_fields(path.read_text())
 
@@ -57,3 +58,86 @@ def test_html_with_recipe_data():
     assert recipe_data["orgURL"] == url
     assert len(recipe_data["description"]) > 100
     assert url_validation_regex.match(recipe_data["image"])
+
+
+def test_clean_scraper_preserves_notes():
+    """Regression test: notes must survive the RecipeScraperPackage pipeline (previously dropped silently)."""
+    ld_json = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "Recipe",
+            "name": "Test Recipe",
+            "recipeIngredient": ["1 cup flour"],
+            "recipeInstructions": [{"@type": "HowToStep", "text": "Mix everything together"}],
+            "notes": [
+                {"title": "Storage Tip", "text": "Keep refrigerated up to 3 days"},
+                {"title": "Variation", "text": "Add chili flakes for extra heat"},
+            ],
+        }
+    )
+    html = RecipeScraperPackage.ld_json_to_html(ld_json)
+    scraped = scrape_html(html, org_url="https://example.com", supported_only=False)
+    translator = get_locale_provider()
+    strategy = RecipeScraperPackage("https://example.com", translator, None)  # type: ignore[arg-type]
+
+    recipe, _ = strategy.clean_scraper(scraped, "https://example.com")
+
+    assert recipe.notes is not None
+    assert len(recipe.notes) == 2
+    assert recipe.notes[0].title == "Storage Tip"
+    assert recipe.notes[0].text == "Keep refrigerated up to 3 days"
+    assert recipe.notes[1].title == "Variation"
+    assert recipe.notes[1].text == "Add chili flakes for extra heat"
+
+
+def test_cleaner_clean_structures_times():
+    translator = get_locale_provider()
+    recipe = cleaner.clean(
+        {
+            "name": "Test Recipe",
+            "totalTime": "PT1H30M",
+            "prepTime": 20,
+            "performTime": "about an hour",
+        },
+        translator,
+    )
+
+    assert recipe.total_time_seconds == 5400
+    assert recipe.total_time is None
+    assert recipe.prep_time_seconds == 1200
+    assert recipe.prep_time is None
+    assert recipe.perform_time_seconds is None
+    assert recipe.perform_time == "about an hour"
+
+
+def test_cleaner_clean_keeps_existing_seconds():
+    translator = get_locale_provider()
+    recipe = cleaner.clean({"name": "Test Recipe", "totalTime": "PT2H", "totalTimeSeconds": 60}, translator)
+
+    assert recipe.total_time_seconds == 60
+    assert recipe.total_time == "2 hours"
+
+
+def test_clean_scraper_structures_times():
+    ld_json = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "Recipe",
+            "name": "Test Recipe",
+            "totalTime": "PT1H30M",
+            "prepTime": "PT20M",
+            "cookTime": "PT1H10M",
+            "recipeIngredient": ["1 cup flour"],
+            "recipeInstructions": [{"@type": "HowToStep", "text": "Mix everything together"}],
+        }
+    )
+    html = RecipeScraperPackage.ld_json_to_html(ld_json)
+    scraped = scrape_html(html, org_url="https://example.com", supported_only=False)
+    translator = get_locale_provider()
+    strategy = RecipeScraperPackage("https://example.com", translator, None)  # type: ignore[arg-type]
+
+    recipe, _ = strategy.clean_scraper(scraped, "https://example.com")
+    recipe = cleaner.clean(recipe, translator)
+
+    assert (recipe.total_time_seconds, recipe.prep_time_seconds, recipe.perform_time_seconds) == (5400, 1200, 4200)
+    assert (recipe.total_time, recipe.prep_time, recipe.perform_time) == (None, None, None)

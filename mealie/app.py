@@ -19,7 +19,9 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from mealie.core.config import get_app_settings
 from mealie.core.root_logger import get_logger
+from mealie.core.settings import branding
 from mealie.core.settings.static import APP_VERSION
+from mealie.middleware.locale_context import LocaleContextMiddleware
 from mealie.routes import router, spa, utility_routes
 from mealie.routes.handlers import register_debug_handler
 from mealie.routes.media import media_router
@@ -51,7 +53,7 @@ logger = get_logger()
 
 
 @asynccontextmanager
-async def lifespan_fn(_: FastAPI) -> AsyncGenerator[None, None]:
+async def lifespan_fn(_: FastAPI) -> AsyncGenerator[None]:
     """
     lifespan_fn controls the startup and shutdown of the FastAPI Application.
     This function is called when the FastAPI application starts and stops.
@@ -87,9 +89,13 @@ async def lifespan_fn(_: FastAPI) -> AsyncGenerator[None, None]:
     logger.info(settings.LDAP_FEATURE)
     logger.info("--------==OIDC==--------")
     logger.info(settings.OIDC_FEATURE)
-    logger.info("-------==OPENAI==-------")
-    logger.info(settings.OPENAI_FEATURE)
     logger.info("------------------------")
+
+    if settings.branding.logo_path and not settings.branding.logo_file:
+        logger.warning(
+            f'BRANDING_LOGO_PATH="{settings.branding.logo_path}" is not a readable image file '
+            f"({', '.join(sorted(branding.ALLOWED_IMAGE_SUFFIXES))}); falling back to the default logo"
+        )
 
     yield
 
@@ -101,12 +107,12 @@ app = FastAPI(
     description=description,
     version=APP_VERSION,
     docs_url=settings.DOCS_URL,
-    redoc_url=settings.REDOC_URL,
     lifespan=lifespan_fn,
 )
 
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 app.add_middleware(SessionMiddleware, secret_key=settings.SESSION_SECRET)
+app.add_middleware(LocaleContextMiddleware)
 
 if not settings.PRODUCTION:
     allowed_origins = ["http://localhost:3000"]
@@ -176,6 +182,7 @@ def main():
         log_config=None,
         workers=1,
         forwarded_allow_ips="*",
+        ws="websockets-sansio",
     )
 
 

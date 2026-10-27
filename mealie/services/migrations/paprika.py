@@ -3,24 +3,22 @@ import io
 import json
 import re
 import tempfile
-import zipfile
 from gzip import GzipFile
 from pathlib import Path
 
-from slugify import slugify
-
-from mealie.schema.recipe import RecipeNote
-
 from ._migration_base import BaseMigrator
 from .utils.migration_alias import MigrationAlias
-from .utils.migration_helpers import import_image
+from .utils.migration_helpers import extract_zip
+
+
+def split_paprika_ingredients(value: str) -> list[str]:
+    return [line for line in value.splitlines() if line.strip()]
 
 
 def paprika_recipes(file: Path):
     """Yields all recipes inside the export file as JSON"""
     with tempfile.TemporaryDirectory() as tmpdir:
-        with zipfile.ZipFile(file) as zip_file:
-            zip_file.extractall(tmpdir)
+        extract_zip(file, tmpdir)
 
         for name in Path(tmpdir).glob("**/[!.]*.paprikarecipe"):
             with open(name, "rb") as fd:
@@ -38,7 +36,7 @@ class PaprikaMigrator(BaseMigrator):
         re_num_list = re.compile(r"^\d+\.\s")
 
         self.key_aliases = [
-            MigrationAlias(key="recipeIngredient", alias="ingredients", func=lambda x: x.split("\n") if x else ""),
+            MigrationAlias(key="recipeIngredient", alias="ingredients", func=split_paprika_ingredients),
             MigrationAlias(key="orgURL", alias="source_url", func=None),
             MigrationAlias(key="totalTime", alias="total_time", func=None),
             MigrationAlias(key="prepTime", alias="prep_time", func=None),
@@ -52,7 +50,8 @@ class PaprikaMigrator(BaseMigrator):
             MigrationAlias(
                 key="notes",
                 alias="notes",
-                func=lambda x: [z for z in [RecipeNote(title="", text=x) if x else None] if z],
+                # the cleaner only accepts strings and dicts, so a RecipeNote here is silently dropped
+                func=lambda x: [{"title": "", "text": x}] if x else [],
             ),
             MigrationAlias(
                 key="recipeCategory",
@@ -67,32 +66,26 @@ class PaprikaMigrator(BaseMigrator):
         ]
 
     def _migrate(self) -> None:
-        recipe_image_urls = {}
+        recipes = [r for r in paprika_recipes(self.archive) if "name" in r]
+        recipe_models = [self.clean_recipe_dictionary(r) for r in recipes]
+        results = self.import_recipes_to_database(recipe_models)
 
-        recipes = []
-        for recipe in paprika_recipes(self.archive):
-            if "name" not in recipe:
+        for (slug, recipe_id, status), recipe in zip(results, recipes, strict=True):
+            if not status:
                 continue
 
-            recipe_model = self.clean_recipe_dictionary(recipe)
-
-            if "photo_data" in recipe:
-                recipe_image_urls[slugify(recipe["name"])] = recipe["photo_data"]
-
-            recipes.append(recipe_model)
-
-        results = self.import_recipes_to_database(recipes)
-
-        for slug, recipe_id, status in results:
-            if not status:
+            image_data = recipe.get("photo_data")
+            if image_data is None:
+                self.logger.info(f"Recipe '{recipe['name']}' has no image")
                 continue
 
             try:
                 # Images are stored as base64 encoded strings, so we need to decode them before importing.
-                image = io.BytesIO(base64.b64decode(recipe_image_urls[slug]))
+                image = io.BytesIO(base64.b64decode(image_data))
                 with tempfile.NamedTemporaryFile(suffix=".jpeg") as temp_file:
                     temp_file.write(image.read())
+                    temp_file.flush()
                     path = Path(temp_file.name)
-                    import_image(path, recipe_id)
+                    self.import_image(slug, path, recipe_id, extraction_root=path.parent)
             except Exception as e:
-                self.logger.error(f"Failed to download image for {slug}: {e}")
+                self.logger.error(f"Failed to import image for {slug}: {e}")

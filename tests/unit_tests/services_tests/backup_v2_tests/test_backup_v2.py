@@ -1,5 +1,5 @@
-import filecmp
 import statistics
+import uuid
 from pathlib import Path
 from typing import Any
 
@@ -15,8 +15,8 @@ from mealie.db.models.household.household import Household
 from mealie.db.models.household.household_to_recipe import HouseholdToRecipe
 from mealie.db.models.household.mealplan import GroupMealPlanRules
 from mealie.db.models.household.shopping_list import ShoppingList
-from mealie.db.models.labels import MultiPurposeLabel
 from mealie.db.models.recipe.ingredient import IngredientFoodModel, IngredientUnitModel
+from mealie.db.models.recipe.labels import MultiPurposeLabel
 from mealie.db.models.recipe.recipe import RecipeModel
 from mealie.db.models.recipe.tool import Tool
 from mealie.db.models.users.user_to_recipe import UserToRecipe
@@ -32,17 +32,6 @@ def dict_sorter(d: dict) -> Any:
     return next((d[key] for key in possible_keys if d.get(key)), 1)
 
 
-# For Future Use
-def match_file_tree(path_a: Path, path_b: Path):
-    if path_a.is_dir() and path_b.is_dir():
-        for a_file in path_a.iterdir():
-            b_file = path_b.joinpath(a_file.name)
-            assert b_file.exists()
-            match_file_tree(a_file, b_file)
-    else:
-        assert filecmp.cmp(path_a, path_b)
-
-
 def test_database_backup():
     backup_v2 = BackupV2()
     path_to_backup = backup_v2.backup()
@@ -54,6 +43,8 @@ def test_database_backup():
     with backup as contents:
         assert contents.validate()
 
+    backup_v2.db_exporter.engine.dispose()
+
 
 def test_database_restore():
     settings = get_app_settings()
@@ -61,6 +52,7 @@ def test_database_restore():
     # Capture existing database snapshot
     original_exporter = AlchemyExporter(settings.DB_URL)
     snapshop_1 = original_exporter.dump()
+    original_exporter.engine.dispose()
 
     # Create Backup
     backup_v2 = BackupV2(settings.DB_URL)
@@ -71,6 +63,7 @@ def test_database_restore():
 
     new_exporter = AlchemyExporter(settings.DB_URL)
     snapshop_2 = new_exporter.dump()
+    new_exporter.engine.dispose()
 
     for s1, s2 in zip(snapshop_1, snapshop_2, strict=False):
         assert snapshop_1[s1].sort(key=dict_sorter) == snapshop_2[s2].sort(key=dict_sorter)
@@ -143,42 +136,49 @@ def _d7c6efd2de42_migrate_favorites_and_ratings_to_user_ratings(session: Session
         assert recipe.rating == (statistics.mean(user_ratings) if user_ratings else None)
 
 
-def _86054b40fd06_added_query_filter_string_to_cookbook_and_mealplan(session: Session):
+def _legacy_organizer_owner_ids(backup_path: Path) -> tuple[set[uuid.UUID], set[uuid.UUID]]:
+    """Ids of the cookbooks and meal plan rules that had legacy organizer join rows in the backup itself."""
+    with BackupFile(backup_path) as contents:
+        tables = contents.read_tables()
+
+    def owner_ids(table: str, column: str) -> set[uuid.UUID]:
+        return {uuid.UUID(row[column]) for row in tables.get(table) or []}
+
+    cookbook_ids = (
+        owner_ids("cookbooks_to_categories", "cookbook_id")
+        | owner_ids("cookbooks_to_tags", "cookbook_id")
+        | owner_ids("cookbooks_to_tools", "cookbook_id")
+    )
+    rule_ids = owner_ids("plan_rules_to_categories", "group_plan_rule_id") | owner_ids(
+        "plan_rules_to_tags", "plan_rule_id"
+    )
+    return cookbook_ids, rule_ids
+
+
+def _86054b40fd06_added_query_filter_string_to_cookbook_and_mealplan(session: Session, backup_path: Path):
     cookbooks = session.query(CookBook).all()
     mealplan_rules = session.query(GroupMealPlanRules).all()
+    legacy_cookbook_ids, legacy_rule_ids = _legacy_organizer_owner_ids(backup_path)
 
+    # 3697d65c5f92 empties the category/tag/tool join tables once 86054b40fd06 has folded them into
+    # query_filter_string, so the filter can no longer be rebuilt from these relationships.
     for cookbook in cookbooks:
-        parts = []
-        if cookbook.categories:
-            relop = "CONTAINS ALL" if cookbook.require_all_categories else "IN"
-            vals = ",".join([f'"{cat.id}"' for cat in cookbook.categories])
-            parts.append(f"recipe_category.id {relop} [{vals}]")
-        if cookbook.tags:
-            relop = "CONTAINS ALL" if cookbook.require_all_tags else "IN"
-            vals = ",".join([f'"{tag.id}"' for tag in cookbook.tags])
-            parts.append(f"tags.id {relop} [{vals}]")
-        if cookbook.tools:
-            relop = "CONTAINS ALL" if cookbook.require_all_tools else "IN"
-            vals = ",".join([f'"{tool.id}"' for tool in cookbook.tools])
-            parts.append(f"tools.id {relop} [{vals}]")
-
-        expected_query_filter_string = " AND ".join(parts)
-        assert cookbook.query_filter_string == expected_query_filter_string
+        assert not cookbook.categories
+        assert not cookbook.tags
+        assert not cookbook.tools
+        if cookbook.id in legacy_cookbook_ids:
+            assert cookbook.query_filter_string
 
     for rule in mealplan_rules:
-        parts = []
-        if rule.categories:
-            vals = ",".join([f'"{cat.id}"' for cat in rule.categories])
-            parts.append(f"recipe_category.id CONTAINS ALL [{vals}]")
-        if rule.tags:
-            vals = ",".join([f'"{tag.id}"' for tag in rule.tags])
-            parts.append(f"tags.id CONTAINS ALL [{vals}]")
+        assert not rule.categories
+        assert not rule.tags
+        if rule.id in legacy_rule_ids:
+            assert rule.query_filter_string
+
+        # plan_rules_to_households is left alone, so its part of the filter can still be rebuilt
         if rule.households:
             vals = ",".join([f'"{household.id}"' for household in rule.households])
-            parts.append(f"household_id IN [{vals}]")
-
-        expected_query_filter_string = " AND ".join(parts)
-        assert rule.query_filter_string == expected_query_filter_string
+            assert f"household_id IN [{vals}]" in rule.query_filter_string
 
 
 def _b9e516e2d3b3_add_household_to_recipe_last_made_household_to_foods_and_tools(session: Session):
@@ -217,6 +217,22 @@ def _b9e516e2d3b3_add_household_to_recipe_last_made_household_to_foods_and_tools
                 assert not tool.households_with_tool
 
 
+def _a39c7f1826e3_add_unit_standardization_fields(session: Session):
+    groups = session.query(Group).all()
+
+    for group in groups:
+        # test_data.backup_version_1d9a002d7234_1 has a non-anonymized "pint" unit
+        # and has not yet run the standardization migration.
+        pint_units = (
+            session.query(IngredientUnitModel)
+            .filter(IngredientUnitModel.group_id == group.id, IngredientUnitModel.name == "pint")
+            .all()
+        )
+        for unit in pint_units:
+            assert unit.standard_quantity == 2
+            assert unit.standard_unit == "cup"
+
+
 def test_database_restore_data():
     """
     This tests real user backups to make sure the data is restored correctly. The data has been anonymized, but
@@ -227,6 +243,7 @@ def test_database_restore_data():
     """
 
     backup_paths = [
+        test_data.backup_version_1d9a002d7234_1,
         test_data.backup_version_44e8d670719d_1,
         test_data.backup_version_44e8d670719d_2,
         test_data.backup_version_44e8d670719d_3,
@@ -243,12 +260,14 @@ def test_database_restore_data():
         _04ac51cbe9a4_added_group_slug,
         _0341b154f79a_added_normalized_unit_and_food_names,
         _d7c6efd2de42_migrate_favorites_and_ratings_to_user_ratings,
-        _86054b40fd06_added_query_filter_string_to_cookbook_and_mealplan,
         _b9e516e2d3b3_add_household_to_recipe_last_made_household_to_foods_and_tools,
+        _a39c7f1826e3_add_unit_standardization_fields,
     ]
 
     settings = get_app_settings()
     backup_v2 = BackupV2(settings.DB_URL)
+
+    backup_v2.directories.BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     original_data_backup = backup_v2.backup()
 
     try:
@@ -265,6 +284,15 @@ def test_database_restore_data():
                         raise Exception(
                             f'Migration "{migration_func.__name__}" failed on backup "{backup_path}"'
                         ) from e
+
+                try:
+                    _86054b40fd06_added_query_filter_string_to_cookbook_and_mealplan(session, backup_path)
+                except Exception as e:
+                    session.rollback()
+                    raise Exception(
+                        f'Migration "_86054b40fd06_added_query_filter_string_to_cookbook_and_mealplan" '
+                        f'failed on backup "{backup_path}"'
+                    ) from e
 
     finally:
         backup_v2.restore(original_data_backup)

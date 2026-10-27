@@ -1,19 +1,19 @@
 {
     "teaspoon": {
         "name": "teelusikas",
-        "plural_name": "teelusikad",
+        "plural_name": "teelusikat",
         "description": "",
         "abbreviation": "tl"
     },
     "tablespoon": {
         "name": "supilusikas",
-        "plural_name": "supilusikad",
+        "plural_name": "supilusikat",
         "description": "",
         "abbreviation": "sl"
     },
     "cup": {
         "name": "tass",
-        "plural_name": "tassid",
+        "plural_name": "tassi",
         "description": "",
         "abbreviation": "tassi"
     },
@@ -46,6 +46,12 @@
         "plural_name": "milliliitrit",
         "description": "",
         "abbreviation": "ml"
+    },
+    "centiliter": {
+        "name": "centiliter",
+        "plural_name": "centiliters",
+        "description": "",
+        "abbreviation": "cl"
     },
     "liter": {
         "name": "liiter",
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "näpuotsatäis",
         "plural_name": "näpuotsatäit",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "sprig",
+        "plural_name": "sprigs",
         "description": "",
         "abbreviation": ""
     }

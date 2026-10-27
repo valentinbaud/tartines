@@ -1,6 +1,6 @@
 {
     "teaspoon": {
-        "name": "ч. ложка",
+        "name": "чайна ложка",
         "plural_name": "чайні ложки",
         "description": "",
         "abbreviation": "ч. ложка"
@@ -46,6 +46,12 @@
         "plural_name": "мілілітри",
         "description": "",
         "abbreviation": "мл"
+    },
+    "centiliter": {
+        "name": "centiliter",
+        "plural_name": "centiliters",
+        "description": "",
+        "abbreviation": "cl"
     },
     "liter": {
         "name": "літр",
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "дрібка",
         "plural_name": "дрібки",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "гілочка",
+        "plural_name": "гілочки",
         "description": "",
         "abbreviation": ""
     }

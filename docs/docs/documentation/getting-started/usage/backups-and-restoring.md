@@ -1,10 +1,10 @@
 # Backups and Restores
 
-Mealie provides an integrated mechanic for doing full installation backups of the database. 
+Mealie provides an integrated mechanic for doing full installation backups of the database.
 
-Navigate to Settings > Backups or manually by adding `/admin/backups` to your instance URL.
+Navigate to Settings > Admin Settings > Backups or manually by adding `/admin/backups` to your instance URL.
 
-From this page, you will be able to: 
+From this page, you will be able to:
 
 - See a list of available backups
 - Create a backup
@@ -24,7 +24,10 @@ Before importing it's critical that you understand the following:
 
 - This is a destructive action and will delete all data in the database
 - This action cannot be undone
-- If this action is successful you will be logged out and you will need to log back in to complete the restore
+- If this action is successful you will be logged out and you will need to log back in to complete the restore.
+
+!!! tip
+    If you are unable to log in after restoring and no "Invalid credentials" error is shown, restart the Mealie container and try again.
 
 !!! tip
     If for some reason the restore does not succeed, you can review the logs of what the issue may be, download the backup .ZIP and edit the contents of database.json to potentially resolve the issue. For example, if you receive an error restoring 'shopping-list' you can edit out the contents of that list while allowing other sections to restore. If you would like any assistance on this, reach out over Discord.
@@ -39,7 +42,7 @@ Restoring the Database when using Postgres requires Mealie to be configured with
 ```sql
 ALTER USER mealie WITH SUPERUSER;
 
-# Run restore from Mealie
+-- Run restore from Mealie
 
 ALTER USER mealie WITH NOSUPERUSER;
 ```

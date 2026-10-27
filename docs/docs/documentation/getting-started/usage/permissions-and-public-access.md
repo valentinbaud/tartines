@@ -1,6 +1,7 @@
 # Permissions and Public Access
 
 Mealie provides various levels of user access and permissions. This includes:
+
 - Authentication and registration ([LDAP](../authentication/ldap.md) and [OpenID Connect](../authentication/oidc.md) are both supported)
 - Customizable user permissions
 - Fine-tuned public access for non-users
@@ -8,12 +9,18 @@ Mealie provides various levels of user access and permissions. This includes:
 ## Customizable User Permissions
 
 Each user can be configured to have varying levels of access. Some of these permissions include:
-- Access to Administrator tools
-- Access to inviting other users
-- Access to manage their group and group data
 
-Administrators can navigate to the Settings page and access the User Management page to configure these settings.
+| Permission | Allows |
+| --- | --- |
+| Administrator | Access to administrator tools |
+| Invite | Generating invitation links for other users |
+| Manage group | Access to group management areas and settings |
+| Manage household | Household settings, notifiers, and webhooks |
+| Organize group data | Creating, updating, deleting, and merging group data such as foods, units, tags, categories, tools, labels, and recipe actions |
 
+The **Manage group** and **Organize group data** permissions are separate. Users need **Organize group data** to add new foods, units, tags, categories, or tools, including when creating missing ingredients during recipe parsing.
+
+Administrators can configure these settings on the User Management page (navigate to Settings > Admin Settings > Users or append `/admin/manage/users` to your instance URL).
 
 [User Management Demo](https://demo.mealie.io/admin/manage/users){ .md-button .md-button--primary }
 
@@ -22,8 +29,8 @@ Administrators can navigate to the Settings page and access the User Management 
 By default, groups and households are set to private, meaning only logged-in users may access the group/household. In order for a recipe to be viewable by public (not logged-in) users, three criteria must be met:
 
 1. The group must not be private
-2. The household must not be private, *and* the household setting for allowing users outside of your group to see your recipes must be enabled. These can be toggled on the Household Settings page
-2. The recipe must be set to public. This can be toggled for each recipe individually, or in bulk using the Recipe Data Management page
+2. The household must not be private, _and_ the household setting for allowing users outside of your group to see your recipes must be enabled. These can be toggled on the Household Management page (navigate to Settings > Admin Settings > Households or append `/admin/manage/households` to your instance URL)
+3. The recipe must be set to public. This can be toggled for each recipe individually, or in bulk using the Recipe Data Management page
 
 Additionally, if the group is not private, public users can view all public group data (public recipes, public cookbooks, etc.) from the home page ([e.g. the demo home page](https://demo.mealie.io/g/home)).
 

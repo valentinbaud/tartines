@@ -1,14 +1,13 @@
 from functools import cached_property
 from uuid import UUID
 
-from fastapi import HTTPException, status
 from pydantic import UUID4
 
 from mealie.repos.all_repositories import get_repositories
 from mealie.routes._base import BaseUserController, controller
+from mealie.routes._base.permissions import not_found
 from mealie.routes._base.routers import UserAPIRouter
 from mealie.routes.users._helpers import assert_user_change_allowed
-from mealie.schema.response.responses import ErrorResponse
 from mealie.schema.user.user import UserRatingCreate, UserRatingOut, UserRatings, UserRatingUpdate
 
 router = UserAPIRouter()
@@ -34,21 +33,20 @@ class UserRatingsController(BaseUserController):
             recipe = self.group_recipes.get_one(slug_or_id, key="slug")
 
         if not recipe:
-            raise HTTPException(
-                status.HTTP_404_NOT_FOUND,
-                detail=ErrorResponse.respond(message="Not found."),
-            )
+            raise not_found("Not found.")
 
         return recipe
 
     @router.get("/{id}/ratings", response_model=UserRatings[UserRatingOut])
     async def get_ratings(self, id: UUID4):
         """Get user's rated recipes"""
+        assert_user_change_allowed(id, self.user, self.user)
         return UserRatings(ratings=self.repos.user_ratings.get_by_user(id))
 
     @router.get("/{id}/favorites", response_model=UserRatings[UserRatingOut])
     async def get_favorites(self, id: UUID4):
         """Get user's favorited recipes"""
+        assert_user_change_allowed(id, self.user, self.user)
         return UserRatings(ratings=self.repos.user_ratings.get_by_user(id, favorites_only=True))
 
     @router.post("/{id}/ratings/{slug}")

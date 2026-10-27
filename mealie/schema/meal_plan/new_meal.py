@@ -1,5 +1,5 @@
 from datetime import date
-from enum import Enum
+from enum import StrEnum
 from typing import Annotated
 from uuid import UUID
 
@@ -16,11 +16,14 @@ from mealie.schema.recipe.recipe import RecipeSummary
 from mealie.schema.response.pagination import PaginationBase
 
 
-class PlanEntryType(str, Enum):
+class PlanEntryType(StrEnum):
     breakfast = "breakfast"
     lunch = "lunch"
     dinner = "dinner"
     side = "side"
+    snack = "snack"
+    drink = "drink"
+    dessert = "dessert"
 
 
 class CreateRandomEntry(MealieModel):
@@ -34,6 +37,7 @@ class CreatePlanEntry(MealieModel):
     title: str = ""
     text: str = ""
     recipe_id: Annotated[UUID | None, Field(validate_default=True)] = None
+    recipe_scale: Annotated[float, Field(gt=0)] = 1.0
 
     @field_validator("recipe_id")
     @classmethod

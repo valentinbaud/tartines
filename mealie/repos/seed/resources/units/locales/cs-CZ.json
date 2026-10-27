@@ -18,10 +18,10 @@
         "abbreviation": "š"
     },
     "fluid-ounce": {
-        "name": "dutá unce",
+        "name": "tekutá unce",
         "plural_name": "tekuté unce",
         "description": "",
-        "abbreviation": "fl oz"
+        "abbreviation": "tek. unce"
     },
     "pint": {
         "name": "pinta",
@@ -47,6 +47,12 @@
         "description": "",
         "abbreviation": "ml"
     },
+    "centiliter": {
+        "name": "centiliter",
+        "plural_name": "centiliters",
+        "description": "",
+        "abbreviation": "cl"
+    },
     "liter": {
         "name": "litr",
         "plural_name": "litrů",
@@ -64,7 +70,7 @@
         "name": "unce",
         "plural_name": "uncí",
         "description": "",
-        "abbreviation": "oz"
+        "abbreviation": "unce"
     },
     "gram": {
         "name": "gram",
@@ -103,8 +109,8 @@
         "abbreviation": ""
     },
     "head": {
-        "name": "hlava",
-        "plural_name": "hlav",
+        "name": "hlávka",
+        "plural_name": "hlávky",
         "description": "",
         "abbreviation": ""
     },
@@ -115,8 +121,8 @@
         "abbreviation": ""
     },
     "can": {
-        "name": "plechovka",
-        "plural_name": "konzerv",
+        "name": "konzerva",
+        "plural_name": "konzervy",
         "description": "",
         "abbreviation": ""
     },
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "špetka",
         "plural_name": "špetky",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "snítka",
+        "plural_name": "snítky",
         "description": "",
         "abbreviation": ""
     }

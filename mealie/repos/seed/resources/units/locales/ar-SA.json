@@ -19,7 +19,7 @@
     },
     "fluid-ounce": {
         "name": "أونصة سائل",
-        "plural_name": "أونصة سائل",
+        "plural_name": "أونصات سائل",
         "description": "",
         "abbreviation": "أونصة سائل"
     },
@@ -46,6 +46,12 @@
         "plural_name": "مللي لترات",
         "description": "",
         "abbreviation": "مل"
+    },
+    "centiliter": {
+        "name": "centiliter",
+        "plural_name": "centiliters",
+        "description": "",
+        "abbreviation": "cl"
     },
     "liter": {
         "name": "لتر",
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "رشه",
         "plural_name": "رشاة",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "غصن",
+        "plural_name": "أغصان",
         "description": "",
         "abbreviation": ""
     }

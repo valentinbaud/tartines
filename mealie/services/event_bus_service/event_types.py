@@ -1,11 +1,16 @@
+from __future__ import annotations
+
 import uuid
 from datetime import UTC, date, datetime
 from enum import Enum, auto
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from pydantic import UUID4, SerializeAsAny, field_validator
 
 from ...schema._mealie.mealie_model import MealieModel
+
+if TYPE_CHECKING:
+    from mealie.lang.providers import Translator
 
 INTERNAL_INTEGRATION_ID = "mealie_generic_user"
 
@@ -36,6 +41,8 @@ class EventTypes(Enum):
     data_import = auto()
 
     mealplan_entry_created = auto()
+    mealplan_entry_updated = auto()
+    mealplan_entry_deleted = auto()
 
     shopping_list_created = auto()
     shopping_list_updated = auto()
@@ -89,9 +96,8 @@ class EventDocumentDataBase(MealieModel):
     ...
 
 
-class EventMealplanCreatedData(EventDocumentDataBase):
+class EventMealplanData(EventDocumentDataBase):
     document_type: EventDocumentType = EventDocumentType.mealplan
-    operation: EventOperation = EventOperation.create
     mealplan_id: int
     date: date
     recipe_id: UUID4 | None = None
@@ -180,8 +186,20 @@ class EventBusMessage(MealieModel):
     body: str = ""
 
     @classmethod
-    def from_type(cls, event_type: EventTypes, body: str = "") -> "EventBusMessage":
-        title = event_type.name.replace("_", " ").title()
+    def from_type(
+        cls,
+        event_type: EventTypes,
+        body: str = "",
+        translator: Translator | None = None,
+    ) -> EventBusMessage:
+        fallback_title = event_type.name.replace("_", " ").title()
+
+        if translator:
+            event_name = event_type.name.replace("_", "-")
+            title = translator.t(f"notifications.event-title.{event_name}", default=fallback_title)
+        else:
+            title = fallback_title
+
         return cls(title=title, body=body)
 
     @field_validator("body")

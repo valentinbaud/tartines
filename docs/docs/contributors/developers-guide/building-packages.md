@@ -12,14 +12,17 @@ yarnpkg generate
 popd
 rm -r mealie/frontend
 cp -a frontend/dist mealie/frontend
-poetry build
-poetry export -n --only=main --extras=pgsql --output=dist/requirements.txt
-MEALIE_VERSION=$(poetry version --short)
+uv build --out-dir dist
+uv export --no-editable --no-emit-project --extra pgsql --format requirements-txt --output-file dist/dependencies.txt
+cp dist/dependencies.txt dist/requirements.txt
+MEALIE_VERSION=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml', 'rb'))['project']['version'])")
 echo "mealie[pgsql]==${MEALIE_VERSION} \\" >> dist/requirements.txt
-poetry run pip hash dist/mealie-${MEALIE_VERSION}-py3-none-any.whl | tail -n1 | tr -d '\n' >> dist/requirements.txt
+pip hash dist/mealie-${MEALIE_VERSION}-py3-none-any.whl | tail -n1 | tr -d '\n' >> dist/requirements.txt
 echo " \\" >> dist/requirements.txt
-poetry run pip hash dist/mealie-${MEALIE_VERSION}.tar.gz | tail -n1 >> dist/requirements.txt
+pip hash dist/mealie-${MEALIE_VERSION}.tar.gz | tail -n1 >> dist/requirements.txt
 ```
+
+This writes two files. `dist/dependencies.txt` pins the dependencies alone, and `dist/requirements.txt` adds the package that was just built. The Docker image installs from both, so that a change to mealie's own code does not rebuild the dependencies.
 
 The Python package can be installed with all of its dependencies pinned to the versions tested by the developers with:
 ```sh

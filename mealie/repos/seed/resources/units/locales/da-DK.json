@@ -9,7 +9,7 @@
         "name": "spiseske",
         "plural_name": "spiseskeer",
         "description": "",
-        "abbreviation": "spsk."
+        "abbreviation": "spsk"
     },
     "cup": {
         "name": "kop",
@@ -31,7 +31,7 @@
     },
     "quart": {
         "name": "quart",
-        "plural_name": "kvarter",
+        "plural_name": "quarts",
         "description": "",
         "abbreviation": "qt"
     },
@@ -46,6 +46,12 @@
         "plural_name": "milliliter",
         "description": "",
         "abbreviation": "ml"
+    },
+    "centiliter": {
+        "name": "centiliter",
+        "plural_name": "centiliter",
+        "description": "",
+        "abbreviation": "cL"
     },
     "liter": {
         "name": "liter",
@@ -91,8 +97,8 @@
         "abbreviation": ""
     },
     "dash": {
-        "name": "knivspids",
-        "plural_name": "strejfer",
+        "name": "skvæt",
+        "plural_name": "skvæt",
         "description": "",
         "abbreviation": ""
     },
@@ -134,7 +140,13 @@
     },
     "pinch": {
         "name": "knivspids",
-        "plural_name": "knivspidse",
+        "plural_name": "knivspidser",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "kvist",
+        "plural_name": "kviste",
         "description": "",
         "abbreviation": ""
     }

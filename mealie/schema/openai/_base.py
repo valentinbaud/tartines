@@ -6,14 +6,15 @@ from pydantic import BaseModel
 from mealie.core.root_logger import get_logger
 
 RE_NULLS = re.compile(r"[\x00\u0000]|\\u0000")
+RE_MARKDOWN_FENCE = re.compile(r"^```(?:json)?\s*\n?(.*?)\n?```$", re.DOTALL)
 
 logger = get_logger()
 
 
 class OpenAIBase(BaseModel):
     """
-    This class defines the JSON schema sent to OpenAI. Its schema is
-    injected directly into the OpenAI prompt.
+    Base class for OpenAI structured output schemas. These models are passed
+    to OpenAI's response_format parameter with strict schema validation.
     """
 
     __doc__ = ""  # we don't want to include the docstring in the JSON schema
@@ -24,6 +25,11 @@ class OpenAIBase(BaseModel):
             return ""
 
         response = re.sub(RE_NULLS, "", response)
+        response = response.strip()
+
+        if match := RE_MARKDOWN_FENCE.match(response):
+            response = match.group(1).strip()
+
         return response
 
     @classmethod

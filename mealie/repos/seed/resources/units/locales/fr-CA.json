@@ -18,7 +18,7 @@
         "abbreviation": "t"
     },
     "fluid-ounce": {
-        "name": "once fluide",
+        "name": "once liquide",
         "plural_name": "onces liquides",
         "description": "",
         "abbreviation": "fl oz"
@@ -46,6 +46,12 @@
         "plural_name": "millilitres",
         "description": "",
         "abbreviation": "ml"
+    },
+    "centiliter": {
+        "name": "centiliter",
+        "plural_name": "centiliters",
+        "description": "",
+        "abbreviation": "cl"
     },
     "liter": {
         "name": "litre",
@@ -85,14 +91,14 @@
         "abbreviation": "mg"
     },
     "splash": {
-        "name": "éclaboussure",
+        "name": "goutte",
         "plural_name": "gouttes",
         "description": "",
         "abbreviation": ""
     },
     "dash": {
         "name": "trait",
-        "plural_name": "gouttes",
+        "plural_name": "traits",
         "description": "",
         "abbreviation": ""
     },
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "pincée",
         "plural_name": "pincées",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "brin",
+        "plural_name": "brins",
         "description": "",
         "abbreviation": ""
     }

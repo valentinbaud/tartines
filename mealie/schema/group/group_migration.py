@@ -3,7 +3,7 @@ import enum
 from mealie.schema._mealie import MealieModel
 
 
-class SupportedMigrations(str, enum.Enum):
+class SupportedMigrations(enum.StrEnum):
     nextcloud = "nextcloud"
     chowdown = "chowdown"
     copymethat = "copymethat"
@@ -13,6 +13,7 @@ class SupportedMigrations(str, enum.Enum):
     plantoeat = "plantoeat"
     myrecipebox = "myrecipebox"
     recipekeeper = "recipekeeper"
+    cookn = "cookn"
 
 
 class DataMigrationCreate(MealieModel):

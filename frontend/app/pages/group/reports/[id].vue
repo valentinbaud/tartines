@@ -1,0 +1,88 @@
+<template>
+  <v-container>
+    <BasePageTitle divider>
+      <template #header>
+        <v-img
+          width="100%"
+          max-height="200"
+          max-width="200"
+          class="mb-2"
+          src="/svgs/data-reports.svg"
+        />
+      </template>
+      <template #title>
+        {{ $t('group.report') }}
+      </template>
+    </BasePageTitle>
+    <v-container v-if="report">
+      <BaseCardSectionTitle :title="report.name" />
+
+      <v-card-text> {{ $t('group.report-with-id', { id: id }) }} </v-card-text>
+
+      <v-data-table
+        :headers="itemHeaders"
+        :items="report.entries"
+        :items-per-page="50"
+        show-expand
+      >
+        <template #[`item.success`]="{ item }">
+          <v-icon :color="item.success ? 'success' : 'error'">
+            {{ item.success ? $globals.icons.checkboxMarkedCircle : $globals.icons.close }}
+          </v-icon>
+        </template>
+        <template #[`item.timestamp`]="{ item }">
+          {{ $d(Date.parse(item.timestamp!), "short") }}
+        </template>
+        <template #[`item.data-table-expand`]="{ item, props }">
+          <v-btn
+            v-if="item.exception"
+            v-bind="props"
+          />
+        </template>
+        <template #expanded-row="{ columns, item }">
+          <tr v-if="item.exception">
+            <td
+              class="pa-6"
+              :colspan="columns.length"
+            >
+              {{ item.exception }}
+            </td>
+          </tr>
+        </template>
+      </v-data-table>
+    </v-container>
+  </v-container>
+</template>
+
+<script setup lang="ts">
+import { useUserApi } from "~/composables/api";
+import type { ReportOut } from "~/lib/api/types/reports";
+
+definePageMeta({
+  middleware: ["auth"],
+});
+
+const route = useRoute();
+const id = route.params.id as string;
+
+const api = useUserApi();
+
+const report = ref<ReportOut | null>(null);
+
+async function getReport() {
+  const { data } = await api.groupReports.getOne(id);
+  report.value = data ?? null;
+}
+
+onMounted(async () => {
+  await getReport();
+});
+
+const itemHeaders = [
+  { title: "Success", value: "success" },
+  { title: "Message", value: "message" },
+  { title: "Timestamp", value: "timestamp" },
+];
+</script>
+
+<style lang="scss" scoped></style>

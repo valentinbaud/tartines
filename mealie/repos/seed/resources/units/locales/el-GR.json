@@ -47,6 +47,12 @@
         "description": "",
         "abbreviation": "ml"
     },
+    "centiliter": {
+        "name": "εκατοστόλιτρο",
+        "plural_name": "εκατοστόλιτρα",
+        "description": "",
+        "abbreviation": "cl"
+    },
     "liter": {
         "name": "λίτρο",
         "plural_name": "λίτρα",
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "πρέζα",
         "plural_name": "πρέζες",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "sprig",
+        "plural_name": "sprigs",
         "description": "",
         "abbreviation": ""
     }

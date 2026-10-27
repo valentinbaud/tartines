@@ -1,8 +1,10 @@
 from typing import cast
 
 from pydantic import UUID4
+from sqlalchemy import select
 
 from mealie.core.exceptions import UnexpectedNone
+from mealie.db.models.recipe.ingredient import RecipeIngredientModel
 from mealie.repos.all_repositories import get_repositories
 from mealie.repos.repository_factory import AllRepositories
 from mealie.schema.household.group_shopping_list import (
@@ -20,6 +22,7 @@ from mealie.schema.household.group_shopping_list import (
     ShoppingListOut,
     ShoppingListSave,
 )
+from mealie.schema.recipe.recipe import Recipe
 from mealie.schema.recipe.recipe_ingredient import (
     IngredientFood,
     IngredientUnit,
@@ -27,6 +30,7 @@ from mealie.schema.recipe.recipe_ingredient import (
 )
 from mealie.schema.response.pagination import OrderDirection, PaginationQuery
 from mealie.services.parser_services._base import DataMatcher
+from mealie.services.parser_services.parser_utils import UnitConverter, merge_quantity_and_unit
 
 
 class ShoppingListService:
@@ -40,8 +44,7 @@ class ShoppingListService:
         self.list_refs = repos.group_shopping_list_recipe_refs
         self.data_matcher = DataMatcher(self.repos, food_fuzzy_match_threshold=self.DEFAULT_FOOD_FUZZY_MATCH_THRESHOLD)
 
-    @staticmethod
-    def can_merge(item1: ShoppingListItemBase, item2: ShoppingListItemBase) -> bool:
+    def can_merge(self, item1: ShoppingListItemBase, item2: ShoppingListItemBase) -> bool:
         """Check to see if this item can be merged with another item"""
 
         if any(
@@ -49,16 +52,28 @@ class ShoppingListService:
                 item1.checked,
                 item2.checked,
                 item1.food_id != item2.food_id,
-                item1.unit_id != item2.unit_id,
             ]
         ):
             return False
 
+        # check if units match or if they're compatable
+        if item1.unit_id != item2.unit_id:
+            item1_unit = item1.unit or self.data_matcher.units_by_id.get(item1.unit_id)
+            item2_unit = item2.unit or self.data_matcher.units_by_id.get(item2.unit_id)
+            if not (item1_unit and item1_unit.standard_unit):
+                return False
+            if not (item2_unit and item2_unit.standard_unit):
+                return False
+
+            uc = UnitConverter()
+            if not uc.can_convert(item1_unit.standard_unit, item2_unit.standard_unit):
+                return False
+
         # if foods match, we can merge, otherwise compare the notes
         return bool(item1.food_id) or item1.note == item2.note
 
-    @staticmethod
     def merge_items(
+        self,
         from_item: ShoppingListItemCreate | ShoppingListItemUpdateBulk,
         to_item: ShoppingListItemCreate | ShoppingListItemUpdateBulk | ShoppingListItemOut,
     ) -> ShoppingListItemUpdate:
@@ -68,7 +83,20 @@ class ShoppingListService:
         Attributes of the `to_item` take priority over the `from_item`, except extras with overlapping keys
         """
 
-        to_item.quantity += from_item.quantity
+        to_item_unit = to_item.unit or self.data_matcher.units_by_id.get(to_item.unit_id)
+        from_item_unit = from_item.unit or self.data_matcher.units_by_id.get(from_item.unit_id)
+        if to_item_unit and to_item_unit.standard_unit and from_item_unit and from_item_unit.standard_unit:
+            merged_qty, merged_unit = merge_quantity_and_unit(
+                from_item.quantity or 0, from_item_unit, to_item.quantity or 0, to_item_unit
+            )
+            to_item.quantity = merged_qty
+            to_item.unit_id = merged_unit.id
+            to_item.unit = merged_unit
+
+        else:
+            # No conversion needed, just sum the quantities
+            to_item.quantity += from_item.quantity
+
         if to_item.note != from_item.note:
             to_item.note = " | ".join([note for note in [to_item.note, from_item.note] if note])
 
@@ -106,6 +134,11 @@ class ShoppingListService:
 
         recipe_ids_to_keep: set[UUID4] = set()
         for item in shopping_list.list_items:
+            # checked items keep their recipe references so they can be restored if the item is unchecked,
+            # but they shouldn't keep the list-level references alive
+            if item.checked:
+                continue
+
             recipe_ids_to_keep.update([ref.recipe_id for ref in item.recipe_references])
 
         list_refs_to_delete: set[UUID4] = set()
@@ -115,6 +148,83 @@ class ShoppingListService:
 
         if list_refs_to_delete:
             self.list_refs.delete_many(list_refs_to_delete)
+
+    def get_nested_recipe_ids(self, recipe_ids: set[UUID4], parent_recipe_ids: set[UUID4]) -> set[UUID4]:
+        """Get the recipes from `recipe_ids` which are used as an ingredient of any recipe in `parent_recipe_ids`"""
+        if not (recipe_ids and parent_recipe_ids):
+            return set()
+
+        stmt = select(RecipeIngredientModel.referenced_recipe_id).where(
+            RecipeIngredientModel.referenced_recipe_id.in_(recipe_ids),
+            RecipeIngredientModel.recipe_id.in_(parent_recipe_ids),
+        )
+        return set(self.repos.session.execute(stmt).scalars().all())
+
+    def restore_recipe_references(self, shopping_list_id: UUID4, recipe_ids: set[UUID4]) -> None:
+        """
+        Create or increase the list-level references for these recipes, based on the unchecked items
+
+        Recipes that were only added as an ingredient of another recipe on the list are skipped,
+        since those don't get their own list-level reference
+        """
+
+        shopping_list = cast(ShoppingListOut, self.shopping_lists.get_one(shopping_list_id))
+
+        recipe_scales: dict[UUID4, float] = {}
+        all_item_recipe_ids: set[UUID4] = set()
+        for item in shopping_list.list_items:
+            for ref in item.recipe_references:
+                all_item_recipe_ids.add(ref.recipe_id)
+                if item.checked or ref.recipe_id not in recipe_ids:
+                    continue
+
+                # if the scale is missing we assume it's 1 for backwards compatibility
+                recipe_scale = 1 if ref.recipe_scale is None else ref.recipe_scale
+                if recipe_scale > 0:
+                    recipe_scales[ref.recipe_id] = max(recipe_scales.get(ref.recipe_id, 0), recipe_scale)
+
+        list_refs_by_recipe_id = {list_ref.recipe_id: list_ref for list_ref in shopping_list.recipe_references}
+        nested_recipe_ids = self.get_nested_recipe_ids(
+            set(recipe_scales) - set(list_refs_by_recipe_id),
+            all_item_recipe_ids | set(list_refs_by_recipe_id),
+        )
+
+        new_list_refs: list[dict] = []
+        for recipe_id, recipe_scale in recipe_scales.items():
+            list_ref = list_refs_by_recipe_id.get(recipe_id)
+            if list_ref is None:
+                if recipe_id not in nested_recipe_ids:
+                    new_list_refs.append(
+                        {"shopping_list_id": shopping_list_id, "recipe_id": recipe_id, "recipe_quantity": recipe_scale}
+                    )
+
+            elif list_ref.recipe_quantity < recipe_scale:
+                list_ref.recipe_quantity = recipe_scale
+                self.list_refs.update(list_ref.id, list_ref)
+
+        if new_list_refs:
+            self.list_refs.create_many(new_list_refs)
+
+    def get_recipe_ids_to_restore(self, update_items: list[ShoppingListItemUpdateBulk]) -> dict[UUID4, set[UUID4]]:
+        """Get the recipes referenced by items which are being unchecked, grouped by shopping list"""
+        unchecked_items = [item for item in update_items if not item.checked and item.recipe_references]
+        if not unchecked_items:
+            return {}
+
+        item_ids = ", ".join(f'"{item.id}"' for item in unchecked_items)
+        query = PaginationQuery(per_page=-1, query_filter=f"id IN [{item_ids}] AND checked=true")
+        checked_item_ids = {item.id for item in self.list_items.page_all(query).items}
+
+        recipe_ids_by_list: dict[UUID4, set[UUID4]] = {}
+        for item in unchecked_items:
+            if item.id not in checked_item_ids:
+                continue
+
+            recipe_ids_by_list.setdefault(item.shopping_list_id, set()).update(
+                ref.recipe_id for ref in item.recipe_references
+            )
+
+        return recipe_ids_by_list
 
     def find_matching_label(self, item: ShoppingListItemBase) -> UUID4 | None:
         if item.label_id:
@@ -178,9 +288,6 @@ class ShoppingListService:
                 continue
 
             # create the item
-            if create_item.checked:
-                # checked items should not have recipe references
-                create_item.recipe_references = []
             if auto_find_labels:
                 create_item.label_id = self.find_matching_label(create_item)
 
@@ -197,6 +304,8 @@ class ShoppingListService:
         )
 
     def bulk_update_items(self, update_items: list[ShoppingListItemUpdateBulk]) -> ShoppingListItemsCollectionOut:
+        recipe_ids_to_restore = self.get_recipe_ids_to_restore(update_items)
+
         # consolidate items to be created
         consolidated_update_items: list[ShoppingListItemUpdateBulk] = []
         delete_items: set[UUID4] = set()
@@ -260,10 +369,6 @@ class ShoppingListService:
                 delete_items.add(update_item.id)
                 continue
 
-            if update_item.checked:
-                # checked items should not have recipe references
-                update_item.recipe_references = []
-
             filtered_update_items.append(update_item)
 
         updated_items = cast(
@@ -278,6 +383,9 @@ class ShoppingListService:
 
         for list_id in {item.shopping_list_id for item in updated_items + deleted_items}:
             self.remove_unused_recipe_references(list_id)
+
+        for list_id, recipe_ids in recipe_ids_to_restore.items():
+            self.restore_recipe_references(list_id, recipe_ids)
 
         return ShoppingListItemsCollectionOut(
             created_items=[], updated_items=updated_items, deleted_items=deleted_items
@@ -300,8 +408,12 @@ class ShoppingListService:
         recipe_id: UUID4,
         scale: float = 1,
         recipe_ingredients: list[RecipeIngredient] | None = None,
+        skip_on_hand: bool | None = None,
     ) -> list[ShoppingListItemCreate]:
         """Generates a list of new list items based on a recipe"""
+
+        if skip_on_hand is None:
+            skip_on_hand = recipe_ingredients is None
 
         if recipe_ingredients is None:
             group_recipes_repo = get_repositories(
@@ -315,10 +427,25 @@ class ShoppingListService:
 
         list_items: list[ShoppingListItemCreate] = []
         for ingredient in recipe_ingredients:
+            if isinstance(ingredient.referenced_recipe, Recipe):
+                # Recursively process sub-recipe ingredients
+                sub_recipe = ingredient.referenced_recipe
+                sub_scale = (ingredient.quantity or 1) * scale
+                sub_items = self.get_shopping_list_items_from_recipe(
+                    list_id,
+                    sub_recipe.id,
+                    sub_scale,
+                    sub_recipe.recipe_ingredient,
+                    skip_on_hand,
+                )
+                list_items.extend(sub_items)
+                continue
+
             if isinstance(ingredient.food, IngredientFood):
+                if skip_on_hand and self._is_on_hand(list_id, ingredient.food):
+                    continue
                 food_id = ingredient.food.id
                 label_id = ingredient.food.label_id
-
             else:
                 food_id = None
                 label_id = None
@@ -355,7 +482,7 @@ class ShoppingListService:
                 # since this is the same recipe, we combine the quanities, rather than the scales
                 # all items will have exactly one recipe reference
                 if ingredient.quantity:
-                    existing_item.quantity += ingredient.quantity
+                    existing_item.quantity += ingredient.quantity * scale
                     existing_item.recipe_references[0].recipe_quantity += ingredient.quantity  # type: ignore
 
                 # merge notes
@@ -371,6 +498,15 @@ class ShoppingListService:
                 list_items.append(new_item)
 
         return list_items
+
+    def _is_on_hand(self, list_id: UUID4, food: IngredientFood) -> bool:
+        shopping_list = self.shopping_lists.get_one(list_id)
+        if shopping_list is None:
+            return False
+        household = self.repos.households.get_by_slug_or_id(shopping_list.household_id)
+        if household is None:
+            return False
+        return household.slug in food.households_with_ingredient_food
 
     def add_recipe_ingredients_to_list(
         self,
@@ -434,6 +570,11 @@ class ShoppingListService:
         update_items: list[ShoppingListItemUpdateBulk] = []
         delete_items: list[UUID4] = []
         for item in shopping_list.list_items:
+            # checked items are left as they are, even if they still reference the recipe
+            if item.checked:
+                continue
+            if item.food is not None and self._is_on_hand(list_id, item.food):
+                continue
             found = False
 
             refs = cast(list[ShoppingListItemRecipeRefOut], item.recipe_references)

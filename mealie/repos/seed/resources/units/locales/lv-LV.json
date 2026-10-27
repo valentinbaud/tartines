@@ -12,10 +12,10 @@
         "abbreviation": "ēdamk"
     },
     "cup": {
-        "name": "krūze",
-        "plural_name": "krūzes",
+        "name": "glāze",
+        "plural_name": "glāzes",
         "description": "",
-        "abbreviation": "c"
+        "abbreviation": "gl"
     },
     "fluid-ounce": {
         "name": "šķidruma unce",
@@ -46,6 +46,12 @@
         "plural_name": "mililitri",
         "description": "",
         "abbreviation": "ml"
+    },
+    "centiliter": {
+        "name": "centiliter",
+        "plural_name": "centiliters",
+        "description": "",
+        "abbreviation": "cl"
     },
     "liter": {
         "name": "litrs",
@@ -91,8 +97,8 @@
         "abbreviation": ""
     },
     "dash": {
-        "name": "domuzīme",
-        "plural_name": "domuzīmes",
+        "name": "šķipsna",
+        "plural_name": "šķipsnas",
         "description": "",
         "abbreviation": ""
     },
@@ -103,8 +109,8 @@
         "abbreviation": ""
     },
     "head": {
-        "name": "galva",
-        "plural_name": "galvas",
+        "name": "galviņa",
+        "plural_name": "galviņas",
         "description": "",
         "abbreviation": ""
     },
@@ -135,6 +141,12 @@
     "pinch": {
         "name": "šķipsniņa",
         "plural_name": "šķipsnas",
+        "description": "",
+        "abbreviation": ""
+    },
+    "sprig": {
+        "name": "zariņš",
+        "plural_name": "zariņi",
         "description": "",
         "abbreviation": ""
     }

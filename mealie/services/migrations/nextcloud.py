@@ -1,5 +1,4 @@
 import tempfile
-import zipfile
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -9,13 +8,7 @@ from mealie.schema.reports.reports import ReportEntryCreate
 
 from ._migration_base import BaseMigrator
 from .utils.migration_alias import MigrationAlias
-from .utils.migration_helpers import (
-    MigrationReaders,
-    glob_walker,
-    import_image,
-    parse_iso8601_duration,
-    split_by_comma,
-)
+from .utils.migration_helpers import MigrationReaders, extract_zip, glob_walker, split_by_comma
 
 
 @dataclass
@@ -52,9 +45,9 @@ class NextcloudMigrator(BaseMigrator):
         self.key_aliases = [
             MigrationAlias(key="tags", alias="keywords", func=split_by_comma),
             MigrationAlias(key="orgURL", alias="url", func=None),
-            MigrationAlias(key="totalTime", alias="totalTime", func=parse_iso8601_duration),
-            MigrationAlias(key="prepTime", alias="prepTime", func=parse_iso8601_duration),
-            MigrationAlias(key="performTime", alias="cookTime", func=parse_iso8601_duration),
+            MigrationAlias(key="totalTime", alias="totalTime", func=None),
+            MigrationAlias(key="prepTime", alias="prepTime", func=None),
+            MigrationAlias(key="performTime", alias="cookTime", func=None),
         ]
 
     @classmethod
@@ -74,8 +67,7 @@ class NextcloudMigrator(BaseMigrator):
 
         # get potential recipe dirs
         with tempfile.TemporaryDirectory() as tmpdir:
-            with zipfile.ZipFile(self.archive) as zip_file:
-                zip_file.extractall(tmpdir)
+            extract_zip(self.archive, tmpdir)
 
             base_dir = self.get_zip_base_path(Path(tmpdir))
             potential_recipe_dirs = glob_walker(base_dir, glob_str="**/[!.]*.json", return_parent=True)
@@ -103,4 +95,4 @@ class NextcloudMigrator(BaseMigrator):
                 if status:
                     nc_dir = nextcloud_dirs[slug]
                     if nc_dir.image:
-                        import_image(nc_dir.image, recipe_id)
+                        self.import_image(slug, nc_dir.image, recipe_id, extraction_root=base_dir)

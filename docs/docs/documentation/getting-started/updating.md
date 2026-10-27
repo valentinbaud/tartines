@@ -4,10 +4,27 @@
     You MUST read the release notes prior to upgrading your container. Mealie has a robust backup and restore system for managing your data. Pre-v1.0.0 versions of Mealie use a different database structure, so if you are upgrading from pre-v1.0.0 to v1.0.0, you MUST backup your data and then re-import it. Even if you are already on v1.0.0, it is strongly recommended to backup all data before updating.
 
     ### Before Upgrading
-     - Read The Release Notes
+     - [Read The Release Notes](https://github.com/mealie-recipes/mealie/releases)
      - Identify Breaking Changes
      - Create a Backup and Download from the UI
      - Upgrade
+
+!!! info "Improved Image Processing"
+    Starting with :octicons-tag-24: v3.7.0, we updated our image processing algorithm to improve image quality and compression. New image processing can be up to 40%-50% smaller on disk while providing higher resolution thumbnails. To take advantage of these improvements on older recipes, you can run our image-processing script:
+
+    ```shell
+    docker exec -it mealie bash
+    python /opt/mealie/lib64/python3.14/site-packages/mealie/scripts/reprocess_images.py
+    ```
+
+    ### Options
+     - `--workers N`: Number of worker threads (default: 2, safe for low-powered devices)
+     - `--force-all`: Reprocess all recipes regardless of current image state
+
+    ### Example
+    ```shell
+    python /opt/mealie/lib64/python3.14/site-packages/mealie/scripts/reprocess_images.py --workers 8
+    ```
 
 ## Upgrading to Mealie v1 or later
 If you are upgrading from pre-v1.0.0 to v1.0.0 or later (v2.0.0, etc.), make sure you read [Migrating to Mealie v1](./migrating-to-mealie-v1.md)!

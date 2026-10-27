@@ -16,7 +16,8 @@ class CodeTemplates:
 class CodeDest:
     interface = PARENT / "generated" / "interface.js"
     pytest_routes = PARENT / "generated" / "test_routes.py"
-    use_locales = PROJECT_DIR / "frontend" / "composables" / "use-locales" / "available-locales.ts"
+    use_locales = PROJECT_DIR / "frontend" / "app" / "composables" / "use-locales" / "available-locales.ts"
+    unit_systems = PROJECT_DIR / "frontend" / "app" / "composables" / "recipes" / "unit-systems.ts"
 
 
 class CodeKeys:
