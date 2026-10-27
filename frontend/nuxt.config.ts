@@ -7,13 +7,7 @@ export default defineNuxtConfig({
   // Global page headers: https://go.nuxtjs.dev/config-head
   // target: "static",
 
-  modules: [
-    "@vite-pwa/nuxt",
-    "@nuxtjs/i18n",
-    "@nuxt/fonts",
-    "vuetify-nuxt-module",
-    "@nuxt/eslint",
-  ],
+  modules: ["@vite-pwa/nuxt", "@nuxtjs/i18n", "@nuxt/fonts", "vuetify-nuxt-module", "@nuxt/eslint"],
   ssr: false,
 
   components: [
@@ -243,12 +237,7 @@ export default defineNuxtConfig({
       theme_color: process.env.THEME_LIGHT_PRIMARY || "#E85C60",
       background_color: "#FFFFFF",
       display: "standalone",
-      display_override: [
-        "standalone",
-        "minimal-ui",
-        "browser",
-        "window-controls-overlay",
-      ],
+      display_override: ["standalone", "minimal-ui", "browser", "window-controls-overlay"],
       share_target: {
         action: "/r/create/url",
         method: "GET",
@@ -372,15 +361,14 @@ export default defineNuxtConfig({
       ],
       prefer_related_applications: false,
       handle_links: "preferred",
-      categories: [
-        "food",
-      ],
+      categories: ["food"],
       launch_handler: {
         client_mode: ["focus-existing", "auto"],
       },
       edge_side_panel: {
         preferred_width: 400,
       },
+    },
     devOptions: {
       enabled: false,
       suppressWarnings: true,
